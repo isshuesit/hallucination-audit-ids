@@ -18,6 +18,8 @@ import tomllib
 from dataclasses import dataclass
 from pathlib import Path
 
+from .policy import ESCALATE_CLEAN
+
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 DEFAULT_CONFIG_PATH = PROJECT_ROOT / "configs" / "fresh_run.toml"
 
@@ -31,7 +33,7 @@ _SCHEMA: dict[str, dict[str, tuple[type | tuple[type, ...], bool]]] = {
     "data": {"per_class_cap": (int, True), "seed": (int, True), "benign_control_n": (int, True)},
     "generation": {"model": (str, True), "temperature": ((int, float), True), "prompt": (str, True),
                    "thinking_budget": (int, True)},
-    "detection": {"configs": (list, True), "policies": (list, True)},
+    "detection": {"configs": (list, True), "policies": (list, True), "escalate_clean": (str, True)},
     "mitigation": {"arms": (list, True)},
     "paths": {"raw_dir": (str, True), "runs_dir": (str, True), "cache_dir": (str, True)},
 }
@@ -151,6 +153,8 @@ def _validate(raw: dict) -> None:
         bad = [x for x in raw["detection"][key] if x not in allowed]
         if bad or not raw["detection"][key]:
             raise ConfigError(f"[detection].{key} must be a non-empty subset of {allowed}; got {bad or '[]'}")
+    if raw["detection"]["escalate_clean"] not in ESCALATE_CLEAN:
+        raise ConfigError(f"[detection].escalate_clean must be one of {ESCALATE_CLEAN}")
     bad = [x for x in raw["mitigation"]["arms"] if x not in MITIGATION_ARMS]
     if bad:
         raise ConfigError(f"[mitigation].arms must be a subset of {MITIGATION_ARMS}; got {bad}")

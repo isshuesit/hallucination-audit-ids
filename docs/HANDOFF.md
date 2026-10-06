@@ -40,7 +40,7 @@ the LLM cache.
 | Pass | Built by | Contents |
 |---|---|---|
 | P1 | `python -m hallucination_pipeline.cli run --data-only` then `python tools/make_outbox.py P1 <run_id>` -> `outbox/P1_<run_id>.zip` | `MANIFEST.json`, `class_distribution.json`, `anomalies.md`, `DECISIONS.md` (D11, D12 ACCEPTED; D13 PROPOSED), `test_summary.txt` |
-| P1b | `python tools/make_outbox.py P1b` -> `outbox/P1b_<commit>.zip` | `RULE_TIERS.md`, `DECISIONS.md` (D13, D14 ACCEPTED; D15 PROPOSED), `test_summary.txt` |
+| P1b | `python tools/make_outbox.py P1b` (needs `old_run/`) -> `outbox/P1b_<commit>.zip` | `RULE_TIERS.md`, `SUBTYPES.md`, `DECISIONS.md` (D13-D19 ACCEPTED), `reproduce_frozen_report.md`, `test_summary.txt` |
 
 ## Pass-through schedule
 | # | After | Direction | What moves | Purpose |

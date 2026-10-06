@@ -48,7 +48,7 @@ BASE = {
     "data": {"per_class_cap": 3, "seed": 42, "benign_control_n": 2},
     "generation": {"model": "gemini-2.5-flash", "temperature": 0.0, "prompt": "generate_system.txt",
                    "thinking_budget": 0},
-    "detection": {"configs": ["C0", "C1", "C2", "C3"], "policies": ["strict", "lenient"]},
+    "detection": {"configs": ["C0", "C1", "C2", "C3"], "policies": ["strict", "lenient"], "escalate_clean": "all"},
     "mitigation": {"arms": ["M0", "M-prompt", "M-auto", "M-auto+val", "M-gold"]},
     "paths": {"raw_dir": "raw", "runs_dir": "runs", "cache_dir": "cache"},
 }
@@ -78,6 +78,7 @@ def calls(fake: FakeGemini) -> int:
 def test_project_config_loads_with_decided_values():
     cfg = load_run_config()
     assert (cfg.per_class_cap, cfg.seed, cfg.benign_control_n) == (30, 42, 60)       # D2, D9
+    assert cfg.raw["detection"]["escalate_clean"] == "all"                              # D15
     assert cfg.model == "gemini-2.5-flash"
     assert cfg.generation_params == {"temperature": 0.0, "thinking_config": {"thinking_budget": 0}}  # D4, D13
     assert cfg.run_id == f"fresh-{cfg.config_hash[:8]}"
@@ -95,6 +96,7 @@ def test_config_hash_ignores_paths_but_not_settings(tmp_path):
     ("data", {"per_clas_cap": 30}, "Unknown key"),
     ("detection", {"policies": ["strict", "loose"]}, "policies"),
     ("detection", {"configs": ["C4"]}, "configs"),
+    ("detection", {"escalate_clean": "attacks"}, "escalate_clean"),
     ("mitigation", {"arms": ["M-magic"]}, "arms"),
     ("generation", {"temperature": 3.0}, "temperature"),
     ("generation", {"thinking_budget": -1}, "thinking_budget"),

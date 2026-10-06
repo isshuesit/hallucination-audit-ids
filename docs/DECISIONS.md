@@ -20,7 +20,11 @@ Append new entries at the bottom. Never delete an entry; supersede it.
 | D12 | Complete evidence | Only sample rows whose nine evidence fields are all present and finite, so every evidence string has the same nine lines. Report rows dropped per class | ACCEPTED | About 0.2% of rows have NaN/Infinity in Flow Bytes/s and Flow Packets/s; a missing line would change what the model sees |
 | D13 | Gemini thinking setting | `thinking_budget = 0` for EVERY Gemini call (generation, judges, rewrites, re-checks), pinned explicitly in `configs/fresh_run.toml` and recorded per call | ACCEPTED | gemini-2.5-flash thinks by default with a dynamic budget, which adds variation and cost that temperature 0.0 does not remove |
 | D14 | Thinking sensitivity check | In M6, after the main run: regenerate explanations for 100 of the alerts with the API-default thinking setting and compare hallucination rates. Sensitivity check only, never a headline number | ACCEPTED | Shows whether D13 changes what the model hallucinates |
-| D15 | Judge escalation for rule-clean explanations | Proposed: send every rule-clean explanation to the LLM judge, whatever its class, instead of only attack-class ones | PROPOSED | The old Phase 2 escalates a rule-clean explanation to the judge only if its alert is an attack class. The detector thus reads the ground-truth label, and the benign control arm (D9) gets less checking than the attack arm, which biases the attack-vs-benign comparison. Inside the attack arm nothing changes (every alert is an attack). Current behaviour kept: attack-class only, now using `label_coarse` so fine labels such as `DoS Hulk` are recognised (the old check compared coarse names and would have skipped most fine-labelled alerts). |
+| D15 | Judge escalation for rule-clean explanations | Must not depend on the alert label. Option `escalate_clean`: `"all"` (default for fresh configs, in `configs/fresh_run.toml`) sends every rule-clean explanation to the judge; `"attack_only"` is the legacy behaviour, kept for regression tests | ACCEPTED | The old rule read the ground-truth label and checked the benign control arm less than the attack arm |
+| D16 | Ports and protocols | A port or protocol named but ABSENT from the evidence is Tier 1 factual (`port_not_in_evidence`, `protocol_without_port`). Describing what a PRESENT port is used for is Tier 2 `port` | ACCEPTED | Records what M2 built; needed for C0 to reproduce the old Phase 2 |
+| D17 | Hedged mentions | Hedged attack-technique / threat-actor / outcome mentions stay Tier 1 `reasoning`. Every rule hit carries a boolean `hedged` from a frozen lexicon in `policy.py` (could, may, might, possibly, potentially, perhaps, appear(s), seem(s), suggest(s), suggesting, consistent with, compatible with, likely, probably). It never changes a tier | ACCEPTED | Lets the paper report hedged and unhedged claims separately without changing the taxonomy |
+| D18 | All subtypes | Keep ALL matched rule subtypes per sentence (list) in addition to the primary one | ACCEPTED | The first-match rule hides co-occurring claims |
+| D19 | Duration units | Flow Duration is in microseconds (CICFlowMeter). Deterministic `unit_wrong` check: a sentence stating a duration with a unit (microsecond/millisecond/second/minute/hour) whose value differs from Flow Duration / 1,000,000 seconds by more than 10% (rounding allowed) is Tier 1 factual `unit_wrong` under both policies; otherwise `unit` stays Tier 2 | ACCEPTED | 28 of 132 old rewrites had unsupported figures, e.g. 92,190 -> "92 seconds" |
 
 ## Open items for the human to confirm (defaults apply until answered)
 - Is a second human annotator available for D6? (default: no -> test-retest)
@@ -98,3 +102,34 @@ These follow existing decisions; they are recorded so nothing is silent.
   354/354 and 955/955 could not be re-run. The functions that tool calls (`rule_classify_sentence`,
   `rule_based_detect_explanation`, masks, impact) are byte-for-byte unchanged (source fingerprint pinned), so the
   result cannot have changed; it should still be run once the artifacts are available.
+- **D15-D19 implementation (2026-10-07).** All in `policy.py` (POLICY_VERSION 1.1.0, fingerprint pinned); the rule
+  patterns and `rules.py` are untouched (`1d10799f...`, RULES_VERSION 1.0.0). `tools/reproduce_frozen.py
+  --frozen-dir old_run` still reports 955/955 and 354/354.
+  - D15: `escalate_clean` is a required `[detection]` key; with `policy=` the default is `"all"`; without a policy
+    (old pipeline, regression tools) it stays `"attack_only"`.
+  - D17: a hit is `hedged` if every sentence containing its match contains a lexicon word (whole words; `unlikely`,
+    `maybe` and `appearance` do not count). Sentence records also carry `hedged` for the sentence.
+  - D18: every rule layer is evaluated for every sentence (`rule_hits`, `subtypes`); the primary hit is the first
+    Tier 1 hit in engine order, else the first counted hit, so without a contradicted duration it is exactly the
+    engine's own deciding rule (tested on 300 synthetic explanations).
+  - D19: claims are `<number> <unit>` (commas allowed, singular or plural). Consistent = within 10% of the true
+    value in that unit, or equal to it rounded to the stated decimals ("0.09 seconds" for 92,190 us). A Tier 2
+    `unit` hit in a sentence with a contradicted claim becomes Tier 1 `unit_wrong` (keeping `original_subtype:
+    unit`); a contradicted claim with no `unit` hit becomes a `unit_wrong` hit of its own. At explanation level the
+    check runs with the Tier 2 layer (C1, C3), so C0 and C2 remain exactly the old rule engine. At sentence level
+    it always runs.
+  - v2 prompts: the code expects exactly the seven files named by the paper side. The v2 sentence user message
+    comes from `localize_sentence_template_v2.txt` (v1 stays in code). Templates must use exactly the placeholders
+    `{evidence}` + `{explanation}` / `{evidence}` + `{sentence}`, or loading stops. v2 replies are parsed for
+    tier and subtype (`policy.parse_v2_reply`); malformed parts are listed in `reply_problems`. A v2 verdict counts
+    only if the policy counts its tier (a lenient judge that still says tier 2 is recorded but not counted).
+  - `docs/SUBTYPES.md` (generated, tested in sync) is the exact subtype vocabulary.
+- **Finding from the old run (D19/D17 applied to its 400 explanations, informational only).** 177 duration claims
+  in 3,993 sentences; 176 contradict Flow Duration as microseconds (e.g. 30,777 -> "30.7 seconds",
+  73,141,122 -> "20 hours"): the model read the value as milliseconds or seconds. 135 of the 136 Tier 2 `unit`
+  hits become Tier 1 `unit_wrong`, which moves them into the lenient policy too. 80 of the 93 Tier 1 `reasoning`
+  hits are hedged. (Old-run data: mostly benign flows, default temperature.)
+- **D19 coverage gap in the old unit pattern.** The Tier 2 `unit` regex only knows hours/minutes/seconds, so
+  "lasted 92 milliseconds" is not a `unit` hit; the D19 check still evaluates it (consistent -> no hit; wrong ->
+  `unit_wrong`). A consistent millisecond/microsecond conversion is therefore never Tier 2. Not changed (rule
+  patterns frozen); flagged for the paper side.

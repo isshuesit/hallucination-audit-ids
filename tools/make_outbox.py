@@ -2,7 +2,7 @@
 Package a pass-through for the paper side (docs/HANDOFF.md, "Outbox").
 
     python tools/make_outbox.py P1 <run_id>
-    python tools/make_outbox.py P1b
+    python tools/make_outbox.py P1b        # also runs tools/reproduce_frozen.py on old_run/
 
 Writes outbox/<pass>_<run_id or commit>.zip containing ONLY the files listed for that pass,
 plus a fresh pytest summary. It works from an allow-list, so .env, API keys, raw
@@ -12,6 +12,7 @@ CIC-IDS CSVs and the LLM cache can never end up in the zip.
 from __future__ import annotations
 
 import argparse
+import os
 import subprocess
 import sys
 import zipfile
@@ -29,8 +30,9 @@ PASSES = {
 }
 # pass -> files from the repository (no run needed)
 REPO_FILES = {
-    "P1b": ["docs/RULE_TIERS.md"],
+    "P1b": ["docs/RULE_TIERS.md", "docs/SUBTYPES.md"],
 }
+OLD_RUN_DIR = REPO_ROOT / "old_run"   # the old run's frozen JSON files (git-ignored)
 FORBIDDEN_SUFFIXES = (".csv", ".env", ".jsonl", ".sqlite")
 
 
@@ -40,7 +42,9 @@ def check_allowed(arcname: str) -> None:
         raise ValueError(f"Refusing to package {arcname}: secrets, raw data and caches never leave the machine")
 
 
-def make_outbox(pass_id: str, run_dir: Path | None, out_dir: Path, test_summary: str, label: str | None = None) -> Path:
+def make_outbox(pass_id: str, run_dir: Path | None, out_dir: Path, test_summary: str, label: str | None = None,
+                extra: dict[str, str] | None = None) -> Path:
+    """extra: generated text files to add, {name in zip: content}."""
     if PASSES[pass_id] and run_dir is None:
         raise ValueError(f"{pass_id} needs a run_id")
     missing = [f for f in PASSES[pass_id] if not (run_dir / f).exists()]
@@ -55,6 +59,9 @@ def make_outbox(pass_id: str, run_dir: Path | None, out_dir: Path, test_summary:
         for f in REPO_FILES.get(pass_id, []):
             check_allowed(f)
             z.write(REPO_ROOT / f, Path(f).name)
+        for name, text in (extra or {}).items():
+            check_allowed(name)
+            z.writestr(name, text)
         z.write(REPO_ROOT / "docs" / "DECISIONS.md", "DECISIONS.md")
         z.writestr("test_summary.txt", test_summary)
     return zpath
@@ -77,7 +84,20 @@ def main() -> int:
     commit = subprocess.run(["git", "rev-parse", "--short", "HEAD"], cwd=REPO_ROOT, capture_output=True,
                             text=True).stdout.strip() or "nogit"
     run_dir = cfg.runs_dir / args.run_id if args.run_id else None
-    zpath = make_outbox(args.pass_id, run_dir, REPO_ROOT / "outbox", summary, label=None if run_dir else commit)
+    extra = {}
+    if args.pass_id == "P1b":
+        if not OLD_RUN_DIR.is_dir():
+            print(f"P1b includes the reproduce_frozen report: put the old run's JSON files in {OLD_RUN_DIR}")
+            return 1
+        rep = subprocess.run([sys.executable, "tools/reproduce_frozen.py", "--frozen-dir", str(OLD_RUN_DIR)],
+                             cwd=REPO_ROOT, capture_output=True, text=True, encoding="utf-8",
+                             env={**os.environ, "PYTHONUTF8": "1"})
+        if rep.returncode != 0:
+            print("tools/reproduce_frozen.py failed:\n" + rep.stderr[-2000:])
+            return 1
+        extra["reproduce_frozen_report.md"] = rep.stdout
+    zpath = make_outbox(args.pass_id, run_dir, REPO_ROOT / "outbox", summary, label=None if run_dir else commit,
+                        extra=extra)
     with zipfile.ZipFile(zpath) as z:
         print(f"Wrote {zpath}:\n  " + "\n  ".join(z.namelist()))
     return 0

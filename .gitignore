@@ -20,3 +20,6 @@ llm_cache/
 
 # pass-through zips for the paper side (built by tools/make_outbox.py)
 outbox/
+
+# the old run's frozen artifacts (input to tools/reproduce_frozen.py), never committed
+old_run/

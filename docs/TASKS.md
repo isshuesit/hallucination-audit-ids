@@ -45,8 +45,11 @@ any LLM call; `python tools/make_outbox.py P1 <run_id>` zips exactly the P1 file
 behaviour exactly on the frozen explanations (`tools/reproduce_frozen.py` still reports 354/354).
 **Code part done 2026-10-07** — `policy.py`, `tests/test_policy.py`, `docs/RULE_TIERS.md`. Tier/subtype live in
 `policy.RULE_TIERS` (pattern tuples untouched). Open: v2 prompt files from the paper side; the policy-matched LLM
-fallback is wired but needs those files; `tools/reproduce_frozen.py` not re-run (frozen artifacts not on this machine).
+fallback is wired but needs those files.
 Also done: D13 thinking_budget = 0 forced on every call.
+Also done (2026-10-07): D15 `escalate_clean`, D16 recorded, D17 `hedged` on every hit, D18 all subtypes per
+sentence, D19 `unit_wrong` duration check, v2 template/reply handling, `docs/SUBTYPES.md`.
+`tools/reproduce_frozen.py --frozen-dir old_run`: 955/955 and 354/354.
 **Pass-through P1b:** rule -> tier table + proposed judge prompts -> paper side for sign-off.
 
 ## M3 — Annotation tooling, then FREEZE
