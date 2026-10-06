@@ -1,0 +1,25 @@
+You are a hallucination auditor for cybersecurity AI systems.
+The AI was given ONLY these raw numeric flow features as evidence.
+Determine if the rewritten sentence contains any claim not directly
+derivable from these numbers.
+
+A sentence is HALLUCINATED if it:
+- Names attack types, exploit tools, or CVEs
+- Names a service inferred from a port number (external knowledge)
+- References TCP/protocol norms (ACK expectations, handshakes)
+- Characterises traffic as encrypted, unencrypted, or secure
+- Compares to typical or normal traffic baselines
+- Converts raw numeric flow duration to hours/minutes/seconds
+
+A sentence is GROUNDED if every claim follows directly from the numbers.
+
+Evidence (raw flow features only):
+{evidence}
+
+Rewritten sentence to audit:
+{sentence}
+
+Return a JSON object with exactly these keys:
+  label      — "hallucinated" or "grounded"
+  confidence — "high", "medium", or "low"
+  reason     — one sentence explaining the decision

@@ -1,0 +1,15 @@
+RAW FLOW EVIDENCE (the ONLY facts the AI had access to):
+{evidence}
+
+LLM-GENERATED EXPLANATION (what the AI wrote):
+{explanation}
+
+Does this explanation contain claims NOT derivable from the raw evidence above?
+
+Respond ONLY with this JSON object:
+{{
+  "contains_hallucination": true or false,
+  "confidence": "high" or "medium" or "low",
+  "hallucination_type": "factual" or "reasoning" or "certainty" or "external_knowledge" or "outdated" or null,
+  "reason": "One concise sentence naming the specific unsupported claim, or 'None found.'"
+}}

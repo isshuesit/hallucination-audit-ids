@@ -1,0 +1,19 @@
+__pycache__/
+*.pyc
+.pytest_cache/
+
+.env
+.env.local
+
+data/raw/*.csv
+data/processed/*.json
+data/annotations/*.json
+outputs/*
+
+.DS_Store
+*.log
+
+# fresh-run artifacts: raw LLM responses and caches are large and may be re-created; results/ IS committed
+runs/
+llm_cache/
+*.sqlite
