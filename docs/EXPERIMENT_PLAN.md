@@ -48,6 +48,9 @@ localized and corrected at the output level, without retraining the model?
 - Generation prompt v1 (`generate_system.txt`) is the main arm. The alert label is never in the prompt.
 - Cache every LLM call by (model, params, prompt hash) and keep raw responses, so analysis can be redone
   without calling the API again.
+- Thinking: `thinking_budget = 0` on every Gemini call, pinned in the config and recorded per call (D13); a
+  sensitivity check in M6 regenerates 100 alerts with the API-default thinking setting and compares hallucination
+  rates (D14, never a headline number).
 
 ## 6. Hallucination definition: two tiers, two policies
 - **Tier 1 — unsupported specifics:** `factual` (CVE, tool, IP, version), `reasoning` (named attack

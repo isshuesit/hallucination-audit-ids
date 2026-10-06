@@ -16,6 +16,7 @@ from importlib import metadata
 from pathlib import Path
 
 from .detection.version import rules_stamp
+from .policy import policy_stamp
 from .prompt_store import prompt_hashes
 from .run_config import PROJECT_ROOT, RunConfig
 
@@ -63,6 +64,7 @@ def build_manifest(cfg: RunConfig, run_id: str, *, started_at: str, dataset: dic
         "environment": environment_info(),
         "config": {"hash": cfg.config_hash, "settings": cfg.experiment_settings(), "paths": cfg.raw["paths"]},
         "rules": rules_stamp(),
+        "policy": policy_stamp(),
         "prompts": prompt_hashes(),
         "dataset": dataset,
         "llm": {**llm, "generation_params": cfg.generation_params},

@@ -179,14 +179,19 @@ class CachedClient:
     """Drop-in replacement for genai.Client that caches every call.
 
     `default_params` (e.g. {"temperature": 0.0}) are merged under any config the
-    caller passes, so the run config's temperature applies to every call and is
-    part of every cache key.
+    caller passes; `enforced_params` (e.g. {"thinking_config": {"thinking_budget": 0}},
+    DECISIONS D13) are merged over it, so they hold for every call whatever the caller
+    asked for. The final params are part of every cache key, stored with every cache
+    entry, and returned on the response as `call_params`.
     """
 
-    def __init__(self, inner, cache: LLMCache, default_params: dict | None = None):
+    def __init__(self, inner, cache: LLMCache, default_params: dict | None = None,
+                 enforced_params: dict | None = None):
         self.inner = inner
         self.cache = cache
         self.default_params = dict(default_params or {})
+        self.enforced_params = dict(enforced_params or {})
+        self.enforced_overrides = 0     # calls whose own config disagreed with an enforced param
         self.models = self          # so callers can keep writing client.models.generate_content(...)
         self.api_calls = 0
         self.api_errors = 0
@@ -197,7 +202,10 @@ class CachedClient:
         self.models_requested: set[str] = set()
 
     def generate_content(self, model: str, contents: str, config=None):
-        params = {**self.default_params, **params_to_dict(config)}
+        requested = params_to_dict(config)
+        if any(k in requested and requested[k] != v for k, v in self.enforced_params.items()):
+            self.enforced_overrides += 1
+        params = {**self.default_params, **requested, **self.enforced_params}
         key = cache_key(model, params, contents)
         self.models_requested.add(model)
         hit = self.cache.get(key)
@@ -205,7 +213,9 @@ class CachedClient:
             self.cache_hits += 1
             if hit.get("model_version"):
                 self.model_versions.add(hit["model_version"])
-            return CachedResponse(hit)
+            response = CachedResponse(hit)
+            response.call_params = hit["params"]
+            return response
 
         self.api_calls += 1
         try:
@@ -228,6 +238,7 @@ class CachedClient:
             })
         response.cache_key = key
         response.cache_hit = False
+        response.call_params = params
         return response
 
     def stats(self) -> dict:
@@ -237,6 +248,8 @@ class CachedClient:
             "models_requested": sorted(self.models_requested),
             "model_versions_returned": sorted(self.model_versions),
             "default_params": self.default_params,
+            "enforced_params": self.enforced_params,
+            "enforced_overrides": self.enforced_overrides,
         }
 
 

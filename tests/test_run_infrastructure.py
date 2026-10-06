@@ -46,7 +46,8 @@ V1_PROMPT_PINS = {
 BASE = {
     "run": {"name": "test"},
     "data": {"per_class_cap": 3, "seed": 42, "benign_control_n": 2},
-    "generation": {"model": "gemini-2.5-flash", "temperature": 0.0, "prompt": "generate_system.txt"},
+    "generation": {"model": "gemini-2.5-flash", "temperature": 0.0, "prompt": "generate_system.txt",
+                   "thinking_budget": 0},
     "detection": {"configs": ["C0", "C1", "C2", "C3"], "policies": ["strict", "lenient"]},
     "mitigation": {"arms": ["M0", "M-prompt", "M-auto", "M-auto+val", "M-gold"]},
     "paths": {"raw_dir": "raw", "runs_dir": "runs", "cache_dir": "cache"},
@@ -77,7 +78,8 @@ def calls(fake: FakeGemini) -> int:
 def test_project_config_loads_with_decided_values():
     cfg = load_run_config()
     assert (cfg.per_class_cap, cfg.seed, cfg.benign_control_n) == (30, 42, 60)       # D2, D9
-    assert cfg.model == "gemini-2.5-flash" and cfg.generation_params == {"temperature": 0.0}  # D4
+    assert cfg.model == "gemini-2.5-flash"
+    assert cfg.generation_params == {"temperature": 0.0, "thinking_config": {"thinking_budget": 0}}  # D4, D13
     assert cfg.run_id == f"fresh-{cfg.config_hash[:8]}"
 
 
@@ -95,6 +97,7 @@ def test_config_hash_ignores_paths_but_not_settings(tmp_path):
     ("detection", {"configs": ["C4"]}, "configs"),
     ("mitigation", {"arms": ["M-magic"]}, "arms"),
     ("generation", {"temperature": 3.0}, "temperature"),
+    ("generation", {"thinking_budget": -1}, "thinking_budget"),
 ])
 def test_config_rejects_bad_values(tmp_path, section, values, message):
     with pytest.raises(ConfigError, match=message):
@@ -232,7 +235,8 @@ def test_fake_run_writes_manifest_and_stamps_every_record(cfg):
     assert m["dataset"]["total_rows"] == 33 and all(len(f["sha256"]) == 64 for f in m["dataset"]["files"])
     assert m["llm"]["api_calls"] == calls(fake) > 0 and m["llm"]["cache_hits"] == 0
     assert m["llm"]["model_versions_returned"] == ["fake-gemini-001"]
-    assert m["llm"]["generation_params"] == {"temperature": 0.0}
+    assert m["llm"]["generation_params"] == {"temperature": 0.0, "thinking_config": {"thinking_budget": 0}}
+    assert m["llm"]["enforced_params"] == {"thinking_config": {"thinking_budget": 0}}
     assert set(m["git"]) >= {"commit", "dirty"} and m["environment"]["python"]
     assert m["counts"]["attack"]["explanations_ok"] == m["counts"]["attack"]["alerts"] == 11   # cap 3: DoS Hulk 3, PortScan 3, DDoS 3, Bot 2
     assert m["counts"]["benign_control"]["explanations_ok"] == m["counts"]["benign_control"]["alerts"] == 2
@@ -282,3 +286,37 @@ def _to_toml(raw: dict, base) -> str:
                 v = str(base / v)
             out.append(f"{k} = {json.dumps(v)}")
     return "\n".join(out) + "\n"
+
+
+def test_d13_thinking_budget_is_forced_on_every_call_and_recorded(tmp_path):
+    seen = []
+
+    class Recorder:
+        def __init__(self):
+            self.models = self
+
+        def generate_content(self, model, contents, config=None):
+            seen.append(config)
+            return FakeGemini().models.generate_content(model=model, contents=contents)
+
+    enforced = {"thinking_config": {"thinking_budget": 0}}
+    client = CachedClient(Recorder(), LLMCache(tmp_path / "c.jsonl"), {"temperature": 0.0}, enforced)
+    plain = client.models.generate_content(model="m", contents="generation prompt")
+    # a caller asking for its own thinking budget (and a JSON response) still gets budget 0
+    own = client.models.generate_content(model="m", contents="judge prompt",
+                                         config={"thinking_config": {"thinking_budget": 512},
+                                                 "response_mime_type": "application/json"})
+    assert all(c["thinking_config"] == {"thinking_budget": 0} for c in seen)
+    assert own.call_params == {"temperature": 0.0, "thinking_config": {"thinking_budget": 0},
+                               "response_mime_type": "application/json"}
+    assert plain.call_params["thinking_config"] == {"thinking_budget": 0}
+    assert client.stats()["enforced_overrides"] == 1
+    cached = LLMCache(tmp_path / "c.jsonl").entries.values()
+    assert all(e["params"]["thinking_config"] == {"thinking_budget": 0} for e in cached)
+
+
+def test_generation_records_carry_their_call_params(cfg):
+    run_dir = execute_run(cfg, client=FakeGemini(), sleep=False)
+    for rec in json.loads((run_dir / "explanations.json").read_text(encoding="utf-8")):
+        assert rec["llm_params"] == {"temperature": 0.0, "thinking_config": {"thinking_budget": 0}}
+        assert rec["tier_map_sha256"] and rec["policy_version"]

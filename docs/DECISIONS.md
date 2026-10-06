@@ -18,7 +18,9 @@ Append new entries at the bottom. Never delete an entry; supersede it.
 | D10 | Second generator model | Out of scope for the core; stretch only | ACCEPTED | Keeps the core run finishable |
 | D11 | Duplicate flows | Before sampling, remove duplicate flows within each attack class; a duplicate = identical values in all nine evidence columns (first occurrence in file order kept). Report counts before and after, per class | ACCEPTED | About 25% of attack rows are exact duplicates (PortScan 43%, FTP-Patator 46%, SSH-Patator 47%); duplicates would yield identical prompts and double-count one explanation |
 | D12 | Complete evidence | Only sample rows whose nine evidence fields are all present and finite, so every evidence string has the same nine lines. Report rows dropped per class | ACCEPTED | About 0.2% of rows have NaN/Infinity in Flow Bytes/s and Flow Packets/s; a missing line would change what the model sees |
-| D13 | Gemini thinking setting | Proposed: pin `thinking_budget` explicitly in `configs/fresh_run.toml` (e.g. 0) instead of the API default | PROPOSED | gemini-2.5-flash thinks by default with a dynamic budget, which adds variation and cost that temperature 0.0 does not remove. Current behaviour: API default, recorded in the manifest as "not set". |
+| D13 | Gemini thinking setting | `thinking_budget = 0` for EVERY Gemini call (generation, judges, rewrites, re-checks), pinned explicitly in `configs/fresh_run.toml` and recorded per call | ACCEPTED | gemini-2.5-flash thinks by default with a dynamic budget, which adds variation and cost that temperature 0.0 does not remove |
+| D14 | Thinking sensitivity check | In M6, after the main run: regenerate explanations for 100 of the alerts with the API-default thinking setting and compare hallucination rates. Sensitivity check only, never a headline number | ACCEPTED | Shows whether D13 changes what the model hallucinates |
+| D15 | Judge escalation for rule-clean explanations | Proposed: send every rule-clean explanation to the LLM judge, whatever its class, instead of only attack-class ones | PROPOSED | The old Phase 2 escalates a rule-clean explanation to the judge only if its alert is an attack class. The detector thus reads the ground-truth label, and the benign control arm (D9) gets less checking than the attack arm, which biases the attack-vs-benign comparison. Inside the attack arm nothing changes (every alert is an attack). Current behaviour kept: attack-class only, now using `label_coarse` so fine labels such as `DoS Hulk` are recognised (the old check compared coarse names and would have skipped most fine-labelled alerts). |
 
 ## Open items for the human to confirm (defaults apply until answered)
 - Is a second human annotator available for D6? (default: no -> test-retest)
@@ -67,3 +69,32 @@ These follow existing decisions; they are recorded so nothing is silent.
   as non-finite; 140,617 (25.2%) dropped as duplicates; 415,939 eligible; 391 sampled = 12 classes x 30 +
   Web Attack - Sql Injection 20 + Heartbleed 11. No benign label in the sample (asserted). 0 sampled alerts share
   an evidence string.
+- **D13 implementation (M2).** `thinking_budget` is a required config key. The cached client forces
+  `thinking_config = {thinking_budget: 0}` on every call, overriding whatever a caller asks for (count reported as
+  `enforced_overrides` in the manifest). The final parameters of every call are stored in its cache entry and on
+  every generation record (`llm_params`). Temperature 0.0 stays a default the caller may override. Because the
+  config changed, the run id changed from `fresh-74bc2b8c` to a new one; the data settings did not change, so
+  the 391-alert sample is identical.
+- **M2 tiers.** Tier and subtype live in `policy.RULE_TIERS`, keyed by each rule's description; the pattern tuples
+  and `rules.py` are untouched (both fingerprints and `RULES_VERSION 1.0.0` unchanged; pinned in
+  `tests/test_policy.py`). The tier map has its own `POLICY_VERSION` and fingerprint, stamped on every record.
+  Table: `docs/RULE_TIERS.md` (generated, tested to match the code).
+- **M2 port and protocol layers are Tier 1.** "Port N" absent from the evidence -> Tier 1 factual
+  `port_not_in_evidence`; a protocol named without its well-known port in the evidence -> Tier 1 factual
+  `protocol_without_port`. Both were part of the old Phase 2 rules, so C0 needs them in Tier 1 to reproduce the
+  old run. (Naming the protocol of a port that IS in the evidence is not flagged by any rule.)
+- **M2 policy derivation.** One rule pass, then the policy. Explanation level: C0 equals the old rule engine under
+  both policies (tested on 300 synthetic explanations). Sentence level: the engine stops at the first rule and
+  checks Tier 1 layers first, so a Tier 2 verdict means no Tier 1 rule fired; under lenient such a sentence is
+  `grounded`, or `ambiguous` (-> LLM) if it also has soft-certainty words the engine never reached.
+- **M2 subtype order effect.** At sentence level the first Tier 2 pattern that fires names the subtype. The protocol
+  pattern is checked before the baseline pattern, so "deviates from typical web traffic" is labelled `protocol`,
+  not `baseline`. Tier and policy outcome are unaffected; per-subtype counts are. Flagged for the paper side.
+- **M2 v2 prompt names.** The code expects (but does not have yet): `detect_explanation_system_v2_strict.txt`,
+  `detect_explanation_system_v2_lenient.txt` (used with the v1 template), `localize_sentence_system_v2_strict.txt`,
+  `localize_sentence_system_v2_lenient.txt`, `generate_system_v2.txt`. Asking for a missing one stops with a
+  clear error. Names can change if the paper side prefers others.
+- **M2 not verified here: `tools/reproduce_frozen.py`.** The old run's frozen artifacts are not on this machine, so
+  354/354 and 955/955 could not be re-run. The functions that tool calls (`rule_classify_sentence`,
+  `rule_based_detect_explanation`, masks, impact) are byte-for-byte unchanged (source fingerprint pinned), so the
+  result cannot have changed; it should still be run once the artifacts are available.

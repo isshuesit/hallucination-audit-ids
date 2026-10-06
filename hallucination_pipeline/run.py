@@ -27,6 +27,7 @@ from .detection.version import rules_stamp
 from .explanation_generator import build_prompt
 from .llm_client import CachedClient, LLMCache, generate_text, get_client
 from .manifest import build_manifest, utc_now
+from .policy import policy_stamp
 from .prompt_store import prompt_sha256
 from .run_config import RunConfig
 from .run_dir import ensure_writable, write_json, write_text
@@ -36,7 +37,8 @@ CACHE_FILE = "llm_cache.jsonl"
 
 def stamp(run_id: str, prompt_names: list[str]) -> dict:
     """Provenance fields written to every record."""
-    return {"run_id": run_id, **rules_stamp(), "prompt_hashes": {n: prompt_sha256(n) for n in prompt_names}}
+    return {"run_id": run_id, **rules_stamp(), **policy_stamp(),
+            "prompt_hashes": {n: prompt_sha256(n) for n in prompt_names}}
 
 
 # ── stages ────────────────────────────────────────────────────────────────
@@ -69,6 +71,7 @@ def stage_generate(cfg: RunConfig, run_id: str, client, alerts: list[dict], *,
             "model_version": getattr(response, "model_version", None) if ok else None,
             "cache_hit": getattr(response, "cache_hit", None) if ok else None,
             "cache_key": getattr(response, "cache_key", None) if ok else None,
+            "llm_params": getattr(response, "call_params", None) if ok else None,
             "failed_attempts": len(errors),
             **stamp(run_id, [cfg.generate_prompt]),
         })
@@ -122,7 +125,8 @@ def execute_run(cfg: RunConfig, *, client=None, run_id: str | None = None, sleep
     cache = LLMCache(cfg.cache_dir / CACHE_FILE)
     if cache.skipped_lines:
         anomalies.append(f"LLM cache: skipped {cache.skipped_lines} unreadable line(s)")
-    cached = CachedClient(client if client is not None else get_client(), cache, cfg.generation_params)
+    cached = CachedClient(client if client is not None else get_client(), cache,
+                          default_params=cfg.default_llm_params, enforced_params=cfg.enforced_llm_params)
 
     for arm, arm_alerts, prefix in (("attack", alerts, ""), ("benign_control", benign, "benign_control/")):
         explanations = stage_generate(cfg, run_id, cached, arm_alerts, sleep=sleep, anomalies=anomalies)

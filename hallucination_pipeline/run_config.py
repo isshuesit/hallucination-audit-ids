@@ -30,7 +30,7 @@ _SCHEMA: dict[str, dict[str, tuple[type | tuple[type, ...], bool]]] = {
     "run": {"name": (str, True)},
     "data": {"per_class_cap": (int, True), "seed": (int, True), "benign_control_n": (int, True)},
     "generation": {"model": (str, True), "temperature": ((int, float), True), "prompt": (str, True),
-                   "thinking_budget": (int, False)},
+                   "thinking_budget": (int, True)},
     "detection": {"configs": (list, True), "policies": (list, True)},
     "mitigation": {"arms": (list, True)},
     "paths": {"raw_dir": (str, True), "runs_dir": (str, True), "cache_dir": (str, True)},
@@ -72,13 +72,19 @@ class RunConfig:
         return self.raw["generation"]["prompt"]
 
     @property
+    def default_llm_params(self) -> dict:
+        """Applied to every LLM call unless the caller sets its own value (D4 temperature)."""
+        return {"temperature": float(self.raw["generation"]["temperature"])}
+
+    @property
+    def enforced_llm_params(self) -> dict:
+        """Forced on every LLM call, overriding the caller (D13: thinking_budget)."""
+        return {"thinking_config": {"thinking_budget": self.raw["generation"]["thinking_budget"]}}
+
+    @property
     def generation_params(self) -> dict:
-        """Parameters sent with every generation call (and part of the cache key)."""
-        g = self.raw["generation"]
-        params: dict = {"temperature": float(g["temperature"])}
-        if "thinking_budget" in g:
-            params["thinking_config"] = {"thinking_budget": g["thinking_budget"]}
-        return params
+        """What a generation call is sent (defaults + enforced); part of every cache key."""
+        return {**self.default_llm_params, **self.enforced_llm_params}
 
     def path(self, key: str) -> Path:
         p = Path(self.raw["paths"][key])
@@ -137,6 +143,8 @@ def _validate(raw: dict) -> None:
         raise ConfigError("[data].per_class_cap must be >= 1")
     if raw["data"]["benign_control_n"] < 0:
         raise ConfigError("[data].benign_control_n must be >= 0")
+    if raw["generation"]["thinking_budget"] < 0:
+        raise ConfigError("[generation].thinking_budget must be >= 0 (D13 pins it explicitly)")
     if not 0.0 <= raw["generation"]["temperature"] <= 2.0:
         raise ConfigError("[generation].temperature must be between 0 and 2")
     for key, allowed in (("configs", DETECTION_CONFIGS), ("policies", POLICIES)):

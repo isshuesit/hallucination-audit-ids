@@ -14,6 +14,13 @@ only have the fine-grained 'Label' column (e.g. "DoS Hulk", "PortScan",
 "FTP-Patator") will NOT match most of these, silently reducing how often the
 LLM judge is consulted. Use a version with the coarse 'Attack Type' column,
 or extend the set - and report which you used.
+(Fresh-run alerts carry `label_coarse`, which is used for this check when present.)
+
+FRESH-RUN OPTIONS (M2): passing `policy=` switches on the two-tier taxonomy
+(policy.py). Phase 2 then takes `use_tier2_rules` and `judge_prompt`
+(v1 / v2-strict / v2-lenient); Phase 3 takes `sentence_prompt`; every record
+gains tier and subtype. Without `policy=` both phases behave exactly as before
+(tools/verify_against_original.py and tools/reproduce_frozen.py rely on that).
 """
 
 from __future__ import annotations
@@ -24,6 +31,8 @@ import time
 from . import config
 from .detection import rule_based_detect_explanation, rule_classify_sentence, split_sentences
 from .llm_client import call_llm_for_json, get_client
+from .policy import (classify_sentence_rules, explanation_rule_decision, explanation_rule_hits,
+                     judge_prompt_files, sentence_policy_label, sentence_prompt_file, tier_for_type)
 from .prompt_store import load_prompt
 
 ATTACK_ALERT_TYPES = {
@@ -58,20 +67,52 @@ def should_invoke_llm(rule_result: dict, alert_type: str) -> bool:
     return False
 
 
-def llm_detect_explanation(client, evidence: str, explanation: str, *, sleep: bool = True) -> dict:
+def llm_detect_explanation(client, evidence: str, explanation: str, *, sleep: bool = True,
+                           judge_prompt: str = "v1") -> dict:
+    system_file, template_file = judge_prompt_files(judge_prompt)
     prompt = (
-        load_prompt("detect_explanation_system.txt") + "\n"
-        + load_prompt("detect_explanation_template.txt").format(evidence=evidence, explanation=explanation)
+        load_prompt(system_file) + "\n"
+        + load_prompt(template_file).format(evidence=evidence, explanation=explanation)
     )
     result = call_llm_for_json(client, prompt, _EXPLANATION_FALLBACK, sleep=sleep)
     result.setdefault("detection_method", "llm")
     return result
 
 
-def detect_explanation(client, alert: dict, expl: dict, *, sleep: bool = True) -> dict:
-    """Classify one explanation. Returns the Phase 2 detection record."""
+def detect_explanation(client, alert: dict, expl: dict, *, sleep: bool = True, policy: str | None = None,
+                       use_tier2_rules: bool = False, judge_prompt: str = "v1") -> dict:
+    """Classify one explanation. Returns the Phase 2 detection record.
+
+    policy=None: the original behaviour (Tier 1 rules, v1 judge, original record shape).
+    policy="strict"/"lenient": one tiered rule pass (the Tier 2 layer only if use_tier2_rules),
+    the policy decides, the judge uses `judge_prompt`, and the record gains the options,
+    tier, subtype, every rule hit, and the hits the policy did not count."""
+    if policy is None:
+        if use_tier2_rules or judge_prompt != "v1":
+            raise ValueError("use_tier2_rules and judge_prompt require a policy")
+        return _detect_explanation(client, alert, expl, sleep=sleep)
+    rule_pass = explanation_rule_hits(expl["explanation"], alert.get("evidence_tokens", []),
+                                      use_tier2_rules=use_tier2_rules)
+    rule_result = explanation_rule_decision(rule_pass, policy)
+    record = _detect_explanation(client, alert, expl, sleep=sleep, rule_result=rule_result,
+                                 judge_prompt=judge_prompt)
+    if record["detection_method"] != "rule":
+        tier, subtype = tier_for_type(record["hallucination_type"])
+    elif record["contains_hallucination"]:
+        tier, subtype = rule_result["tier"], rule_result["subtype"]
+    else:
+        tier, subtype = None, None
+    return {**record, "policy": policy, "use_tier2_rules": use_tier2_rules, "judge_prompt": judge_prompt,
+            "tier": tier, "subtype": subtype, "rule_hits": rule_pass["hits"],
+            "uncounted_rules": rule_result["uncounted_rules"]}
+
+
+def _detect_explanation(client, alert: dict, expl: dict, *, sleep: bool, rule_result: dict | None = None,
+                        judge_prompt: str = "v1") -> dict:
     aid, alert_type = expl["alert_id"], expl["alert_type"]
-    rule_result = rule_based_detect_explanation(expl["explanation"], alert.get("evidence_tokens", []))
+    if rule_result is None:
+        rule_result = rule_based_detect_explanation(expl["explanation"], alert.get("evidence_tokens", []))
+    escalation_class = alert.get("label_coarse", alert_type)
 
     if rule_result["triggered"] is True:
         return {
@@ -82,14 +123,15 @@ def detect_explanation(client, alert: dict, expl: dict, *, sleep: bool = True) -
             "matched_rules": rule_result["matched_rules"],
             "detection_method": "rule", "gold_label": None,
         }
-    if not should_invoke_llm(rule_result, alert_type):
+    if not should_invoke_llm(rule_result, escalation_class):
         return {
             "alert_id": aid, "alert_type": alert_type,
             "contains_hallucination": False, "confidence": "high",
             "hallucination_type": None, "reason": rule_result["reason"],
             "matched_rules": [], "detection_method": "rule", "gold_label": None,
         }
-    llm = llm_detect_explanation(client, alert["evidence"], expl["explanation"], sleep=sleep)
+    llm = llm_detect_explanation(client, alert["evidence"], expl["explanation"], sleep=sleep,
+                                 judge_prompt=judge_prompt)
     return {
         "alert_id": aid, "alert_type": alert_type,
         "contains_hallucination": llm.get("contains_hallucination"),
@@ -146,7 +188,8 @@ def run_explanation_detection() -> list[dict]:
 
 # ── Phase 3, Step 4: sentence level ───────────────────────────────────────
 
-def llm_classify_sentence(client, evidence: str, sentence: str, *, sleep: bool = True) -> dict:
+def llm_classify_sentence(client, evidence: str, sentence: str, *, sleep: bool = True,
+                          sentence_prompt: str = "v1") -> dict:
     user_msg = (
         f"RAW EVIDENCE:\n{evidence}\n\n"
         f"SENTENCE:\n{sentence}\n\n"
@@ -154,20 +197,33 @@ def llm_classify_sentence(client, evidence: str, sentence: str, *, sleep: bool =
         "Respond ONLY with this JSON (no markdown):\n"
         '{"label":"...","confidence":"...","hallucination_type":"...","reason":"..."}'
     )
-    prompt = load_prompt("localize_sentence_system.txt") + "\n" + user_msg
+    prompt = load_prompt(sentence_prompt_file(sentence_prompt)) + "\n" + user_msg
     result = call_llm_for_json(client, prompt, _SENTENCE_FALLBACK, sleep=sleep)
     result.setdefault("detection_method", "llm")
     return result
 
 
-def classify_sentence(client, alert: dict, sentence_id: str, sentence: str, *, sleep: bool = True) -> tuple[dict, bool]:
-    """Classify one sentence. Returns (Phase 3 record, used_llm)."""
-    evidence_tokens = {str(t).lower() for t in alert.get("evidence_tokens", [])}
-    rule_result = rule_classify_sentence(sentence, evidence_tokens)
+def classify_sentence(client, alert: dict, sentence_id: str, sentence: str, *, sleep: bool = True,
+                      policy: str | None = None, sentence_prompt: str = "v1") -> tuple[dict, bool]:
+    """Classify one sentence. Returns (Phase 3 record, used_llm).
 
-    used_llm = rule_result["label"] == "ambiguous"
+    policy=None: the original behaviour and record shape. policy="strict"/"lenient": the rule
+    label is re-read under the policy (a Tier 2 hit is not a hallucination under lenient),
+    the LLM fallback uses `sentence_prompt`, and the record gains `rule_label` (the raw
+    single-pass rule label), tier and subtype."""
+    evidence_tokens = {str(t).lower() for t in alert.get("evidence_tokens", [])}
+    if policy is None:
+        if sentence_prompt != "v1":
+            raise ValueError("sentence_prompt requires a policy")
+        rule_result = rule_classify_sentence(sentence, evidence_tokens)
+        label = rule_result["label"]
+    else:
+        rule_result = classify_sentence_rules(sentence, evidence_tokens)
+        label = sentence_policy_label(rule_result, sentence, policy)
+
+    used_llm = label == "ambiguous"
     if used_llm:
-        llm = llm_classify_sentence(client, alert["evidence"], sentence, sleep=sleep)
+        llm = llm_classify_sentence(client, alert["evidence"], sentence, sleep=sleep, sentence_prompt=sentence_prompt)
         final = {
             "predicted_label": llm.get("label", "grounded"),
             "confidence": llm.get("confidence", "low"),
@@ -177,12 +233,20 @@ def classify_sentence(client, alert: dict, sentence_id: str, sentence: str, *, s
         }
         if sleep:
             time.sleep(0.3)
-    else:
+    elif label == rule_result["label"]:
         final = {
             "predicted_label": rule_result["label"],
             "confidence": rule_result["confidence"],
             "hallucination_type": rule_result["hallucination_type"],
             "reason": rule_result["reason"],
+            "detection_method": rule_result["detection_method"],
+        }
+    else:  # a Tier 2 rule fired but the policy (lenient) does not count Tier 2
+        final = {
+            "predicted_label": label,
+            "confidence": rule_result["confidence"],
+            "hallucination_type": None,
+            "reason": f"Tier 2 ({rule_result['subtype']}) not counted under the {policy} policy: {rule_result['reason']}",
             "detection_method": rule_result["detection_method"],
         }
 
@@ -195,6 +259,16 @@ def classify_sentence(client, alert: dict, sentence_id: str, sentence: str, *, s
         "matched": rule_result.get("matched", []),
         "gold_label": None,  # annotator fills this in
     }
+    if policy is not None:
+        if final["predicted_label"] != "hallucinated":
+            tier, subtype = None, None
+        elif used_llm:
+            tier, subtype = tier_for_type(final["hallucination_type"])
+        else:
+            tier, subtype = rule_result["tier"], rule_result["subtype"]
+        record.update({"policy": policy, "sentence_prompt": sentence_prompt, "tier": tier, "subtype": subtype,
+                       "rule_label": rule_result["label"], "rule_tier": rule_result["tier"],
+                       "rule_subtype": rule_result["subtype"]})
     return record, used_llm
 
 

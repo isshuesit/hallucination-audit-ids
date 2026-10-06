@@ -35,14 +35,18 @@ any LLM call; `python tools/make_outbox.py P1 <run_id>` zips exactly the P1 file
 **Pass-through P1:** `class_distribution.json` + manifest -> paper side.
 
 ## M2 — Taxonomy and policy refactor (needs DECISIONS D1-D3 confirmed)
-- [ ] `policy.py`: Tier 1 / Tier 2 mapping of every hallucination type; `strict` and `lenient` policies.
-- [ ] Each rule hit carries `tier` and `subtype`; detection returns the tier so both policies derive from one pass.
-- [ ] Phase 2 options: `use_tier2_rules` (on/off) and `judge_prompt` (v1 / v2-strict / v2-lenient).
+- [x] `policy.py`: Tier 1 / Tier 2 mapping of every hallucination type; `strict` and `lenient` policies.
+- [x] Each rule hit carries `tier` and `subtype`; detection returns the tier so both policies derive from one pass.
+- [x] Phase 2 options: `use_tier2_rules` (on/off) and `judge_prompt` (v1 / v2-strict / v2-lenient).
 - [ ] Prompt files for judge v2 (strict, lenient) and generation v2 are **supplied by the paper side**;
       commit them as new files, never edit v1.
-- [ ] Sentence-level classifier returns tier + subtype; LLM fallback uses the policy-matched prompt.
+- [x] Sentence-level classifier returns tier + subtype; LLM fallback uses the policy-matched prompt.
 **Accept:** existing 46 tests still pass; new tests pin tier/subtype per rule; C0 reproduces the old Phase 2
 behaviour exactly on the frozen explanations (`tools/reproduce_frozen.py` still reports 354/354).
+**Code part done 2026-10-07** — `policy.py`, `tests/test_policy.py`, `docs/RULE_TIERS.md`. Tier/subtype live in
+`policy.RULE_TIERS` (pattern tuples untouched). Open: v2 prompt files from the paper side; the policy-matched LLM
+fallback is wired but needs those files; `tools/reproduce_frozen.py` not re-run (frozen artifacts not on this machine).
+Also done: D13 thinking_budget = 0 forced on every call.
 **Pass-through P1b:** rule -> tier table + proposed judge prompts -> paper side for sign-off.
 
 ## M3 — Annotation tooling, then FREEZE
