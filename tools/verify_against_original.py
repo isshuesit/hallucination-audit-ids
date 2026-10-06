@@ -27,7 +27,6 @@ Nothing from the original is copied into this repository.
 from __future__ import annotations
 
 import argparse
-import hashlib
 import importlib.util
 import json
 import os
@@ -37,160 +36,14 @@ import shutil
 import subprocess
 import sys
 import tempfile
-import types
 from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 
-# ── deterministic fake Gemini ─────────────────────────────────────────────
+# ── deterministic fake Gemini (lives in tests/fakes.py) ─────────────────────
 
-_CLEAN = [
-    "The flow recorded {fwd} forward packets and {bwd} backward packets.",
-    "The destination port value in the evidence is {port}.",
-    "A SYN flag count of {syn} was recorded for this flow.",
-    "The flow duration value is {dur} and the byte rate is {rate}.",
-    "The ratio of forward to backward packets is notable in this record.",
-    "Only the numeric flow features are available for this alert.",
-]
-_BAD = [
-    "This flow exploits CVE-2017-0144 to gain access to the host.",
-    "An attacker is targeting the database server through this connection.",
-    "The server has been compromised by this traffic pattern.",
-    "Port 443 is commonly used for HTTPS traffic on this network.",
-    "The connection uses HTTPS encryption for this session.",
-    "The flow lasted approximately 17 hours based on the duration value.",
-    "This traffic pattern is definitely unusual for this network.",
-    "This must be unusual activity given the packet counts observed.",
-    "The pattern may indicate port scanning activity from a remote host.",
-    "A brute-force attempt could result in unauthorized access to accounts.",
-    "Nmap style tooling may have generated this traffic pattern here.",
-    "ACK flags are expected in a fully established TCP connection here.",
-    "Such behavior deviates significantly from typical web traffic patterns.",
-    "Source 192.168.1.10 sent the packets to the destination host.",
-    "The resource exhaustion of the server is likely under this load.",
-    "The adversary intends to exfiltrate data over this connection.",
-]
-_FENCE = "```json\n{body}\n```"
-
-
-def _h(*parts: str) -> int:
-    return int(hashlib.md5("||".join(parts).encode()).hexdigest(), 16)
-
-
-class _Resp:
-    def __init__(self, text: str):
-        self.text = text
-
-
-class FakeGemini:
-    """Deterministic stand-in for google.genai.Client()."""
-
-    class _Models:
-        def __init__(self, outer):
-            self.outer = outer
-
-        def generate_content(self, model=None, contents="", config=None):
-            return self.outer._generate(contents, config)
-
-    def __init__(self, *a, **kw):
-        self.models = FakeGemini._Models(self)
-        self.seen: dict[str, int] = {}
-
-    def _generate(self, prompt: str, config):
-        key = hashlib.md5(prompt.encode()).hexdigest()
-        n = self.seen.get(key, 0)
-        self.seen[key] = n + 1
-        h = _h(prompt)
-
-        # --- QUALIFY rewrites (editor prompts) ---
-        if "cybersecurity explanation editor" in prompt:
-            sentence = prompt.rsplit("\n", 1)[-1]
-            mode = h % 20
-            if mode == 0 and n == 0:
-                raise RuntimeError('429 RESOURCE_EXHAUSTED {"error": {"details": [{"retryDelay": "3s"}]}}')
-            if mode == 1 and n == 0:
-                raise RuntimeError("503 service unavailable")
-            if mode == 2:
-                raise RuntimeError("500 always failing")          # exhausts retries -> fallback subs
-            if mode == 3:
-                return _Resp(sentence)                              # identical sentence
-            words = sentence.split()
-            return _Resp("Observed values only: " + " ".join(words[3:]) if len(words) > 6 else "The raw values were observed.")
-
-        # --- re-check of a rewrite (impact analysis) ---
-        if "Rewritten sentence to audit" in prompt:
-            mode = h % 10
-            if mode == 0:
-                return _Resp("not json at all, the sentence is hallucinated")
-            if mode == 1:
-                return _Resp("not json at all, the sentence looks grounded")
-            if mode == 2:
-                return _Resp("complete gibberish")
-            label = "grounded" if h % 3 else "hallucinated"
-            return _Resp(json.dumps({"label": label, "confidence": "high", "reason": f"fake reason {h % 97}"}))
-
-        # --- sentence-level judge ---
-        if "sentence-level hallucination auditor" in prompt:
-            mode = h % 12
-            if mode == 0 and n == 0:
-                raise RuntimeError('429 RESOURCE_EXHAUSTED {"error": {"details": [{"retryDelay": "2s"}]}}')
-            body = json.dumps({
-                "label": "hallucinated" if h % 2 else "grounded",
-                "confidence": ["high", "medium", "low"][h % 3],
-                "hallucination_type": ["reasoning", "certainty", "external_knowledge", "factual", None][h % 5],
-                "reason": f"fake sentence reason {h % 89}",
-            })
-            if mode == 1:
-                return _Resp(_FENCE.format(body=body))
-            if mode == 2:
-                return _Resp("totally malformed {{ output")
-            return _Resp(body)
-
-        # --- explanation-level judge ---
-        if "RAW FLOW EVIDENCE" in prompt and "contains_hallucination" in prompt:
-            mode = h % 10
-            body = json.dumps({
-                "contains_hallucination": bool(h % 2),
-                "confidence": ["high", "medium", "low"][h % 3],
-                "hallucination_type": ["reasoning", "certainty", "external_knowledge", None][h % 4],
-                "reason": f"fake explanation reason {h % 83}",
-            })
-            if mode == 0:
-                return _Resp(_FENCE.format(body=body))
-            if mode == 1:
-                return _Resp("malformed")
-            return _Resp(body)
-
-        # --- explanation generation ---
-        rng = random.Random(h)
-        nums = {k: (re.search(rf"{pat}: (\d+)", prompt) or [None, "0"])[1]
-                for k, pat in [("fwd", "Forward Packets"), ("bwd", "Backward Packets"),
-                               ("port", "Destination Port"), ("syn", "SYN Flag Count"),
-                               ("dur", "Flow Duration")]}
-        nums["rate"] = (re.search(r"Flow Bytes/s: ([\d.]+)", prompt) or [None, "0"])[1]
-        sents = [rng.choice(_CLEAN).format(**nums) for _ in range(rng.randint(3, 6))]
-        sents += [rng.choice(_BAD) for _ in range(rng.randint(0, 3))]
-        rng.shuffle(sents)
-        return _Resp("  " + " ".join(sents) + "  ")
-
-
-def install_stubs() -> None:
-    google = types.ModuleType("google")
-    genai = types.ModuleType("google.genai")
-    gtypes = types.ModuleType("google.genai.types")
-
-    class _Cfg:
-        def __init__(self, **kw):
-            self.kw = kw
-
-    gtypes.GenerateContentConfig = _Cfg
-    gtypes.ThinkingConfig = _Cfg
-    genai.types = gtypes
-    genai.Client = FakeGemini
-    google.genai = genai
-    sys.modules.update({"google": google, "google.genai": genai, "google.genai.types": gtypes})
-    import time
-    time.sleep = lambda *_a, **_k: None  # no real waiting
+sys.path.insert(0, str(REPO_ROOT / "tests"))
+from fakes import FakeGemini, _h, install_stubs  # noqa: E402
 
 
 # ── synthetic inputs and simulated annotation ─────────────────────────────

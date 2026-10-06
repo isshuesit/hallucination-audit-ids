@@ -22,6 +22,7 @@ from __future__ import annotations
 
 import json
 import re
+from pathlib import Path
 
 import numpy as np
 import pandas as pd
@@ -102,6 +103,70 @@ def load_raw_csvs() -> pd.DataFrame:
     combined = pd.concat(dfs, ignore_index=True)
     print(f"Loaded {len(combined):,} rows total")
     return combined
+
+
+# ── fresh-run loader: validated columns + dataset fingerprint ─────────────
+
+# Columns the evidence builder reads, plus the label. Names as in the original UNB
+# CSVs after stripping their leading spaces (e.g. " Destination Port").
+REQUIRED_COLUMNS = (
+    "Destination Port", "Flow Duration", "Total Fwd Packets", "Total Backward Packets",
+    "Flow Bytes/s", "Flow Packets/s", "SYN Flag Count", "ACK Flag Count", "RST Flag Count", "Label",
+)
+
+
+class MissingColumnsError(ValueError):
+    pass
+
+
+def check_required_columns(columns_by_file: dict[str, list[str]]) -> None:
+    """Raise MissingColumnsError naming every file and every missing column."""
+    problems = {}
+    for name, cols in columns_by_file.items():
+        stripped = {str(c).strip() for c in cols}
+        missing = [c for c in REQUIRED_COLUMNS if c not in stripped]
+        if missing:
+            problems[name] = missing
+    if problems:
+        detail = "\n".join(f"  {name}: missing {', '.join(cols)}" for name, cols in problems.items())
+        raise MissingColumnsError(
+            "Some CSV files lack required CIC-IDS 2017 columns (names are compared after "
+            "stripping spaces):\n" + detail + "\nRequired columns: " + ", ".join(REQUIRED_COLUMNS)
+            + "\nUse the original UNB CSVs (MachineLearningCVE), see docs/DECISIONS.md D1."
+        )
+
+
+def load_cicids(raw_dir: Path) -> tuple[pd.DataFrame, dict]:
+    """Load every CSV in raw_dir (sorted by name), keeping only REQUIRED_COLUMNS.
+
+    Checks all headers first and stops with a clear error if any column is missing.
+    Returns (dataframe with a `source_file` column, dataset fingerprint for the manifest).
+    """
+    from .run_dir import file_sha256
+
+    files = sorted(Path(raw_dir).glob("*.csv"))
+    if not files:
+        raise FileNotFoundError(
+            f"No CSV files found in {raw_dir}. "
+            "Download CIC-IDS 2017 from https://www.unb.ca/cic/datasets/ids-2017.html"
+        )
+    # The original CSVs contain a non-UTF-8 byte in "Web Attack \x96 Brute Force";
+    # replace it rather than crash (labels are normalised by the sampler).
+    read_kw = {"encoding_errors": "replace", "low_memory": False}
+    headers = {f.name: list(pd.read_csv(f, nrows=0, **read_kw).columns) for f in files}
+    check_required_columns(headers)
+
+    frames, fingerprint = [], []
+    for f in files:
+        rename = {c: str(c).strip() for c in headers[f.name] if str(c).strip() in REQUIRED_COLUMNS}
+        df = pd.read_csv(f, usecols=list(rename), **read_kw).rename(columns=rename)
+        df["source_file"] = f.name
+        print(f"Loaded {f.name}: {len(df):,} rows")
+        frames.append(df)
+        fingerprint.append({"name": f.name, "sha256": file_sha256(f), "bytes": f.stat().st_size, "rows": len(df)})
+    combined = pd.concat(frames, ignore_index=True)
+    print(f"Loaded {len(combined):,} rows total from {len(files)} file(s)")
+    return combined, {"files": fingerprint, "total_rows": len(combined)}
 
 
 def sample_attack_alerts(

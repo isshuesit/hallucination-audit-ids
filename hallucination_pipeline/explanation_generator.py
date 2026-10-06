@@ -23,9 +23,9 @@ from .llm_client import get_client
 from .prompt_store import load_prompt
 
 
-def build_prompt(alert: dict) -> str:
+def build_prompt(alert: dict, system_prompt: str = "generate_system.txt") -> str:
     return (
-        f"{load_prompt('generate_system.txt')}\n"
+        f"{load_prompt(system_prompt)}\n"
         f"Evidence:\n{alert['evidence']}\n\n"
         "Explain what this network flow data indicates from a security perspective.\n"
     )

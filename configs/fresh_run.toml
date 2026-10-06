@@ -1,0 +1,31 @@
+# Configuration for the fresh, controlled run. One config -> one run_id.
+# Values come from docs/DECISIONS.md; change them only through a DECISIONS entry.
+# The run_id is "<name>-<first 8 hex of the config hash>". [paths] is excluded from
+# the hash (where files live does not change results; the dataset itself is
+# fingerprinted in the manifest).
+
+[run]
+name = "fresh"
+
+[data]
+per_class_cap = 30          # D2
+seed = 42                   # D2
+benign_control_n = 60       # D9
+
+[generation]
+model = "gemini-2.5-flash"  # D4
+temperature = 0.0           # D4
+prompt = "generate_system.txt"
+# thinking_budget = 0       # D4: unset = API default; the setting used is recorded in the manifest
+
+[detection]                 # used from M2 on
+configs = ["C0", "C1", "C2", "C3"]
+policies = ["strict", "lenient"]
+
+[mitigation]                # used from M4 on
+arms = ["M0", "M-prompt", "M-auto", "M-auto+val", "M-gold"]
+
+[paths]                     # relative paths are resolved against the project root
+raw_dir = "data/raw"
+runs_dir = "runs"
+cache_dir = "llm_cache"

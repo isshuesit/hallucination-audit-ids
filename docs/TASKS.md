@@ -5,17 +5,19 @@ paper side — see `docs/HANDOFF.md`). Do not start a milestone before the previ
 
 ---
 ## M0 — Run infrastructure
-- [ ] `config` file for a run (`configs/fresh_run.toml`): dataset path, per_class_cap, seed, model, temperature,
+- [x] `config` file for a run (`configs/fresh_run.toml`): dataset path, per_class_cap, seed, model, temperature,
       policy, detection config (C0-C3), mitigation arm, paths. One config -> one `run_id`.
-- [ ] `RULES_VERSION` constant + SHA-256 of all rule patterns; written to every prediction record.
-- [ ] Prompt registry: SHA-256 of every file in `prompts/`; written to the manifest.
-- [ ] **Content-addressed LLM cache** (jsonl): key = hash(model, params, prompt). Raw responses and token usage kept.
+- [x] `RULES_VERSION` constant + SHA-256 of all rule patterns; written to every prediction record.
+- [x] Prompt registry: SHA-256 of every file in `prompts/`; written to the manifest.
+- [x] **Content-addressed LLM cache** (jsonl): key = hash(model, params, prompt). Raw responses and token usage kept.
       A re-run with the same config makes zero API calls.
-- [ ] `MANIFEST.json` writer: git commit + dirty flag, python and package versions, model string returned by API,
+- [x] `MANIFEST.json` writer: git commit + dirty flag, python and package versions, model string returned by API,
       date, config hash, rules version, prompt hashes, dataset CSV hashes and row counts, call counts, tokens.
-- [ ] `freeze_run <run_id>`: make the run directory read-only and write `SHA256SUMS`.
-- [ ] Move the fake Gemini from `tools/verify_against_original.py` to `tests/fakes.py` and reuse it.
+- [x] `freeze_run <run_id>`: make the run directory read-only and write `SHA256SUMS`.
+- [x] Move the fake Gemini from `tools/verify_against_original.py` to `tests/fakes.py` and reuse it.
 **Accept:** a fake-LLM end-to-end test produces a manifest; second run uses the cache; frozen dirs refuse writes.
+**Done 2026-10-07** — `tests/test_run_infrastructure.py`. CLI: `cli run`, `cli freeze_run <run_id>`, `cli verify_run <run_id>`.
+Until M1 lands, the `run` data stage used the legacy random sampler.
 
 ## M1 — Data
 - [ ] Stratified sampler: attack classes only, `per_class_cap`, seed, all rows for small classes.
