@@ -36,6 +36,11 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--run-id", default=None, help="override the run id (needed to re-run a frozen config)")
     parser.add_argument("--data-only", action="store_true", help="run: stop after sampling (no LLM calls)")
     args = parser.parse_args(argv)
+    for stream in (sys.stdout, sys.stderr):   # Windows consoles cannot print every character
+        try:
+            stream.reconfigure(errors="backslashreplace")
+        except (AttributeError, ValueError):
+            pass
 
     if args.phase in ("run", "freeze_run", "verify_run"):
         from .data_loader import MissingColumnsError

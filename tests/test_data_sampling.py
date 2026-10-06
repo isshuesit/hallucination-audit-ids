@@ -70,7 +70,7 @@ def test_sample_is_attack_only_and_capped_per_class(raw_dir):
     assert dist["realized_fine"] == {"Bot": 5, "DDoS": 5, "DoS Hulk": 5, "Heartbleed": 2, "PortScan": 5,
                                      "SSH-Patator": 3, "Web Attack - Sql Injection": 4}
     assert dist["total_attack_alerts"] == len(attacks) == 29
-    assert dist["available_benign"] == {"BENIGN": 40, "Normal Traffic": 25}
+    assert {k: v["rows"] for k, v in dist["benign"].items()} == {"BENIGN": 40, "Normal Traffic": 25}
     assert not {a["label_fine"] for a in attacks} & {"BENIGN", "Normal Traffic"}
     assert dist["classes_below_cap"] == {"Heartbleed": 2, "SSH-Patator": 3, "Web Attack - Sql Injection": 4}
     assert dist["realized_coarse"] == {"Botnet": 5, "Brute Force": 3, "DDoS": 5, "DoS": 5, "Heartbleed": 2,
@@ -106,7 +106,8 @@ def test_benign_control_is_separate_and_benign_only(raw_dir):
     assert len(benign) == 10 and dist["benign_control"] == {"requested": 10, "realized": 10}
     assert {b["label_coarse"] for b in benign} == {"Benign"} and {b["arm"] for b in benign} == {"benign_control"}
     assert all(b["alert_id"].startswith("B") for b in benign) and all(a["alert_id"].startswith("A") for a in attacks)
-    assert samples(raw_dir, benign_n=1000)[2]["benign_control"]["realized"] == 65   # all there is
+    # all there is: 65 benign rows minus the 4 with NaN/inf evidence the fixture plants (D12)
+    assert samples(raw_dir, benign_n=1000)[2]["benign_control"]["realized"] == 61
 
 
 def test_distribution_assertion_catches_violations(raw_dir):
@@ -120,16 +121,84 @@ def test_distribution_assertion_catches_violations(raw_dir):
         assert_distribution(short, attacks, benign)
 
 
+# ── eligibility: D11 duplicates, D12 non-finite evidence ─────────────────
+
+def flows(rows):
+    """rows: list of (label, port, duration, bytes_per_s). Other evidence fields fixed."""
+    df = pd.DataFrame([{"Destination Port": p, "Flow Duration": dur, "Total Fwd Packets": 3,
+                        "Total Backward Packets": 1, "Flow Bytes/s": bps, "Flow Packets/s": 2.5,
+                        "SYN Flag Count": 1, "ACK Flag Count": 0, "RST Flag Count": 0, "Label": lab}
+                       for lab, p, dur, bps in rows])
+    df["source_file"], df["source_row"] = "x.csv", range(len(df))
+    return df
+
+
+def test_d11_exact_duplicates_removed_within_each_attack_class_only():
+    df = flows([("PortScan", 80, 5, 1.0)] * 4                  # 4 identical -> 1
+               + [("PortScan", 81, 5, 1.0), ("PortScan", 80, 5, 1.5)]   # differ in one field -> kept
+               + [("DDoS", 80, 5, 1.0)] * 2                      # same values, other class -> kept once
+               + [("BENIGN", 80, 5, 1.0)] * 3)                   # benign is not de-duplicated
+    attacks, benign, dist = build_samples(df, 30, 42, 10, "r")
+    pc = dist["attack_classes"]["PortScan"]
+    assert (pc["rows"], pc["dropped_duplicate"], pc["eligible"], pc["sampled"]) == (6, 3, 3, 3)
+    assert dist["attack_classes"]["DDoS"]["sampled"] == 1
+    assert [a["source_row"] for a in attacks if a["label_fine"] == "PortScan"] == [0, 4, 5]   # first kept
+    assert len(benign) == 3 and dist["attack_totals"]["dropped_duplicate"] == 4
+
+
+def test_d12_rows_with_missing_or_infinite_evidence_are_never_sampled():
+    df = flows([("Bot", 80, 5, float("nan")), ("Bot", 80, 6, float("inf")), ("Bot", 80, 7, -float("inf")),
+                ("Bot", 80, 8, 2.0), ("BENIGN", 80, 9, float("nan")), ("BENIGN", 80, 9, 3.0)])
+    df.loc[3, "Flow Duration"] = None          # missing value in an integer column
+    df = pd.concat([df, flows([("Bot", 80, 10, 2.0)])], ignore_index=True)
+    attacks, benign, dist = build_samples(df, 30, 42, 10, "r")
+    bot = dist["attack_classes"]["Bot"]
+    assert (bot["rows"], bot["dropped_nonfinite"], bot["eligible"]) == (5, 4, 1)
+    assert dist["benign"]["BENIGN"]["dropped_nonfinite"] == 1 and len(benign) == 1
+    for a in attacks + benign:
+        assert len(a["evidence"].splitlines()) == 9
+
+
+def test_filters_give_the_same_rows_in_either_order():
+    df = flows([("SSH-Patator", 22, 5, float("nan"))] * 2 + [("SSH-Patator", 22, 5, 1.0)] * 3
+               + [("SSH-Patator", 22, 6, 1.0)])
+    from hallucination_pipeline.sampling import finite_evidence_mask
+    from hallucination_pipeline.data_loader import EVIDENCE_COLUMNS
+    keys = [*EVIDENCE_COLUMNS, "Label"]
+    a = df[finite_evidence_mask(df)].drop_duplicates(subset=keys)
+    b = df.drop_duplicates(subset=keys)
+    b = b[finite_evidence_mask(b)]
+    assert list(a["source_row"]) == list(b["source_row"]) == [2, 5]
+
+
 # ── loading ───────────────────────────────────────────────────────────────
 
-def test_raw_unb_byte_in_web_attack_label_loads(tmp_path):
+def test_real_unb_replacement_character_labels_stay_one_class_each(tmp_path):
+    # The UNB MachineLearningCSV Thursday file is valid UTF-8 and literally contains U+FFFD.
+    d = tmp_path / "raw"
+    d.mkdir()
+    make_cicids_csv(d / "thursday.csv", {"BENIGN": 3, "Web Attack � Brute Force": 4,
+                                         "Web Attack � XSS": 3, "Web Attack � Sql Injection": 2}, seed=3)
+    assert "�".encode("utf-8") in (d / "thursday.csv").read_bytes()
+    df, fingerprint = load_cicids(d)
+    assert fingerprint["files"][0]["encoding"] == "utf-8"
+    assert not df["Label"].str.contains("�").any()
+    _, _, dist = build_samples(df, CAP, 42, 0, "r")
+    assert dist["realized_fine"] == {"Web Attack - Brute Force": 4, "Web Attack - Sql Injection": 2,
+                                     "Web Attack - XSS": 3}
+    assert set(dist["realized_coarse"]) == {"Web Attack"}
+
+
+def test_cp1252_fallback_for_the_raw_0x96_byte(tmp_path):
     d = tmp_path / "raw"
     d.mkdir()
     make_cicids_csv(d / "thursday.csv", {"BENIGN": 3, "WEBATTACKPLACEHOLDER": 4}, seed=3)
     path = d / "thursday.csv"
     # The real Thursday file stores the dash as the single cp1252 byte 0x96 (invalid UTF-8).
     path.write_bytes(path.read_bytes().replace(b"WEBATTACKPLACEHOLDER", b"Web Attack \x96 Brute Force"))
-    attacks, _, dist = samples(d, benign_n=0)
+    df, fingerprint = load_cicids(d)
+    assert fingerprint["files"][0]["encoding"] == "cp1252"
+    _, _, dist = build_samples(df, CAP, 42, 0, "r")
     assert dist["realized_fine"] == {"Web Attack - Brute Force": 4}
 
 

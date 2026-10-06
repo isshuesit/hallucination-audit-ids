@@ -115,8 +115,36 @@ REQUIRED_COLUMNS = (
 )
 
 
+EVIDENCE_COLUMNS = tuple(c for c in REQUIRED_COLUMNS if c != "Label")
+
+
 class MissingColumnsError(ValueError):
     pass
+
+
+# The UNB Thursday file spells three labels with U+FFFD (the Unicode replacement character)
+# where a dash belongs: "Web Attack � Brute Force", "... XSS", "... Sql Injection".
+# Copies decoded as cp1252 show the original byte 0x96 as an en dash instead. Both, and other
+# dash variants, become "-" so each label stays one class.
+_DASH_VARIANTS = re.compile("[�–—\x96]")
+
+
+def normalize_label(label) -> str:
+    """'Web Attack \\ufffd Brute Force' -> 'Web Attack - Brute Force' (whitespace collapsed, stripped)."""
+    return re.sub(r"\s+", " ", _DASH_VARIANTS.sub("-", str(label))).strip()
+
+
+def _detect_encoding(path: Path) -> str:
+    """'utf-8' if the whole file decodes as UTF-8 (true for the UNB MachineLearningCSV files),
+    else 'cp1252' (copies that keep the original 0x96 dash byte)."""
+    try:
+        with open(path, encoding="utf-8") as f:
+            while f.read(1 << 22):
+                pass
+        return "utf-8"
+    except UnicodeDecodeError:
+        print(f"  {path.name}: not valid UTF-8, reading as cp1252")
+        return "cp1252"
 
 
 def check_required_columns(columns_by_file: dict[str, list[str]]) -> None:
@@ -150,21 +178,22 @@ def load_cicids(raw_dir: Path) -> tuple[pd.DataFrame, dict]:
             f"No CSV files found in {raw_dir}. "
             "Download CIC-IDS 2017 from https://www.unb.ca/cic/datasets/ids-2017.html"
         )
-    # The original CSVs contain a non-UTF-8 byte in "Web Attack \x96 Brute Force";
-    # replace it rather than crash (labels are normalised by the sampler).
-    read_kw = {"encoding_errors": "replace", "low_memory": False}
-    headers = {f.name: list(pd.read_csv(f, nrows=0, **read_kw).columns) for f in files}
+    encodings = {f.name: _detect_encoding(f) for f in files}
+    headers = {f.name: list(pd.read_csv(f, nrows=0, encoding=encodings[f.name]).columns) for f in files}
     check_required_columns(headers)
 
     frames, fingerprint = [], []
     for f in files:
         rename = {c: str(c).strip() for c in headers[f.name] if str(c).strip() in REQUIRED_COLUMNS}
-        df = pd.read_csv(f, usecols=list(rename), **read_kw).rename(columns=rename)
+        df = pd.read_csv(f, usecols=list(rename), encoding=encodings[f.name], low_memory=False)
+        df = df.rename(columns=rename)
+        df["Label"] = df["Label"].map(normalize_label)
         df["source_file"] = f.name
         df["source_row"] = range(len(df))   # 0-based data row in that file, for traceability
         print(f"Loaded {f.name}: {len(df):,} rows")
         frames.append(df)
-        fingerprint.append({"name": f.name, "sha256": file_sha256(f), "bytes": f.stat().st_size, "rows": len(df)})
+        fingerprint.append({"name": f.name, "sha256": file_sha256(f), "bytes": f.stat().st_size, "rows": len(df),
+                            "encoding": encodings[f.name]})
     combined = pd.concat(frames, ignore_index=True)
     print(f"Loaded {len(combined):,} rows total from {len(files)} file(s)")
     return combined, {"files": fingerprint, "total_rows": len(combined)}

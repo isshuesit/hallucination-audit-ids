@@ -39,7 +39,7 @@ the LLM cache.
 ### Outbox log
 | Pass | Built by | Contents |
 |---|---|---|
-| P1 | `python -m hallucination_pipeline.cli run --data-only` then `python tools/make_outbox.py P1 <run_id>` -> `outbox/P1_<run_id>.zip` | `MANIFEST.json`, `class_distribution.json`, `anomalies.md`, `DECISIONS.md` (with PROPOSED D11, D12), `test_summary.txt` |
+| P1 | `python -m hallucination_pipeline.cli run --data-only` then `python tools/make_outbox.py P1 <run_id>` -> `outbox/P1_<run_id>.zip` | `MANIFEST.json`, `class_distribution.json`, `anomalies.md`, `DECISIONS.md` (D11, D12 ACCEPTED; D13 PROPOSED), `test_summary.txt` |
 
 ## Pass-through schedule
 | # | After | Direction | What moves | Purpose |

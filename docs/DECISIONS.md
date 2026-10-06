@@ -16,8 +16,9 @@ Append new entries at the bottom. Never delete an entry; supersede it.
 | D8 | Freeze | Tag `freeze-1` after M3, before real annotation sheets are exported | ACCEPTED | Rules, prompts and config must not be tuned after seeing results |
 | D9 | Benign control arm | 60 benign flows, analysed separately | ACCEPTED | Tests over-interpretation of normal traffic without contaminating headline numbers |
 | D10 | Second generator model | Out of scope for the core; stretch only | ACCEPTED | Keeps the core run finishable |
-| D11 | Gemini thinking setting | Proposed: pin `thinking_budget` explicitly in `configs/fresh_run.toml` (e.g. 0) instead of the API default | PROPOSED | gemini-2.5-flash thinks by default with a dynamic budget, which adds variation and cost that temperature 0.0 does not remove. Current behaviour: API default, recorded in the manifest as "not set". |
-| D12 | Duplicate flows in the sample | Proposed: drop rows with identical evidence within a class before sampling (seeded, before the cap) | PROPOSED | CIC-IDS 2017 has many exact duplicate flows. Two alerts with identical evidence produce the same prompt, so the cache (and temperature 0) gives them the same explanation: double-counting one explanation. Current behaviour: no de-duplication; the number of affected alerts is reported as `attack_alerts_with_duplicate_evidence` in `class_distribution.json`. |
+| D11 | Duplicate flows | Before sampling, remove duplicate flows within each attack class; a duplicate = identical values in all nine evidence columns (first occurrence in file order kept). Report counts before and after, per class | ACCEPTED | About 25% of attack rows are exact duplicates (PortScan 43%, FTP-Patator 46%, SSH-Patator 47%); duplicates would yield identical prompts and double-count one explanation |
+| D12 | Complete evidence | Only sample rows whose nine evidence fields are all present and finite, so every evidence string has the same nine lines. Report rows dropped per class | ACCEPTED | About 0.2% of rows have NaN/Infinity in Flow Bytes/s and Flow Packets/s; a missing line would change what the model sees |
+| D13 | Gemini thinking setting | Proposed: pin `thinking_budget` explicitly in `configs/fresh_run.toml` (e.g. 0) instead of the API default | PROPOSED | gemini-2.5-flash thinks by default with a dynamic budget, which adds variation and cost that temperature 0.0 does not remove. Current behaviour: API default, recorded in the manifest as "not set". |
 
 ## Open items for the human to confirm (defaults apply until answered)
 - Is a second human annotator available for D6? (default: no -> test-retest)
@@ -40,7 +41,7 @@ These follow existing decisions; they are recorded so nothing is silent.
 - **M0 cache.** Errors and empty responses are not cached, so a retry always reaches the API.
 - **M0 git line endings.** Git on this machine converts line endings (autocrlf), which would change prompt bytes
   on checkout. `.gitattributes` keeps LF everywhere and marks `prompts/` as binary-safe (`-text`).
-- **M1 labels.** Labels are normalised before sampling: whitespace collapsed and dash variants (en dash, the raw
+- **M1 labels.** Labels are normalised at load time: whitespace collapsed and dash variants (en dash, the raw
   cp1252 byte 0x96 in the UNB Thursday file, the U+FFFD replacement character) become `-`, so
   `Web Attack  Brute Force` -> `Web Attack - Brute Force`. Every fine label must map to a coarse class
   (D1 mapping in `sampling.coarse_label`); an unknown label stops the run rather than being sampled.
@@ -51,3 +52,18 @@ These follow existing decisions; they are recorded so nothing is silent.
   changes another's draw. Alert ids are `A0001...` (attack) and `B0001...` (benign control). Each alert keeps
   `source_file` + `source_row` for traceability. Benign control alerts (D9) go through generation and rule
   detection in the same run but are written only under `runs/<run_id>/benign_control/`.
+- **Renumbering (2026-10-07, before anything left this machine).** Earlier drafts held two code-side PROPOSED
+  entries as D11 (thinking budget) and D12 (de-duplication). The paper side's D11 (de-duplication) supersedes
+  the second; the thinking-budget proposal is now D13. Neither draft was ever handed over.
+- **D11/D12 implementation.** Both filters run before the cap (`sampling.eligible_rows`). They commute: a group
+  of identical rows is all finite or all not, so the eligible set is the same in either order (tested).
+  D12 also applies to the benign control arm; D11 de-duplicates attack classes only, as worded. Rows with the
+  same values but *different* attack labels are kept (44 such rows in the real data, before the cap).
+  Counts per class are in `class_distribution.json` under `attack_classes`.
+- **Encoding.** The UNB MachineLearningCSV files are valid UTF-8 and contain a literal U+FFFD in the three
+  Web Attack labels. Each file is checked as strict UTF-8 first, with a cp1252 fallback; the encoding used is
+  recorded per file in the manifest. U+FFFD (and en dash / em dash / byte 0x96) becomes `-`.
+- **Real-data check (M1, 2026-10-07).** 2,830,743 rows in 8 files; 557,646 attack rows; 1,090 (0.195%) dropped
+  as non-finite; 140,617 (25.2%) dropped as duplicates; 415,939 eligible; 391 sampled = 12 classes x 30 +
+  Web Attack - Sql Injection 20 + Heartbleed 11. No benign label in the sample (asserted). 0 sampled alerts share
+  an evidence string.

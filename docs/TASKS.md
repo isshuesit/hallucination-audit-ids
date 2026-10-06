@@ -21,6 +21,9 @@ The M0 commit's data stage used the legacy random sampler; M1 replaced it.
 
 ## M1 — Data
 - [x] Stratified sampler: attack classes only, `per_class_cap`, seed, all rows for small classes.
+- [x] D11 duplicate removal within attack classes and D12 complete-evidence filter, counts per class.
+- [x] U+FFFD Web Attack labels normalised at load (UTF-8, cp1252 fallback).
+- [x] Real data: 391 alerts as expected (12 x 30 + 20 + 11), no benign label (asserted).
 - [x] Benign set recognised by `config.BENIGN_LABELS`; **assert** no benign label in the attack set.
 - [x] Print + save the realized class distribution (`class_distribution.json`) and a fine->coarse map.
 - [x] Optional benign control sample (default 60), written to a separate file.
