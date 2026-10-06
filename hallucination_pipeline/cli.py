@@ -13,7 +13,7 @@ Usage:
     python -m hallucination_pipeline.cli status
 
 Fresh controlled run (config -> runs/<run_id>/):
-    python -m hallucination_pipeline.cli run [--config configs/fresh_run.toml] [--run-id ID]
+    python -m hallucination_pipeline.cli run [--config configs/fresh_run.toml] [--run-id ID] [--data-only]
     python -m hallucination_pipeline.cli freeze_run <run_id> [--config ...]
     python -m hallucination_pipeline.cli verify_run <run_id> [--config ...]
 """
@@ -34,10 +34,19 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("target_run_id", nargs="?", help="run id for freeze_run / verify_run")
     parser.add_argument("--config", default=None, help="run config TOML (default configs/fresh_run.toml)")
     parser.add_argument("--run-id", default=None, help="override the run id (needed to re-run a frozen config)")
+    parser.add_argument("--data-only", action="store_true", help="run: stop after sampling (no LLM calls)")
     args = parser.parse_args(argv)
 
     if args.phase in ("run", "freeze_run", "verify_run"):
-        return _fresh_run_command(parser, args)
+        from .data_loader import MissingColumnsError
+        from .run_config import ConfigError
+        from .run_dir import FrozenRunError
+        from .sampling import LabelHygieneError
+        try:
+            return _fresh_run_command(parser, args)
+        except (FileNotFoundError, MissingColumnsError, LabelHygieneError, ConfigError, FrozenRunError) as e:
+            print(f"\nERROR: {e}", file=sys.stderr)
+            return 1
 
     if args.phase == "load":
         from . import data_loader
@@ -78,7 +87,7 @@ def _fresh_run_command(parser: argparse.ArgumentParser, args) -> int:
     cfg = load_run_config(args.config or DEFAULT_CONFIG_PATH)
     if args.phase == "run":
         from .run import execute_run
-        execute_run(cfg, run_id=args.run_id)
+        execute_run(cfg, run_id=args.run_id, data_only=args.data_only)
         return 0
     if not args.target_run_id:
         parser.error(f"{args.phase} needs a run id, e.g. {args.phase} {cfg.run_id}")

@@ -113,6 +113,17 @@ python -m hallucination_pipeline.cli report             # 8. markdown results
 python -m hallucination_pipeline.cli status              # what exists, what's missing
 ```
 
+## Fresh controlled run (M0-M1)
+```bash
+python -m hallucination_pipeline.cli run --data-only    # sample only, no API key needed -> runs/<run_id>/
+python -m hallucination_pipeline.cli run                # + generation (needs GEMINI_API_KEY) + rule detection
+python -m hallucination_pipeline.cli freeze_run <run_id> # SHA256SUMS + read-only
+python -m hallucination_pipeline.cli verify_run <run_id>
+python tools/make_outbox.py P1 <run_id>                  # zip for the paper side
+```
+Settings live in `configs/fresh_run.toml`; the run id is derived from them. LLM answers are cached in
+`llm_cache/`, so re-running costs nothing.
+
 ## Tests
 
 ```bash

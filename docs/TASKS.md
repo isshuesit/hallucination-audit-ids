@@ -17,15 +17,18 @@ paper side — see `docs/HANDOFF.md`). Do not start a milestone before the previ
 - [x] Move the fake Gemini from `tools/verify_against_original.py` to `tests/fakes.py` and reuse it.
 **Accept:** a fake-LLM end-to-end test produces a manifest; second run uses the cache; frozen dirs refuse writes.
 **Done 2026-10-07** — `tests/test_run_infrastructure.py`. CLI: `cli run`, `cli freeze_run <run_id>`, `cli verify_run <run_id>`.
-Until M1 lands, the `run` data stage used the legacy random sampler.
+The M0 commit's data stage used the legacy random sampler; M1 replaced it.
 
 ## M1 — Data
-- [ ] Stratified sampler: attack classes only, `per_class_cap`, seed, all rows for small classes.
-- [ ] Benign set recognised by `config.BENIGN_LABELS`; **assert** no benign label in the attack set.
-- [ ] Print + save the realized class distribution (`class_distribution.json`) and a fine->coarse map.
-- [ ] Optional benign control sample (default 60), written to a separate file.
-- [ ] Dataset fingerprint (CSV SHA-256, row counts) in the manifest.
+- [x] Stratified sampler: attack classes only, `per_class_cap`, seed, all rows for small classes.
+- [x] Benign set recognised by `config.BENIGN_LABELS`; **assert** no benign label in the attack set.
+- [x] Print + save the realized class distribution (`class_distribution.json`) and a fine->coarse map.
+- [x] Optional benign control sample (default 60), written to a separate file.
+- [x] Dataset fingerprint (CSV SHA-256, row counts) in the manifest.
 **Accept:** tests with a synthetic CSV (both `BENIGN` and `Normal Traffic` spellings) pass; distribution asserted.
+**Done 2026-10-07** — `hallucination_pipeline/sampling.py`, `tests/test_data_sampling.py`. Required CSV columns are
+checked before loading (clear error naming file + column). `cli run --data-only` produces the P1 files without
+any LLM call; `python tools/make_outbox.py P1 <run_id>` zips exactly the P1 files.
 **Pass-through P1:** `class_distribution.json` + manifest -> paper side.
 
 ## M2 — Taxonomy and policy refactor (needs DECISIONS D1-D3 confirmed)

@@ -234,9 +234,11 @@ def test_fake_run_writes_manifest_and_stamps_every_record(cfg):
     assert m["llm"]["model_versions_returned"] == ["fake-gemini-001"]
     assert m["llm"]["generation_params"] == {"temperature": 0.0}
     assert set(m["git"]) >= {"commit", "dirty"} and m["environment"]["python"]
-    assert m["counts"]["explanations_ok"] == m["counts"]["alerts"]
+    assert m["counts"]["attack"]["explanations_ok"] == m["counts"]["attack"]["alerts"] == 11   # cap 3: DoS Hulk 3, PortScan 3, DDoS 3, Bot 2
+    assert m["counts"]["benign_control"]["explanations_ok"] == m["counts"]["benign_control"]["alerts"] == 2
 
-    for name in ("explanations.json", "detection_rules.json"):
+    for name in ("explanations.json", "detection_rules.json",
+                 "benign_control/explanations.json", "benign_control/detection_rules.json"):
         for rec in json.loads((run_dir / name).read_text(encoding="utf-8")):
             assert rec["run_id"] == cfg.run_id and rec["rules_version"] == RULES_VERSION
             assert rec["prompt_hashes"] == {"generate_system.txt": V1_PROMPT_PINS["generate_system.txt"]}
@@ -248,7 +250,8 @@ def test_second_run_of_the_same_config_makes_zero_api_calls(cfg):
     second = execute_run(cfg, client=fake, run_id=cfg.run_id + "-rerun", sleep=False)
     assert calls(fake) == 0
     m = json.loads((second / "MANIFEST.json").read_text(encoding="utf-8"))
-    assert m["llm"]["api_calls"] == 0 and m["llm"]["cache_hits"] == m["counts"]["alerts"]
+    assert m["llm"]["api_calls"] == 0
+    assert m["llm"]["cache_hits"] == m["counts"]["attack"]["alerts"] + m["counts"]["benign_control"]["alerts"]
     texts = lambda d: [e["explanation"] for e in json.loads((d / "explanations.json").read_text(encoding="utf-8"))]
     assert texts(first) == texts(second)
 

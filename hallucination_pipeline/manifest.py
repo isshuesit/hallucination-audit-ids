@@ -52,12 +52,13 @@ def environment_info() -> dict:
 
 
 def build_manifest(cfg: RunConfig, run_id: str, *, started_at: str, dataset: dict,
-                   llm: dict, counts: dict, outputs: list[str]) -> dict:
+                   llm: dict, counts: dict, outputs: list[str], stages: list[str]) -> dict:
     return {
         "manifest_version": MANIFEST_VERSION,
         "run_id": run_id,
         "started_at": started_at,
         "finished_at": utc_now(),
+        "stages": stages,
         "git": git_info(),
         "environment": environment_info(),
         "config": {"hash": cfg.config_hash, "settings": cfg.experiment_settings(), "paths": cfg.raw["paths"]},

@@ -17,3 +17,6 @@ outputs/*
 runs/
 llm_cache/
 *.sqlite
+
+# pass-through zips for the paper side (built by tools/make_outbox.py)
+outbox/

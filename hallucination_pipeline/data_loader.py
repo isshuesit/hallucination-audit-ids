@@ -161,6 +161,7 @@ def load_cicids(raw_dir: Path) -> tuple[pd.DataFrame, dict]:
         rename = {c: str(c).strip() for c in headers[f.name] if str(c).strip() in REQUIRED_COLUMNS}
         df = pd.read_csv(f, usecols=list(rename), **read_kw).rename(columns=rename)
         df["source_file"] = f.name
+        df["source_row"] = range(len(df))   # 0-based data row in that file, for traceability
         print(f"Loaded {f.name}: {len(df):,} rows")
         frames.append(df)
         fingerprint.append({"name": f.name, "sha256": file_sha256(f), "bytes": f.stat().st_size, "rows": len(df)})
