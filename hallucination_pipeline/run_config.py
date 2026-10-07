@@ -35,7 +35,8 @@ _SCHEMA: dict[str, dict[str, tuple[type | tuple[type, ...], bool]]] = {
                    "thinking_budget": (int, True)},
     "detection": {"configs": (list, True), "policies": (list, True), "escalate_clean": (str, True)},
     "mitigation": {"arms": (list, True)},
-    "paths": {"raw_dir": (str, True), "runs_dir": (str, True), "cache_dir": (str, True)},
+    "paths": {"raw_dir": (str, True), "runs_dir": (str, True), "cache_dir": (str, True),
+              "annotation_dir": (str, True)},
 }
 
 
@@ -103,6 +104,10 @@ class RunConfig:
     @property
     def cache_dir(self) -> Path:
         return self.path("cache_dir")
+
+    @property
+    def annotation_dir(self) -> Path:
+        return self.path("annotation_dir")
 
     # ── identity ──
     def experiment_settings(self) -> dict:

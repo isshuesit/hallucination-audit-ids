@@ -55,15 +55,18 @@ subtypes with required note.
 **Pass-through P1b:** rule -> tier table + proposed judge prompts -> paper side for sign-off.
 
 ## M3 — Annotation tooling, then FREEZE
-- [ ] Sampler for the 100 annotated explanations (stratified, seeded) + the 25-explanation reliability subset
+- [x] Sampler for the 100 annotated explanations (stratified, seeded) + the 25-explanation reliability subset
       + the 25-explanation test-retest subset.
-- [ ] **Blind export** to CSV (and a simple local HTML view): alert_id, sentence_id, evidence, sentence, explanation
+- [x] **Blind export** to CSV (and a simple local HTML view): alert_id, sentence_id, evidence, sentence, explanation
       context, empty label/subtype/note columns. No pipeline fields. Test that no prediction leaks into the export.
-- [ ] Import + validation: allowed labels only, every sentence labelled, duplicates rejected; a catch-all subtype
+- [x] Import + validation: allowed labels only, every sentence labelled, duplicates rejected; a catch-all subtype
       (`other_fabrication`, `other_knowledge`, D21) without a note is rejected.
-- [ ] Agreement: Cohen's kappa (overall, Tier 1, Tier 2) with bootstrap CI; disagreement list; adjudication file.
-- [ ] Derive strict and lenient gold from the single annotation.
+- [x] Agreement: Cohen's kappa (overall, Tier 1, Tier 2) with bootstrap CI; disagreement list; adjudication file.
+- [x] Derive strict and lenient gold from the single annotation.
 **Accept:** synthetic-annotation tests; kappa matches a hand-computed example.
+**Done 2026-10-07** — `hallucination_pipeline/annotation.py`, `tests/test_annotation.py` (synthetic data only). CLI:
+`annotation_export <run_id>` (refuses before `freeze-1`), `annotation_import <run_id> <csv> --sheet --annotator`,
+`annotation_agreement <run_id> <a.json> <b.json>`. Output in `annotation/<run_id>/`.
 ## M3b — Pilot (D24), before the freeze
 - [ ] Pilot: 40 alerts (about 3 per class), generation plus detection for all configs C0-C3 and both policies, run
       under its own config / run_id. Needs `GEMINI_API_KEY`.

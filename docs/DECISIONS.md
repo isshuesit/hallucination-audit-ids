@@ -158,3 +158,33 @@ These follow existing decisions; they are recorded so nothing is silent.
   into place unchanged (byte-compared), nothing existing was overwritten, and the delivery folder is git-ignored.
   Both v2 templates format with exactly their placeholders (tested). Rule gaps the paper side found are listed in
   `docs/KNOWN_RULE_GAPS.md` (rules unchanged, one test per gap).
+- **M3 annotation tooling (2026-10-07, synthetic data only).** Choices within D5, D6, D8, D23:
+  - Sample: 100 successfully generated attack-arm explanations, stratified by fine class (floor(100/k) per class, the
+    remainder to classes in a seeded random order, a short class's deficit moved to classes with room; 14 classes ->
+    7 or 8 each). The reliability (second annotator) and retest (same annotator, >= 7 days) subsets are 25 each,
+    drawn from the 100, stratified, each with its own seeded stream, so they may overlap.
+  - Blindness: sheets carry only evidence, sentence and explanation. Alert ids are NOT shown (they are assigned in
+    class order and would leak the class); explanations get shuffled opaque ids (`E001`...; `T001`... on the retest
+    sheet, in a new order, so first answers cannot be looked up). `key.json` maps back and must never reach the
+    annotator. Every sentence of a sampled explanation is on the sheet (sentences as split by the pipeline,
+    fragments under 15 characters excluded, ids = the pipeline's S1, S2...). A test fills every pipeline field with
+    sentinel strings and checks none reaches the sheets.
+  - Freeze guard: `annotation_export` refuses to run unless `git tag freeze-1` exists, is in HEAD, and the tree is
+    clean; `--unfrozen` (pilot/synthetic only) is recorded in `key.json`. An export or an import is never overwritten.
+  - Import (D23) also rejects, beyond the D23 list: hedged other than yes/no on a hallucinated row, hedged or
+    other_subtypes on a grounded row, other_subtypes repeating the subtype, unsure other than yes/empty, missing,
+    duplicate or unknown rows, and the rule-internal marker `soft_certainty`. A catch-all in other_subtypes also needs
+    a note. All problems are listed at once with line numbers. Lines starting with `#` above the header are kept as
+    file notes (the guide's integrity note). Excel's cp1252 CSV is accepted.
+  - Gold: strict = `hallucinated`; lenient = any Tier 1 subtype among subtype and other_subtypes.
+  - Agreement: Cohen's kappa (None when undefined) for label, lenient, tier (grounded / Tier 1 / Tier 2), Tier 1
+    present, Tier 2 present, and per primary subtype; 95% CI by cluster bootstrap over explanations (2000 draws,
+    seeded). Catch-all and unsure counts are reported separately. Disagreements (label or subtype) are written as
+    an adjudication sheet.
+  - For M5: the guide picks the primary subtype in its table order (port_not_in_evidence before patch_reference and
+    attack_technique); the rule engine's primary follows its layer order (hard patterns before port/protocol). For
+    sentences with several problems the primary subtypes can differ while both are right; subtype-level comparisons
+    with the pipeline should use the full subtype sets (subtype + other_subtypes vs `subtypes`), not only the primary.
+  - Open (no decision needed yet): whether `annotation/<run_id>/` (sheets, key, filled labels) is committed. It is
+    not git-ignored now; the key should stay out of the annotator's view either way.
+

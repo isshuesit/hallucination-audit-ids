@@ -121,6 +121,12 @@ python -m hallucination_pipeline.cli freeze_run <run_id> # SHA256SUMS + read-onl
 python -m hallucination_pipeline.cli verify_run <run_id>
 python tools/make_outbox.py P1 <run_id>                  # zip for the paper side
 ```
+Annotation (after `git tag freeze-1`; see `docs/ANNOTATION_GUIDE_v2.md`):
+```bash
+python -m hallucination_pipeline.cli annotation_export <run_id>
+python -m hallucination_pipeline.cli annotation_import <run_id> filled.csv --sheet primary --annotator NAME
+python -m hallucination_pipeline.cli annotation_agreement <run_id> annotation/<run_id>/imported/primary_NAME.json annotation/<run_id>/imported/retest_NAME.json
+```
 Settings live in `configs/fresh_run.toml`; the run id is derived from them. LLM answers are cached in
 `llm_cache/`, so re-running costs nothing.
 

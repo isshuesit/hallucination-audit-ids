@@ -30,3 +30,4 @@ arms = ["M0", "M-prompt", "M-auto", "M-auto+val", "M-gold"]
 raw_dir = "data/raw"
 runs_dir = "runs"
 cache_dir = "llm_cache"
+annotation_dir = "annotation"   # M3: blind sheets, key.json (never to the annotator), imported labels

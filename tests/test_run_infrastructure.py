@@ -51,7 +51,7 @@ BASE = {
                    "thinking_budget": 0},
     "detection": {"configs": ["C0", "C1", "C2", "C3"], "policies": ["strict", "lenient"], "escalate_clean": "all"},
     "mitigation": {"arms": ["M0", "M-prompt", "M-auto", "M-auto+val", "M-gold"]},
-    "paths": {"raw_dir": "raw", "runs_dir": "runs", "cache_dir": "cache"},
+    "paths": {"raw_dir": "raw", "runs_dir": "runs", "cache_dir": "cache", "annotation_dir": "annotation"},
 }
 
 
