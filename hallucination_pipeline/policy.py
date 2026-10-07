@@ -13,7 +13,11 @@ here and is fingerprinted by policy_stamp():
   - SUBTYPES: the exact subtype vocabulary (docs/SUBTYPES.md is generated from it);
   - HEDGE_LEXICON (D17): every rule hit carries `hedged`; it never changes a tier;
   - the duration check (D19): Flow Duration is in microseconds; a sentence that states a
-    duration contradicting it is Tier 1 factual `unit_wrong` under both policies.
+    duration contradicting it is Tier 1 factual `unit_wrong` under both policies;
+  - stated durations (D20): with the Tier 2 layer on, a duration stated with an explicit unit
+    is a Tier 2 `unit` hit when the rule engine produced no `unit` hit for that sentence;
+  - catch-all subtypes (D21): other_fabrication / other_knowledge, for the judge and the
+    annotators only (never produced by rules), always with a free-text note.
 
 Detection runs the rules once and keeps every hit with its tier (D18: all subtypes are
 kept, not only the deciding one); both policies are derived from that single pass.
@@ -32,7 +36,7 @@ from .detection import (SOFT_CERTAINTY_RE, check_external_knowledge, rule_based_
                         rule_classify_sentence, split_sentences)
 from .detection.patterns import ALL_RULE_PATTERNS, EXTERNAL_KNOWLEDGE_PATTERNS, TYPE_PRIORITY
 
-POLICY_VERSION = "1.1.0"
+POLICY_VERSION = "1.2.0"
 TIER1, TIER2 = 1, 2
 POLICY_TIERS: dict[str, frozenset[int]] = {"strict": frozenset({TIER1, TIER2}), "lenient": frozenset({TIER1})}
 
@@ -44,7 +48,8 @@ class Subtype:
     tier: int
     type: str
     meaning: str
-    label: bool = True     # False: rule-internal marker, never a hallucination label
+    label: bool = True       # False: rule-internal marker, never a hallucination label
+    catch_all: bool = False  # D21: judge/annotators only, needs a note, counted separately
 
 
 SUBTYPES: dict[str, Subtype] = {
@@ -69,6 +74,9 @@ SUBTYPES: dict[str, Subtype] = {
     "attacker_intent": Subtype(TIER1, "certainty", "a definitive statement of attacker intent"),
     "compromise_claim": Subtype(TIER1, "certainty", "a definitive claim that a system was compromised"),
     "hard_certainty": Subtype(TIER1, "certainty", "definitive language such as 'definitely is'"),
+    "other_fabrication": Subtype(TIER1, "factual",
+                                 "an invented specific that fits no listed subtype (e.g. an invented hostname); "
+                                 "needs a note (D21)", catch_all=True),
     # Tier 2 - external knowledge
     "port": Subtype(TIER2, "external_knowledge", "what a port PRESENT in the evidence is used for (D16)"),
     "protocol": Subtype(TIER2, "external_knowledge", "TCP/HTTP session or protocol-behaviour norms"),
@@ -76,10 +84,18 @@ SUBTYPES: dict[str, Subtype] = {
     "baseline": Subtype(TIER2, "external_knowledge", "a comparison with typical/normal traffic"),
     "unit": Subtype(TIER2, "external_knowledge",
                     "a unit attached to a raw duration, consistent with microseconds (D19)"),
+    "other_knowledge": Subtype(TIER2, "external_knowledge",
+                               "outside knowledge that fits no listed subtype; needs a note (D21)", catch_all=True),
     # rule-internal
     "soft_certainty": Subtype(TIER1, "certainty", "soft certainty words; sends the item to the LLM judge", False),
 }
-TIER2_SUBTYPES = tuple(k for k, v in SUBTYPES.items() if v.tier == TIER2)
+TIER2_SUBTYPES = tuple(k for k, v in SUBTYPES.items() if v.tier == TIER2 and not v.catch_all)
+CATCH_ALL_SUBTYPES = tuple(k for k, v in SUBTYPES.items() if v.catch_all)
+
+
+def is_catch_all(subtype: str | None) -> bool:
+    """D21: catch-all subtypes are counted separately in every report."""
+    return subtype in CATCH_ALL_SUBTYPES
 
 
 # ── rule -> tier/subtype ──────────────────────────────────────────────────
@@ -97,6 +113,7 @@ PORT_MISMATCH = "[port number not in evidence]"
 PROTOCOL_INJECTION = "[protocol named without its well-known port in evidence]"
 SOFT_CERTAINTY = "[soft certainty language]"
 UNIT_WRONG = "[stated duration contradicts Flow Duration in microseconds]"
+UNIT_STATED = "[duration stated with an explicit unit]"
 
 RULE_TIERS: dict[str, RuleTier] = {
     "CVE identifier not present in evidence": RuleTier(TIER1, "factual", "cve"),
@@ -120,6 +137,7 @@ RULE_TIERS: dict[str, RuleTier] = {
     "Encryption assumption — not in flow evidence": RuleTier(TIER2, "external_knowledge", "encryption"),
     "External baseline comparison — requires outside knowledge": RuleTier(TIER2, "external_knowledge", "baseline"),
     "Unit assumption — raw flow duration has no guaranteed unit": RuleTier(TIER2, "external_knowledge", "unit"),
+    UNIT_STATED: RuleTier(TIER2, "external_knowledge", "unit"),
     UNIT_WRONG: RuleTier(TIER1, "factual", "unit_wrong"),
     SOFT_CERTAINTY: RuleTier(TIER1, "certainty", "soft_certainty"),
 }
@@ -127,7 +145,7 @@ UNIT_RULE = "Unit assumption — raw flow duration has no guaranteed unit"
 
 # Order in which the sentence engine checks the layers (first that fires decides).
 LAYER_ORDER: list[str] = ([d for _, _, d in ALL_RULE_PATTERNS] + [PORT_MISMATCH, PROTOCOL_INJECTION]
-                          + [d for _, d in EXTERNAL_KNOWLEDGE_PATTERNS] + [UNIT_WRONG, SOFT_CERTAINTY])
+                          + [d for _, d in EXTERNAL_KNOWLEDGE_PATTERNS] + [UNIT_STATED, UNIT_WRONG, SOFT_CERTAINTY])
 _LAYER_INDEX = {k: i for i, k in enumerate(LAYER_ORDER)}
 
 # Tier of a hallucination_type returned by the v1 judge (no subtype unless it names one).
@@ -165,13 +183,16 @@ def flow_duration_from_evidence(evidence: str) -> int | None:
 def duration_claims(sentence: str, flow_duration_us: int | None) -> list[dict]:
     """Every '<number> <unit>' duration in the sentence, judged against Flow Duration (µs).
     Consistent if within 10% of the true value in that unit, or equal to the true value
-    rounded to the number of decimals stated ('0.09 seconds' for 92,190 µs)."""
-    if flow_duration_us is None:
-        return []
+    rounded to the number of decimals stated ('0.09 seconds' for 92,190 µs).
+    Without a Flow Duration, `consistent` is None (the claim is still found, D20)."""
     claims = []
     for m in DURATION_CLAIM_RE.finditer(sentence):
         whole, frac, unit = m.group(1), m.group(2), m.group(3).lower()
         value = float(whole.replace(",", "") + ("." + frac if frac else ""))
+        if flow_duration_us is None:
+            claims.append({"text": m.group(0), "value": value, "unit": unit, "true_value_in_unit": None,
+                           "consistent": None})
+            continue
         truth = flow_duration_us * 1e-6 / DURATION_UNITS[unit]
         decimals = len(frac) if frac else 0
         if truth == 0:
@@ -246,9 +267,11 @@ def _hits_for_text(text: str, sentences: list[str], evidence_tokens, *, tier2: b
     """All hits in `text` (in layer order) plus the duration claims checked.
 
     `sentences` are where hedging and duration claims are looked up: a hit is hedged if
-    every sentence containing its match is hedged; a Tier 2 `unit` hit in a sentence with a
-    contradicted duration becomes Tier 1 `unit_wrong` (D19), and a contradicted duration
-    with no `unit` hit becomes a `unit_wrong` hit of its own."""
+    every sentence containing its match is hedged. With the Tier 2 layer on:
+      D20  a sentence stating a duration with an explicit unit gets a Tier 2 `unit` hit
+           unless the rule engine already produced a `unit` hit for that sentence;
+      D19  every `unit` hit in a sentence with a contradicted duration becomes Tier 1
+           `unit_wrong` (keeping `original_subtype: unit`)."""
     raw = rule_based_detect_explanation(text, evidence_tokens)["matched_rules"]
     if tier2:
         raw = raw + check_external_knowledge(text)
@@ -258,30 +281,25 @@ def _hits_for_text(text: str, sentences: list[str], evidence_tokens, *, tier2: b
         hits.append(_tag(h, _rule_key(h), bool(where) and all(is_hedged(s) for s in where)))
 
     claims = []
-    if tier2 and flow_duration_us is not None:
-        wrong_sentences = []
+    if tier2:
+        rule_unit_sentences = {s for h in hits if h["key"] == UNIT_RULE for s in _containing(sentences, h["matched"])}
+        wrong_sentences = set()
         for s in sentences:
             cs = duration_claims(s, flow_duration_us)
             claims += [{**c, "sentence": s} for c in cs]
-            if any(not c["consistent"] for c in cs):
-                wrong_sentences.append(s)
-        covered = set()
+            if cs and s not in rule_unit_sentences:
+                hits.append(_tag({"rule": UNIT_STATED, "type": "external_knowledge",
+                                  "matched": [c["text"] for c in cs][:3]}, UNIT_STATED, is_hedged(s)))
+            if any(c["consistent"] is False for c in cs):
+                wrong_sentences.add(s)
         for i, h in enumerate(hits):
-            if h["key"] != UNIT_RULE:
+            if h["key"] not in (UNIT_RULE, UNIT_STATED):
                 continue
-            where = _containing(sentences, h["matched"])
-            bad = [s for s in where if s in wrong_sentences]
-            if bad:
-                covered.update(bad)
+            if any(s in wrong_sentences for s in _containing(sentences, h["matched"])):
                 hits[i] = {**_tag(h, UNIT_WRONG, h["hedged"]), "rule": h["rule"], "unit_wrong": True,
-                           "original_subtype": "unit"}
+                           "original_subtype": "unit", "original_key": h["key"]}
             else:
                 hits[i] = {**h, "unit_wrong": False}
-        for s in wrong_sentences:
-            if s not in covered:
-                bad_claims = [c["text"] for c in duration_claims(s, flow_duration_us) if not c["consistent"]]
-                hits.append(_tag({"rule": UNIT_WRONG, "matched": bad_claims[:3], "unit_wrong": True},
-                                 UNIT_WRONG, is_hedged(s)))
     hits.sort(key=lambda h: _LAYER_INDEX[h["key"]])
     return hits, claims
 
@@ -382,6 +400,7 @@ def parse_v2_reply(raw: dict, level: str) -> dict:
     """Normalise a v2 judge reply.
     explanation level: contains_hallucination, confidence, tier (1, 2 or null), subtype, reason
     sentence level:    label, confidence, tier, subtype, reason
+    plus `note`, required (non-empty) whenever the subtype is a D21 catch-all.
     Returns the verdict (True / False / None), tier, subtype, hallucination_type (from the
     subtype vocabulary) and a list of `reply_problems` (empty when the reply is well-formed)."""
     problems = []
@@ -402,6 +421,10 @@ def parse_v2_reply(raw: dict, level: str) -> dict:
         problems.append(f"tier is {raw.get('tier')!r}")
     sub = raw.get("subtype")
     sub = None if sub is None or str(sub).strip().lower() in ("", "null", "none") else str(sub).strip()
+    note = raw.get("note")
+    note = None if note is None or str(note).strip().lower() in ("", "null", "none") else str(note).strip()
+    if is_catch_all(sub) and not note:
+        problems.append(f"subtype {sub!r} needs a short free-text note (D21)")
     h_type = None
     if sub is not None:
         if sub not in SUBTYPES or not SUBTYPES[sub].label:
@@ -415,6 +438,7 @@ def parse_v2_reply(raw: dict, level: str) -> dict:
     if verdict is False and (tier is not None or sub is not None):
         problems.append("no hallucination but a tier/subtype was given")
     return {"verdict": verdict, "tier": tier, "subtype": sub, "hallucination_type": h_type,
+            "catch_all": is_catch_all(sub), "note": note,
             "confidence": raw.get("confidence"), "reason": raw.get("reason"), "reply_problems": problems}
 
 

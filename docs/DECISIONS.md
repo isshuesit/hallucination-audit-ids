@@ -25,6 +25,8 @@ Append new entries at the bottom. Never delete an entry; supersede it.
 | D17 | Hedged mentions | Hedged attack-technique / threat-actor / outcome mentions stay Tier 1 `reasoning`. Every rule hit carries a boolean `hedged` from a frozen lexicon in `policy.py` (could, may, might, possibly, potentially, perhaps, appear(s), seem(s), suggest(s), suggesting, consistent with, compatible with, likely, probably). It never changes a tier | ACCEPTED | Lets the paper report hedged and unhedged claims separately without changing the taxonomy |
 | D18 | All subtypes | Keep ALL matched rule subtypes per sentence (list) in addition to the primary one | ACCEPTED | The first-match rule hides co-occurring claims |
 | D19 | Duration units | Flow Duration is in microseconds (CICFlowMeter). Deterministic `unit_wrong` check: a sentence stating a duration with a unit (microsecond/millisecond/second/minute/hour) whose value differs from Flow Duration / 1,000,000 seconds by more than 10% (rounding allowed) is Tier 1 factual `unit_wrong` under both policies; otherwise `unit` stays Tier 2 | ACCEPTED | 28 of 132 old rewrites had unsupported figures, e.g. 92,190 -> "92 seconds" |
+| D20 | Stated durations | Rules stay frozen. In the POLICY layer, when Tier 2 rules are on (C1/C3, and in the sentence classifier), any stated duration with an explicit unit (microsecond, millisecond, second, minute, hour) is a Tier 2 `unit` hit if the rule engine produced no `unit` hit for that sentence. `unit_wrong` (D19) still escalates a wrong duration to Tier 1. POLICY_VERSION is recorded in every record and in the manifest | ACCEPTED | Closes the gap where "lasted 36.2 milliseconds" was never a unit hit |
+| D21 | Catch-all subtypes | `other_fabrication` (Tier 1) for an invented specific that fits no listed subtype (e.g. an invented hostname); `other_knowledge` (Tier 2) for outside knowledge that fits none. Rules never produce them; the AI judge and human annotators may. A short free-text note is required whenever one is used; reports count them separately | ACCEPTED | Avoids forcing unlisted claims into a wrong subtype |
 
 ## Open items for the human to confirm (defaults apply until answered)
 - Is a second human annotator available for D6? (default: no -> test-retest)
@@ -133,3 +135,17 @@ These follow existing decisions; they are recorded so nothing is silent.
   "lasted 92 milliseconds" is not a `unit` hit; the D19 check still evaluates it (consistent -> no hit; wrong ->
   `unit_wrong`). A consistent millisecond/microsecond conversion is therefore never Tier 2. Not changed (rule
   patterns frozen); flagged for the paper side.
+- **D20/D21 implementation (2026-10-07).** POLICY_VERSION 1.2.0 (fingerprint pinned in `tests/test_policy.py`); rule
+  patterns untouched (`1d10799f...`); `tools/reproduce_frozen.py --frozen-dir old_run` still 955/955 and 354/354.
+  - D20: a new policy-layer key `[duration stated with an explicit unit]` (Tier 2 `unit`) is added per sentence with
+    at least one `<number> <unit>` claim and no rule-engine `unit` hit in that sentence. D19 then converts any `unit`
+    hit (rule or D20) in a sentence with a contradicted duration to Tier 1 `unit_wrong`; a contradicted duration
+    therefore always arrives via a `unit` hit (`original_key` records which). Without a Flow Duration the claim is
+    still a Tier 2 `unit` hit, with `consistent: null`. Consequence: a correct restatement such as
+    "36,203 microseconds" is a Tier 2 `unit` hit, so it counts under strict (not under lenient).
+  - D20 records: `policy_version` and `tier_map_sha256` are on every Phase 2/3 record produced with a policy, on
+    every run record (`run.stamp`), and in `MANIFEST.json` under `policy`.
+  - D21: the vocabulary marks the two catch-alls (`catch_all`); no rule maps to them (tested). v2 replies take an
+    optional `note` field, required (non-empty) with a catch-all, else a `reply_problems` entry; parsed records carry
+    `catch_all` and `note`. `policy.is_catch_all()` is the hook for separate counting (M5) and for the annotation
+    import (M3: catch-all labels without a note are rejected).

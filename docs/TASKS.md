@@ -50,6 +50,8 @@ Also done: D13 thinking_budget = 0 forced on every call.
 Also done (2026-10-07): D15 `escalate_clean`, D16 recorded, D17 `hedged` on every hit, D18 all subtypes per
 sentence, D19 `unit_wrong` duration check, v2 template/reply handling, `docs/SUBTYPES.md`.
 `tools/reproduce_frozen.py --frozen-dir old_run`: 955/955 and 354/354.
+Also done: D20 stated-duration `unit` hits (POLICY_VERSION 1.2.0 on every record and the manifest), D21 catch-all
+subtypes with required note.
 **Pass-through P1b:** rule -> tier table + proposed judge prompts -> paper side for sign-off.
 
 ## M3 — Annotation tooling, then FREEZE
@@ -57,7 +59,8 @@ sentence, D19 `unit_wrong` duration check, v2 template/reply handling, `docs/SUB
       + the 25-explanation test-retest subset.
 - [ ] **Blind export** to CSV (and a simple local HTML view): alert_id, sentence_id, evidence, sentence, explanation
       context, empty label/subtype/note columns. No pipeline fields. Test that no prediction leaks into the export.
-- [ ] Import + validation: allowed labels only, every sentence labelled, duplicates rejected.
+- [ ] Import + validation: allowed labels only, every sentence labelled, duplicates rejected; a catch-all subtype
+      (`other_fabrication`, `other_knowledge`, D21) without a note is rejected.
 - [ ] Agreement: Cohen's kappa (overall, Tier 1, Tier 2) with bootstrap CI; disagreement list; adjudication file.
 - [ ] Derive strict and lenient gold from the single annotation.
 **Accept:** synthetic-annotation tests; kappa matches a hand-computed example.
@@ -77,6 +80,7 @@ sentence, D19 `unit_wrong` duration check, v2 template/reply handling, `docs/SUB
 ## M5 — Evaluation v2
 - [ ] Unconditional explanation- and sentence-level metrics; also the conditional ones, labelled as such.
 - [ ] Cluster bootstrap CIs (2000, seed), McNemar between configs, per-class tables, n in every cell.
+- [ ] Count catch-all subtypes (D21) separately from listed subtypes in every subtype table.
 - [ ] Detection ablation table C0-C3 under both policies; mitigation table M0 / M-prompt / M-auto /
       M-auto+val / M-gold; injection table.
 - [ ] Rewrite audit export (100 sampled rewrites, blind, for a human to label).

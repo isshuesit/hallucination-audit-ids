@@ -31,7 +31,7 @@ import time
 from . import config
 from .detection import rule_based_detect_explanation, rule_classify_sentence, split_sentences
 from .llm_client import call_llm_for_json, get_client
-from .policy import (classify_sentence_rules, counts_as_hallucination, explanation_rule_decision,
+from .policy import (classify_sentence_rules, counts_as_hallucination, explanation_rule_decision, policy_stamp,
                      explanation_rule_hits, flow_duration_from_evidence, judge_prompt_files, parse_v2_reply,
                      sentence_policy_decision, sentence_prompt_files, tier_for_type)
 from .prompt_store import load_prompt
@@ -125,11 +125,12 @@ def detect_explanation(client, alert: dict, expl: dict, *, sleep: bool = True, p
         record.update({"contains_hallucination": counted if parsed["verdict"] is not None else None,
                        "hallucination_type": parsed["hallucination_type"]})
         extra = {"judge": {"contains_hallucination": parsed["verdict"], "tier": tier, "subtype": subtype,
-                           "reply_problems": parsed["reply_problems"]}}
+                           "reply_problems": parsed["reply_problems"],
+                           "catch_all": parsed["catch_all"], "note": parsed["note"]}}
     return {**record, "policy": policy, "use_tier2_rules": use_tier2_rules, "judge_prompt": judge_prompt,
             "escalate_clean": escalate_clean, "tier": tier, "subtype": subtype,
             "rule_hits": rule_pass["hits"], "uncounted_rules": rule_result["uncounted_rules"],
-            "duration_claims": rule_pass["duration_claims"], **extra}
+            "duration_claims": rule_pass["duration_claims"], **extra, **policy_stamp()}
 
 
 def _detect_explanation(client, alert: dict, expl: dict, *, sleep: bool, rule_result: dict | None = None,
@@ -325,12 +326,13 @@ def classify_sentence(client, alert: dict, sentence_id: str, sentence: str, *, s
         if not counted:
             tier, subtype = None, None
         extra = {"judge": {"label": llm.get("label"), "tier": parsed["tier"], "subtype": parsed["subtype"],
-                           "reply_problems": parsed["reply_problems"]}}
+                           "reply_problems": parsed["reply_problems"],
+                           "catch_all": parsed["catch_all"], "note": parsed["note"]}}
     record.update({"policy": policy, "sentence_prompt": sentence_prompt, "tier": tier, "subtype": subtype,
                    "subtypes": rule_result["subtypes"], "hedged": rule_result["hedged"],
                    "rule_hits": rule_result["hits"], "duration_claims": rule_result["duration_claims"],
                    "rule_label": rule_result["label"], "rule_tier": rule_result["tier"],
-                   "rule_subtype": rule_result["subtype"], **extra})
+                   "rule_subtype": rule_result["subtype"], **extra, **policy_stamp()})
     return record, used_llm
 
 

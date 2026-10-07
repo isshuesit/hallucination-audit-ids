@@ -35,6 +35,7 @@ def test_rule_patterns_are_untouched():
 POLICY_PINS = {
     "1.0.0": "85b280287c3eca908a59189d8f49b8b89b8683d6c865c91aa5d57dd38f2a2ff6",
     "1.1.0": "a7cd9218334bb702d5b5b7f9253da33a58c949ce0a7ef5c0a856566308732b98",   # D15-D19
+    "1.2.0": "f83ccde8857c4117158c3231884d1e56997f2035aa6ac995252a2339a1b4d8be",   # D20, D21
 }
 
 
@@ -52,7 +53,7 @@ def test_every_rule_has_a_tier_with_a_matching_type():
     for _, desc in P.EXTERNAL_KNOWLEDGE_PATTERNS:
         assert POL.RULE_TIERS[desc].tier == POL.TIER2 and POL.RULE_TIERS[desc].type == "external_knowledge"
     real = {d for _, _, d in P.ALL_RULE_PATTERNS} | {d for _, d in P.EXTERNAL_KNOWLEDGE_PATTERNS}
-    special = {POL.PORT_MISMATCH, POL.PROTOCOL_INJECTION, POL.SOFT_CERTAINTY, POL.UNIT_WRONG}
+    special = {POL.PORT_MISMATCH, POL.PROTOCOL_INJECTION, POL.SOFT_CERTAINTY, POL.UNIT_WRONG, POL.UNIT_STATED}
     assert set(POL.RULE_TIERS) == real | special == set(POL.LAYER_ORDER)
 
 
@@ -60,7 +61,10 @@ def test_rule_subtypes_come_from_the_vocabulary():
     for key, rt in POL.RULE_TIERS.items():
         st = POL.SUBTYPES[rt.subtype]
         assert (st.tier, st.type) == (rt.tier, rt.type), key
-    assert set(POL.SUBTYPES) == {rt.subtype for rt in POL.RULE_TIERS.values()}
+    # D21: every subtype is produced by some rule, except the two catch-alls, which no rule produces
+    assert set(POL.SUBTYPES) - {rt.subtype for rt in POL.RULE_TIERS.values()} == set(POL.CATCH_ALL_SUBTYPES)
+    assert POL.CATCH_ALL_SUBTYPES == ("other_fabrication", "other_knowledge")
+    assert (POL.SUBTYPES["other_fabrication"].tier, POL.SUBTYPES["other_knowledge"].tier) == (1, 2)
 
 
 def test_tier2_subtypes_are_exactly_the_planned_five():
@@ -200,17 +204,45 @@ def test_d19_duration_claims(duration, sentence, consistent):
     assert len(claims) == 1 and claims[0]["consistent"] is consistent
 
 
-def test_d19_milliseconds_are_checked_although_the_old_unit_pattern_misses_them():
-    s = "The flow lasted approximately 92 milliseconds."
+def test_d20_stated_duration_is_a_tier2_unit_hit_when_the_rule_engine_has_none():
+    s = "The flow lasted 36.2 milliseconds."                 # the old unit pattern misses milliseconds
+    assert rule_classify_sentence(s, TOKENS)["label"] == "grounded"
+    r = POL.classify_sentence_rules(s, TOKENS, flow_duration_us=36203)
+    (hit,) = r["hits"]
+    assert (hit["tier"], hit["subtype"], hit["unit_wrong"], hit["key"]) == (2, "unit", False, POL.UNIT_STATED)
+    assert POL.sentence_policy_decision(r, s, "strict")["label"] == "hallucinated"
+    assert POL.sentence_policy_decision(r, s, "lenient")["label"] == "grounded"
+
+
+def test_d20_and_d19_wrong_stated_duration_is_tier1_unit_wrong():
+    s = "The flow lasted 92 seconds."
     r = POL.classify_sentence_rules(s, TOKENS, flow_duration_us=92190)
-    assert r["hits"] == [] and r["duration_claims"][0]["consistent"] is True      # consistent -> grounded
-    wrong = POL.classify_sentence_rules("The flow lasted approximately 92 microseconds.", TOKENS, flow_duration_us=92190)
-    assert wrong["subtypes"] == ["unit_wrong"]
+    (hit,) = r["hits"]
+    assert (hit["tier"], hit["subtype"], hit["unit_wrong"]) == (1, "unit_wrong", True)
+    assert POL.sentence_policy_decision(r, s, "lenient")["label"] == "hallucinated"
 
 
-def test_d19_no_claims_without_a_unit_or_without_flow_duration():
+def test_d20_no_extra_hit_when_the_rule_engine_already_has_a_unit_hit():
+    r = POL.classify_sentence_rules("The flow lasted approximately 0.09 seconds.", TOKENS, flow_duration_us=92190)
+    assert [h["key"] for h in r["hits"]] == ["Unit assumption — raw flow duration has no guaranteed unit"]
+
+
+def test_d20_applies_without_a_flow_duration_but_cannot_judge_it():
+    s = "It lasted 5 seconds."
+    r = POL.classify_sentence_rules(s, TOKENS, flow_duration_us=None)
+    assert [(h["tier"], h["subtype"]) for h in r["hits"]] == [(2, "unit")]
+    assert r["duration_claims"][0]["consistent"] is None
+
+
+def test_d20_only_with_the_tier2_layer_at_explanation_level():
+    text = "The flow had 450 packets in this record. It lasted 36.2 milliseconds in total."
+    on = POL.explanation_rule_hits(text, TOKENS, use_tier2_rules=True, flow_duration_us=36203)
+    off = POL.explanation_rule_hits(text, TOKENS, use_tier2_rules=False, flow_duration_us=36203)
+    assert [(h["tier"], h["subtype"]) for h in on["hits"]] == [(2, "unit")] and off["hits"] == []
+
+
+def test_d19_no_claims_without_a_unit():
     assert POL.duration_claims("The rate was 1,500 packets per second and 92190 overall.", 92190) == []
-    assert POL.duration_claims("The flow lasted 92 seconds.", None) == []
 
 
 def test_d19_wrong_unit_hit_becomes_tier1_under_both_policies():
@@ -232,15 +264,17 @@ def test_d19_consistent_unit_stays_tier2():
     assert POL.sentence_policy_decision(r, s, "lenient")["label"] == "grounded"
 
 
-def test_d19_wrong_duration_without_the_unit_pattern_is_its_own_hit():
+def test_d19_wrong_duration_without_the_unit_pattern_is_tier1():
     s = "The flow duration is 92 seconds in total."
     r = POL.classify_sentence_rules(s, TOKENS, flow_duration_us=92190)
     assert r["label"] == "grounded"                       # the rule engine alone sees nothing
-    assert r["subtypes"] == ["unit_wrong"]
+    assert r["subtypes"] == ["unit_wrong"] and r["hits"][0]["original_key"] == POL.UNIT_STATED
     assert POL.sentence_policy_decision(r, s, "lenient")["label"] == "hallucinated"
+    # a correct restatement in microseconds is still a stated unit (D20): Tier 2, not wrong
     ok = "The flow duration was 36,203 microseconds."
     r = POL.classify_sentence_rules(ok, TOKENS, flow_duration_us=36203)
-    assert r["hits"] == [] and POL.sentence_policy_decision(r, ok, "strict")["label"] == "grounded"
+    assert [(h["tier"], h["subtype"], h["unit_wrong"]) for h in r["hits"]] == [(2, "unit", False)]
+    assert POL.sentence_policy_decision(r, ok, "lenient")["label"] == "grounded"
 
 
 def test_d19_explanation_level_runs_with_the_tier2_layer_only():
@@ -308,6 +342,23 @@ def test_parse_v2_explanation_reply(reply, verdict, tier, subtype, problems):
     assert len(p["reply_problems"]) == len(problems)
     for want, got in zip(problems, p["reply_problems"]):
         assert want in got
+
+
+@pytest.mark.parametrize("subtype,tier", [("other_fabrication", 1), ("other_knowledge", 2)])
+def test_d21_catch_all_subtypes_need_a_note(subtype, tier):
+    with_note = POL.parse_v2_reply({"contains_hallucination": True, "tier": tier, "subtype": subtype,
+                                    "note": "invented hostname srv-db-01"}, "explanation")
+    assert with_note["reply_problems"] == [] and with_note["catch_all"] and with_note["note"]
+    for note in (None, "", "  ", "null"):
+        p = POL.parse_v2_reply({"label": "hallucinated", "tier": tier, "subtype": subtype, "note": note}, "sentence")
+        assert any("needs a short free-text note" in x for x in p["reply_problems"])
+    assert POL.is_catch_all(subtype) and not POL.is_catch_all("cve") and not POL.is_catch_all(None)
+
+
+def test_d21_no_rule_ever_produces_a_catch_all():
+    for text, tokens in corpus():
+        for s in P.split_sentences(text):
+            assert not set(POL.classify_sentence_rules(s, tokens, 92190)["subtypes"]) & set(POL.CATCH_ALL_SUBTYPES)
 
 
 def test_parse_v2_sentence_reply():
@@ -403,6 +454,14 @@ def test_phase2_with_policy_records_tier_hits_and_duration_claims():
                                       "subtype", "rule_hits", "uncounted_rules", "duration_claims"}
 
 
+def test_v2_catch_all_reply_is_recorded_with_its_note(v2_prompts):
+    client = Reply({"contains_hallucination": True, "confidence": "low", "tier": 1, "subtype": "other_fabrication",
+                    "note": "invented hostname", "reason": "r"})
+    rec = detect_explanation(client, ALERT, expl(CLEAN), sleep=False, policy="lenient", judge_prompt="v2-lenient")
+    assert rec["contains_hallucination"] is True and rec["subtype"] == "other_fabrication"
+    assert rec["judge"]["catch_all"] is True and rec["judge"]["note"] == "invented hostname"
+
+
 def test_phase3_sentence_records_all_new_fields():
     s = "The flow lasted approximately 92 seconds based on the duration value."
     legacy, _ = classify_sentence(FakeGemini(), ALERT, "S1", s, sleep=False)
@@ -452,7 +511,9 @@ def test_v2_explanation_judge_reply_is_parsed_and_the_policy_applied(v2_prompts)
         client = Reply(reply)
         rec = detect_explanation(client, ALERT, expl(CLEAN), sleep=False, policy=policy, judge_prompt=f"v2-{policy}")
         assert rec["contains_hallucination"] is counted and (rec["tier"], rec["subtype"]) == (2, "baseline")
-        assert rec["judge"] == {"contains_hallucination": True, "tier": 2, "subtype": "baseline", "reply_problems": []}
+        assert rec["judge"] == {"contains_hallucination": True, "tier": 2, "subtype": "baseline", "reply_problems": [],
+                                "catch_all": False, "note": None}
+        assert rec["policy_version"] == POL.POLICY_VERSION and rec["tier_map_sha256"]
         assert client.prompts[0].startswith(f"SYSTEM detect_explanation_system_v2_{policy}.txt")
         assert 'Reply as {"tier": 1}' in client.prompts[0] and CLEAN in client.prompts[0]
 

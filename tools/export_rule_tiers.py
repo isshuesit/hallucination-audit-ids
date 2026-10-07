@@ -30,11 +30,14 @@ LAYERS = (
         "protocol name (" + P.PROTOCOL_NAME_RE.pattern + ") whose well-known port is absent from the evidence, "
         "or which has no well-known port")]
     + [(d, "4 external knowledge", p.pattern) for p, d in P.EXTERNAL_KNOWLEDGE_PATTERNS]
-    + [(POL.UNIT_WRONG, "5 duration check (D19)",
+    + [(POL.UNIT_STATED, "5 stated duration (D20)",
+        "a duration stated with an explicit unit, " + POL.DURATION_CLAIM_RE.pattern + ", in a sentence for which the "
+        "rule engine produced no Tier 2 `unit` hit (only when the Tier 2 layer is on)")]
+    + [(POL.UNIT_WRONG, "6 duration check (D19)",
         "a stated duration " + POL.DURATION_CLAIM_RE.pattern + " that differs by more than "
         f"{POL.DURATION_TOLERANCE:.0%} from Flow Duration / 1,000,000 seconds (and is not that value rounded to "
         "the stated decimals). A Tier 2 `unit` hit in such a sentence becomes `unit_wrong`.")]
-    + [(POL.SOFT_CERTAINTY, "6 soft certainty", P.SOFT_CERTAINTY_RE.pattern)]
+    + [(POL.SOFT_CERTAINTY, "7 soft certainty", P.SOFT_CERTAINTY_RE.pattern)]
 )
 
 
@@ -53,7 +56,7 @@ def render_rule_tiers() -> str:
         "**lenient** counts Tier 1 only. Layers are listed in the order the sentence engine checks them. Every "
         "matched rule is kept (D18); the primary one is the first Tier 1 hit in this order, else the first counted "
         "hit. Soft certainty never decides on its own: it sends the item to the LLM judge. At explanation level, "
-        "layers 1-3 are the old Phase 2 rules (C0, C2); layers 4 and 5 are added for C1 and C3. Every hit carries "
+        "layers 1-3 are the old Phase 2 rules (C0, C2); layers 4-6 are added for C1 and C3 (at sentence level they always run). Layers 5 and 6 live in `policy.py`; the rule patterns are frozen. Every hit carries "
         "`hedged` (D17, lexicon below), which never changes its tier.",
         "",
         "| # | Layer | Rule | Engine type | Tier | Subtype | strict | lenient |",
@@ -77,16 +80,23 @@ def render_subtypes() -> str:
         "`subtype` is not in the first table, or whose `tier` does not match it, is recorded with a "
         "`reply_problems` entry.",
         "",
+        "Catch-alls (D21): `other_fabrication` and `other_knowledge` are never produced by rules; only the AI judge "
+        "and human annotators use them. Whenever one is used, a short free-text `note` saying what was invented or "
+        "assumed is required (a judge reply without it gets a `reply_problems` entry). Reports count them "
+        "separately from the listed subtypes.",
+        "",
         "Reply fields. Explanation level: `contains_hallucination`, `confidence`, `tier` (1, 2 or null), "
         "`subtype`, `reason`. Sentence level: `label` (`hallucinated` or `grounded`), `confidence`, `tier`, "
-        "`subtype`, `reason`. Use `null` for tier and subtype when there is no hallucination.",
+        "`subtype`, `reason`. Both levels also take `note`, required with a catch-all subtype. Use `null` for tier and "
+        "subtype when there is no hallucination.",
         "",
-        "| Subtype | Tier | Type | Meaning |",
-        "|---|---|---|---|",
+        "| Subtype | Tier | Type | Produced by | Meaning |",
+        "|---|---|---|---|---|",
     ]
     for name, s in POL.SUBTYPES.items():
         if s.label:
-            lines.append(f"| `{name}` | {s.tier} | {s.type} | {s.meaning} |")
+            by = "judge, annotators (note required)" if s.catch_all else "rules, judge, annotators"
+            lines.append(f"| `{name}` | {s.tier} | {s.type} | {by} | {s.meaning} |")
     lines += ["", "Rule-internal markers (never a label, never a valid reply subtype):", "",
               "| Marker | Meaning |", "|---|---|"]
     for name, s in POL.SUBTYPES.items():
