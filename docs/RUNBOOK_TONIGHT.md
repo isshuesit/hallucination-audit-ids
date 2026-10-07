@@ -20,11 +20,19 @@ cd "C:\Users\ishit\Downloads\hallucination_pipeline\hallucination_pipeline_proje
 ## 1. Check the freeze and the tests
 
 ```powershell
-git describe --tags --exact-match
+git tag --list freeze-1
+git diff --stat freeze-1 -- hallucination_pipeline configs docs/ANNOTATION_GUIDE_v2.md
 python -m pytest tests/ -q
 ```
 
-You should see `freeze-1`, then `... passed`. If either fails, stop and check before continuing.
+You should see:
+1. `freeze-1` (the tag exists);
+2. **nothing at all** from the `git diff` line: the frozen files (rules, policy, prompts, configs, analysis and
+   annotation code, the guide) are unchanged since the tag. Commits made after the tag (for example test-only fixes)
+   are fine as long as this prints nothing;
+3. `... passed` with no failures.
+
+If any of the three is different, stop and check before continuing.
 
 ## 2. Export the blind audit sheet
 

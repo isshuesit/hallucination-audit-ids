@@ -34,6 +34,7 @@ Append new entries at the bottom. Never delete an entry; supersede it.
 | D26 | freeze-1 | Tag `freeze-1` now: rules 1.0.0, policy 1.2.0, annotation guide v2, analysis code. After it only bug fixes, each logged POST-HOC | ACCEPTED | Nothing may be tuned after results are seen |
 | D27 | No LLM arms tonight | No LLM-judge arms, no prompt-v2 comparison, no rewrite arms tonight; future work | ACCEPTED | No API calls available |
 | D28 | Human audit | 25 explanations from the corpus: 3 from each of the 4 attack classes present (DoS, DDoS, Port Scanning, Brute Force) = 12 attack-flow, plus 13 benign-flow, fixed seed (42). Blind sheets, no second pass. Reported as an audit with wide intervals | ACCEPTED | Feasible tonight; measures the rules against a human |
+| D29 | Test isolated from the freeze tag | `tests/test_annotation.py::test_cli_export_import_agreement` expected the CLI export to be refused because the project had no freeze-1 tag; after D26 it has, so the test failed. The test now runs the real guard against a temporary git repository without the tag (monkeypatched). TEST-ONLY: no non-test code changed; no change to analysis behaviour; frozen files unchanged since freeze-1 (`git diff --stat freeze-1 -- hallucination_pipeline configs docs/ANNOTATION_GUIDE_v2.md` is empty); the freeze-1 tag was not moved. Runbook step 1 now checks the tag exists and that diff is empty, instead of an exact tag match | POST-HOC | The test depended on the state of the real repository |
 
 ## Open items for the human to confirm (defaults apply until answered)
 - Is a second human annotator available for D6? (default: no -> test-retest)
@@ -238,4 +239,10 @@ These follow existing decisions; they are recorded so nothing is silent.
   - Freeze guard change (before the tag): `freeze_tag_ok` now ignores untracked files, so output folders
     (`results/`, `annotation/`) do not block an export; changed tracked files still do.
   - The runbook is `docs/RUNBOOK_TONIGHT.md`: label first, then analyse (the annotator must not see results first).
+- **Freeze guard, as built (2026-10-07, reviewed after freeze-1, not changed).** `annotation.freeze_tag_ok` requires:
+  the tag exists; the tag is an ancestor of HEAD (NOT an exact match, so later commits are fine); no tracked file has
+  uncommitted changes. Known gap: it does not compare committed changes to the frozen files against the tag, so a
+  frozen file changed AND committed after freeze-1 would not be refused by the guard. Closing that would mean editing
+  `annotation.py`, itself a frozen file, which a frozen-files check would then report as changed since freeze-1.
+  Until the paper side decides, the runbook's `git diff --stat freeze-1 -- ...` check (must print nothing) covers it.
 

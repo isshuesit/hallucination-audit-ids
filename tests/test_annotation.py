@@ -335,9 +335,18 @@ def test_retest_agreement_on_the_subset(export, tmp_path):
 
 # ── command line, end to end on a synthetic run ───────────────────────────
 
-def test_cli_export_import_agreement(tmp_path, capsys):
+def test_cli_export_import_agreement(tmp_path, capsys, monkeypatch):
     from hallucination_pipeline import cli
     from test_run_infrastructure import BASE, _to_toml
+    # The CLI checks the freeze in the project repository, whose state (freeze-1 exists since D26) must not
+    # decide this test. Run the real guard against a temporary repository that has no freeze-1 tag instead.
+    untagged = tmp_path / "untagged_repo"
+    untagged.mkdir()
+    git = lambda *a: subprocess.run(["git", *a], cwd=untagged, capture_output=True, text=True, check=True)
+    git("init", "-q")
+    git("-c", "user.email=t@t", "-c", "user.name=t", "commit", "-q", "--allow-empty", "-m", "x")
+    real_guard = AN.freeze_tag_ok
+    monkeypatch.setattr(AN, "freeze_tag_ok", lambda repo, tag="freeze-1": real_guard(untagged, tag))
     alerts, explanations = synthetic_run()
     run_dir = tmp_path / "runs" / "syn-run"
     run_dir.mkdir(parents=True)
