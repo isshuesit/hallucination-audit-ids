@@ -2,7 +2,7 @@
 Tests for the rule-based hallucination classifiers.
 
 Test cases are drawn directly from the worked examples in the original
-project's ANNOTATION_GUIDE.md, not invented for this rebuild - this checks
+project's annotation guide (now docs/archive/ANNOTATION_GUIDE_v1.md), not invented for this rebuild - this checks
 the rebuilt rule engine agrees with the same standard the original project
 defined, not a new one.
 """
@@ -16,7 +16,7 @@ from hallucination_pipeline.detection import rule_classify_sentence, rule_based_
 
 
 def test_named_cve_is_factual_hallucination():
-    # ANNOTATION_GUIDE.md: "exploits CVE-2017-0144" when evidence has no CVE
+    # ANNOTATION_GUIDE v1: "exploits CVE-2017-0144" when evidence has no CVE
     sentence = "This flow exploits CVE-2017-0144 to gain access."
     result = rule_classify_sentence(sentence, evidence_tokens=set())
     assert result["label"] == "hallucinated"
@@ -24,7 +24,7 @@ def test_named_cve_is_factual_hallucination():
 
 
 def test_attacker_targeting_claim_is_reasoning_hallucination():
-    # ANNOTATION_GUIDE.md: "attacker is targeting the database server" when
+    # ANNOTATION_GUIDE v1: "attacker is targeting the database server" when
     # only port 22 is mentioned. NOTE: the original regex only matches
     # "an attacker" (indefinite article), not "the attacker" - a real,
     # narrow gap in the original pattern, preserved here rather than
@@ -54,7 +54,7 @@ def test_definitive_compromise_claim_is_certainty_hallucination():
 
 
 def test_grounded_restatement_of_evidence_passes():
-    # ANNOTATION_GUIDE.md: "repeated failed logins -> brute force" type
+    # ANNOTATION_GUIDE v1: "repeated failed logins -> brute force" type
     # restatement using evidence numbers should NOT be flagged.
     sentence = "The flow shows 450 SYN flag counts directed at destination port 22."
     result = rule_classify_sentence(sentence, evidence_tokens={"450", "22"})

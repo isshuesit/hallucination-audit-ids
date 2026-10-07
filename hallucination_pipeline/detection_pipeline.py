@@ -389,7 +389,7 @@ def run_sentence_localization(only_flagged: bool = True) -> list[dict]:
     hallucinated = sum(1 for p in predictions if p["predicted_label"] == "hallucinated")
     print(f"Saved {len(predictions)} sentence predictions ({hallucinated} hallucinated, "
           f"{llm_calls} LLM calls) -> {config.SENTENCE_PREDICTIONS_PATH}")
-    print(f"ACTION NEEDED: fill 'gold_label' in {config.SENTENCE_GOLD_PATH} (see ANNOTATION_GUIDE.md)")
+    print(f"ACTION NEEDED: fill 'gold_label' in {config.SENTENCE_GOLD_PATH} (see docs/archive/ANNOTATION_GUIDE_v1.md)")
     return predictions
 
 

@@ -389,16 +389,61 @@ def test_expected_v2_prompt_names_are_the_paper_sides():
         "localize_sentence_system_v2_lenient.txt", "localize_sentence_template_v2.txt", "generate_system_v2.txt"])
 
 
-def test_v1_prompts_resolve_and_missing_v2_prompts_give_a_clear_error():
+# D22: the paper side's v2 prompts, byte-exact as delivered. Never edit in place: new wording = new file.
+V2_PROMPT_PINS = {
+    "detect_explanation_system_v2_lenient.txt": "4183b2026e0b6f7dba27f4e065e5f08e067b59e6d62cb387327414077e01040b",
+    "detect_explanation_system_v2_strict.txt": "9fa8ae5a44a8187a9242287e2d5e02933b516bb0b3ccdfeb280499e09b9a1aee",
+    "detect_explanation_template_v2.txt": "01d628aec0cbd068967897dc87a6960e97825c6bc58ca29b30f9ce720d80a8ce",
+    "generate_system_v2.txt": "8f1c9d795b85518539a468a447af6d252f2eb5b2b16cd5d4846c705129bf920d",
+    "localize_sentence_system_v2_lenient.txt": "9b080ad8366a0525edf9e772076de7d07e8ddb2e79679414948a6a1de9016651",
+    "localize_sentence_system_v2_strict.txt": "8bc188cf5ee136f43aa53082c5c9687e77796017c97b1994ae7d413926ee77ed",
+    "localize_sentence_template_v2.txt": "f1510d3cff7065c0308118508c7b35f73585e6ee5a455d83a951ed95722b7827",
+}
+
+
+def test_v2_prompts_are_present_and_unchanged():
+    from hallucination_pipeline.prompt_store import prompt_hashes
+    hashes = prompt_hashes()
+    assert sorted(V2_PROMPT_PINS) == POL.EXPECTED_V2_PROMPTS
+    for name, digest in V2_PROMPT_PINS.items():
+        assert hashes[name] == digest, f"{name} was edited in place; add a new file instead"
+
+
+def test_all_prompts_resolve_through_the_registry():
     assert POL.judge_prompt_files("v1") == ("detect_explanation_system.txt", "detect_explanation_template.txt")
     assert POL.sentence_prompt_files("v1") == ("localize_sentence_system.txt", None)
+    for policy in ("strict", "lenient"):
+        assert POL.judge_prompt_files(f"v2-{policy}") == (f"detect_explanation_system_v2_{policy}.txt",
+                                                          "detect_explanation_template_v2.txt")
+        assert POL.sentence_prompt_files(f"v2-{policy}") == (f"localize_sentence_system_v2_{policy}.txt",
+                                                             "localize_sentence_template_v2.txt")
+    with pytest.raises(ValueError):
+        POL.judge_prompt_files("v3")
+
+
+def test_v2_templates_format_with_their_placeholders_only():
+    e = load_prompt("detect_explanation_template_v2.txt").format(evidence="EVID", explanation="EXPL")
+    s = load_prompt("localize_sentence_template_v2.txt").format(evidence="EVID", sentence="SENT")
+    for text, filled in ((e, "EXPL"), (s, "SENT")):
+        assert "EVID" in text and filled in text
+        start = text.index("{")
+        reply = json.loads(text[start:].replace("true or false", "true").replace(
+            '"high" or "medium" or "low"', '"high"').replace("1 or 2 or null", "1").replace(
+            '"one subtype name from the lists above" or null', '"cve"').replace(
+            'null or "a few words (REQUIRED when the subtype is other_fabrication or other_knowledge)"', "null").replace(
+            '"hallucinated" or "grounded"', '"hallucinated"'))
+        assert set(reply) - {"contains_hallucination", "label"} == {"confidence", "tier", "subtype", "reason", "note"}
+    with pytest.raises(KeyError):
+        load_prompt("detect_explanation_template_v2.txt").format(evidence="E")
+
+
+def test_a_missing_v2_prompt_gives_a_clear_error(tmp_path, monkeypatch):
+    monkeypatch.setattr(config, "PROMPTS_DIR", tmp_path)
     for name in ("v2-strict", "v2-lenient"):
         with pytest.raises(FileNotFoundError, match="supplied by the paper side"):
             POL.judge_prompt_files(name)
         with pytest.raises(FileNotFoundError, match="supplied by the paper side"):
             POL.sentence_prompt_files(name)
-    with pytest.raises(ValueError):
-        POL.judge_prompt_files("v3")
 
 
 def test_d15_escalation_option():

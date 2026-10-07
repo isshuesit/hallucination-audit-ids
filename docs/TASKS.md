@@ -64,7 +64,17 @@ subtypes with required note.
 - [ ] Agreement: Cohen's kappa (overall, Tier 1, Tier 2) with bootstrap CI; disagreement list; adjudication file.
 - [ ] Derive strict and lenient gold from the single annotation.
 **Accept:** synthetic-annotation tests; kappa matches a hand-computed example.
-**FREEZE:** `git tag freeze-1` after M3 is green and *before* exporting real sheets.
+## M3b — Pilot (D24), before the freeze
+- [ ] Pilot: 40 alerts (about 3 per class), generation plus detection for all configs C0-C3 and both policies, run
+      under its own config / run_id. Needs `GEMINI_API_KEY`.
+- [ ] Check: malformed or contradictory judge replies (`reply_problems`), rate limits and retries, failures, tokens and
+      cost, time per call, class balance.
+- [ ] Fix only malformed output or contradictions (prompt/format), each change logged in DECISIONS.md before the freeze.
+      Never tune rules on pilot output.
+- [ ] Discard the pilot run (never used for results).
+**Pass-through P3:** pilot manifest, cost, failures -> paper side.
+
+**FREEZE:** `git tag freeze-1` after M3 and M3b are green and *before* exporting real sheets.
 **Pass-through P2:** blind sheets -> the human annotator (outside the code tooling) -> filled sheets back -> import.
 
 ## M4 — Mitigation upgrades
@@ -89,7 +99,7 @@ subtypes with required note.
 **Accept:** tests on hand-checkable toy data; `paper_numbers.json` regenerates byte-identically from a frozen run.
 
 ## M6 — Execution
-- [ ] Pilot: 40 alerts (about 3 per class). Check cost, time, failures, class balance. Fix, then discard the pilot run.
+- [x] Pilot: moved before the freeze as M3b (D24).
 - [ ] Full run from the frozen config; freeze the run directory.
 - [ ] Annotation (human, outside the code tooling) -> import -> agreement -> metrics.
 **Pass-through P3 (after pilot), P4 (after full run).**

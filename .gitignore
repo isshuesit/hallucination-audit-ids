@@ -23,3 +23,6 @@ outbox/
 
 # the old run's frozen artifacts (input to tools/reproduce_frozen.py), never committed
 old_run/
+
+# paper-side delivery folders (contents are copied into place; see DECISIONS D22)
+paper_side_*/

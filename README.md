@@ -104,7 +104,7 @@ python -m hallucination_pipeline.cli generate     # 2. LLM explanations        (
 python -m hallucination_pipeline.cli detect        # 3. explanation-level flags  (API key)
 python -m hallucination_pipeline.cli localize       # 4. sentence-level labels    (API key)
 
-#   ---- MANUAL: fill in `gold_label` fields; see ANNOTATION_GUIDE.md ----
+#   ---- MANUAL: fill in `gold_label` fields; see docs/archive/ANNOTATION_GUIDE_v1.md (old run) ----
 
 python -m hallucination_pipeline.cli unlearn         # 5. REMOVE / QUALIFY / KEEP  (API key)
 python -m hallucination_pipeline.cli impact           # 6. before/after impact      (API key)
@@ -151,7 +151,7 @@ hallucination_pipeline/
   llm_client.py             Gemini wrapper: retries, 429 handling, JSON parsing
 tools/verify_against_original.py     differential verification against the original
 tests/                               offline tests
-ANNOTATION_GUIDE.md                  how to fill in gold labels
+docs/ANNOTATION_GUIDE_v2.md          how to label (fresh run); v1 in docs/archive/
 ```
 
 The prompts are part of the method. Edit them only deliberately: changing a word changes

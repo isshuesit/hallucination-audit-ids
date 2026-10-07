@@ -1,6 +1,6 @@
 """Phase 5, Step 6: end-to-end evaluation. Computes Precision/Recall/F1 for
 Phase 2 and Phase 3 (requires gold_label to have been filled in by a human
-annotator - see ANNOTATION_GUIDE.md), plus Phase 4 mitigation impact.
+annotator - see docs/archive/ANNOTATION_GUIDE_v1.md), plus Phase 4 mitigation impact.
 """
 
 from __future__ import annotations
@@ -38,7 +38,7 @@ def gold_to_int(value) -> int:
 def evaluate_explanation_level(detections: list[dict]) -> dict:
     with_gold = [d for d in detections if d.get("gold_label") is not None]
     if not with_gold:
-        print("No gold labels in phase2_detection.json - fill these in first (see ANNOTATION_GUIDE.md).")
+        print("No gold labels in phase2_detection.json - fill these in first (see docs/archive/ANNOTATION_GUIDE_v1.md).")
         return {"evaluated": 0, "warning": "No gold labels."}
 
     y_true = [gold_to_int(d["gold_label"]) for d in with_gold]

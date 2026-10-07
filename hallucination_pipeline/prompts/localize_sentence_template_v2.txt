@@ -1,0 +1,17 @@
+RAW FLOW EVIDENCE (the ONLY facts the AI had access to):
+{evidence}
+
+ONE SENTENCE FROM THE AI'S EXPLANATION:
+{sentence}
+
+Audit this one sentence under the policy above. In "reason", quote the shortest phrase that is the problem.
+
+Respond ONLY with this JSON object:
+{{
+  "label": "hallucinated" or "grounded",
+  "confidence": "high" or "medium" or "low",
+  "tier": 1 or 2 or null,
+  "subtype": "one subtype name from the lists above" or null,
+  "reason": "One concise sentence naming the unsupported claim, or 'None found.'",
+  "note": null or "a few words (REQUIRED when the subtype is other_fabrication or other_knowledge)"
+}}

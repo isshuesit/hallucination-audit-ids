@@ -1,3 +1,5 @@
+> **SUPERSEDED** by `docs/ANNOTATION_GUIDE_v2.md` (D22, 2026-10-07). Kept for the record of the old run only; do not use for labelling.
+
 # Annotation Guide - Hallucination Labels
 ## LLM Cybersecurity Explanation Hallucination Study
 

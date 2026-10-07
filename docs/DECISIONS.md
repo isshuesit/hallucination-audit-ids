@@ -27,6 +27,9 @@ Append new entries at the bottom. Never delete an entry; supersede it.
 | D19 | Duration units | Flow Duration is in microseconds (CICFlowMeter). Deterministic `unit_wrong` check: a sentence stating a duration with a unit (microsecond/millisecond/second/minute/hour) whose value differs from Flow Duration / 1,000,000 seconds by more than 10% (rounding allowed) is Tier 1 factual `unit_wrong` under both policies; otherwise `unit` stays Tier 2 | ACCEPTED | 28 of 132 old rewrites had unsupported figures, e.g. 92,190 -> "92 seconds" |
 | D20 | Stated durations | Rules stay frozen. In the POLICY layer, when Tier 2 rules are on (C1/C3, and in the sentence classifier), any stated duration with an explicit unit (microsecond, millisecond, second, minute, hour) is a Tier 2 `unit` hit if the rule engine produced no `unit` hit for that sentence. `unit_wrong` (D19) still escalates a wrong duration to Tier 1. POLICY_VERSION is recorded in every record and in the manifest | ACCEPTED | Closes the gap where "lasted 36.2 milliseconds" was never a unit hit |
 | D21 | Catch-all subtypes | `other_fabrication` (Tier 1) for an invented specific that fits no listed subtype (e.g. an invented hostname); `other_knowledge` (Tier 2) for outside knowledge that fits none. Rules never produce them; the AI judge and human annotators may. A short free-text note is required whenever one is used; reports count them separately | ACCEPTED | Avoids forcing unlisted claims into a wrong subtype |
+| D22 | v2 prompts delivered | The paper side delivered `detect_explanation_system_v2_strict.txt`, `detect_explanation_system_v2_lenient.txt`, `detect_explanation_template_v2.txt`, `localize_sentence_system_v2_strict.txt`, `localize_sentence_system_v2_lenient.txt`, `localize_sentence_template_v2.txt`, `generate_system_v2.txt` (new files in `hallucination_pipeline/prompts/`, byte-exact, hashes pinned in `tests/test_policy.py`) and `docs/ANNOTATION_GUIDE_v2.md`. The v1 guide is archived as `docs/archive/ANNOTATION_GUIDE_v1.md` | ACCEPTED | Completes M2's prompt inputs and the annotation protocol |
+| D23 | Annotation CSV | Columns `label` (grounded or hallucinated), `subtype` (a name from SUBTYPES.md; empty if grounded), `hedged` (yes or no; empty if grounded), `other_subtypes` (optional, comma separated), `note`, `unsure` (yes or empty). The tier is derived from the subtype and never typed. Import rejects: unknown subtype names, hallucinated without a subtype, grounded with a subtype, other_fabrication or other_knowledge without a note, and any blank label | ACCEPTED | One unambiguous format for gold labels; errors caught at import, not at analysis |
+| D24 | Pilot before the freeze | The 40-alert pilot (generation plus detection, all configs and both policies) runs BEFORE freeze-1, for debugging only (malformed replies, rate limits, cost). Pilot output is discarded and never used to tune rules. Prompt or format changes made because of the pilot are allowed only to fix malformed output or contradictions, and must be logged before the freeze | ACCEPTED | Finds plumbing failures while changes are still allowed, without letting results shape the method |
 
 ## Open items for the human to confirm (defaults apply until answered)
 - Is a second human annotator available for D6? (default: no -> test-retest)
@@ -143,9 +146,15 @@ These follow existing decisions; they are recorded so nothing is silent.
     therefore always arrives via a `unit` hit (`original_key` records which). Without a Flow Duration the claim is
     still a Tier 2 `unit` hit, with `consistent: null`. Consequence: a correct restatement such as
     "36,203 microseconds" is a Tier 2 `unit` hit, so it counts under strict (not under lenient).
+    **Confirmed intended by the paper side (2026-10-07):** correct restatements with a unit count as Tier 2 `unit`
+    under strict. No code change.
   - D20 records: `policy_version` and `tier_map_sha256` are on every Phase 2/3 record produced with a policy, on
     every run record (`run.stamp`), and in `MANIFEST.json` under `policy`.
   - D21: the vocabulary marks the two catch-alls (`catch_all`); no rule maps to them (tested). v2 replies take an
     optional `note` field, required (non-empty) with a catch-all, else a `reply_problems` entry; parsed records carry
     `catch_all` and `note`. `policy.is_catch_all()` is the hook for separate counting (M5) and for the annotation
     import (M3: catch-all labels without a note are rejected).
+- **D22 delivery (2026-10-07).** The files arrived in `paper_side_p1c/` (laid out like the project); they were copied
+  into place unchanged (byte-compared), nothing existing was overwritten, and the delivery folder is git-ignored.
+  Both v2 templates format with exactly their placeholders (tested). Rule gaps the paper side found are listed in
+  `docs/KNOWN_RULE_GAPS.md` (rules unchanged, one test per gap).

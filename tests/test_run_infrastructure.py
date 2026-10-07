@@ -235,6 +235,7 @@ def test_fake_run_writes_manifest_and_stamps_every_record(cfg):
     assert m["rules"]["rules_version"] == RULES_VERSION
     assert m["policy"]["policy_version"] == POLICY_VERSION and len(m["policy"]["tier_map_sha256"]) == 64   # D20
     assert m["prompts"]["generate_system.txt"] == V1_PROMPT_PINS["generate_system.txt"]
+    assert len(m["prompts"]) == 15 and all(len(h) == 64 for h in m["prompts"].values())   # 8 v1 + 7 v2 (D22)
     assert [f["name"] for f in m["dataset"]["files"]] == ["friday.csv", "monday.csv"]
     assert m["dataset"]["total_rows"] == 33 and all(len(f["sha256"]) == 64 for f in m["dataset"]["files"])
     assert m["llm"]["api_calls"] == calls(fake) > 0 and m["llm"]["cache_hits"] == 0
