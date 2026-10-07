@@ -1,0 +1,255 @@
+"""D30/D31 AI-annotator audit labels (tools/ai_labelling.py). Offline: synthetic corpus, fake replies, no API."""
+
+import csv
+import json
+import os
+import sys
+from pathlib import Path
+
+import pytest
+
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "tools"))
+
+import ai_labelling as AL
+from hallucination_pipeline import annotation as AN
+from hallucination_pipeline import audit as AU
+from hallucination_pipeline import corpus as CO
+from test_corpus import AGREE, make_corpus
+
+
+@pytest.fixture
+def setup(tmp_path):
+    corpus_dir = make_corpus(tmp_path / "old_run")
+    corpus = CO.load_corpus(corpus_dir)
+    ann = tmp_path / "annotation"
+    AU.export_audit(corpus, ann / corpus["corpus_id"], unfrozen_ok=True)
+    AL.ai_export(ann, corpus["corpus_id"])
+    return {"ann": ann, "cid": corpus["corpus_id"], "corpus": corpus, "corpus_dir": corpus_dir, "tmp": tmp_path,
+            "out": AL.ai_dir(ann, corpus["corpus_id"]), "sheet": AL._read_sheet(ann, corpus["corpus_id"])}
+
+
+def truthful(row):
+    """A labeller that answers like the rules' ground truth in test_corpus."""
+    if row["sentence"] in AGREE:
+        sub, hedged = AGREE[row["sentence"]]
+        return ["hallucinated", sub, hedged, "", "", ""]
+    return ["grounded", "", "", "", "", ""]
+
+
+def write_replies(s, name, answer, style="plain", per_file=None):
+    """One reply file per chunk, in the chunk's item order."""
+    chunks = sorted((s["out"] / "chunks").glob("chunk_*.txt"))
+    by_id = {r["item_id"]: r for r in s["sheet"]}
+    for ch in chunks:
+        codes = [line[1:line.index("]")] for line in ch.read_text(encoding="utf-8").splitlines() if line.startswith("[")]
+        lines = []
+        if style == "messy":
+            lines += ["Here are my labels:", "```", "| ITEM_CODE | label | subtype | hedged | other_subtypes | note | unsure |",
+                      "|---|---|---|---|---|---|---|"]
+        for k, code in enumerate(codes):
+            fields = answer(by_id[code])
+            if style == "messy":
+                lines.append(["- ", "* ", "1. ", "| ", "  "][k % 5] + f"{code}  |  " + " | ".join(fields)
+                             + (" |" if k % 5 == 3 else ""))
+            else:
+                lines.append(f"{code} | " + " | ".join(fields))
+        if style == "messy":
+            lines.append("```")
+        (s["out"] / "replies" / f"{name}_{ch.stem}.txt").write_text("\n".join(lines) + "\n", encoding="utf-8")
+
+
+# ── export ────────────────────────────────────────────────────────────────
+
+def test_chunks_contain_every_item_once_and_leak_nothing(setup):
+    chunks = sorted((setup["out"] / "chunks").glob("chunk_*.txt"))
+    assert [c.name for c in chunks] == [f"chunk_{i:02d}.txt" for i in range(1, 6)]          # 25 explanations / 5
+    text = "".join(c.read_text(encoding="utf-8") for c in chunks)
+    codes = [line[1:line.index("]")] for line in text.splitlines() if line.startswith("[")]
+    assert sorted(codes) == sorted(r["item_id"] for r in setup["sheet"]) and len(codes) == len(set(codes))
+    assert text.count("EXPLANATION E") == 25 and text.count("Evidence:") == 25
+    assert all(c.read_text(encoding="utf-8").count("EXPLANATION E") == 5 for c in chunks)
+    for leak in ("Normal Traffic", "DoS", "DDoS", "Brute Force", "Port Scanning", "benign", "attack-flow", "A0",
+                 "alert", "label_", "rule", "tier", "subtype"):
+        assert leak not in text, leak
+    man = json.loads((setup["out"] / "labelling_manifest.json").read_text(encoding="utf-8"))
+    assert set(man["labellers"]) == {"gemini", "gpt"}
+    AL.ai_export(setup["ann"], setup["cid"])          # re-export with identical content is harmless
+
+
+# ── import ────────────────────────────────────────────────────────────────
+
+def test_import_tolerates_formatting_and_validates(setup):
+    write_replies(setup, "gemini", truthful, style="messy")
+    write_replies(setup, "gpt", truthful)
+    r = AL.ai_import(setup["ann"], setup["cid"], "gemini")
+    assert r["items"] == 75 and r["ignored_lines"] >= 5            # prose line per file ignored
+    assert AL.ai_import(setup["ann"], setup["cid"], "gpt")["items"] == 75
+    a = AL._load_labels(setup["out"], "gemini")
+    b = AL._load_labels(setup["out"], "gpt")
+    assert [AL.answer(g) for g in a] == [AL.answer(g) for g in b]
+    assert (setup["out"] / "labels_gemini.csv").exists()
+
+
+def test_import_reports_every_problem_with_item_codes(setup):
+    rows = setup["sheet"]
+    bad = {rows[0]["item_id"]: ["hallucinated", "port_scan", "no", "", "", ""],
+           rows[1]["item_id"]: ["hallucinated", "", "no", "", "", ""],
+           rows[2]["item_id"]: ["hallucinated", "other_fabrication", "no", "", "", ""],
+           rows[3]["item_id"]: ["", "", "", "", "", ""],
+           rows[4]["item_id"]: ["grounded", "cve", "", "", "", ""]}
+    write_replies(setup, "gemini", lambda r: bad.get(r["item_id"], truthful(r)))
+    f = sorted((setup["out"] / "replies").glob("gemini_*.txt"))[0]
+    lines = f.read_text(encoding="utf-8").splitlines()
+    missing_code = lines[6].split(" | ")[0]
+    dup = lines[7]
+    lines = lines[:6] + lines[7:] + [dup, "Z999-01 | grounded | | | | |", f"{lines[8].split(' | ')[0]} | x | | | | | | |"]
+    f.write_text("\n".join(lines) + "\n", encoding="utf-8")
+    with pytest.raises(AL.LabellingError) as err:
+        AL.ai_import(setup["ann"], setup["cid"], "gemini")
+    text = "\n".join(err.value.problems)
+    for needle in (f"missing item codes (1): {missing_code}", "duplicate", "Z999-01", "unknown item code",
+                   "fields, expected 7"):
+        assert needle in text, needle
+    assert not (setup["out"] / "labels_gemini.csv").exists()
+
+    write_replies(setup, "gemini", lambda r: bad.get(r["item_id"], truthful(r)))       # rewrite: only D23 errors left
+    with pytest.raises(AL.LabellingError) as err:
+        AL.ai_import(setup["ann"], setup["cid"], "gemini")
+    text = "\n".join(err.value.problems)
+    for code, needle in zip(bad, ("unknown subtype 'port_scan'", "hallucinated without a subtype", "need a note",
+                                  "label is blank", "grounded with a subtype")):
+        assert any(code in p and needle in p for p in err.value.problems), (code, needle)
+    assert "line " not in text
+
+
+# ── compare ───────────────────────────────────────────────────────────────
+
+def disagreeing(row):
+    """Labeller B: calls every hedged attack_technique 'baseline' and every T2 port 'grounded'."""
+    a = truthful(row)
+    if a[1] == "attack_technique":
+        return ["hallucinated", "baseline", "yes", "", "", ""]
+    if a[1] == "port":
+        return ["grounded", "", "", "", "", ""]
+    return a
+
+
+@pytest.fixture
+def compared(setup):
+    write_replies(setup, "gemini", truthful)
+    write_replies(setup, "gpt", disagreeing)
+    AL.ai_import(setup["ann"], setup["cid"], "gemini")
+    AL.ai_import(setup["ann"], setup["cid"], "gpt")
+    setup["cmp"] = AL.ai_compare(setup["ann"], setup["cid"], "gemini", "gpt")
+    return setup
+
+
+def test_compare_builds_a_blind_shuffled_adjudication_sheet(compared):
+    s, r = compared, compared["cmp"]
+    a = {g.item_id: g for g in AL._load_labels(s["out"], "gemini")}
+    b = {g.item_id: g for g in AL._load_labels(s["out"], "gpt")}
+    dis = {i for i in a if AL.answer(a[i]) != AL.answer(b[i])}
+    assert r["disagreements"] == len(dis) > 0 and r["agreements"] == 75 - len(dis)
+    assert r["spot_check"] == round(0.2 * r["agreements"]) and r["to_adjudicate"] == len(dis) + r["spot_check"]
+    with open(s["out"] / "adjudication.csv", encoding="utf-8-sig") as f:
+        rows = list(csv.DictReader(f))
+    assert tuple(rows[0]) == AN.SHEET_COLUMNS
+    assert all(row[c] == "" for row in rows for c in AN.ANNOTATION_COLUMNS)         # no AI answer anywhere
+    assert dis <= {row["item_id"] for row in rows} and len(rows) == r["to_adjudicate"]
+    order = [row["item_id"] for row in rows]
+    assert order != sorted(order)
+    text = (s["out"] / "adjudication.csv").read_text(encoding="utf-8-sig")
+    for leak in ("gemini", "gpt", "disagreement", "spot", "baseline", "attack_technique"):
+        assert leak not in text, leak
+    key = json.loads((s["out"] / "hidden" / "adjudication_key.json").read_text(encoding="utf-8"))
+    assert {i for i, k in key["items"].items() if k == "disagreement"} == dis
+    assert (s["out"] / "hidden" / "ai_disagreements.csv").exists()
+    assert json.loads((s["out"] / "hidden" / "ai_agreement.json").read_text(encoding="utf-8"))["kappa"]["label"]
+    with pytest.raises(AL.LabellingError):
+        AL.ai_compare(s["ann"], s["cid"], "gemini", "gpt")                       # never rebuilt
+    with pytest.raises(AL.LabellingError):
+        AL.ai_import(s["ann"], s["cid"], "gemini")                               # labels frozen once adjudicating
+
+
+# ── finalize ──────────────────────────────────────────────────────────────
+
+def fill_manifest(s):
+    man = json.loads((s["out"] / "labelling_manifest.json").read_text(encoding="utf-8"))
+    for name, model in (("gemini", "Gemini"), ("gpt", "GPT")):
+        man["labellers"][name] = {"model_name": model, "model_version": "x.y", "date": "2026-10-08",
+                                  "interface": "chat", "tools": "off", "customisation": "none"}
+    (s["out"] / "labelling_manifest.json").write_text(json.dumps(man), encoding="utf-8")
+
+
+def adjudicate(s, decide):
+    with open(s["out"] / "adjudication.csv", encoding="utf-8-sig") as f:
+        rows = list(csv.DictReader(f))
+    by_id = {r["item_id"]: r for r in s["sheet"]}
+    filled = [{**r, **dict(zip(AN.ANNOTATION_COLUMNS, decide(by_id[r["item_id"]])))} for r in rows]
+    AL._write_sheet_csv(s["out"] / "adjudication_filled.csv", filled)
+    return rows
+
+
+def test_finalize_merges_and_reports_the_overrule_rate(compared):
+    s = compared
+    key = json.loads((s["out"] / "hidden" / "adjudication_key.json").read_text(encoding="utf-8"))
+    spot = sorted(i for i, k in key["items"].items() if k == "spot_check")
+    overrule = spot[0]
+
+    def author(row):                         # truthful, except one spot-check item is overruled
+        if row["item_id"] == overrule:
+            return ["hallucinated", "other_knowledge", "no", "", "author note", ""] if truthful(row)[0] == "grounded" \
+                else ["grounded", "", "", "", "", ""]
+        return truthful(row)
+
+    with pytest.raises(AL.LabellingError, match="not filled in"):
+        AL.ai_finalize(s["ann"], s["cid"], "gemini", "gpt", "IS", s["corpus_dir"], results_dir=s["tmp"] / "results")
+    fill_manifest(s)
+    with pytest.raises(FileNotFoundError, match="analyze_corpus"):
+        AL.ai_finalize(s["ann"], s["cid"], "gemini", "gpt", "IS", s["corpus_dir"], results_dir=s["tmp"] / "results")
+    CO.write_results(s["corpus"], s["tmp"] / "results", n_boot=200)
+    adjudicate(s, author)
+    r = AL.ai_finalize(s["ann"], s["cid"], "gemini", "gpt", "IS", s["corpus_dir"], results_dir=s["tmp"] / "results")
+    summ = r["summary"]
+    assert summ["spot_check_overruled"] == 1 and summ["overrule_rate"] == pytest.approx(1 / len(spot))
+    assert summ["disagreements"] == s["cmp"]["disagreements"]
+    assert summ["disagreements_resolved"]["with_gemini"] == s["cmp"]["disagreements"]
+    expected = (f"labels: two AI annotators (gemini: Gemini x.y; gpt: GPT x.y), author-adjudicated; "
+                f"{summ['disagreements']} disagreements; 20% blind spot-check ({len(spot)} items); overrule rate "
+                f"{1 / len(spot):.0%} (1/{len(spot)})")
+    assert summ["labels"] == expected
+
+    final_text = (s["out"] / "final_labels.csv").read_text(encoding="utf-8-sig")
+    assert final_text.splitlines()[:2] == [f"# {CO.SOURCE}", f"# {expected}"]
+    final = AN.import_sheet(s["out"] / "final_labels.csv", AL._read_key(s["ann"], s["cid"]), "primary", "x")
+    labels = {g.item_id: g for g in final["labels"]}
+    assert len(labels) == 75 and labels[overrule].label != truthful(next(r for r in s["sheet"]
+                                                                          if r["item_id"] == overrule))[0]
+    for name in ("audit_metrics.csv", "audit_disagreements.csv"):
+        lines = (r["dest"] / name).read_text(encoding="utf-8").splitlines()
+        assert lines[:2] == [f"# {CO.SOURCE}", f"# {expected}"]
+    assert json.loads((r["dest"] / "audit.json").read_text(encoding="utf-8"))["labels"] == expected
+    with pytest.raises(AL.LabellingError, match="never overwritten"):
+        AL.ai_finalize(s["ann"], s["cid"], "gemini", "gpt", "IS", s["corpus_dir"], results_dir=s["tmp"] / "results")
+
+
+def test_cli_end_to_end(setup, capsys):
+    from test_run_infrastructure import BASE, _to_toml
+    s = setup
+    toml = s["tmp"] / "cfg.toml"
+    toml.write_text(_to_toml(BASE, s["tmp"]), encoding="utf-8")
+    c = ["--config", str(toml), "--corpus-dir", str(s["corpus_dir"]), "--results-dir", str(s["tmp"] / "results")]
+    assert AL.main(["ai_export", *c]) == 0
+    write_replies(s, "gemini", truthful)
+    write_replies(s, "gpt", disagreeing)
+    assert AL.main(["ai_import", "--labeller", "gemini", *c]) == 0
+    assert AL.main(["ai_import", "--labeller", "gpt", *c]) == 0
+    assert AL.main(["ai_compare", "--labellers", "gemini", "gpt", *c]) == 0
+    assert "Do NOT open the hidden/" in capsys.readouterr().out
+    fill_manifest(s)
+    CO.write_results(s["corpus"], s["tmp"] / "results", n_boot=200)
+    adjudicate(s, truthful)
+    assert AL.main(["ai_finalize", "--labellers", "gemini", "gpt", "--author", "IS", *c]) == 0
+    out = capsys.readouterr().out
+    assert "author-adjudicated" in out and "overrule rate 0%" in out and "precision" in out
