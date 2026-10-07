@@ -187,4 +187,27 @@ These follow existing decisions; they are recorded so nothing is silent.
     with the pipeline should use the full subtype sets (subtype + other_subtypes vs `subtypes`), not only the primary.
   - Open (no decision needed yet): whether `annotation/<run_id>/` (sheets, key, filled labels) is committed. It is
     not git-ignored now; the key should stay out of the annotator's view either way.
+- **M3b pilot stage (2026-10-07, code only; the real pilot has not run).**
+  - `configs/pilot.toml` equals `fresh_run.toml` except `[run]` (name `pilot`, `max_calls = 1500`), `[data]`
+    (cap 3, benign 6) and its own cache directory `llm_cache/pilot`, so no pilot answer can ever be reused by the
+    real run (D24: pilot output is discarded). `max_calls` is an optional `[run]` key (part of the config hash).
+  - The run now has stages generate -> detect -> sentences for both arms (files `explanations.json`,
+    `detection.json`, `sentences.json`, each also under `benign_control/`); the earlier rules-only
+    `detection_rules.json` is replaced by `detection.json` (its C0/C1 rule hits are in every record).
+  - Detection: one record per explanation x config x policy. Judge calls are shared through the cache: the v1
+    prompt does not depend on the policy and C2/C3 send the same v2 prompt for a policy, so at most 3 calls per
+    explanation (v1, v2-strict, v2-lenient). D15 escalation applies (`escalate_clean` from the config).
+  - Sentences: rules with every layer on every sentence; only sentences the policy leaves ambiguous go to the
+    sentence judge (style v1 for C0/C1, aligned v2 for C2/C3). No judge-on-every-sentence arm yet (to be added
+    for the annotated sample only).
+  - Every judge call is summarised in `judge`: prompt, raw reply, `reply_problems` ("bad JSON", "call failed", or
+    the v2 parser's problems), and for v2 tier/subtype/note.
+  - `max_calls`: the cached client stops before the call that would exceed it; finished stages are saved, the
+    manifest records `status: stopped: ...`, and re-running continues from the cache.
+  - `run --dry-run`: no API call, no API key, nothing written. Counts per stage the distinct calls not in the
+    cache; detection/sentence counts are exact only for explanations already cached (otherwise an upper bound
+    is printed for detection).
+  - `pilot_report <run_id>`: calls, cache hits, tokens, wall time and rate-limit waits per stage; reply problems by
+    kind; flagged share per config/policy per arm; 20 seeded-random v2 judge replies in
+    `runs/<run_id>/samples/pilot_judge_replies.md`.
 

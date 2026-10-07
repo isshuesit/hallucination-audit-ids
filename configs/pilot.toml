@@ -1,0 +1,35 @@
+# PILOT (M3b, D24): debugging run before freeze-1. Output is discarded, never used for results or tuning.
+# Same model and settings as fresh_run.toml except the sample size, the call limit and its own LLM cache.
+# Values come from docs/DECISIONS.md; change them only through a DECISIONS entry.
+# The run_id is "<name>-<first 8 hex of the config hash>". [paths] is excluded from
+# the hash (where files live does not change results; the dataset itself is
+# fingerprinted in the manifest).
+
+[run]
+name = "pilot"
+max_calls = 1500           # safety limit: the run stops cleanly before call 1501 (re-running continues from the cache)
+
+[data]
+per_class_cap = 3           # pilot (D24): about 3 per class, about 42 attack alerts
+seed = 42                   # D2
+benign_control_n = 6        # pilot
+
+[generation]
+model = "gemini-2.5-flash"  # D4
+temperature = 0.0           # D4
+prompt = "generate_system.txt"
+thinking_budget = 0         # D13: forced on EVERY Gemini call (generation, judges, rewrites, re-checks)
+
+[detection]                 # used from M2 on
+configs = ["C0", "C1", "C2", "C3"]
+policies = ["strict", "lenient"]
+escalate_clean = "all"      # D15: every rule-clean explanation goes to the judge ("attack_only" = old behaviour)
+
+[mitigation]                # used from M4 on
+arms = ["M0", "M-prompt", "M-auto", "M-auto+val", "M-gold"]
+
+[paths]                     # relative paths are resolved against the project root
+raw_dir = "data/raw"
+runs_dir = "runs"
+cache_dir = "llm_cache/pilot"   # separate cache: pilot answers are never reused by the real run (D24)
+annotation_dir = "annotation"   # M3: blind sheets, key.json (never to the annotator), imported labels

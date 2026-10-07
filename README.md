@@ -117,6 +117,9 @@ python -m hallucination_pipeline.cli status              # what exists, what's m
 ```bash
 python -m hallucination_pipeline.cli run --data-only    # sample only, no API key needed -> runs/<run_id>/
 python -m hallucination_pipeline.cli run                # + generation (needs GEMINI_API_KEY) + rule detection
+python -m hallucination_pipeline.cli run --dry-run      # count the LLM calls a run would make; no calls
+python -m hallucination_pipeline.cli run --config configs/pilot.toml       # M3b pilot (needs GEMINI_API_KEY)
+python -m hallucination_pipeline.cli pilot_report <run_id> --config configs/pilot.toml
 python -m hallucination_pipeline.cli freeze_run <run_id> # SHA256SUMS + read-only
 python -m hallucination_pipeline.cli verify_run <run_id>
 python tools/make_outbox.py P1 <run_id>                  # zip for the paper side

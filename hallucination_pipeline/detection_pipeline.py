@@ -60,6 +60,26 @@ _SENTENCE_FALLBACK = {
 
 # ── Phase 2, Step 3: explanation level ────────────────────────────────────
 
+def judge_summary(llm: dict, level: str, judge_prompt: str) -> tuple[dict, dict | None]:
+    """What a judge call returned, for the record: (judge record, parsed v2 reply or None).
+
+    `reply_problems` always exists: "bad JSON" (unparseable reply), "call failed" (every attempt
+    failed), or, for a well-formed v2 reply, the problems parse_v2_reply found (unknown subtype,
+    tier mismatch, missing note, ...)."""
+    method = llm.get("detection_method", "llm")
+    broken = {"llm_fallback": "bad JSON", "failed": "call failed"}.get(method)
+    judge = {"prompt": judge_prompt,
+             "reply": None if broken else {k: v for k, v in llm.items() if k != "detection_method"},
+             "raw_text": llm.get("_raw") if broken else None,
+             "reply_problems": [broken] if broken else []}
+    if broken or judge_prompt == "v1":
+        return judge, None
+    parsed = parse_v2_reply(llm, level)
+    judge.update({"verdict": parsed["verdict"], "tier": parsed["tier"], "subtype": parsed["subtype"],
+                  "catch_all": parsed["catch_all"], "note": parsed["note"], "reply_problems": parsed["reply_problems"]})
+    return judge, parsed
+
+
 def should_invoke_llm(rule_result: dict, alert_type: str, escalate_clean: str = "attack_only") -> bool:
     """escalate_clean (D15): "attack_only" = the original behaviour (a rule-clean explanation is
     double-checked only for attack-class alerts, so the decision reads the label); "all" = every
@@ -116,17 +136,16 @@ def detect_explanation(client, alert: dict, expl: dict, *, sleep: bool = True, p
     if llm is None:
         rule_says = record["contains_hallucination"]
         tier, subtype = (rule_result["tier"], rule_result["subtype"]) if rule_says else (None, None)
-    elif judge_prompt == "v1":
-        tier, subtype = tier_for_type(record["hallucination_type"])
     else:
-        parsed = parse_v2_reply(llm, "explanation")
-        tier, subtype = parsed["tier"], parsed["subtype"]
-        counted = parsed["verdict"] is True and (tier is None or counts_as_hallucination(tier, policy))
-        record.update({"contains_hallucination": counted if parsed["verdict"] is not None else None,
-                       "hallucination_type": parsed["hallucination_type"]})
-        extra = {"judge": {"contains_hallucination": parsed["verdict"], "tier": tier, "subtype": subtype,
-                           "reply_problems": parsed["reply_problems"],
-                           "catch_all": parsed["catch_all"], "note": parsed["note"]}}
+        judge, parsed = judge_summary(llm, "explanation", judge_prompt)
+        extra = {"judge": judge}
+        if parsed is None:          # v1 judge, or a broken v2 reply (contains_hallucination stays None)
+            tier, subtype = tier_for_type(record["hallucination_type"]) if judge_prompt == "v1" else (None, None)
+        else:
+            tier, subtype = parsed["tier"], parsed["subtype"]
+            counted = parsed["verdict"] is True and (tier is None or counts_as_hallucination(tier, policy))
+            record.update({"contains_hallucination": counted if parsed["verdict"] is not None else None,
+                           "hallucination_type": parsed["hallucination_type"]})
     return {**record, "policy": policy, "use_tier2_rules": use_tier2_rules, "judge_prompt": judge_prompt,
             "escalate_clean": escalate_clean, "tier": tier, "subtype": subtype,
             "rule_hits": rule_pass["hits"], "uncounted_rules": rule_result["uncounted_rules"],
@@ -311,23 +330,24 @@ def classify_sentence(client, alert: dict, sentence_id: str, sentence: str, *, s
         return record, used_llm
 
     extra = {}
-    if final["predicted_label"] != "hallucinated" and not (used_llm and sentence_prompt != "v1"):
-        tier, subtype = None, None
-    elif not used_llm:
-        tier, subtype = primary["tier"], primary["subtype"]
-    elif sentence_prompt == "v1":
-        tier, subtype = tier_for_type(final["hallucination_type"])
-    else:
-        parsed = parse_v2_reply(llm, "sentence")
+    judge, parsed = judge_summary(llm, "sentence", sentence_prompt) if used_llm else (None, None)
+    if judge is not None:
+        extra = {"judge": judge}
+    if parsed is not None:
         tier, subtype = parsed["tier"], parsed["subtype"]
         counted = parsed["verdict"] is True and (tier is None or counts_as_hallucination(tier, policy))
         record.update({"predicted_label": "hallucinated" if counted else "grounded",
                        "hallucination_type": parsed["hallucination_type"]})
         if not counted:
             tier, subtype = None, None
-        extra = {"judge": {"label": llm.get("label"), "tier": parsed["tier"], "subtype": parsed["subtype"],
-                           "reply_problems": parsed["reply_problems"],
-                           "catch_all": parsed["catch_all"], "note": parsed["note"]}}
+    elif final["predicted_label"] != "hallucinated":
+        tier, subtype = None, None
+    elif not used_llm:
+        tier, subtype = primary["tier"], primary["subtype"]
+    elif sentence_prompt == "v1":
+        tier, subtype = tier_for_type(final["hallucination_type"])
+    else:                           # broken v2 reply
+        tier, subtype = None, None
     record.update({"policy": policy, "sentence_prompt": sentence_prompt, "tier": tier, "subtype": subtype,
                    "subtypes": rule_result["subtypes"], "hedged": rule_result["hedged"],
                    "rule_hits": rule_result["hits"], "duration_claims": rule_result["duration_claims"],

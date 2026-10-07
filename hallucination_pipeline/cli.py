@@ -13,7 +13,8 @@ Usage:
     python -m hallucination_pipeline.cli status
 
 Fresh controlled run (config -> runs/<run_id>/):
-    python -m hallucination_pipeline.cli run [--config configs/fresh_run.toml] [--run-id ID] [--data-only]
+    python -m hallucination_pipeline.cli run [--config configs/fresh_run.toml] [--run-id ID] [--data-only] [--dry-run]
+    python -m hallucination_pipeline.cli pilot_report <run_id> --config configs/pilot.toml
     python -m hallucination_pipeline.cli freeze_run <run_id> [--config ...]
     python -m hallucination_pipeline.cli verify_run <run_id> [--config ...]
 
@@ -34,13 +35,15 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument(
         "phase",
         choices=["load", "generate", "detect", "localize", "unlearn",
-                 "evaluate", "report", "impact", "status", "run", "freeze_run", "verify_run",
+                 "evaluate", "report", "impact", "status", "run", "freeze_run", "verify_run", "pilot_report",
                  "annotation_export", "annotation_import", "annotation_agreement"],
     )
     parser.add_argument("target_run_id", nargs="?", help="run id for freeze_run / verify_run")
     parser.add_argument("--config", default=None, help="run config TOML (default configs/fresh_run.toml)")
     parser.add_argument("--run-id", default=None, help="override the run id (needed to re-run a frozen config)")
     parser.add_argument("--data-only", action="store_true", help="run: stop after sampling (no LLM calls)")
+    parser.add_argument("--dry-run", action="store_true",
+                        help="run: print the LLM calls each stage would make (minus cached ones); no calls, no writes")
     parser.add_argument("files", nargs="*", help="annotation_import: filled CSV; annotation_agreement: two label files")
     parser.add_argument("--sheet", choices=["primary", "reliability", "retest"], help="annotation_import: which sheet")
     parser.add_argument("--annotator", help="annotation_import: annotator name or initials")
@@ -60,7 +63,7 @@ def main(argv: list[str] | None = None) -> int:
         except (AnnotationExportError, AnnotationImportError, FileNotFoundError, ValueError) as e:
             print(f"\nERROR: {e}", file=sys.stderr)
             return 1
-    if args.phase in ("run", "freeze_run", "verify_run"):
+    if args.phase in ("run", "freeze_run", "verify_run", "pilot_report"):
         from .data_loader import MissingColumnsError
         from .run_config import ConfigError
         from .run_dir import FrozenRunError
@@ -109,12 +112,21 @@ def _fresh_run_command(parser: argparse.ArgumentParser, args) -> int:
 
     cfg = load_run_config(args.config or DEFAULT_CONFIG_PATH)
     if args.phase == "run":
-        from .run import execute_run
+        from .run import dry_run, execute_run, format_dry_run
+        if args.dry_run:
+            print(format_dry_run(dry_run(cfg, run_id=args.run_id)))
+            return 0
         execute_run(cfg, run_id=args.run_id, data_only=args.data_only)
         return 0
     if not args.target_run_id:
         parser.error(f"{args.phase} needs a run id, e.g. {args.phase} {cfg.run_id}")
     run_dir = cfg.runs_dir / args.target_run_id
+    if args.phase == "pilot_report":
+        from .pilot_report import build_report, format_report, write_samples
+        rep_ = build_report(run_dir, seed=cfg.seed)
+        print(format_report(rep_))
+        print(f"\nWrote {write_samples(run_dir, rep_)}")
+        return 0
     if args.phase == "freeze_run":
         sums = freeze_run(run_dir)
         print(f"Frozen: {run_dir} (checksums in {sums.name}; files are now read-only)")

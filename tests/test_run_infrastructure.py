@@ -238,7 +238,9 @@ def test_fake_run_writes_manifest_and_stamps_every_record(cfg):
     assert len(m["prompts"]) == 15 and all(len(h) == 64 for h in m["prompts"].values())   # 8 v1 + 7 v2 (D22)
     assert [f["name"] for f in m["dataset"]["files"]] == ["friday.csv", "monday.csv"]
     assert m["dataset"]["total_rows"] == 33 and all(len(f["sha256"]) == 64 for f in m["dataset"]["files"])
-    assert m["llm"]["api_calls"] == calls(fake) > 0 and m["llm"]["cache_hits"] == 0
+    assert m["llm"]["api_calls"] == calls(fake) > 0
+    # within one run, identical judge prompts (v1 for C0/C1 under both policies; v2 shared by C2/C3) hit the cache
+    assert m["llm"]["per_stage"]["generate"]["cache_hits"] == 0 and m["llm"]["status"] == "complete"
     assert m["llm"]["model_versions_returned"] == ["fake-gemini-001"]
     assert m["llm"]["generation_params"] == {"temperature": 0.0, "thinking_config": {"thinking_budget": 0}}
     assert m["llm"]["enforced_params"] == {"thinking_config": {"thinking_budget": 0}}
@@ -246,11 +248,14 @@ def test_fake_run_writes_manifest_and_stamps_every_record(cfg):
     assert m["counts"]["attack"]["explanations_ok"] == m["counts"]["attack"]["alerts"] == 11   # cap 3: DoS Hulk 3, PortScan 3, DDoS 3, Bot 2
     assert m["counts"]["benign_control"]["explanations_ok"] == m["counts"]["benign_control"]["alerts"] == 2
 
-    for name in ("explanations.json", "detection_rules.json",
-                 "benign_control/explanations.json", "benign_control/detection_rules.json"):
-        for rec in json.loads((run_dir / name).read_text(encoding="utf-8")):
-            assert rec["run_id"] == cfg.run_id and rec["rules_version"] == RULES_VERSION
-            assert rec["prompt_hashes"] == {"generate_system.txt": V1_PROMPT_PINS["generate_system.txt"]}
+    for prefix in ("", "benign_control/"):
+        for name in ("explanations.json", "detection.json", "sentences.json"):
+            recs = json.loads((run_dir / (prefix + name)).read_text(encoding="utf-8"))
+            assert recs
+            for rec in recs:
+                assert rec["run_id"] == cfg.run_id and rec["rules_version"] == RULES_VERSION
+                assert rec["policy_version"] == POLICY_VERSION
+                assert rec["prompt_hashes"]["generate_system.txt"] == V1_PROMPT_PINS["generate_system.txt"]
 
 
 def test_second_run_of_the_same_config_makes_zero_api_calls(cfg):
@@ -260,7 +265,11 @@ def test_second_run_of_the_same_config_makes_zero_api_calls(cfg):
     assert calls(fake) == 0
     m = json.loads((second / "MANIFEST.json").read_text(encoding="utf-8"))
     assert m["llm"]["api_calls"] == 0
-    assert m["llm"]["cache_hits"] == m["counts"]["attack"]["alerts"] + m["counts"]["benign_control"]["alerts"]
+    assert m["llm"]["per_stage"]["generate"]["cache_hits"] == (m["counts"]["attack"]["alerts"]
+                                                               + m["counts"]["benign_control"]["alerts"])
+    same = lambda d, n: json.loads((d / n).read_text(encoding="utf-8"))
+    strip = lambda recs: [{k: v for k, v in r.items() if k != "run_id"} for r in recs]
+    assert strip(same(first, "detection.json")) == strip(same(second, "detection.json"))
     texts = lambda d: [e["explanation"] for e in json.loads((d / "explanations.json").read_text(encoding="utf-8"))]
     assert texts(first) == texts(second)
 

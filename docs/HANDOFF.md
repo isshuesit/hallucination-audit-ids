@@ -41,6 +41,7 @@ the LLM cache.
 |---|---|---|
 | P1 | `python -m hallucination_pipeline.cli run --data-only` then `python tools/make_outbox.py P1 <run_id>` -> `outbox/P1_<run_id>.zip` | `MANIFEST.json`, `class_distribution.json`, `anomalies.md`, `DECISIONS.md` (D11, D12 ACCEPTED; D13 PROPOSED), `test_summary.txt` |
 | P1b | `python tools/make_outbox.py P1b` (needs `old_run/`) -> `outbox/P1b_<commit>.zip` | `RULE_TIERS.md`, `SUBTYPES.md`, `DECISIONS.md` (D13-D21 ACCEPTED), `reproduce_frozen_report.md`, `test_summary.txt` |
+| P3 | `cli run --config configs/pilot.toml`, then `cli pilot_report <run_id> --config configs/pilot.toml` | pilot `MANIFEST.json`, the printed report, `samples/pilot_judge_replies.md`, `anomalies.md`, `DECISIONS.md` |
 
 ## Pass-through schedule
 | # | After | Direction | What moves | Purpose |

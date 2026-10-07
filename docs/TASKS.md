@@ -75,6 +75,10 @@ subtypes with required note.
 - [ ] Fix only malformed output or contradictions (prompt/format), each change logged in DECISIONS.md before the freeze.
       Never tune rules on pilot output.
 - [ ] Discard the pilot run (never used for results).
+**Code done 2026-10-07** (not yet run): `configs/pilot.toml` (cap 3 -> 42 attack + 6 benign alerts, max_calls 1500,
+own LLM cache), detection stage C0-C3 x both policies and sentence stage in `run.py`, `run --dry-run`,
+`pilot_report <run_id>` (`hallucination_pipeline/pilot_report.py`), tests in `tests/test_pilot.py`. Real-data dry run:
+48 generation calls, detection at most 144 more (sentence calls depend on the generated text).
 **Pass-through P3:** pilot manifest, cost, failures -> paper side.
 
 **FREEZE:** `git tag freeze-1` after M3 and M3b are green and *before* exporting real sheets.

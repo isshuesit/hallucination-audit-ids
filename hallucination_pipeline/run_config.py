@@ -29,7 +29,7 @@ MITIGATION_ARMS = ("M0", "M-prompt", "M-auto", "M-auto+val", "M-gold")
 
 # section -> {key: (type, required)}
 _SCHEMA: dict[str, dict[str, tuple[type | tuple[type, ...], bool]]] = {
-    "run": {"name": (str, True)},
+    "run": {"name": (str, True), "max_calls": (int, False)},
     "data": {"per_class_cap": (int, True), "seed": (int, True), "benign_control_n": (int, True)},
     "generation": {"model": (str, True), "temperature": ((int, float), True), "prompt": (str, True),
                    "thinking_budget": (int, True)},
@@ -53,6 +53,23 @@ class RunConfig:
     @property
     def name(self) -> str:
         return self.raw["run"]["name"]
+
+    @property
+    def max_calls(self) -> int | None:
+        """Safety limit on real API calls per run (None = no limit); the run stops cleanly at it."""
+        return self.raw["run"].get("max_calls")
+
+    @property
+    def detection_configs(self) -> list[str]:
+        return list(self.raw["detection"]["configs"])
+
+    @property
+    def policies(self) -> list[str]:
+        return list(self.raw["detection"]["policies"])
+
+    @property
+    def escalate_clean(self) -> str:
+        return self.raw["detection"]["escalate_clean"]
 
     @property
     def per_class_cap(self) -> int:
@@ -146,6 +163,8 @@ def _validate(raw: dict) -> None:
 
     if not raw["run"]["name"].replace("_", "").replace("-", "").isalnum():
         raise ConfigError("[run].name may contain only letters, digits, '-' and '_'")
+    if raw["run"].get("max_calls", 1) < 1:
+        raise ConfigError("[run].max_calls must be >= 1")
     if raw["data"]["per_class_cap"] < 1:
         raise ConfigError("[data].per_class_cap must be >= 1")
     if raw["data"]["benign_control_n"] < 0:

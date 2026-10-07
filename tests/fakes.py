@@ -92,6 +92,29 @@ class FakeGemini:
         self.seen[key] = n + 1
         h = _h(prompt)
 
+        # --- v2 judges (explanation or sentence level): v2 reply shape, with every kind of problem ---
+        if '"tier": 1 or 2 or null' in prompt:
+            sentence_level = '"label": "hallucinated" or "grounded"' in prompt
+            mode = h % 10
+            if mode == 0:
+                return _Resp("not json {{ at all")                                  # bad JSON
+            subtype, tier, note = [("cve", 1, None), ("attack_technique", 1, None), ("baseline", 2, None),
+                                   ("unit", 2, None), (None, None, None)][(h // 10) % 5]
+            if mode == 1:
+                subtype, tier = "port_scan", 1                                      # unknown subtype
+            elif mode == 2:
+                subtype, tier = "cve", 2                                            # tier mismatch
+            elif mode == 3:
+                subtype, tier, note = "other_fabrication", 1, None                  # missing note
+            elif mode == 4:
+                subtype, tier, note = "other_knowledge", 2, "assumes a backup job"  # catch-all, fine
+            verdict = subtype is not None
+            body = {"confidence": ["high", "medium", "low"][h % 3], "tier": tier, "subtype": subtype,
+                    "reason": f"fake v2 reason {h % 71}", "note": note}
+            body["label" if sentence_level else "contains_hallucination"] = (
+                ("hallucinated" if verdict else "grounded") if sentence_level else verdict)
+            return _Resp(json.dumps(body))
+
         # --- QUALIFY rewrites (editor prompts) ---
         if "cybersecurity explanation editor" in prompt:
             sentence = prompt.rsplit("\n", 1)[-1]

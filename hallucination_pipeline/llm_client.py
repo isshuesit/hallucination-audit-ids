@@ -76,6 +76,9 @@ def call_llm_for_json(client, prompt: str, fallback: dict, *, sleep: bool = True
             raw = strip_json_fence(response.text.strip())
             return json.loads(raw)
 
+        except CallLimitReached:
+            raise
+
         except json.JSONDecodeError:
             return {
                 **fallback,
@@ -175,6 +178,31 @@ class CachedResponse:
         self.cache_hit = True
 
 
+class CallLimitReached(RuntimeError):
+    """Raised before an API call that would exceed the run's max_calls. The retry loops in this
+    module re-raise it instead of retrying, so a run stops cleanly; the cache keeps every answer
+    received, so re-running continues where it stopped."""
+
+
+class DryRunResponse:
+    """Returned for a call that is not in the cache during a dry run: no API call is made."""
+
+    text = "{}"
+    model_version = None
+    usage_metadata = None
+    dry = True
+    cache_hit = False
+    cache_key = None
+    call_params = None
+
+
+def _is_rate_limit(exc: Exception) -> bool:
+    return "429" in str(exc) or "RESOURCE_EXHAUSTED" in str(exc)
+
+
+_STAGE_FIELDS = ("api_calls", "api_errors", "rate_limit_errors", "cache_hits", "would_call")
+
+
 class CachedClient:
     """Drop-in replacement for genai.Client that caches every call.
 
@@ -183,25 +211,63 @@ class CachedClient:
     DECISIONS D13) are merged over it, so they hold for every call whatever the caller
     asked for. The final params are part of every cache key, stored with every cache
     entry, and returned on the response as `call_params`.
+
+    `stage` (set by the runner) labels the counts: per stage, API calls, errors, rate-limit
+    errors (each one is a wait), cache hits, tokens. `max_calls` stops the run with
+    CallLimitReached before the call that would exceed it. `dry_run` makes no API call at all:
+    cache hits are served as usual, every other distinct call is counted as `would_call` and
+    answered with a DryRunResponse.
     """
 
     def __init__(self, inner, cache: LLMCache, default_params: dict | None = None,
-                 enforced_params: dict | None = None):
+                 enforced_params: dict | None = None, *, max_calls: int | None = None, dry_run: bool = False):
         self.inner = inner
         self.cache = cache
         self.default_params = dict(default_params or {})
         self.enforced_params = dict(enforced_params or {})
+        self.max_calls = max_calls
+        self.dry_run = dry_run
         self.enforced_overrides = 0     # calls whose own config disagreed with an enforced param
         self.models = self          # so callers can keep writing client.models.generate_content(...)
-        self.api_calls = 0
-        self.api_errors = 0
-        self.cache_hits = 0
-        self.tokens = {"prompt_token_count": 0, "candidates_token_count": 0,
-                       "thoughts_token_count": 0, "total_token_count": 0}
+        self.stage = "unstaged"
+        self.per_stage: dict[str, dict] = {}
+        self._dry_keys: set[str] = set()
         self.model_versions: set[str] = set()
         self.models_requested: set[str] = set()
 
+    def _counts(self) -> dict:
+        if self.stage not in self.per_stage:
+            self.per_stage[self.stage] = {**{f: 0 for f in _STAGE_FIELDS},
+                                          "tokens": {"prompt_token_count": 0, "candidates_token_count": 0,
+                                                     "thoughts_token_count": 0, "total_token_count": 0}}
+        return self.per_stage[self.stage]
+
+    def _total(self, field: str) -> int:
+        return sum(s[field] for s in self.per_stage.values())
+
+    @property
+    def api_calls(self) -> int:
+        return self._total("api_calls")
+
+    @property
+    def api_errors(self) -> int:
+        return self._total("api_errors")
+
+    @property
+    def cache_hits(self) -> int:
+        return self._total("cache_hits")
+
+    @property
+    def tokens(self) -> dict:
+        out = {"prompt_token_count": 0, "candidates_token_count": 0, "thoughts_token_count": 0,
+               "total_token_count": 0}
+        for s in self.per_stage.values():
+            for k, v in s["tokens"].items():
+                out[k] += v
+        return out
+
     def generate_content(self, model: str, contents: str, config=None):
+        counts = self._counts()
         requested = params_to_dict(config)
         if any(k in requested and requested[k] != v for k, v in self.enforced_params.items()):
             self.enforced_overrides += 1
@@ -210,22 +276,31 @@ class CachedClient:
         self.models_requested.add(model)
         hit = self.cache.get(key)
         if hit is not None:
-            self.cache_hits += 1
+            counts["cache_hits"] += 1
             if hit.get("model_version"):
                 self.model_versions.add(hit["model_version"])
             response = CachedResponse(hit)
             response.call_params = hit["params"]
             return response
+        if self.dry_run:
+            if key not in self._dry_keys:           # an identical later call would be a cache hit
+                self._dry_keys.add(key)
+                counts["would_call"] += 1
+            return DryRunResponse()
+        if self.max_calls is not None and self.api_calls >= self.max_calls:
+            raise CallLimitReached(f"max_calls = {self.max_calls} reached in stage {self.stage!r}")
 
-        self.api_calls += 1
+        counts["api_calls"] += 1
         try:
             response = self.inner.models.generate_content(model=model, contents=contents, config=params or None)
-        except Exception:
-            self.api_errors += 1
+        except Exception as e:
+            counts["api_errors"] += 1
+            if _is_rate_limit(e):
+                counts["rate_limit_errors"] += 1
             raise
         usage = _usage_dict(getattr(response, "usage_metadata", None))
         for k, v in usage.items():
-            self.tokens[k] += v
+            counts["tokens"][k] += v
         version = getattr(response, "model_version", None)
         if version:
             self.model_versions.add(version)
@@ -244,7 +319,10 @@ class CachedClient:
     def stats(self) -> dict:
         return {
             "api_calls": self.api_calls, "api_errors": self.api_errors, "cache_hits": self.cache_hits,
-            "tokens": dict(self.tokens),
+            "rate_limit_errors": self._total("rate_limit_errors"),
+            "tokens": self.tokens,
+            "per_stage": {k: {**v, "tokens": dict(v["tokens"])} for k, v in self.per_stage.items()},
+            "max_calls": self.max_calls,
             "models_requested": sorted(self.models_requested),
             "model_versions_returned": sorted(self.model_versions),
             "default_params": self.default_params,
@@ -268,6 +346,8 @@ def generate_text(client, model: str, prompt: str, *, sleep: bool = True) -> tup
             if not getattr(response, "text", None):
                 raise ValueError("empty response text")
             return response, errors
+        except CallLimitReached:
+            raise
         except Exception as e:  # noqa: BLE001
             err = str(e)
             errors.append(err[:200])

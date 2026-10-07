@@ -556,8 +556,10 @@ def test_v2_explanation_judge_reply_is_parsed_and_the_policy_applied(v2_prompts)
         client = Reply(reply)
         rec = detect_explanation(client, ALERT, expl(CLEAN), sleep=False, policy=policy, judge_prompt=f"v2-{policy}")
         assert rec["contains_hallucination"] is counted and (rec["tier"], rec["subtype"]) == (2, "baseline")
-        assert rec["judge"] == {"contains_hallucination": True, "tier": 2, "subtype": "baseline", "reply_problems": [],
-                                "catch_all": False, "note": None}
+        j = rec["judge"]
+        assert (j["verdict"], j["tier"], j["subtype"], j["reply_problems"], j["catch_all"], j["note"]) == \
+            (True, 2, "baseline", [], False, None)
+        assert j["prompt"] == f"v2-{policy}" and j["reply"]["subtype"] == "baseline"
         assert rec["policy_version"] == POL.POLICY_VERSION and rec["tier_map_sha256"]
         assert client.prompts[0].startswith(f"SYSTEM detect_explanation_system_v2_{policy}.txt")
         assert 'Reply as {"tier": 1}' in client.prompts[0] and CLEAN in client.prompts[0]
