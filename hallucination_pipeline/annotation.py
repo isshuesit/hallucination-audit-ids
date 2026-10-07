@@ -145,24 +145,23 @@ def _write_html(path: Path, rows: list[dict], title: str) -> None:
 
 
 def freeze_tag_ok(repo: Path, tag: str = "freeze-1") -> tuple[bool, str]:
-    """True if `tag` exists, is an ancestor of HEAD, and the working tree is clean."""
+    """True if `tag` exists, is an ancestor of HEAD, and no tracked file has uncommitted changes
+    (untracked outputs such as results/ or annotation/ do not count)."""
     def git(*args):
         return subprocess.run(["git", *args], cwd=repo, capture_output=True, text=True)
     if git("rev-parse", "-q", "--verify", f"refs/tags/{tag}").returncode != 0:
         return False, f"git tag {tag} does not exist yet (D8: freeze before exporting real sheets)"
     if git("merge-base", "--is-ancestor", tag, "HEAD").returncode != 0:
         return False, f"HEAD does not contain {tag}"
-    if git("status", "--porcelain").stdout.strip():
-        return False, "the working tree has uncommitted changes"
+    if git("status", "--porcelain", "--untracked-files=no").stdout.strip():
+        return False, "tracked files have uncommitted changes"
     return True, "ok"
 
 
 README_TEXT = """Annotation package for run {run_id}
 
 GIVE TO THE ANNOTATOR (one sheet at a time):
-  sheets/primary.csv       + sheets/primary.html       first pass, {n_primary} explanations
-  sheets/retest.csv        + sheets/retest.html        primary annotator again, at least 7 days after finishing primary
-  sheets/reliability.csv   + sheets/reliability.html   a second annotator, if available (D6)
+{sheet_lines}
   docs/ANNOTATION_GUIDE_v2.md                          how to label
 
 NEVER GIVE TO THE ANNOTATOR, and do not open it yourself while labelling:
@@ -175,11 +174,13 @@ Do not reorder, add or delete rows.
 
 def export_annotation(explanations: list[dict], alerts: list[dict], out_dir: Path, *, run_id: str, seed: int,
                       n: int = 100, n_reliability: int = 25, n_retest: int = 25, unfrozen_ok: bool = False,
-                      repo: Path | None = None) -> Path:
+                      repo: Path | None = None, sample: dict | None = None) -> Path:
     """Write sheets/{primary,reliability,retest}.csv + .html, key.json and README.txt into out_dir.
 
     Refuses to overwrite an existing export (labels must never be re-sampled after the fact), and,
-    unless unfrozen_ok, refuses to run before `git tag freeze-1` (D8)."""
+    unless unfrozen_ok, refuses to run before `git tag freeze-1` (D8). `sample` replaces the default
+    sampler ({"seed", "primary": [...], "reliability": [...], "retest": [...]}); a sheet whose list is
+    empty is not written (e.g. the D28 audit has a primary sheet only)."""
     out_dir = Path(out_dir)
     if out_dir.exists():
         raise AnnotationExportError(f"{out_dir} already exists; an export is never overwritten")
@@ -187,7 +188,9 @@ def export_annotation(explanations: list[dict], alerts: list[dict], out_dir: Pat
         ok, why = freeze_tag_ok(repo or Path(__file__).resolve().parent.parent)
         if not ok:
             raise AnnotationExportError(f"Refusing to export real annotation sheets: {why}")
-    sample = sample_explanations(explanations, alerts, seed=seed, n=n, n_reliability=n_reliability, n_retest=n_retest)
+    if sample is None:
+        sample = sample_explanations(explanations, alerts, seed=seed, n=n, n_reliability=n_reliability,
+                                     n_retest=n_retest)
     expl = {e["alert_id"]: e["explanation"] for e in explanations}
     evid = {a["alert_id"]: a["evidence"] for a in alerts}
     cls = {a["alert_id"]: a.get("label_fine", a.get("alert_type")) for a in alerts}
@@ -202,6 +205,8 @@ def export_annotation(explanations: list[dict], alerts: list[dict], out_dir: Pat
                              {k: v for k, v in primary_items.items() if v["explanation_id"] in rel_ids})
     sheets["retest"] = _sheet_rows(sample["retest"], "T", random.Random(f"{seed}:order:retest"), expl, evid)
     for name, (rows, items) in sheets.items():
+        if not rows:
+            continue
         _write_csv(out_dir / "sheets" / f"{name}.csv", rows)
         _write_html(out_dir / "sheets" / f"{name}.html", rows, f"Annotation sheet: {name}")
         key["sheets"][name] = {"items": items, "n_explanations": len({r["explanation_id"] for r in rows}),
@@ -209,7 +214,12 @@ def export_annotation(explanations: list[dict], alerts: list[dict], out_dir: Pat
     key["classes"] = {aid: cls[aid] for aid in sorted(set(sample["primary"]))}
     (out_dir / "key.json").write_text(json.dumps(key, indent=2, ensure_ascii=False) + "\n", encoding="utf-8",
                                       newline="\n")
-    (out_dir / "README.txt").write_text(README_TEXT.format(run_id=run_id, n_primary=len(sample["primary"])),
+    what = {"primary": "first pass", "retest": "primary annotator again, at least 7 days after finishing primary",
+            "reliability": "a second annotator, if available (D6)"}
+    sheet_lines = "\n".join(f"  sheets/{name}.csv + sheets/{name}.html   {what[name]}, "
+                            f"{key['sheets'][name]['n_explanations']} explanations"
+                            for name in ("primary", "retest", "reliability") if name in key["sheets"])
+    (out_dir / "README.txt").write_text(README_TEXT.format(run_id=run_id, sheet_lines=sheet_lines),
                                         encoding="utf-8", newline="\n")
     return out_dir
 

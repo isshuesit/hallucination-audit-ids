@@ -18,6 +18,11 @@ Fresh controlled run (config -> runs/<run_id>/):
     python -m hallucination_pipeline.cli freeze_run <run_id> [--config ...]
     python -m hallucination_pipeline.cli verify_run <run_id> [--config ...]
 
+Existing-corpus study (D25-D28; no LLM call; see docs/RUNBOOK_TONIGHT.md):
+    python -m hallucination_pipeline.cli audit_export [--corpus-dir old_run]       # needs git tag freeze-1
+    python -m hallucination_pipeline.cli analyze_corpus [--corpus-dir old_run]     # -> results/<corpus_id>/
+    python -m hallucination_pipeline.cli audit_metrics <corpus_id> <imported labels .json> [--corpus-dir old_run]
+
 Annotation (M3; output in annotation/<run_id>/):
     python -m hallucination_pipeline.cli annotation_export <run_id>            # needs git tag freeze-1
     python -m hallucination_pipeline.cli annotation_import <run_id> <filled.csv> --sheet primary --annotator NAME
@@ -36,7 +41,8 @@ def main(argv: list[str] | None = None) -> int:
         "phase",
         choices=["load", "generate", "detect", "localize", "unlearn",
                  "evaluate", "report", "impact", "status", "run", "freeze_run", "verify_run", "pilot_report",
-                 "annotation_export", "annotation_import", "annotation_agreement"],
+                 "annotation_export", "annotation_import", "annotation_agreement",
+                 "analyze_corpus", "audit_export", "audit_metrics"],
     )
     parser.add_argument("target_run_id", nargs="?", help="run id for freeze_run / verify_run")
     parser.add_argument("--config", default=None, help="run config TOML (default configs/fresh_run.toml)")
@@ -47,6 +53,8 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("files", nargs="*", help="annotation_import: filled CSV; annotation_agreement: two label files")
     parser.add_argument("--sheet", choices=["primary", "reliability", "retest"], help="annotation_import: which sheet")
     parser.add_argument("--annotator", help="annotation_import: annotator name or initials")
+    parser.add_argument("--corpus-dir", default=None, help="existing-corpus study: the earlier run's files "
+                                                            "(default old_run/)")
     parser.add_argument("--unfrozen", action="store_true",
                         help="annotation_export: allow an export before freeze-1 (pilot/synthetic only, marked in key)")
     args = parser.parse_args(argv)
@@ -56,6 +64,14 @@ def main(argv: list[str] | None = None) -> int:
         except (AttributeError, ValueError):
             pass
 
+    if args.phase in ("analyze_corpus", "audit_export", "audit_metrics"):
+        from .annotation import AnnotationExportError
+        from .corpus import ResultsExistError
+        try:
+            return _corpus_command(parser, args)
+        except (AnnotationExportError, ResultsExistError, FileNotFoundError, FileExistsError, ValueError) as e:
+            print(f"\nERROR: {e}", file=sys.stderr)
+            return 1
     if args.phase.startswith("annotation_"):
         from .annotation import AnnotationExportError, AnnotationImportError
         try:
@@ -181,6 +197,46 @@ def _annotation_command(parser: argparse.ArgumentParser, args) -> int:
         kappa = f"{k['kappa']:.3f}" if k["kappa"] is not None else "undefined"
         print(f"  {name:<28} kappa {kappa:>9}  95% CI {ci}")
     print(f"Wrote {ann_dir / (stem + '.json')} and the disagreement list (adjudication sheet)")
+    return 0
+
+
+def _corpus_command(parser: argparse.ArgumentParser, args) -> int:
+    import json
+    from pathlib import Path
+
+    from . import audit as AU
+    from . import corpus as CO
+    from .annotation import labels_from_json
+    from .run_config import DEFAULT_CONFIG_PATH, PROJECT_ROOT, load_run_config
+
+    cfg = load_run_config(args.config or DEFAULT_CONFIG_PATH)
+    corpus_dir = Path(args.corpus_dir) if args.corpus_dir else PROJECT_ROOT / "old_run"
+    data = CO.load_corpus(corpus_dir)
+    cid = data["corpus_id"]
+    print(f"Corpus {cid} ({corpus_dir}); {CO.SOURCE}")
+    if args.phase == "audit_export":
+        out = AU.export_audit(data, cfg.annotation_dir / cid, unfrozen_ok=args.unfrozen)
+        print((out / "README.txt").read_text(encoding="utf-8"))
+        return 0
+    if args.phase == "analyze_corpus":
+        out = CO.write_results(data)
+        m = json.loads((out / "MANIFEST.json").read_text(encoding="utf-8"))
+        for g, c in m["counts"].items():
+            print(f"  {g}: {c['analysed']} explanations analysed ({c['excluded']} excluded), {c['sentences']} sentences")
+        print(f"Wrote {out} (open REPORT.md there). LLM calls: 0.")
+        return 0
+    if not args.target_run_id or len(args.files) != 1:
+        parser.error("audit_metrics <corpus_id> <imported labels .json>")
+    if args.target_run_id != cid:
+        raise ValueError(f"corpus id {args.target_run_id} does not match the files in {corpus_dir} ({cid})")
+    results = CO.RESULTS_DIR / cid
+    if not (results / "MANIFEST.json").exists():
+        raise FileNotFoundError(f"run analyze_corpus first ({results} does not exist)")
+    gold = labels_from_json(json.loads(Path(args.files[0]).read_text(encoding="utf-8"))["labels"])
+    res = AU.audit_metrics(gold, data)
+    out = AU.write_audit(res, results / "audit")
+    print(AU.format_audit(res))
+    print(f"\nWrote {out} (metrics, disagreement list)")
     return 0
 
 

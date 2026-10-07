@@ -161,9 +161,14 @@ def test_real_export_requires_freeze_1(tmp_path):
     git("-c", "user.email=t@t", "-c", "user.name=t", "commit", "-q", "--allow-empty", "-m", "x")
     with pytest.raises(AN.AnnotationExportError, match="freeze-1 does not exist"):
         AN.export_annotation(explanations, alerts, tmp_path / "a1", run_id="x", seed=1, repo=repo)
+    (repo / "code.py").write_text("x = 1\n")
+    git("add", "code.py")
+    git("-c", "user.email=t@t", "-c", "user.name=t", "commit", "-q", "-m", "code")
     git("tag", "freeze-1")
     assert AN.freeze_tag_ok(repo) == (True, "ok")
-    (repo / "dirty.txt").write_text("x")
+    (repo / "results.csv").write_text("untracked output")          # untracked outputs do not block
+    assert AN.freeze_tag_ok(repo) == (True, "ok")
+    (repo / "code.py").write_text("x = 2\n")                       # a changed tracked file does
     assert AN.freeze_tag_ok(repo)[0] is False
 
 

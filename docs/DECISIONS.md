@@ -29,7 +29,11 @@ Append new entries at the bottom. Never delete an entry; supersede it.
 | D21 | Catch-all subtypes | `other_fabrication` (Tier 1) for an invented specific that fits no listed subtype (e.g. an invented hostname); `other_knowledge` (Tier 2) for outside knowledge that fits none. Rules never produce them; the AI judge and human annotators may. A short free-text note is required whenever one is used; reports count them separately | ACCEPTED | Avoids forcing unlisted claims into a wrong subtype |
 | D22 | v2 prompts delivered | The paper side delivered `detect_explanation_system_v2_strict.txt`, `detect_explanation_system_v2_lenient.txt`, `detect_explanation_template_v2.txt`, `localize_sentence_system_v2_strict.txt`, `localize_sentence_system_v2_lenient.txt`, `localize_sentence_template_v2.txt`, `generate_system_v2.txt` (new files in `hallucination_pipeline/prompts/`, byte-exact, hashes pinned in `tests/test_policy.py`) and `docs/ANNOTATION_GUIDE_v2.md`. The v1 guide is archived as `docs/archive/ANNOTATION_GUIDE_v1.md` | ACCEPTED | Completes M2's prompt inputs and the annotation protocol |
 | D23 | Annotation CSV | Columns `label` (grounded or hallucinated), `subtype` (a name from SUBTYPES.md; empty if grounded), `hedged` (yes or no; empty if grounded), `other_subtypes` (optional, comma separated), `note`, `unsure` (yes or empty). The tier is derived from the subtype and never typed. Import rejects: unknown subtype names, hallucinated without a subtype, grounded with a subtype, other_fabrication or other_knowledge without a note, and any blank label | ACCEPTED | One unambiguous format for gold labels; errors caught at import, not at analysis |
-| D24 | Pilot before the freeze | The 40-alert pilot (generation plus detection, all configs and both policies) runs BEFORE freeze-1, for debugging only (malformed replies, rate limits, cost). Pilot output is discarded and never used to tune rules. Prompt or format changes made because of the pilot are allowed only to fix malformed output or contradictions, and must be logged before the freeze | ACCEPTED | Finds plumbing failures while changes are still allowed, without letting results shape the method |
+| D24 | Pilot before the freeze | The 40-alert pilot (generation plus detection, all configs and both policies) runs BEFORE freeze-1, for debugging only (malformed replies, rate limits, cost). Pilot output is discarded and never used to tune rules. Prompt or format changes made because of the pilot are allowed only to fix malformed output or contradictions, and must be logged before the freeze | SUPERSEDED by D25 | Finds plumbing failures while changes are still allowed, without letting results shape the method |
+| D25 | Existing-corpus study tonight | Supersedes D24 and the paper side's earlier D25-D29 draft. Tonight is an EXISTING-CORPUS study with no Gemini call at all (free tier: 20 requests per day). The corpus is the earlier run's 400 explanations in `old_run/` (`llm_explanations.json`, `alerts.json`, `corrected_explanations.json`). Every output and table says: "source: earlier run, API-default sampling, prompt v1, 63 attack-flow and 337 benign-flow explanations; not generated under freeze-1" | ACCEPTED | A new generation run is impossible within the quota |
+| D26 | freeze-1 | Tag `freeze-1` now: rules 1.0.0, policy 1.2.0, annotation guide v2, analysis code. After it only bug fixes, each logged POST-HOC | ACCEPTED | Nothing may be tuned after results are seen |
+| D27 | No LLM arms tonight | No LLM-judge arms, no prompt-v2 comparison, no rewrite arms tonight; future work | ACCEPTED | No API calls available |
+| D28 | Human audit | 25 explanations from the corpus: 3 from each of the 4 attack classes present (DoS, DDoS, Port Scanning, Brute Force) = 12 attack-flow, plus 13 benign-flow, fixed seed (42). Blind sheets, no second pass. Reported as an audit with wide intervals | ACCEPTED | Feasible tonight; measures the rules against a human |
 
 ## Open items for the human to confirm (defaults apply until answered)
 - Is a second human annotator available for D6? (default: no -> test-retest)
@@ -210,4 +214,28 @@ These follow existing decisions; they are recorded so nothing is silent.
   - `pilot_report <run_id>`: calls, cache hits, tokens, wall time and rate-limit waits per stage; reply problems by
     kind; flagged share per config/policy per arm; 20 seeded-random v2 judge replies in
     `runs/<run_id>/samples/pilot_judge_replies.md`.
+- **D25-D28 implementation (2026-10-07, before freeze-1).**
+  - `hallucination_pipeline/corpus.py` (`cli analyze_corpus`): every usable explanation split into sentences; every
+    sentence gets every rule layer plus policy 1.2.0 (D17-D20). Rules only: a sentence the policy leaves
+    ambiguous (soft certainty only) is NOT flagged (no judge, D27); their number is in the manifest. Groups from
+    `alert_type` (`Normal Traffic` = benign-flow). 2 explanations are `[GENERATION FAILED]` (both benign-flow) and
+    are excluded and reported, so 398 are analysed. Explanation flags = any flagged sentence.
+  - Results in `results/<corpus_id>/` (`corpus_id` = hash of the input files plus rule/policy fingerprints; never
+    overwritten): prevalence per tier/subtype under both policies at both levels, attack-flow vs benign-flow with
+    the CI of the difference, hedged/unhedged attack_technique hits, every stated duration and the unit_wrong share,
+    port_not_in_evidence counts and examples, flagged sentences per explanation, 20 random flagged sentences per
+    tier. 95% CIs: percentile bootstrap over explanations, 2000 draws, seed 42 (each group resampled on its own
+    for differences). Every CSV starts with the source line; JSON records carry it.
+  - The 132 old rewrites are rebuilt exactly as `tools/reproduce_frozen.py` does, which also needs
+    `phase3_predictions.json` and `hallucination_masks.json` from `old_run/` (hashed into the manifest). Each is
+    checked for numbers absent from the evidence, and for numbers absent from both evidence and the original
+    sentence (the audit's measure; reproduces 28 of 132, tested when `old_run/` is present).
+  - `hallucination_pipeline/audit.py`: the D28 sample (per-class seeded draws), exported with the M3 blind export
+    (primary sheet only, shuffled opaque ids), imported with the D23 rules (`annotation_import`), then rules-versus-
+    human precision, recall and F1 under both policies, at sentence and explanation level, overall and per group,
+    with bootstrap CIs, n shown, and the disagreement list (`cli audit_metrics`). The corpus id for tonight is
+    `corpus-7247d3e7` (250 sentences to label).
+  - Freeze guard change (before the tag): `freeze_tag_ok` now ignores untracked files, so output folders
+    (`results/`, `annotation/`) do not block an export; changed tracked files still do.
+  - The runbook is `docs/RUNBOOK_TONIGHT.md`: label first, then analyse (the annotator must not see results first).
 

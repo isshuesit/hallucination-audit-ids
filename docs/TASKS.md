@@ -67,7 +67,17 @@ subtypes with required note.
 **Done 2026-10-07** — `hallucination_pipeline/annotation.py`, `tests/test_annotation.py` (synthetic data only). CLI:
 `annotation_export <run_id>` (refuses before `freeze-1`), `annotation_import <run_id> <csv> --sheet --annotator`,
 `annotation_agreement <run_id> <a.json> <b.json>`. Output in `annotation/<run_id>/`.
-## M3b — Pilot (D24), before the freeze
+## Tonight — existing-corpus study (D25-D28), replaces the pilot for now
+- [x] `analyze_corpus`: rules + policy 1.2.0 on every sentence of the earlier run's 400 explanations; results pack
+      with n and bootstrap CIs in `results/<corpus_id>/` (`hallucination_pipeline/corpus.py`, `tests/test_corpus.py`).
+- [x] Audit path (D28): sampler, blind export, D23 import, rules-versus-human P/R/F1 with CIs, disagreement list
+      (`hallucination_pipeline/audit.py`).
+- [x] `docs/RUNBOOK_TONIGHT.md`.
+- [x] Tag `freeze-1` (D26).
+- [ ] Human labels for the 25 audit explanations (by hand, outside the code tooling), then import, analyse, audit metrics.
+- [ ] Results pack + DECISIONS.md -> paper side.
+
+## M3b — Pilot (D24, superseded by D25 for now: no API quota), before the freeze
 - [ ] Pilot: 40 alerts (about 3 per class), generation plus detection for all configs C0-C3 and both policies, run
       under its own config / run_id. Needs `GEMINI_API_KEY`.
 - [ ] Check: malformed or contradictory judge replies (`reply_problems`), rate limits and retries, failures, tokens and
