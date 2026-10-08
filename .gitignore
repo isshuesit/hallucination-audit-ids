@@ -36,6 +36,8 @@ Thumbs.db
 *.log
 *.tmp
 
+# ── local working instructions (kept on disk, never published) ────────────
+
 # ── hand-over packages and paper-side delivery folders (local only) ───────
 outbox/
 paper_side_*/
