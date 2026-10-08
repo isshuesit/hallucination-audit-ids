@@ -1,0 +1,51 @@
+﻿E001-01 | grounded | | | | |
+E001-02 | hallucinated | port | no | | |
+E001-03 | grounded | | | | |
+E001-04 | grounded | | | | |
+E001-05 | grounded | | | | |
+E001-06 | grounded | | | | |
+E001-07 | hallucinated | protocol | no | | |
+E001-08 | hallucinated | protocol | yes | | |
+E001-09 | hallucinated | attack_technique | yes | | |
+E001-10 | hallucinated | baseline | no | | |
+E001-11 | grounded | | | | |
+E002-01 | hallucinated | baseline | no | | |
+E002-02 | hallucinated | port | no | | |
+E002-03 | grounded | | | | |
+E002-04 | grounded | | | | |
+E002-05 | hallucinated | baseline | no | | |
+E002-06 | hallucinated | baseline | no | | |
+E002-07 | grounded | | | | |
+E002-08 | hallucinated | baseline, protocol | no | | |
+E002-09 | hallucinated | attack_technique | yes | protocol | |
+E002-10 | grounded | | | | |
+E003-01 | grounded | | | | |
+E003-02 | hallucinated | port | no | | |
+E003-03 | hallucinated | baseline | no | unit | |
+E003-04 | grounded | | | | |
+E003-05 | grounded | | | | |
+E003-06 | grounded | | | | |
+E003-07 | grounded | | | | |
+E003-08 | hallucinated | attack_technique | yes | port | |
+E003-09 | hallucinated | baseline | no | | |
+E004-01 | hallucinated | port, encryption | no | | |
+E004-02 | grounded | | | | |
+E004-03 | grounded | | | | |
+E004-04 | grounded | | | | |
+E004-05 | grounded | | | | |
+E004-06 | grounded | | | | |
+E004-07 | hallucinated | baseline, protocol | no | | |
+E004-08 | hallucinated | protocol | no | | |
+E004-09 | hallucinated | attack_technique | yes | | |
+E004-10 | hallucinated | baseline | no | attack_technique | |
+E005-01 | hallucinated | baseline | no | | |
+E005-02 | hallucinated | port | no | | |
+E005-03 | hallucinated | unit_wrong | no | baseline | |
+E005-04 | grounded | | | | |
+E005-05 | grounded | | | | |
+E005-06 | grounded | | | | |
+E005-07 | grounded | | | | |
+E005-08 | grounded | | | | |
+E005-09 | hallucinated | baseline, protocol | no | | |
+E005-10 | grounded | | | | |
+E005-11 | hallucinated | protocol | no | baseline | |

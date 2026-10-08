@@ -1,0 +1,35 @@
+{
+  "labeller": "gpt",
+  "counts": {
+    "collapsed_lines_split": 5,
+    "records_recovered_from_split_lines": 250,
+    "multi_subtype_fields_repaired": 0
+  },
+  "repairs": [
+    {
+      "repair": "split_collapsed_line",
+      "where": "gpt_chunk_01.txt:1",
+      "records": 51
+    },
+    {
+      "repair": "split_collapsed_line",
+      "where": "gpt_chunk_02.txt:1",
+      "records": 52
+    },
+    {
+      "repair": "split_collapsed_line",
+      "where": "gpt_chunk_03.txt:1",
+      "records": 52
+    },
+    {
+      "repair": "split_collapsed_line",
+      "where": "gpt_chunk_04.txt:1",
+      "records": 48
+    },
+    {
+      "repair": "split_collapsed_line",
+      "where": "gpt_chunk_05.txt:1",
+      "records": 47
+    }
+  ]
+}

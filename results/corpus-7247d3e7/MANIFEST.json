@@ -1,0 +1,77 @@
+{
+  "source": "source: earlier run, API-default sampling, prompt v1, 63 attack-flow and 337 benign-flow explanations; not generated under freeze-1",
+  "corpus_id": "corpus-7247d3e7",
+  "created_at": "2026-10-08T14:06:06+00:00",
+  "git": {
+    "commit": "2768909981c4152626cabc94a397297397d82b56",
+    "dirty": true,
+    "describe": "freeze-1-5-g2768909"
+  },
+  "environment": {
+    "python": "3.14.4",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "packages": {
+      "pandas": "3.0.6",
+      "numpy": "2.5.3",
+      "scikit-learn": "1.9.1",
+      "google-genai": "2.28.0"
+    }
+  },
+  "input_files_sha256": {
+    "alerts.json": "4a35eb9e940be9632f4523b4be95208205338db683f83683463084be67ce9f9e",
+    "llm_explanations.json": "bbbbfb20cf73349a9a93a7462b86b4501cecbcb4539e87c491ac73300d6bc22c",
+    "corrected_explanations.json": "009b5a4ef01920d7ad2d4f78c43de7f163103385acad44de67511fba9f1144d1",
+    "phase3_predictions.json": "831670a5f64a0b1287244ae4aca4c575107ee984700af59cbfb5e455fddf0c4b",
+    "hallucination_masks.json": "34fc1fad2b0573de7488e8fd3d78fe780f90d03cdc6a967b67757e42b312c3e1"
+  },
+  "rules": {
+    "rules_version": "1.0.0",
+    "rules_patterns_sha256": "1d10799fee96d6fb918bc2242fc744d3ac424f3bdc13d10c9e545bc3690c98b0",
+    "rules_source_sha256": "e2d2e17c8c786603aca128a0fb253360bb524aaf1dd4d57dacd13bd0f2cc22b8"
+  },
+  "policy": {
+    "policy_version": "1.2.0",
+    "tier_map_sha256": "f83ccde8857c4117158c3231884d1e56997f2035aa6ac995252a2339a1b4d8be"
+  },
+  "llm_calls": 0,
+  "bootstrap": {
+    "draws": 2000,
+    "seed": 42,
+    "unit": "explanation",
+    "ci": "percentile 95%"
+  },
+  "detector": "rules only, every layer, policy 1.2.0; ambiguous (soft certainty only) = not flagged",
+  "counts": {
+    "attack-flow": {
+      "explanations_in_corpus": 63,
+      "analysed": 63,
+      "excluded": 0,
+      "sentences": 634,
+      "ambiguous_sentences_not_flagged_strict": 1
+    },
+    "benign-flow": {
+      "explanations_in_corpus": 337,
+      "analysed": 335,
+      "excluded": 2,
+      "sentences": 3357,
+      "ambiguous_sentences_not_flagged_strict": 0
+    }
+  },
+  "excluded": [
+    {
+      "alert_id": "A132",
+      "group": "benign-flow",
+      "reason": "generation failed"
+    },
+    {
+      "alert_id": "A140",
+      "group": "benign-flow",
+      "reason": "generation failed"
+    }
+  ],
+  "rewrites": {
+    "n_rewrites": 132,
+    "with_numbers_absent_from_evidence": 32,
+    "with_new_numbers_absent_from_evidence_and_original": 28
+  }
+}

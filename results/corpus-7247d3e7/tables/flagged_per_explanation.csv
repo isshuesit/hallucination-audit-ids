@@ -1,0 +1,8 @@
+# source: earlier run, API-default sampling, prompt v1, 63 attack-flow and 337 benign-flow explanations; not generated under freeze-1
+group,policy,n_explanations,mean_flagged_sentences,ci95_low,ci95_high,median,max,mean_sentences_per_explanation
+all,strict,398,1.8719,1.7588,1.9824,2.0000,6,10.0276
+all,lenient,398,0.6332,0.5628,0.6985,1.0000,4,10.0276
+attack-flow,strict,63,2.4444,2.1270,2.7460,2.0000,5,10.0635
+attack-flow,lenient,63,0.8254,0.6825,0.9841,1.0000,2,10.0635
+benign-flow,strict,335,1.7642,1.6537,1.8836,2.0000,6,10.0209
+benign-flow,lenient,335,0.5970,0.5284,0.6716,1.0000,4,10.0209

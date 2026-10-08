@@ -1,0 +1,5 @@
+# source: earlier run, API-default sampling, prompt v1, 63 attack-flow and 337 benign-flow explanations; not generated under freeze-1
+group,n_explanations,attack_technique_hits,hedged,unhedged,share_hedged,ci95_low,ci95_high
+all,398,88,76,12,0.8636,0.7818,0.9355
+attack-flow,63,17,15,2,0.8824,0.7273,1.0000
+benign-flow,335,71,61,10,0.8592,0.7714,0.9385

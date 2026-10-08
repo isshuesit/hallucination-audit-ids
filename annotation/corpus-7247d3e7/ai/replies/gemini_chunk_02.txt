@@ -1,0 +1,52 @@
+﻿E006-01 | grounded | | | | |
+E006-02 | hallucinated | port | no | | |
+E006-03 | hallucinated | unit_wrong | no | baseline | |
+E006-04 | grounded | | | | |
+E006-05 | grounded | | | | |
+E006-06 | grounded | | | | |
+E006-07 | grounded | | | | |
+E006-08 | hallucinated | protocol | no | | |
+E006-09 | hallucinated | baseline | no | | |
+E006-10 | hallucinated | attack_technique | yes | protocol | |
+E007-01 | grounded | | | | |
+E007-02 | hallucinated | port | no | encryption | |
+E007-03 | hallucinated | unit | no | baseline | |
+E007-04 | grounded | | | | |
+E007-05 | grounded | | | | |
+E007-06 | grounded | | | | |
+E007-07 | grounded | | | | |
+E007-08 | hallucinated | baseline, protocol | no | encryption | |
+E007-09 | hallucinated | baseline | no | | |
+E007-10 | hallucinated | baseline, encryption | no | protocol | |
+E008-01 | grounded | | | | |
+E008-02 | hallucinated | port | no | protocol | |
+E008-03 | hallucinated | unit_wrong | no | baseline | |
+E008-04 | grounded | | | | |
+E008-05 | grounded | | | | |
+E008-06 | grounded | | | | |
+E008-07 | hallucinated | baseline, protocol | no | encryption | |
+E008-08 | hallucinated | other_knowledge | no | | persistent connection assumption |
+E008-09 | grounded | | | | |
+E008-10 | grounded | | | | |
+E009-01 | grounded | | | | |
+E009-02 | hallucinated | port | no | protocol | |
+E009-03 | grounded | | | | |
+E009-04 | grounded | | | | |
+E009-05 | hallucinated | baseline | no | | |
+E009-06 | grounded | | | | |
+E009-07 | hallucinated | baseline | no | | |
+E009-08 | grounded | | | | |
+E009-09 | hallucinated | protocol | yes | | |
+E009-10 | hallucinated | attack_technique | yes | inferred_outcome | |
+E009-11 | grounded | | | | |
+E010-01 | grounded | | | | |
+E010-02 | hallucinated | port | no | protocol | |
+E010-03 | hallucinated | unit_wrong | no | baseline | |
+E010-04 | grounded | | | | |
+E010-05 | grounded | | | | |
+E010-06 | hallucinated | protocol | yes | | |
+E010-07 | hallucinated | baseline | no | | |
+E010-08 | hallucinated | protocol | no | baseline | |
+E010-09 | hallucinated | attack_technique | yes | port | |
+E010-10 | grounded | | | | |
+E010-11 | grounded | | | | |

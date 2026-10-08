@@ -1,28 +1,44 @@
-__pycache__/
-*.pyc
-.pytest_cache/
-
+# ── secrets: never committed ───────────────────────────────────────────────
 .env
-.env.local
+.env.*
+!.env.example
+*.key
 
-data/raw/*.csv
+# ── raw CIC-IDS 2017 data: not ours to redistribute; download from UNB/CIC ──
+data/raw/*
+!data/raw/.gitkeep
+*.zip
+*.pcap
+*.pcap_ISCX.csv
+
+# ── LLM cache and run directories: large, re-creatable ────────────────────
+llm_cache/
+runs/
+*.sqlite
+
+# ── legacy pipeline working files ─────────────────────────────────────────
 data/processed/*.json
 data/annotations/*.json
 outputs/*
+!outputs/.gitkeep
 
+# ── Python, environments, editors, local scratch ──────────────────────────
+__pycache__/
+*.pyc
+.pytest_cache/
+.venv/
+venv/
+env/
+.vscode/
+.idea/
 .DS_Store
+Thumbs.db
 *.log
+*.tmp
 
-# fresh-run artifacts: raw LLM responses and caches are large and may be re-created; results/ IS committed
-runs/
-llm_cache/
-*.sqlite
-
-# pass-through zips for the paper side (built by tools/make_outbox.py)
+# ── hand-over packages and paper-side delivery folders (local only) ───────
 outbox/
-
-# the old run's frozen artifacts (input to tools/reproduce_frozen.py), never committed
-old_run/
-
-# paper-side delivery folders (contents are copied into place; see DECISIONS D22)
 paper_side_*/
+
+# Shipped on purpose (NOT ignored): results/, annotation/, old_run/ (the earlier run's 7 JSON files, needed to
+# reproduce the existing-corpus analysis; see README "Data").

@@ -1,0 +1,5838 @@
+[
+  {
+    "alert_id": "A001",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 53\nFlow Duration: 30777\nForward Packets: 4\nFlow Bytes/s: 11956.98\nFlow Packets/s: 194.95\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "4",
+      "0",
+      "95",
+      "11956",
+      "30777",
+      "98",
+      "194",
+      "53"
+    ]
+  },
+  {
+    "alert_id": "A002",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 443\nFlow Duration: 2884\nForward Packets: 4\nFlow Bytes/s: 136615.81\nFlow Packets/s: 1733.70\nACK Flag Count: 1",
+    "evidence_tokens": [
+      "136615",
+      "4",
+      "1",
+      "81",
+      "2884",
+      "70",
+      "443",
+      "1733"
+    ]
+  },
+  {
+    "alert_id": "A003",
+    "alert_type": "DDoS",
+    "evidence": "Destination Port: 80\nFlow Duration: 73141122\nForward Packets: 8\nFlow Bytes/s: 159.46\nFlow Packets/s: 0.19\nACK Flag Count: 1",
+    "evidence_tokens": [
+      "19",
+      "8",
+      "1",
+      "0",
+      "159",
+      "80",
+      "46",
+      "73141122"
+    ]
+  },
+  {
+    "alert_id": "A004",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 443\nFlow Duration: 115417660\nForward Packets: 32\nFlow Bytes/s: 386.64\nFlow Packets/s: 0.59\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "0",
+      "32",
+      "59",
+      "443",
+      "115417660",
+      "64",
+      "386"
+    ]
+  },
+  {
+    "alert_id": "A005",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 443\nFlow Duration: 551378\nForward Packets: 13\nFlow Bytes/s: 11084.95\nFlow Packets/s: 38.09\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "0",
+      "95",
+      "11084",
+      "38",
+      "13",
+      "551378",
+      "443",
+      "09"
+    ]
+  },
+  {
+    "alert_id": "A006",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 443\nFlow Duration: 61776827\nForward Packets: 18\nFlow Bytes/s: 117.18\nFlow Packets/s: 0.53\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "0",
+      "443",
+      "61776827",
+      "18",
+      "117",
+      "53"
+    ]
+  },
+  {
+    "alert_id": "A007",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 49734\nFlow Duration: 58\nForward Packets: 1\nFlow Bytes/s: 0.00\nFlow Packets/s: 34482.76\nACK Flag Count: 1",
+    "evidence_tokens": [
+      "34482",
+      "1",
+      "0",
+      "00",
+      "58",
+      "76",
+      "49734"
+    ]
+  },
+  {
+    "alert_id": "A008",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 443\nFlow Duration: 10251931\nForward Packets: 21\nFlow Bytes/s: 7625.30\nFlow Packets/s: 6.44\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "21",
+      "0",
+      "30",
+      "44",
+      "7625",
+      "443",
+      "6",
+      "10251931"
+    ]
+  },
+  {
+    "alert_id": "A009",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 53\nFlow Duration: 48976\nForward Packets: 2\nFlow Bytes/s: 7840.57\nFlow Packets/s: 81.67\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "7840",
+      "57",
+      "0",
+      "48976",
+      "81",
+      "67",
+      "53",
+      "2"
+    ]
+  },
+  {
+    "alert_id": "A010",
+    "alert_type": "DoS",
+    "evidence": "Destination Port: 80\nFlow Duration: 86571019\nForward Packets: 6\nFlow Bytes/s: 137.76\nFlow Packets/s: 0.14\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "86571019",
+      "0",
+      "14",
+      "80",
+      "76",
+      "6",
+      "137"
+    ]
+  },
+  {
+    "alert_id": "A011",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 53\nFlow Duration: 31216\nForward Packets: 2\nFlow Bytes/s: 5766.27\nFlow Packets/s: 128.14\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "5766",
+      "27",
+      "0",
+      "31216",
+      "128",
+      "14",
+      "53",
+      "2"
+    ]
+  },
+  {
+    "alert_id": "A012",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 1185\nFlow Duration: 1\nForward Packets: 2\nFlow Bytes/s: 4000000.00\nFlow Packets/s: 2000000.00\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "2000000",
+      "1",
+      "0",
+      "1185",
+      "4000000",
+      "00",
+      "2"
+    ]
+  },
+  {
+    "alert_id": "A013",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 53\nFlow Duration: 31254\nForward Packets: 2\nFlow Bytes/s: 8958.85\nFlow Packets/s: 127.98\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "85",
+      "0",
+      "8958",
+      "31254",
+      "127",
+      "98",
+      "53",
+      "2"
+    ]
+  },
+  {
+    "alert_id": "A014",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 53\nFlow Duration: 92190\nForward Packets: 1\nFlow Bytes/s: 2364.68\nFlow Packets/s: 21.69\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "21",
+      "1",
+      "0",
+      "92190",
+      "2364",
+      "69",
+      "68",
+      "53"
+    ]
+  },
+  {
+    "alert_id": "A015",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 53\nFlow Duration: 48844\nForward Packets: 2\nFlow Bytes/s: 5855.38\nFlow Packets/s: 81.89\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "0",
+      "53",
+      "38",
+      "81",
+      "48844",
+      "89",
+      "5855",
+      "2"
+    ]
+  },
+  {
+    "alert_id": "A016",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 53\nFlow Duration: 161\nForward Packets: 2\nFlow Bytes/s: 1242236.02\nFlow Packets/s: 24844.72\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "72",
+      "0",
+      "24844",
+      "02",
+      "1242236",
+      "161",
+      "53",
+      "2"
+    ]
+  },
+  {
+    "alert_id": "A017",
+    "alert_type": "Port Scanning",
+    "evidence": "Destination Port: 616\nFlow Duration: 38\nForward Packets: 1\nFlow Bytes/s: 210526.32\nFlow Packets/s: 52631.58\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "1",
+      "0",
+      "210526",
+      "32",
+      "38",
+      "58",
+      "52631",
+      "616"
+    ]
+  },
+  {
+    "alert_id": "A018",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 53\nFlow Duration: 211966\nForward Packets: 4\nFlow Bytes/s: 1811.61\nFlow Packets/s: 28.31\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "4",
+      "0",
+      "211966",
+      "31",
+      "28",
+      "61",
+      "1811",
+      "53"
+    ]
+  },
+  {
+    "alert_id": "A019",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 443\nFlow Duration: 690\nForward Packets: 2\nFlow Bytes/s: 0.00\nFlow Packets/s: 2898.55\nACK Flag Count: 1",
+    "evidence_tokens": [
+      "1",
+      "0",
+      "2898",
+      "55",
+      "443",
+      "690",
+      "00",
+      "2"
+    ]
+  },
+  {
+    "alert_id": "A020",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 123\nFlow Duration: 67036624\nForward Packets: 2\nFlow Bytes/s: 2.86\nFlow Packets/s: 0.06\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "67036624",
+      "0",
+      "86",
+      "123",
+      "06",
+      "2"
+    ]
+  },
+  {
+    "alert_id": "A021",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 53\nFlow Duration: 6150373\nForward Packets: 2\nFlow Bytes/s: 46.34\nFlow Packets/s: 0.65\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "6150373",
+      "0",
+      "65",
+      "46",
+      "34",
+      "53",
+      "2"
+    ]
+  },
+  {
+    "alert_id": "A022",
+    "alert_type": "DoS",
+    "evidence": "Destination Port: 80\nFlow Duration: 84951109\nForward Packets: 6\nFlow Bytes/s: 140.47\nFlow Packets/s: 0.15\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "0",
+      "84951109",
+      "80",
+      "140",
+      "6",
+      "47",
+      "15"
+    ]
+  },
+  {
+    "alert_id": "A023",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 53\nFlow Duration: 31229\nForward Packets: 2\nFlow Bytes/s: 9990.71\nFlow Packets/s: 128.09\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "0",
+      "9990",
+      "71",
+      "09",
+      "128",
+      "31229",
+      "53",
+      "2"
+    ]
+  },
+  {
+    "alert_id": "A024",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 53\nFlow Duration: 4709464\nForward Packets: 2\nFlow Bytes/s: 71.98\nFlow Packets/s: 0.85\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "85",
+      "4709464",
+      "0",
+      "71",
+      "98",
+      "53",
+      "2"
+    ]
+  },
+  {
+    "alert_id": "A025",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 54834\nFlow Duration: 504\nForward Packets: 1\nFlow Bytes/s: 0.00\nFlow Packets/s: 3968.25\nACK Flag Count: 1",
+    "evidence_tokens": [
+      "3968",
+      "1",
+      "0",
+      "25",
+      "54834",
+      "00",
+      "504"
+    ]
+  },
+  {
+    "alert_id": "A026",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 443\nFlow Duration: 10330806\nForward Packets: 10\nFlow Bytes/s: 578.85\nFlow Packets/s: 1.84\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "85",
+      "1",
+      "0",
+      "10330806",
+      "10",
+      "443",
+      "84",
+      "578"
+    ]
+  },
+  {
+    "alert_id": "A027",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 80\nFlow Duration: 115818403\nForward Packets: 16\nFlow Bytes/s: 22.68\nFlow Packets/s: 0.26\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "115818403",
+      "0",
+      "16",
+      "22",
+      "80",
+      "26",
+      "68"
+    ]
+  },
+  {
+    "alert_id": "A028",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 35211\nFlow Duration: 36203\nForward Packets: 2\nFlow Bytes/s: 0.00\nFlow Packets/s: 138.11\nACK Flag Count: 1",
+    "evidence_tokens": [
+      "1",
+      "0",
+      "36203",
+      "138",
+      "11",
+      "35211",
+      "00",
+      "2"
+    ]
+  },
+  {
+    "alert_id": "A029",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 53\nFlow Duration: 218\nForward Packets: 2\nFlow Bytes/s: 1541284.40\nFlow Packets/s: 18348.62\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "0",
+      "40",
+      "218",
+      "62",
+      "18348",
+      "1541284",
+      "53",
+      "2"
+    ]
+  },
+  {
+    "alert_id": "A030",
+    "alert_type": "Port Scanning",
+    "evidence": "Destination Port: 27356\nFlow Duration: 14\nForward Packets: 1\nFlow Bytes/s: 571428.57\nFlow Packets/s: 142857.14\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "1",
+      "57",
+      "142857",
+      "0",
+      "14",
+      "571428",
+      "27356"
+    ]
+  },
+  {
+    "alert_id": "A031",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 443\nFlow Duration: 115673836\nForward Packets: 29\nFlow Bytes/s: 204.05\nFlow Packets/s: 0.52\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "204",
+      "115673836",
+      "0",
+      "05",
+      "52",
+      "443",
+      "29"
+    ]
+  },
+  {
+    "alert_id": "A032",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 45782\nFlow Duration: 75\nForward Packets: 1\nFlow Bytes/s: 0.00\nFlow Packets/s: 40000.00\nACK Flag Count: 1",
+    "evidence_tokens": [
+      "75",
+      "1",
+      "0",
+      "00",
+      "40000",
+      "45782"
+    ]
+  },
+  {
+    "alert_id": "A033",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 57628\nFlow Duration: 15391\nForward Packets: 6\nFlow Bytes/s: 30667.27\nFlow Packets/s: 454.81\nACK Flag Count: 1",
+    "evidence_tokens": [
+      "27",
+      "1",
+      "57628",
+      "454",
+      "30667",
+      "81",
+      "15391",
+      "6"
+    ]
+  },
+  {
+    "alert_id": "A034",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 53\nFlow Duration: 30791\nForward Packets: 1\nFlow Bytes/s: 7729.53\nFlow Packets/s: 64.95\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "1",
+      "0",
+      "7729",
+      "95",
+      "30791",
+      "64",
+      "53"
+    ]
+  },
+  {
+    "alert_id": "A035",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 53\nFlow Duration: 181\nForward Packets: 2\nFlow Bytes/s: 1414364.64\nFlow Packets/s: 22099.45\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "0",
+      "181",
+      "1414364",
+      "45",
+      "22099",
+      "64",
+      "53",
+      "2"
+    ]
+  },
+  {
+    "alert_id": "A036",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 80\nFlow Duration: 40991218\nForward Packets: 14\nFlow Bytes/s: 95.24\nFlow Packets/s: 0.61\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "40991218",
+      "0",
+      "95",
+      "14",
+      "80",
+      "61",
+      "24"
+    ]
+  },
+  {
+    "alert_id": "A037",
+    "alert_type": "DoS",
+    "evidence": "Destination Port: 80\nFlow Duration: 99014685\nForward Packets: 9\nFlow Bytes/s: 120.39\nFlow Packets/s: 0.15\nACK Flag Count: 1",
+    "evidence_tokens": [
+      "99014685",
+      "1",
+      "0",
+      "15",
+      "80",
+      "39",
+      "120",
+      "9"
+    ]
+  },
+  {
+    "alert_id": "A038",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 53\nFlow Duration: 578\nForward Packets: 1\nFlow Bytes/s: 250865.05\nFlow Packets/s: 3460.21\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "21",
+      "1",
+      "0",
+      "250865",
+      "05",
+      "3460",
+      "578",
+      "53"
+    ]
+  },
+  {
+    "alert_id": "A039",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 80\nFlow Duration: 178\nForward Packets: 2\nFlow Bytes/s: 0.00\nFlow Packets/s: 11235.96\nACK Flag Count: 1",
+    "evidence_tokens": [
+      "1",
+      "0",
+      "80",
+      "96",
+      "11235",
+      "00",
+      "178",
+      "2"
+    ]
+  },
+  {
+    "alert_id": "A040",
+    "alert_type": "Port Scanning",
+    "evidence": "Destination Port: 8899\nFlow Duration: 86\nForward Packets: 1\nFlow Bytes/s: 93023.26\nFlow Packets/s: 23255.81\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "93023",
+      "1",
+      "0",
+      "23255",
+      "86",
+      "81",
+      "8899",
+      "26"
+    ]
+  },
+  {
+    "alert_id": "A041",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 80\nFlow Duration: 53276\nForward Packets: 5\nFlow Bytes/s: 22223.89\nFlow Packets/s: 150.16\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "0",
+      "16",
+      "80",
+      "5",
+      "150",
+      "22223",
+      "53276",
+      "89"
+    ]
+  },
+  {
+    "alert_id": "A042",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 53\nFlow Duration: 34579902\nForward Packets: 2\nFlow Bytes/s: 8.88\nFlow Packets/s: 0.12\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "8",
+      "34579902",
+      "0",
+      "12",
+      "88",
+      "53",
+      "2"
+    ]
+  },
+  {
+    "alert_id": "A043",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 53\nFlow Duration: 431\nForward Packets: 1\nFlow Bytes/s: 375870.07\nFlow Packets/s: 4640.37\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "1",
+      "0",
+      "4640",
+      "37",
+      "431",
+      "07",
+      "375870",
+      "53"
+    ]
+  },
+  {
+    "alert_id": "A044",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 80\nFlow Duration: 5471466\nForward Packets: 35\nFlow Bytes/s: 13269.39\nFlow Packets/s: 15.17\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "0",
+      "13269",
+      "80",
+      "35",
+      "39",
+      "5471466",
+      "17",
+      "15"
+    ]
+  },
+  {
+    "alert_id": "A045",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 57805\nFlow Duration: 586\nForward Packets: 2\nFlow Bytes/s: 0.00\nFlow Packets/s: 5119.45\nACK Flag Count: 1",
+    "evidence_tokens": [
+      "5119",
+      "1",
+      "0",
+      "45",
+      "586",
+      "00",
+      "57805",
+      "2"
+    ]
+  },
+  {
+    "alert_id": "A046",
+    "alert_type": "Port Scanning",
+    "evidence": "Destination Port: 7007\nFlow Duration: 53\nForward Packets: 1\nFlow Bytes/s: 113207.55\nFlow Packets/s: 37735.85\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "85",
+      "1",
+      "0",
+      "55",
+      "7007",
+      "37735",
+      "113207",
+      "53"
+    ]
+  },
+  {
+    "alert_id": "A047",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 51717\nFlow Duration: 119\nForward Packets: 1\nFlow Bytes/s: 100840.34\nFlow Packets/s: 16806.72\nACK Flag Count: 1",
+    "evidence_tokens": [
+      "16806",
+      "1",
+      "72",
+      "100840",
+      "119",
+      "34",
+      "51717"
+    ]
+  },
+  {
+    "alert_id": "A048",
+    "alert_type": "DoS",
+    "evidence": "Destination Port: 80\nFlow Duration: 98402673\nForward Packets: 9\nFlow Bytes/s: 121.54\nFlow Packets/s: 0.15\nACK Flag Count: 1",
+    "evidence_tokens": [
+      "98402673",
+      "1",
+      "0",
+      "54",
+      "15",
+      "80",
+      "121",
+      "9"
+    ]
+  },
+  {
+    "alert_id": "A049",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 53\nFlow Duration: 37704\nForward Packets: 1\nFlow Bytes/s: 2758.33\nFlow Packets/s: 53.04\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "1",
+      "0",
+      "53",
+      "37704",
+      "04",
+      "2758",
+      "33"
+    ]
+  },
+  {
+    "alert_id": "A050",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 53\nFlow Duration: 218\nForward Packets: 2\nFlow Bytes/s: 1055045.87\nFlow Packets/s: 18348.62\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "0",
+      "1055045",
+      "2",
+      "218",
+      "62",
+      "18348",
+      "53",
+      "87"
+    ]
+  },
+  {
+    "alert_id": "A051",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 53\nFlow Duration: 267\nForward Packets: 2\nFlow Bytes/s: 1123595.51\nFlow Packets/s: 14981.27\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "27",
+      "0",
+      "1123595",
+      "14981",
+      "267",
+      "51",
+      "53",
+      "2"
+    ]
+  },
+  {
+    "alert_id": "A052",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 53\nFlow Duration: 47898\nForward Packets: 1\nFlow Bytes/s: 2734.98\nFlow Packets/s: 41.76\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "2734",
+      "47898",
+      "1",
+      "0",
+      "41",
+      "76",
+      "98",
+      "53"
+    ]
+  },
+  {
+    "alert_id": "A053",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 443\nFlow Duration: 104618603\nForward Packets: 27\nFlow Bytes/s: 230.17\nFlow Packets/s: 0.52\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "27",
+      "0",
+      "230",
+      "52",
+      "443",
+      "104618603",
+      "17"
+    ]
+  },
+  {
+    "alert_id": "A054",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 443\nFlow Duration: 5831103\nForward Packets: 7\nFlow Bytes/s: 138.40\nFlow Packets/s: 1.89\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "1",
+      "0",
+      "40",
+      "7",
+      "443",
+      "138",
+      "5831103",
+      "89"
+    ]
+  },
+  {
+    "alert_id": "A055",
+    "alert_type": "DDoS",
+    "evidence": "Destination Port: 80\nFlow Duration: 1429254\nForward Packets: 3\nFlow Bytes/s: 8135.01\nFlow Packets/s: 6.30\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "0",
+      "30",
+      "3",
+      "80",
+      "01",
+      "1429254",
+      "6",
+      "8135"
+    ]
+  },
+  {
+    "alert_id": "A056",
+    "alert_type": "DDoS",
+    "evidence": "Destination Port: 80\nFlow Duration: 1829493\nForward Packets: 3\nFlow Bytes/s: 6358.59\nFlow Packets/s: 4.92\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "1829493",
+      "4",
+      "0",
+      "6358",
+      "59",
+      "3",
+      "80",
+      "92"
+    ]
+  },
+  {
+    "alert_id": "A057",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 53\nFlow Duration: 23997\nForward Packets: 2\nFlow Bytes/s: 6500.81\nFlow Packets/s: 166.69\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "0",
+      "166",
+      "6500",
+      "81",
+      "69",
+      "23997",
+      "53",
+      "2"
+    ]
+  },
+  {
+    "alert_id": "A058",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 53\nFlow Duration: 370509\nForward Packets: 2\nFlow Bytes/s: 809.70\nFlow Packets/s: 10.80\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "0",
+      "370509",
+      "809",
+      "10",
+      "70",
+      "80",
+      "53",
+      "2"
+    ]
+  },
+  {
+    "alert_id": "A059",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 53\nFlow Duration: 205\nForward Packets: 2\nFlow Bytes/s: 1014634.15\nFlow Packets/s: 19512.20\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "0",
+      "1014634",
+      "19512",
+      "2",
+      "205",
+      "20",
+      "53",
+      "15"
+    ]
+  },
+  {
+    "alert_id": "A060",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 53\nFlow Duration: 30578\nForward Packets: 1\nFlow Bytes/s: 3793.58\nFlow Packets/s: 65.41\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "30578",
+      "1",
+      "0",
+      "65",
+      "41",
+      "58",
+      "3793",
+      "53"
+    ]
+  },
+  {
+    "alert_id": "A061",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 443\nFlow Duration: 271154\nForward Packets: 10\nFlow Bytes/s: 7431.20\nFlow Packets/s: 55.32\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "0",
+      "55",
+      "7431",
+      "10",
+      "32",
+      "443",
+      "271154",
+      "20"
+    ]
+  },
+  {
+    "alert_id": "A062",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 57040\nFlow Duration: 1\nForward Packets: 2\nFlow Bytes/s: 12000000.00\nFlow Packets/s: 2000000.00\nACK Flag Count: 1",
+    "evidence_tokens": [
+      "2000000",
+      "1",
+      "12000000",
+      "57040",
+      "00",
+      "2"
+    ]
+  },
+  {
+    "alert_id": "A063",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 53\nFlow Duration: 31318\nForward Packets: 2\nFlow Bytes/s: 19030.59\nFlow Packets/s: 127.72\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "31318",
+      "72",
+      "0",
+      "19030",
+      "59",
+      "127",
+      "53",
+      "2"
+    ]
+  },
+  {
+    "alert_id": "A064",
+    "alert_type": "DoS",
+    "evidence": "Destination Port: 80\nFlow Duration: 98334939\nForward Packets: 6\nFlow Bytes/s: 122.14\nFlow Packets/s: 0.13\nACK Flag Count: 1",
+    "evidence_tokens": [
+      "1",
+      "0",
+      "122",
+      "13",
+      "14",
+      "80",
+      "6",
+      "98334939"
+    ]
+  },
+  {
+    "alert_id": "A065",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 56627\nFlow Duration: 4\nForward Packets: 2\nFlow Bytes/s: 0.00\nFlow Packets/s: 500000.00\nACK Flag Count: 1",
+    "evidence_tokens": [
+      "4",
+      "1",
+      "0",
+      "56627",
+      "500000",
+      "00",
+      "2"
+    ]
+  },
+  {
+    "alert_id": "A066",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 53\nFlow Duration: 31198\nForward Packets: 2\nFlow Bytes/s: 9616.00\nFlow Packets/s: 128.21\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "21",
+      "0",
+      "31198",
+      "9616",
+      "128",
+      "00",
+      "53",
+      "2"
+    ]
+  },
+  {
+    "alert_id": "A067",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 53\nFlow Duration: 188471\nForward Packets: 2\nFlow Bytes/s: 848.94\nFlow Packets/s: 21.22\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "188471",
+      "848",
+      "21",
+      "0",
+      "94",
+      "22",
+      "53",
+      "2"
+    ]
+  },
+  {
+    "alert_id": "A068",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 53\nFlow Duration: 48237\nForward Packets: 4\nFlow Bytes/s: 6260.75\nFlow Packets/s: 124.39\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "75",
+      "4",
+      "124",
+      "0",
+      "39",
+      "6260",
+      "48237",
+      "53"
+    ]
+  },
+  {
+    "alert_id": "A069",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 53\nFlow Duration: 23705\nForward Packets: 2\nFlow Bytes/s: 7255.85\nFlow Packets/s: 168.74\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "85",
+      "0",
+      "168",
+      "74",
+      "23705",
+      "7255",
+      "53",
+      "2"
+    ]
+  },
+  {
+    "alert_id": "A070",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 80\nFlow Duration: 116354461\nForward Packets: 16\nFlow Bytes/s: 7.63\nFlow Packets/s: 0.26\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "0",
+      "16",
+      "116354461",
+      "7",
+      "80",
+      "63",
+      "26"
+    ]
+  },
+  {
+    "alert_id": "A071",
+    "alert_type": "DoS",
+    "evidence": "Destination Port: 80\nFlow Duration: 83128210\nForward Packets: 6\nFlow Bytes/s: 144.20\nFlow Packets/s: 0.16\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "83128210",
+      "0",
+      "16",
+      "80",
+      "144",
+      "6",
+      "20"
+    ]
+  },
+  {
+    "alert_id": "A072",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 8731\nFlow Duration: 126\nForward Packets: 1\nFlow Bytes/s: 0.00\nFlow Packets/s: 15873.02\nACK Flag Count: 1",
+    "evidence_tokens": [
+      "1",
+      "0",
+      "02",
+      "8731",
+      "126",
+      "15873",
+      "00"
+    ]
+  },
+  {
+    "alert_id": "A073",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 53\nFlow Duration: 24508\nForward Packets: 2\nFlow Bytes/s: 9139.87\nFlow Packets/s: 163.21\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "21",
+      "24508",
+      "0",
+      "9139",
+      "163",
+      "2",
+      "53",
+      "87"
+    ]
+  },
+  {
+    "alert_id": "A074",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 53\nFlow Duration: 151\nForward Packets: 2\nFlow Bytes/s: 1298013.25\nFlow Packets/s: 26490.07\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "0",
+      "151",
+      "1298013",
+      "26490",
+      "07",
+      "25",
+      "53",
+      "2"
+    ]
+  },
+  {
+    "alert_id": "A075",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 53398\nFlow Duration: 1\nForward Packets: 2\nFlow Bytes/s: 37000000.00\nFlow Packets/s: 2000000.00\nACK Flag Count: 1",
+    "evidence_tokens": [
+      "2000000",
+      "1",
+      "37000000",
+      "53398",
+      "00",
+      "2"
+    ]
+  },
+  {
+    "alert_id": "A076",
+    "alert_type": "Port Scanning",
+    "evidence": "Destination Port: 8192\nFlow Duration: 59\nForward Packets: 1\nFlow Bytes/s: 135593.22\nFlow Packets/s: 33898.31\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "1",
+      "0",
+      "31",
+      "22",
+      "59",
+      "8192",
+      "33898",
+      "135593"
+    ]
+  },
+  {
+    "alert_id": "A077",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 53\nFlow Duration: 117183144\nForward Packets: 2\nFlow Bytes/s: 2.65\nFlow Packets/s: 0.03\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "0",
+      "65",
+      "03",
+      "117183144",
+      "53",
+      "2"
+    ]
+  },
+  {
+    "alert_id": "A078",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 53\nFlow Duration: 242\nForward Packets: 2\nFlow Bytes/s: 1173553.72\nFlow Packets/s: 16528.93\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "72",
+      "1173553",
+      "0",
+      "242",
+      "93",
+      "16528",
+      "53",
+      "2"
+    ]
+  },
+  {
+    "alert_id": "A079",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 53\nFlow Duration: 61291\nForward Packets: 2\nFlow Bytes/s: 8092.54\nFlow Packets/s: 65.26\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "0",
+      "54",
+      "65",
+      "53",
+      "26",
+      "8092",
+      "61291",
+      "2"
+    ]
+  },
+  {
+    "alert_id": "A080",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 53\nFlow Duration: 518\nForward Packets: 1\nFlow Bytes/s: 295366.80\nFlow Packets/s: 3861.00\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "1",
+      "0",
+      "295366",
+      "80",
+      "518",
+      "3861",
+      "00",
+      "53"
+    ]
+  },
+  {
+    "alert_id": "A081",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 53\nFlow Duration: 30491\nForward Packets: 1\nFlow Bytes/s: 5181.86\nFlow Packets/s: 65.59\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "1",
+      "5181",
+      "30491",
+      "0",
+      "65",
+      "86",
+      "59",
+      "53"
+    ]
+  },
+  {
+    "alert_id": "A082",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 3050\nFlow Duration: 112\nForward Packets: 1\nFlow Bytes/s: 107142.86\nFlow Packets/s: 17857.14\nACK Flag Count: 1",
+    "evidence_tokens": [
+      "17857",
+      "1",
+      "86",
+      "14",
+      "107142",
+      "3050",
+      "112"
+    ]
+  },
+  {
+    "alert_id": "A083",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 53\nFlow Duration: 228\nForward Packets: 2\nFlow Bytes/s: 1026315.79\nFlow Packets/s: 17543.86\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "0",
+      "1026315",
+      "17543",
+      "86",
+      "228",
+      "79",
+      "53",
+      "2"
+    ]
+  },
+  {
+    "alert_id": "A084",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 443\nFlow Duration: 1192137\nForward Packets: 12\nFlow Bytes/s: 5073.24\nFlow Packets/s: 15.10\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "0",
+      "12",
+      "5073",
+      "10",
+      "443",
+      "1192137",
+      "24",
+      "15"
+    ]
+  },
+  {
+    "alert_id": "A085",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 53\nFlow Duration: 50295\nForward Packets: 1\nFlow Bytes/s: 3300.53\nFlow Packets/s: 39.77\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "1",
+      "0",
+      "77",
+      "50295",
+      "39",
+      "3300",
+      "53"
+    ]
+  },
+  {
+    "alert_id": "A086",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 443\nFlow Duration: 111602\nForward Packets: 21\nFlow Bytes/s: 386579.09\nFlow Packets/s: 403.22\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "21",
+      "111602",
+      "0",
+      "403",
+      "22",
+      "09",
+      "443",
+      "386579"
+    ]
+  },
+  {
+    "alert_id": "A087",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 53\nFlow Duration: 259\nForward Packets: 2\nFlow Bytes/s: 633204.63\nFlow Packets/s: 15444.02\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "0",
+      "15444",
+      "633204",
+      "02",
+      "63",
+      "259",
+      "53",
+      "2"
+    ]
+  },
+  {
+    "alert_id": "A088",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 53\nFlow Duration: 24040\nForward Packets: 4\nFlow Bytes/s: 9816.97\nFlow Packets/s: 249.58\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "249",
+      "4",
+      "24040",
+      "0",
+      "97",
+      "9816",
+      "58",
+      "53"
+    ]
+  },
+  {
+    "alert_id": "A089",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 80\nFlow Duration: 8743\nForward Packets: 2\nFlow Bytes/s: 1372.53\nFlow Packets/s: 228.75\nACK Flag Count: 1",
+    "evidence_tokens": [
+      "75",
+      "1",
+      "1372",
+      "80",
+      "8743",
+      "228",
+      "53",
+      "2"
+    ]
+  },
+  {
+    "alert_id": "A090",
+    "alert_type": "DDoS",
+    "evidence": "Destination Port: 80\nFlow Duration: 20993\nForward Packets: 3\nFlow Bytes/s: 553851.28\nFlow Packets/s: 333.44\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "0",
+      "553851",
+      "44",
+      "3",
+      "80",
+      "20993",
+      "333",
+      "28"
+    ]
+  },
+  {
+    "alert_id": "A091",
+    "alert_type": "DDoS",
+    "evidence": "Destination Port: 80\nFlow Duration: 99118424\nForward Packets: 8\nFlow Bytes/s: 117.67\nFlow Packets/s: 0.13\nACK Flag Count: 1",
+    "evidence_tokens": [
+      "8",
+      "1",
+      "0",
+      "99118424",
+      "13",
+      "80",
+      "67",
+      "117"
+    ]
+  },
+  {
+    "alert_id": "A092",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 80\nFlow Duration: 2251424\nForward Packets: 4\nFlow Bytes/s: 619.16\nFlow Packets/s: 4.00\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "4",
+      "0",
+      "16",
+      "80",
+      "619",
+      "00",
+      "2251424"
+    ]
+  },
+  {
+    "alert_id": "A093",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 53\nFlow Duration: 23598\nForward Packets: 1\nFlow Bytes/s: 9407.58\nFlow Packets/s: 84.75\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "75",
+      "1",
+      "0",
+      "58",
+      "84",
+      "23598",
+      "9407",
+      "53"
+    ]
+  },
+  {
+    "alert_id": "A094",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 443\nFlow Duration: 63138865\nForward Packets: 7\nFlow Bytes/s: 0.00\nFlow Packets/s: 0.11\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "0",
+      "63138865",
+      "7",
+      "443",
+      "11",
+      "00"
+    ]
+  },
+  {
+    "alert_id": "A095",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 443\nFlow Duration: 115707085\nForward Packets: 23\nFlow Bytes/s: 38.28\nFlow Packets/s: 0.36\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "0",
+      "36",
+      "115707085",
+      "38",
+      "443",
+      "23",
+      "28"
+    ]
+  },
+  {
+    "alert_id": "A096",
+    "alert_type": "DoS",
+    "evidence": "Destination Port: 80\nFlow Duration: 84260167\nForward Packets: 7\nFlow Bytes/s: 141.38\nFlow Packets/s: 0.15\nACK Flag Count: 1",
+    "evidence_tokens": [
+      "1",
+      "0",
+      "38",
+      "7",
+      "80",
+      "84260167",
+      "141",
+      "15"
+    ]
+  },
+  {
+    "alert_id": "A097",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 53\nFlow Duration: 193\nForward Packets: 2\nFlow Bytes/s: 1284974.09\nFlow Packets/s: 20725.39\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "20725",
+      "0",
+      "1284974",
+      "09",
+      "193",
+      "39",
+      "53",
+      "2"
+    ]
+  },
+  {
+    "alert_id": "A098",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 80\nFlow Duration: 114406\nForward Packets: 5\nFlow Bytes/s: 9780.96\nFlow Packets/s: 69.93\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "0",
+      "114406",
+      "80",
+      "96",
+      "5",
+      "9780",
+      "93",
+      "69"
+    ]
+  },
+  {
+    "alert_id": "A099",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 53\nFlow Duration: 1041\nForward Packets: 2\nFlow Bytes/s: 234390.01\nFlow Packets/s: 3842.46\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "234390",
+      "0",
+      "46",
+      "1041",
+      "01",
+      "3842",
+      "53",
+      "2"
+    ]
+  },
+  {
+    "alert_id": "A100",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 39759\nFlow Duration: 62\nForward Packets: 1\nFlow Bytes/s: 0.00\nFlow Packets/s: 32258.06\nACK Flag Count: 1",
+    "evidence_tokens": [
+      "1",
+      "0",
+      "39759",
+      "62",
+      "32258",
+      "00",
+      "06"
+    ]
+  },
+  {
+    "alert_id": "A101",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 30511\nFlow Duration: 9230965\nForward Packets: 1\nFlow Bytes/s: 151.56\nFlow Packets/s: 0.65\nACK Flag Count: 1",
+    "evidence_tokens": [
+      "1",
+      "0",
+      "56",
+      "151",
+      "65",
+      "30511",
+      "9230965"
+    ]
+  },
+  {
+    "alert_id": "A102",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 53\nFlow Duration: 170\nForward Packets: 2\nFlow Bytes/s: 1388235.29\nFlow Packets/s: 23529.41\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "0",
+      "170",
+      "41",
+      "1388235",
+      "29",
+      "23529",
+      "53",
+      "2"
+    ]
+  },
+  {
+    "alert_id": "A103",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 57154\nFlow Duration: 735\nForward Packets: 1\nFlow Bytes/s: 0.00\nFlow Packets/s: 2721.09\nACK Flag Count: 1",
+    "evidence_tokens": [
+      "1",
+      "0",
+      "2721",
+      "09",
+      "735",
+      "00",
+      "57154"
+    ]
+  },
+  {
+    "alert_id": "A104",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 80\nFlow Duration: 5990880\nForward Packets: 3\nFlow Bytes/s: 2.00\nFlow Packets/s: 0.67\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "0",
+      "00",
+      "3",
+      "80",
+      "67",
+      "5990880",
+      "2"
+    ]
+  },
+  {
+    "alert_id": "A105",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 53\nFlow Duration: 238529\nForward Packets: 1\nFlow Bytes/s: 540.81\nFlow Packets/s: 8.38\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "8",
+      "1",
+      "0",
+      "238529",
+      "81",
+      "38",
+      "540",
+      "53"
+    ]
+  },
+  {
+    "alert_id": "A106",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 80\nFlow Duration: 116310412\nForward Packets: 20\nFlow Bytes/s: 43.19\nFlow Packets/s: 0.32\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "19",
+      "116310412",
+      "0",
+      "32",
+      "80",
+      "43",
+      "20"
+    ]
+  },
+  {
+    "alert_id": "A107",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 53\nFlow Duration: 178\nForward Packets: 2\nFlow Bytes/s: 1033707.86\nFlow Packets/s: 22471.91\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "0",
+      "1033707",
+      "86",
+      "91",
+      "22471",
+      "178",
+      "53",
+      "2"
+    ]
+  },
+  {
+    "alert_id": "A108",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 59680\nFlow Duration: 81\nForward Packets: 1\nFlow Bytes/s: 0.00\nFlow Packets/s: 24691.36\nACK Flag Count: 1",
+    "evidence_tokens": [
+      "1",
+      "0",
+      "24691",
+      "36",
+      "81",
+      "59680",
+      "00"
+    ]
+  },
+  {
+    "alert_id": "A109",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 53\nFlow Duration: 23663\nForward Packets: 2\nFlow Bytes/s: 11494.74\nFlow Packets/s: 169.04\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "23663",
+      "0",
+      "11494",
+      "169",
+      "74",
+      "04",
+      "53",
+      "2"
+    ]
+  },
+  {
+    "alert_id": "A110",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 443\nFlow Duration: 117223378\nForward Packets: 6\nFlow Bytes/s: 2.56\nFlow Packets/s: 0.09\nACK Flag Count: 1",
+    "evidence_tokens": [
+      "1",
+      "0",
+      "56",
+      "09",
+      "443",
+      "6",
+      "117223378",
+      "2"
+    ]
+  },
+  {
+    "alert_id": "A111",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 53\nFlow Duration: 53611\nForward Packets: 1\nFlow Bytes/s: 4290.16\nFlow Packets/s: 37.31\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "1",
+      "0",
+      "53611",
+      "16",
+      "37",
+      "31",
+      "4290",
+      "53"
+    ]
+  },
+  {
+    "alert_id": "A112",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 52586\nFlow Duration: 45\nForward Packets: 1\nFlow Bytes/s: 266666.67\nFlow Packets/s: 44444.44\nACK Flag Count: 1",
+    "evidence_tokens": [
+      "44444",
+      "52586",
+      "1",
+      "44",
+      "266666",
+      "45",
+      "67"
+    ]
+  },
+  {
+    "alert_id": "A113",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 60788\nFlow Duration: 33\nForward Packets: 1\nFlow Bytes/s: 0.00\nFlow Packets/s: 60606.06\nACK Flag Count: 1",
+    "evidence_tokens": [
+      "1",
+      "0",
+      "60606",
+      "00",
+      "60788",
+      "06",
+      "33"
+    ]
+  },
+  {
+    "alert_id": "A114",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 53\nFlow Duration: 196\nForward Packets: 2\nFlow Bytes/s: 1479591.84\nFlow Packets/s: 20408.16\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "196",
+      "0",
+      "16",
+      "1479591",
+      "84",
+      "20408",
+      "53",
+      "2"
+    ]
+  },
+  {
+    "alert_id": "A115",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 5678\nFlow Duration: 3\nForward Packets: 2\nFlow Bytes/s: 19666666.67\nFlow Packets/s: 666666.67\nACK Flag Count: 1",
+    "evidence_tokens": [
+      "1",
+      "666666",
+      "3",
+      "5678",
+      "19666666",
+      "67",
+      "2"
+    ]
+  },
+  {
+    "alert_id": "A116",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 53\nFlow Duration: 260\nForward Packets: 2\nFlow Bytes/s: 2915384.62\nFlow Packets/s: 15384.62\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "0",
+      "2915384",
+      "260",
+      "62",
+      "15384",
+      "53",
+      "2"
+    ]
+  },
+  {
+    "alert_id": "A117",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 53\nFlow Duration: 51682\nForward Packets: 2\nFlow Bytes/s: 4643.78\nFlow Packets/s: 77.40\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "0",
+      "77",
+      "40",
+      "78",
+      "51682",
+      "4643",
+      "53",
+      "2"
+    ]
+  },
+  {
+    "alert_id": "A118",
+    "alert_type": "DoS",
+    "evidence": "Destination Port: 80\nFlow Duration: 140445\nForward Packets: 3\nFlow Bytes/s: 85100.93\nFlow Packets/s: 64.08\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "140445",
+      "0",
+      "3",
+      "85100",
+      "80",
+      "08",
+      "93",
+      "64"
+    ]
+  },
+  {
+    "alert_id": "A119",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 53\nFlow Duration: 48539\nForward Packets: 2\nFlow Bytes/s: 5892.17\nFlow Packets/s: 82.41\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "0",
+      "53",
+      "41",
+      "82",
+      "5892",
+      "17",
+      "48539",
+      "2"
+    ]
+  },
+  {
+    "alert_id": "A120",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 443\nFlow Duration: 81\nForward Packets: 2\nFlow Bytes/s: 0.00\nFlow Packets/s: 24691.36\nACK Flag Count: 1",
+    "evidence_tokens": [
+      "1",
+      "0",
+      "24691",
+      "36",
+      "81",
+      "443",
+      "00",
+      "2"
+    ]
+  },
+  {
+    "alert_id": "A121",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 53\nFlow Duration: 294\nForward Packets: 2\nFlow Bytes/s: 1340136.05\nFlow Packets/s: 13605.44\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "0",
+      "05",
+      "294",
+      "44",
+      "13605",
+      "1340136",
+      "53",
+      "2"
+    ]
+  },
+  {
+    "alert_id": "A122",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 49194\nFlow Duration: 77\nForward Packets: 1\nFlow Bytes/s: 0.00\nFlow Packets/s: 25974.03\nACK Flag Count: 1",
+    "evidence_tokens": [
+      "1",
+      "0",
+      "25974",
+      "77",
+      "03",
+      "00",
+      "49194"
+    ]
+  },
+  {
+    "alert_id": "A123",
+    "alert_type": "DDoS",
+    "evidence": "Destination Port: 80\nFlow Duration: 84212\nForward Packets: 3\nFlow Bytes/s: 138139.46\nFlow Packets/s: 95.00\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "0",
+      "95",
+      "00",
+      "3",
+      "80",
+      "46",
+      "84212",
+      "138139"
+    ]
+  },
+  {
+    "alert_id": "A124",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 53\nFlow Duration: 31614\nForward Packets: 2\nFlow Bytes/s: 5693.68\nFlow Packets/s: 126.53\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "0",
+      "31614",
+      "126",
+      "5693",
+      "68",
+      "53",
+      "2"
+    ]
+  },
+  {
+    "alert_id": "A125",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 53\nFlow Duration: 169\nForward Packets: 2\nFlow Bytes/s: 1230769.23\nFlow Packets/s: 23668.64\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "0",
+      "169",
+      "23",
+      "1230769",
+      "64",
+      "23668",
+      "53",
+      "2"
+    ]
+  },
+  {
+    "alert_id": "A126",
+    "alert_type": "Brute Force",
+    "evidence": "Destination Port: 22\nFlow Duration: 13244433\nForward Packets: 21\nFlow Bytes/s: 358.87\nFlow Packets/s: 4.00\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "21",
+      "4",
+      "0",
+      "22",
+      "13244433",
+      "358",
+      "00",
+      "87"
+    ]
+  },
+  {
+    "alert_id": "A127",
+    "alert_type": "DDoS",
+    "evidence": "Destination Port: 80\nFlow Duration: 80292197\nForward Packets: 8\nFlow Bytes/s: 145.26\nFlow Packets/s: 0.16\nACK Flag Count: 1",
+    "evidence_tokens": [
+      "8",
+      "1",
+      "0",
+      "16",
+      "145",
+      "80",
+      "26",
+      "80292197"
+    ]
+  },
+  {
+    "alert_id": "A128",
+    "alert_type": "DoS",
+    "evidence": "Destination Port: 80\nFlow Duration: 83743063\nForward Packets: 7\nFlow Bytes/s: 146.96\nFlow Packets/s: 0.14\nACK Flag Count: 1",
+    "evidence_tokens": [
+      "83743063",
+      "1",
+      "0",
+      "7",
+      "14",
+      "80",
+      "96",
+      "146"
+    ]
+  },
+  {
+    "alert_id": "A129",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 1432\nFlow Duration: 3\nForward Packets: 2\nFlow Bytes/s: 12300000.00\nFlow Packets/s: 666666.67\nACK Flag Count: 1",
+    "evidence_tokens": [
+      "1",
+      "666666",
+      "1432",
+      "12300000",
+      "3",
+      "67",
+      "00",
+      "2"
+    ]
+  },
+  {
+    "alert_id": "A130",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 53\nFlow Duration: 31532\nForward Packets: 2\nFlow Bytes/s: 9894.71\nFlow Packets/s: 126.86\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "0",
+      "31532",
+      "86",
+      "71",
+      "9894",
+      "126",
+      "53",
+      "2"
+    ]
+  },
+  {
+    "alert_id": "A131",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 443\nFlow Duration: 42136677\nForward Packets: 2\nFlow Bytes/s: 0.28\nFlow Packets/s: 0.07\nACK Flag Count: 1",
+    "evidence_tokens": [
+      "1",
+      "0",
+      "443",
+      "07",
+      "42136677",
+      "28",
+      "2"
+    ]
+  },
+  {
+    "alert_id": "A132",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 53\nFlow Duration: 215\nForward Packets: 2\nFlow Bytes/s: 2567441.86\nFlow Packets/s: 18604.65\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "2567441",
+      "0",
+      "65",
+      "86",
+      "215",
+      "18604",
+      "53",
+      "2"
+    ]
+  },
+  {
+    "alert_id": "A133",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 443\nFlow Duration: 2499075\nForward Packets: 3\nFlow Bytes/s: 0.00\nFlow Packets/s: 1.60\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "1",
+      "0",
+      "2499075",
+      "60",
+      "3",
+      "443",
+      "00"
+    ]
+  },
+  {
+    "alert_id": "A134",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 80\nFlow Duration: 82346387\nForward Packets: 28\nFlow Bytes/s: 609.61\nFlow Packets/s: 0.69\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "0",
+      "82346387",
+      "80",
+      "61",
+      "69",
+      "609",
+      "28"
+    ]
+  },
+  {
+    "alert_id": "A135",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 53\nFlow Duration: 156\nForward Packets: 2\nFlow Bytes/s: 1307692.31\nFlow Packets/s: 25641.03\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "0",
+      "156",
+      "31",
+      "1307692",
+      "25641",
+      "03",
+      "53",
+      "2"
+    ]
+  },
+  {
+    "alert_id": "A136",
+    "alert_type": "DDoS",
+    "evidence": "Destination Port: 80\nFlow Duration: 42069\nForward Packets: 3\nFlow Bytes/s: 276379.28\nFlow Packets/s: 190.16\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "276379",
+      "0",
+      "16",
+      "42069",
+      "3",
+      "80",
+      "190",
+      "28"
+    ]
+  },
+  {
+    "alert_id": "A137",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 80\nFlow Duration: 5783357\nForward Packets: 3\nFlow Bytes/s: 2.07\nFlow Packets/s: 0.69\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "0",
+      "5783357",
+      "3",
+      "80",
+      "07",
+      "69",
+      "2"
+    ]
+  },
+  {
+    "alert_id": "A138",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 53\nFlow Duration: 174\nForward Packets: 2\nFlow Bytes/s: 1873563.22\nFlow Packets/s: 22988.51\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "0",
+      "22",
+      "174",
+      "22988",
+      "1873563",
+      "51",
+      "53",
+      "2"
+    ]
+  },
+  {
+    "alert_id": "A139",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 16707\nFlow Duration: 18\nForward Packets: 1\nFlow Bytes/s: 666666.67\nFlow Packets/s: 111111.11\nACK Flag Count: 1",
+    "evidence_tokens": [
+      "1",
+      "666666",
+      "11",
+      "18",
+      "67",
+      "16707",
+      "111111"
+    ]
+  },
+  {
+    "alert_id": "A140",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 42850\nFlow Duration: 79\nForward Packets: 1\nFlow Bytes/s: 0.00\nFlow Packets/s: 25316.46\nACK Flag Count: 1",
+    "evidence_tokens": [
+      "1",
+      "0",
+      "25316",
+      "42850",
+      "46",
+      "00",
+      "79"
+    ]
+  },
+  {
+    "alert_id": "A141",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 59374\nFlow Duration: 79\nForward Packets: 1\nFlow Bytes/s: 0.00\nFlow Packets/s: 25316.46\nACK Flag Count: 1",
+    "evidence_tokens": [
+      "1",
+      "0",
+      "25316",
+      "59374",
+      "46",
+      "00",
+      "79"
+    ]
+  },
+  {
+    "alert_id": "A142",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 56666\nFlow Duration: 68168491\nForward Packets: 7\nFlow Bytes/s: 175.15\nFlow Packets/s: 0.18\nACK Flag Count: 1",
+    "evidence_tokens": [
+      "1",
+      "0",
+      "68168491",
+      "7",
+      "175",
+      "18",
+      "56666",
+      "15"
+    ]
+  },
+  {
+    "alert_id": "A143",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 64040\nFlow Duration: 153\nForward Packets: 1\nFlow Bytes/s: 78431.37\nFlow Packets/s: 13071.90\nACK Flag Count: 1",
+    "evidence_tokens": [
+      "64040",
+      "1",
+      "37",
+      "78431",
+      "153",
+      "90",
+      "13071"
+    ]
+  },
+  {
+    "alert_id": "A144",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 80\nFlow Duration: 25231888\nForward Packets: 4\nFlow Bytes/s: 0.95\nFlow Packets/s: 0.28\nACK Flag Count: 1",
+    "evidence_tokens": [
+      "4",
+      "25231888",
+      "0",
+      "1",
+      "95",
+      "80",
+      "28"
+    ]
+  },
+  {
+    "alert_id": "A145",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 80\nFlow Duration: 60847771\nForward Packets: 11\nFlow Bytes/s: 106.56\nFlow Packets/s: 0.39\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "60847771",
+      "0",
+      "106",
+      "56",
+      "80",
+      "11",
+      "39"
+    ]
+  },
+  {
+    "alert_id": "A146",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 53\nFlow Duration: 168260\nForward Packets: 1\nFlow Bytes/s: 968.74\nFlow Packets/s: 11.89\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "1",
+      "0",
+      "168260",
+      "968",
+      "74",
+      "11",
+      "53",
+      "89"
+    ]
+  },
+  {
+    "alert_id": "A147",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 64710\nFlow Duration: 118\nForward Packets: 1\nFlow Bytes/s: 101694.92\nFlow Packets/s: 16949.15\nACK Flag Count: 1",
+    "evidence_tokens": [
+      "1",
+      "118",
+      "16949",
+      "92",
+      "64710",
+      "101694",
+      "15"
+    ]
+  },
+  {
+    "alert_id": "A148",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 9592\nFlow Duration: 10\nForward Packets: 1\nFlow Bytes/s: 1200000.00\nFlow Packets/s: 200000.00\nACK Flag Count: 1",
+    "evidence_tokens": [
+      "200000",
+      "1",
+      "10",
+      "9592",
+      "1200000",
+      "00"
+    ]
+  },
+  {
+    "alert_id": "A149",
+    "alert_type": "DoS",
+    "evidence": "Destination Port: 80\nFlow Duration: 99202874\nForward Packets: 5\nFlow Bytes/s: 120.72\nFlow Packets/s: 0.13\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "72",
+      "0",
+      "13",
+      "80",
+      "5",
+      "99202874",
+      "120"
+    ]
+  },
+  {
+    "alert_id": "A150",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 53\nFlow Duration: 346\nForward Packets: 2\nFlow Bytes/s: 820809.25\nFlow Packets/s: 11560.69\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "0",
+      "346",
+      "820809",
+      "11560",
+      "69",
+      "25",
+      "53",
+      "2"
+    ]
+  },
+  {
+    "alert_id": "A151",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 53\nFlow Duration: 47516\nForward Packets: 2\nFlow Bytes/s: 9217.95\nFlow Packets/s: 84.18\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "0",
+      "95",
+      "47516",
+      "53",
+      "84",
+      "18",
+      "9217",
+      "2"
+    ]
+  },
+  {
+    "alert_id": "A152",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 443\nFlow Duration: 34870663\nForward Packets: 5\nFlow Bytes/s: 13.16\nFlow Packets/s: 0.26\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "0",
+      "16",
+      "13",
+      "443",
+      "5",
+      "26",
+      "34870663"
+    ]
+  },
+  {
+    "alert_id": "A153",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 443\nFlow Duration: 135538\nForward Packets: 11\nFlow Bytes/s: 26878.07\nFlow Packets/s: 125.43\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "0",
+      "135538",
+      "125",
+      "26878",
+      "443",
+      "11",
+      "07",
+      "43"
+    ]
+  },
+  {
+    "alert_id": "A154",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 53\nFlow Duration: 164\nForward Packets: 2\nFlow Bytes/s: 1634146.34\nFlow Packets/s: 24390.24\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "0",
+      "24390",
+      "164",
+      "1634146",
+      "24",
+      "34",
+      "53",
+      "2"
+    ]
+  },
+  {
+    "alert_id": "A155",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 80\nFlow Duration: 174438\nForward Packets: 2\nFlow Bytes/s: 68.79\nFlow Packets/s: 11.47\nACK Flag Count: 1",
+    "evidence_tokens": [
+      "1",
+      "80",
+      "11",
+      "68",
+      "47",
+      "79",
+      "174438",
+      "2"
+    ]
+  },
+  {
+    "alert_id": "A156",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 80\nFlow Duration: 36541\nForward Packets: 1\nFlow Bytes/s: 0.00\nFlow Packets/s: 54.73\nACK Flag Count: 1",
+    "evidence_tokens": [
+      "1",
+      "0",
+      "54",
+      "36541",
+      "80",
+      "73",
+      "00"
+    ]
+  },
+  {
+    "alert_id": "A157",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 443\nFlow Duration: 115661180\nForward Packets: 21\nFlow Bytes/s: 76.05\nFlow Packets/s: 0.35\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "21",
+      "0",
+      "05",
+      "443",
+      "115661180",
+      "76",
+      "35"
+    ]
+  },
+  {
+    "alert_id": "A158",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 60092\nFlow Duration: 62\nForward Packets: 1\nFlow Bytes/s: 0.00\nFlow Packets/s: 32258.06\nACK Flag Count: 1",
+    "evidence_tokens": [
+      "1",
+      "0",
+      "60092",
+      "62",
+      "32258",
+      "00",
+      "06"
+    ]
+  },
+  {
+    "alert_id": "A159",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 49677\nFlow Duration: 11107569\nForward Packets: 1\nFlow Bytes/s: 126.49\nFlow Packets/s: 0.63\nACK Flag Count: 1",
+    "evidence_tokens": [
+      "1",
+      "0",
+      "49",
+      "49677",
+      "126",
+      "11107569",
+      "63"
+    ]
+  },
+  {
+    "alert_id": "A160",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 443\nFlow Duration: 6297731\nForward Packets: 7\nFlow Bytes/s: 76.85\nFlow Packets/s: 1.75\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "85",
+      "75",
+      "1",
+      "0",
+      "7",
+      "6297731",
+      "443",
+      "76"
+    ]
+  },
+  {
+    "alert_id": "A161",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 40346\nFlow Duration: 3\nForward Packets: 2\nFlow Bytes/s: 0.00\nFlow Packets/s: 666666.67\nACK Flag Count: 1",
+    "evidence_tokens": [
+      "1",
+      "0",
+      "666666",
+      "3",
+      "67",
+      "00",
+      "40346",
+      "2"
+    ]
+  },
+  {
+    "alert_id": "A162",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 38672\nFlow Duration: 179\nForward Packets: 2\nFlow Bytes/s: 206703.91\nFlow Packets/s: 16759.78\nACK Flag Count: 1",
+    "evidence_tokens": [
+      "206703",
+      "1",
+      "38672",
+      "179",
+      "78",
+      "91",
+      "16759",
+      "2"
+    ]
+  },
+  {
+    "alert_id": "A163",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 53\nFlow Duration: 95358\nForward Packets: 2\nFlow Bytes/s: 6292.08\nFlow Packets/s: 41.95\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "0",
+      "6292",
+      "95358",
+      "95",
+      "41",
+      "08",
+      "53",
+      "2"
+    ]
+  },
+  {
+    "alert_id": "A164",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 53\nFlow Duration: 62414\nForward Packets: 2\nFlow Bytes/s: 3140.32\nFlow Packets/s: 64.09\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "0",
+      "32",
+      "09",
+      "62414",
+      "3140",
+      "64",
+      "53",
+      "2"
+    ]
+  },
+  {
+    "alert_id": "A165",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 53\nFlow Duration: 153\nForward Packets: 2\nFlow Bytes/s: 1973856.21\nFlow Packets/s: 26143.79\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "21",
+      "0",
+      "26143",
+      "79",
+      "153",
+      "1973856",
+      "53",
+      "2"
+    ]
+  },
+  {
+    "alert_id": "A166",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 443\nFlow Duration: 365\nForward Packets: 1\nFlow Bytes/s: 32876.71\nFlow Packets/s: 5479.45\nACK Flag Count: 1",
+    "evidence_tokens": [
+      "1",
+      "32876",
+      "5479",
+      "71",
+      "45",
+      "365",
+      "443"
+    ]
+  },
+  {
+    "alert_id": "A167",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 65423\nFlow Duration: 273\nForward Packets: 2\nFlow Bytes/s: 43956.04\nFlow Packets/s: 7326.01\nACK Flag Count: 1",
+    "evidence_tokens": [
+      "1",
+      "65423",
+      "273",
+      "7326",
+      "43956",
+      "04",
+      "01",
+      "2"
+    ]
+  },
+  {
+    "alert_id": "A168",
+    "alert_type": "DoS",
+    "evidence": "Destination Port: 80\nFlow Duration: 109390511\nForward Packets: 4\nFlow Bytes/s: 4.85\nFlow Packets/s: 0.06\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "85",
+      "4",
+      "0",
+      "80",
+      "109390511",
+      "06"
+    ]
+  },
+  {
+    "alert_id": "A169",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 443\nFlow Duration: 7035168\nForward Packets: 8\nFlow Bytes/s: 691.10\nFlow Packets/s: 2.13\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "8",
+      "0",
+      "10",
+      "13",
+      "443",
+      "2",
+      "691",
+      "7035168"
+    ]
+  },
+  {
+    "alert_id": "A170",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 53\nFlow Duration: 819\nForward Packets: 2\nFlow Bytes/s: 356532.36\nFlow Packets/s: 4884.00\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "0",
+      "36",
+      "819",
+      "356532",
+      "4884",
+      "00",
+      "53",
+      "2"
+    ]
+  },
+  {
+    "alert_id": "A171",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 53\nFlow Duration: 61520\nForward Packets: 4\nFlow Bytes/s: 7509.75\nFlow Packets/s: 97.53\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "75",
+      "4",
+      "0",
+      "97",
+      "61520",
+      "7509",
+      "53"
+    ]
+  },
+  {
+    "alert_id": "A172",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 53\nFlow Duration: 200\nForward Packets: 2\nFlow Bytes/s: 1100000.00\nFlow Packets/s: 20000.00\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "0",
+      "20000",
+      "1100000",
+      "200",
+      "00",
+      "53",
+      "2"
+    ]
+  },
+  {
+    "alert_id": "A173",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 443\nFlow Duration: 12067100\nForward Packets: 19\nFlow Bytes/s: 1547.02\nFlow Packets/s: 3.07\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "19",
+      "0",
+      "02",
+      "3",
+      "443",
+      "07",
+      "12067100",
+      "1547"
+    ]
+  },
+  {
+    "alert_id": "A174",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 53\nFlow Duration: 241\nForward Packets: 2\nFlow Bytes/s: 1751037.34\nFlow Packets/s: 16597.51\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "1751037",
+      "16597",
+      "0",
+      "241",
+      "34",
+      "51",
+      "53",
+      "2"
+    ]
+  },
+  {
+    "alert_id": "A175",
+    "alert_type": "Port Scanning",
+    "evidence": "Destination Port: 85\nFlow Duration: 55\nForward Packets: 1\nFlow Bytes/s: 109090.91\nFlow Packets/s: 36363.64\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "85",
+      "1",
+      "0",
+      "55",
+      "109090",
+      "91",
+      "64",
+      "36363"
+    ]
+  },
+  {
+    "alert_id": "A176",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 443\nFlow Duration: 439479\nForward Packets: 5\nFlow Bytes/s: 15748.19\nFlow Packets/s: 29.58\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "19",
+      "15748",
+      "0",
+      "58",
+      "443",
+      "5",
+      "29",
+      "439479"
+    ]
+  },
+  {
+    "alert_id": "A177",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 53\nFlow Duration: 30555\nForward Packets: 1\nFlow Bytes/s: 7592.87\nFlow Packets/s: 65.46\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "1",
+      "0",
+      "65",
+      "53",
+      "46",
+      "7592",
+      "30555",
+      "87"
+    ]
+  },
+  {
+    "alert_id": "A178",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 53\nFlow Duration: 23381\nForward Packets: 1\nFlow Bytes/s: 8425.64\nFlow Packets/s: 85.54\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "85",
+      "1",
+      "23381",
+      "0",
+      "54",
+      "8425",
+      "64",
+      "53"
+    ]
+  },
+  {
+    "alert_id": "A179",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 443\nFlow Duration: 5462601\nForward Packets: 7\nFlow Bytes/s: 142.97\nFlow Packets/s: 2.01\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "0",
+      "97",
+      "142",
+      "7",
+      "443",
+      "01",
+      "5462601",
+      "2"
+    ]
+  },
+  {
+    "alert_id": "A180",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 45467\nFlow Duration: 1\nForward Packets: 2\nFlow Bytes/s: 0.00\nFlow Packets/s: 2000000.00\nACK Flag Count: 1",
+    "evidence_tokens": [
+      "2000000",
+      "1",
+      "0",
+      "00",
+      "45467",
+      "2"
+    ]
+  },
+  {
+    "alert_id": "A181",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 53\nFlow Duration: 148607\nForward Packets: 2\nFlow Bytes/s: 1507.33\nFlow Packets/s: 26.92\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "148607",
+      "0",
+      "53",
+      "92",
+      "26",
+      "1507",
+      "33",
+      "2"
+    ]
+  },
+  {
+    "alert_id": "A182",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 443\nFlow Duration: 115626893\nForward Packets: 19\nFlow Bytes/s: 17.31\nFlow Packets/s: 0.30\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "19",
+      "0",
+      "30",
+      "31",
+      "443",
+      "17",
+      "115626893"
+    ]
+  },
+  {
+    "alert_id": "A183",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 53\nFlow Duration: 156\nForward Packets: 2\nFlow Bytes/s: 1717948.72\nFlow Packets/s: 25641.03\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "72",
+      "0",
+      "156",
+      "53",
+      "25641",
+      "03",
+      "1717948",
+      "2"
+    ]
+  },
+  {
+    "alert_id": "A184",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 53992\nFlow Duration: 10\nForward Packets: 1\nFlow Bytes/s: 0.00\nFlow Packets/s: 200000.00\nACK Flag Count: 1",
+    "evidence_tokens": [
+      "200000",
+      "1",
+      "0",
+      "53992",
+      "10",
+      "00"
+    ]
+  },
+  {
+    "alert_id": "A185",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 53\nFlow Duration: 86178\nForward Packets: 1\nFlow Bytes/s: 2030.68\nFlow Packets/s: 23.21\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "21",
+      "86178",
+      "1",
+      "0",
+      "2030",
+      "23",
+      "68",
+      "53"
+    ]
+  },
+  {
+    "alert_id": "A186",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 53\nFlow Duration: 24610\nForward Packets: 2\nFlow Bytes/s: 13734.25\nFlow Packets/s: 162.54\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "13734",
+      "0",
+      "54",
+      "53",
+      "25",
+      "162",
+      "24610",
+      "2"
+    ]
+  },
+  {
+    "alert_id": "A187",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 58026\nFlow Duration: 109\nForward Packets: 1\nFlow Bytes/s: 110091.74\nFlow Packets/s: 18348.62\nACK Flag Count: 1",
+    "evidence_tokens": [
+      "109",
+      "1",
+      "58026",
+      "110091",
+      "74",
+      "62",
+      "18348"
+    ]
+  },
+  {
+    "alert_id": "A188",
+    "alert_type": "Port Scanning",
+    "evidence": "Destination Port: 1123\nFlow Duration: 51\nForward Packets: 1\nFlow Bytes/s: 117647.06\nFlow Packets/s: 39215.69\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "1",
+      "0",
+      "1123",
+      "39215",
+      "69",
+      "117647",
+      "06",
+      "51"
+    ]
+  },
+  {
+    "alert_id": "A189",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 35735\nFlow Duration: 9\nForward Packets: 1\nFlow Bytes/s: 0.00\nFlow Packets/s: 222222.22\nACK Flag Count: 1",
+    "evidence_tokens": [
+      "35735",
+      "1",
+      "0",
+      "22",
+      "222222",
+      "00",
+      "9"
+    ]
+  },
+  {
+    "alert_id": "A190",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 443\nFlow Duration: 295453\nForward Packets: 23\nFlow Bytes/s: 221801.78\nFlow Packets/s: 240.31\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "295453",
+      "0",
+      "31",
+      "443",
+      "78",
+      "240",
+      "221801",
+      "23"
+    ]
+  },
+  {
+    "alert_id": "A191",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 49698\nFlow Duration: 1039\nForward Packets: 2\nFlow Bytes/s: 0.00\nFlow Packets/s: 1924.93\nACK Flag Count: 1",
+    "evidence_tokens": [
+      "1",
+      "1039",
+      "0",
+      "93",
+      "1924",
+      "00",
+      "49698",
+      "2"
+    ]
+  },
+  {
+    "alert_id": "A192",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 53701\nFlow Duration: 54\nForward Packets: 1\nFlow Bytes/s: 0.00\nFlow Packets/s: 37037.04\nACK Flag Count: 1",
+    "evidence_tokens": [
+      "1",
+      "0",
+      "54",
+      "53701",
+      "04",
+      "37037",
+      "00"
+    ]
+  },
+  {
+    "alert_id": "A193",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 443\nFlow Duration: 106269\nForward Packets: 8\nFlow Bytes/s: 43822.75\nFlow Packets/s: 122.33\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "8",
+      "75",
+      "0",
+      "122",
+      "443",
+      "43822",
+      "106269",
+      "33"
+    ]
+  },
+  {
+    "alert_id": "A194",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 53\nFlow Duration: 164\nForward Packets: 2\nFlow Bytes/s: 1243902.44\nFlow Packets/s: 24390.24\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "0",
+      "44",
+      "24390",
+      "164",
+      "24",
+      "1243902",
+      "53",
+      "2"
+    ]
+  },
+  {
+    "alert_id": "A195",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 80\nFlow Duration: 137\nForward Packets: 2\nFlow Bytes/s: 0.00\nFlow Packets/s: 14598.54\nACK Flag Count: 1",
+    "evidence_tokens": [
+      "1",
+      "0",
+      "54",
+      "80",
+      "14598",
+      "00",
+      "137",
+      "2"
+    ]
+  },
+  {
+    "alert_id": "A196",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 443\nFlow Duration: 441233\nForward Packets: 23\nFlow Bytes/s: 76789.36\nFlow Packets/s: 122.38\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "0",
+      "36",
+      "122",
+      "38",
+      "443",
+      "23",
+      "441233",
+      "76789"
+    ]
+  },
+  {
+    "alert_id": "A197",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 80\nFlow Duration: 319413\nForward Packets: 6\nFlow Bytes/s: 7225.75\nFlow Packets/s: 31.31\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "75",
+      "0",
+      "31",
+      "80",
+      "6",
+      "7225",
+      "319413"
+    ]
+  },
+  {
+    "alert_id": "A198",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 443\nFlow Duration: 162042\nForward Packets: 8\nFlow Bytes/s: 26937.46\nFlow Packets/s: 74.05\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "8",
+      "0",
+      "162042",
+      "05",
+      "443",
+      "46",
+      "74",
+      "26937"
+    ]
+  },
+  {
+    "alert_id": "A199",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 53\nFlow Duration: 30532\nForward Packets: 1\nFlow Bytes/s: 7598.59\nFlow Packets/s: 65.51\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "30532",
+      "1",
+      "0",
+      "65",
+      "59",
+      "7598",
+      "51",
+      "53"
+    ]
+  },
+  {
+    "alert_id": "A200",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 443\nFlow Duration: 5949776\nForward Packets: 6\nFlow Bytes/s: 92.78\nFlow Packets/s: 1.85\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "85",
+      "1",
+      "0",
+      "443",
+      "78",
+      "5949776",
+      "92",
+      "6"
+    ]
+  },
+  {
+    "alert_id": "A201",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 53573\nFlow Duration: 101705\nForward Packets: 2\nFlow Bytes/s: 176.98\nFlow Packets/s: 49.16\nACK Flag Count: 1",
+    "evidence_tokens": [
+      "1",
+      "53573",
+      "49",
+      "16",
+      "98",
+      "101705",
+      "176",
+      "2"
+    ]
+  },
+  {
+    "alert_id": "A202",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 80\nFlow Duration: 138949\nForward Packets: 3\nFlow Bytes/s: 19532.35\nFlow Packets/s: 57.58\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "57",
+      "0",
+      "19532",
+      "3",
+      "80",
+      "58",
+      "35",
+      "138949"
+    ]
+  },
+  {
+    "alert_id": "A203",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 51281\nFlow Duration: 50\nForward Packets: 3\nFlow Bytes/s: 860000.00\nFlow Packets/s: 60000.00\nACK Flag Count: 1",
+    "evidence_tokens": [
+      "51281",
+      "60000",
+      "1",
+      "3",
+      "860000",
+      "00",
+      "50"
+    ]
+  },
+  {
+    "alert_id": "A204",
+    "alert_type": "DoS",
+    "evidence": "Destination Port: 80\nFlow Duration: 83213094\nForward Packets: 5\nFlow Bytes/s: 143.99\nFlow Packets/s: 0.14\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "0",
+      "99",
+      "14",
+      "80",
+      "5",
+      "143",
+      "83213094"
+    ]
+  },
+  {
+    "alert_id": "A205",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 53\nFlow Duration: 71491697\nForward Packets: 2\nFlow Bytes/s: 3.58\nFlow Packets/s: 0.06\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "0",
+      "58",
+      "3",
+      "71491697",
+      "06",
+      "53",
+      "2"
+    ]
+  },
+  {
+    "alert_id": "A206",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 53\nFlow Duration: 48080\nForward Packets: 1\nFlow Bytes/s: 2974.21\nFlow Packets/s: 41.60\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "21",
+      "1",
+      "0",
+      "60",
+      "41",
+      "2974",
+      "48080",
+      "53"
+    ]
+  },
+  {
+    "alert_id": "A207",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 53\nFlow Duration: 174\nForward Packets: 2\nFlow Bytes/s: 1275862.07\nFlow Packets/s: 22988.51\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "0",
+      "174",
+      "07",
+      "22988",
+      "2",
+      "51",
+      "53",
+      "1275862"
+    ]
+  },
+  {
+    "alert_id": "A208",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 53\nFlow Duration: 200\nForward Packets: 2\nFlow Bytes/s: 1040000.00\nFlow Packets/s: 20000.00\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "0",
+      "20000",
+      "1040000",
+      "200",
+      "00",
+      "53",
+      "2"
+    ]
+  },
+  {
+    "alert_id": "A209",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 47935\nFlow Duration: 52\nForward Packets: 1\nFlow Bytes/s: 0.00\nFlow Packets/s: 38461.54\nACK Flag Count: 1",
+    "evidence_tokens": [
+      "1",
+      "0",
+      "52",
+      "54",
+      "00",
+      "38461",
+      "47935"
+    ]
+  },
+  {
+    "alert_id": "A210",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 80\nFlow Duration: 115300593\nForward Packets: 19\nFlow Bytes/s: 129.53\nFlow Packets/s: 0.35\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "19",
+      "0",
+      "80",
+      "35",
+      "115300593",
+      "129",
+      "53"
+    ]
+  },
+  {
+    "alert_id": "A211",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 443\nFlow Duration: 111018875\nForward Packets: 36\nFlow Bytes/s: 132.05\nFlow Packets/s: 0.65\nACK Flag Count: 1",
+    "evidence_tokens": [
+      "1",
+      "0",
+      "36",
+      "111018875",
+      "05",
+      "65",
+      "443",
+      "132"
+    ]
+  },
+  {
+    "alert_id": "A212",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 80\nFlow Duration: 221005\nForward Packets: 12\nFlow Bytes/s: 243392.68\nFlow Packets/s: 190.04\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "0",
+      "12",
+      "80",
+      "04",
+      "190",
+      "221005",
+      "68",
+      "243392"
+    ]
+  },
+  {
+    "alert_id": "A213",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 53\nFlow Duration: 31286\nForward Packets: 2\nFlow Bytes/s: 5241.96\nFlow Packets/s: 127.85\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "85",
+      "0",
+      "31286",
+      "5241",
+      "96",
+      "127",
+      "53",
+      "2"
+    ]
+  },
+  {
+    "alert_id": "A214",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 53\nFlow Duration: 192\nForward Packets: 2\nFlow Bytes/s: 895833.33\nFlow Packets/s: 20833.33\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "0",
+      "895833",
+      "192",
+      "53",
+      "20833",
+      "33",
+      "2"
+    ]
+  },
+  {
+    "alert_id": "A215",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 33918\nFlow Duration: 1\nForward Packets: 2\nFlow Bytes/s: 0.00\nFlow Packets/s: 2000000.00\nACK Flag Count: 1",
+    "evidence_tokens": [
+      "2000000",
+      "1",
+      "0",
+      "33918",
+      "00",
+      "2"
+    ]
+  },
+  {
+    "alert_id": "A216",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 443\nFlow Duration: 5277400\nForward Packets: 8\nFlow Bytes/s: 689.73\nFlow Packets/s: 2.27\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "8",
+      "27",
+      "0",
+      "689",
+      "5277400",
+      "73",
+      "443",
+      "2"
+    ]
+  },
+  {
+    "alert_id": "A217",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 59016\nFlow Duration: 66\nForward Packets: 1\nFlow Bytes/s: 0.00\nFlow Packets/s: 30303.03\nACK Flag Count: 1",
+    "evidence_tokens": [
+      "1",
+      "0",
+      "30303",
+      "66",
+      "03",
+      "59016",
+      "00"
+    ]
+  },
+  {
+    "alert_id": "A218",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 59625\nFlow Duration: 32\nForward Packets: 1\nFlow Bytes/s: 0.00\nFlow Packets/s: 62500.00\nACK Flag Count: 1",
+    "evidence_tokens": [
+      "1",
+      "0",
+      "62500",
+      "32",
+      "00",
+      "59625"
+    ]
+  },
+  {
+    "alert_id": "A219",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 443\nFlow Duration: 69500352\nForward Packets: 17\nFlow Bytes/s: 199.39\nFlow Packets/s: 0.56\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "199",
+      "0",
+      "56",
+      "443",
+      "69500352",
+      "39",
+      "17"
+    ]
+  },
+  {
+    "alert_id": "A220",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 53\nFlow Duration: 166\nForward Packets: 2\nFlow Bytes/s: 891566.27\nFlow Packets/s: 24096.39\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "27",
+      "0",
+      "166",
+      "891566",
+      "39",
+      "24096",
+      "53",
+      "2"
+    ]
+  },
+  {
+    "alert_id": "A221",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 443\nFlow Duration: 4243444\nForward Packets: 5\nFlow Bytes/s: 44.07\nFlow Packets/s: 1.65\nACK Flag Count: 1",
+    "evidence_tokens": [
+      "1",
+      "4243444",
+      "44",
+      "65",
+      "443",
+      "07",
+      "5"
+    ]
+  },
+  {
+    "alert_id": "A222",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 53\nFlow Duration: 238\nForward Packets: 2\nFlow Bytes/s: 806722.69\nFlow Packets/s: 16806.72\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "16806",
+      "806722",
+      "72",
+      "0",
+      "238",
+      "69",
+      "53",
+      "2"
+    ]
+  },
+  {
+    "alert_id": "A223",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 61838\nFlow Duration: 1112238\nForward Packets: 1\nFlow Bytes/s: 32.37\nFlow Packets/s: 5.39\nACK Flag Count: 1",
+    "evidence_tokens": [
+      "1",
+      "37",
+      "32",
+      "5",
+      "39",
+      "61838",
+      "1112238"
+    ]
+  },
+  {
+    "alert_id": "A224",
+    "alert_type": "DDoS",
+    "evidence": "Destination Port: 80\nFlow Duration: 412687\nForward Packets: 3\nFlow Bytes/s: 28173.89\nFlow Packets/s: 24.23\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "0",
+      "28173",
+      "3",
+      "80",
+      "412687",
+      "23",
+      "24",
+      "89"
+    ]
+  },
+  {
+    "alert_id": "A225",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 443\nFlow Duration: 115158072\nForward Packets: 40\nFlow Bytes/s: 478.77\nFlow Packets/s: 0.72\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "478",
+      "0",
+      "72",
+      "77",
+      "40",
+      "443",
+      "115158072"
+    ]
+  },
+  {
+    "alert_id": "A226",
+    "alert_type": "DDoS",
+    "evidence": "Destination Port: 80\nFlow Duration: 73917648\nForward Packets: 9\nFlow Bytes/s: 157.78\nFlow Packets/s: 0.20\nACK Flag Count: 1",
+    "evidence_tokens": [
+      "157",
+      "0",
+      "1",
+      "80",
+      "78",
+      "9",
+      "20",
+      "73917648"
+    ]
+  },
+  {
+    "alert_id": "A227",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 53\nFlow Duration: 31243\nForward Packets: 2\nFlow Bytes/s: 9218.06\nFlow Packets/s: 128.03\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "0",
+      "31243",
+      "9218",
+      "128",
+      "03",
+      "06",
+      "53",
+      "2"
+    ]
+  },
+  {
+    "alert_id": "A228",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 80\nFlow Duration: 5256914\nForward Packets: 3\nFlow Bytes/s: 0.00\nFlow Packets/s: 0.76\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "0",
+      "3",
+      "5256914",
+      "80",
+      "76",
+      "00"
+    ]
+  },
+  {
+    "alert_id": "A229",
+    "alert_type": "Port Scanning",
+    "evidence": "Destination Port: 3322\nFlow Duration: 37\nForward Packets: 1\nFlow Bytes/s: 216216.22\nFlow Packets/s: 54054.05\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "1",
+      "0",
+      "05",
+      "37",
+      "22",
+      "216216",
+      "54054",
+      "3322"
+    ]
+  },
+  {
+    "alert_id": "A230",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 53\nFlow Duration: 91741\nForward Packets: 2\nFlow Bytes/s: 2245.45\nFlow Packets/s: 43.60\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "91741",
+      "0",
+      "60",
+      "45",
+      "2245",
+      "43",
+      "53",
+      "2"
+    ]
+  },
+  {
+    "alert_id": "A231",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 443\nFlow Duration: 215101\nForward Packets: 9\nFlow Bytes/s: 16959.47\nFlow Packets/s: 69.73\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "0",
+      "443",
+      "73",
+      "16959",
+      "69",
+      "215101",
+      "47",
+      "9"
+    ]
+  },
+  {
+    "alert_id": "A232",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 61206\nFlow Duration: 63\nForward Packets: 1\nFlow Bytes/s: 0.00\nFlow Packets/s: 31746.03\nACK Flag Count: 1",
+    "evidence_tokens": [
+      "1",
+      "0",
+      "31746",
+      "61206",
+      "03",
+      "63",
+      "00"
+    ]
+  },
+  {
+    "alert_id": "A233",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 53\nFlow Duration: 91432\nForward Packets: 1\nFlow Bytes/s: 2504.59\nFlow Packets/s: 21.87\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "21",
+      "1",
+      "0",
+      "59",
+      "2504",
+      "91432",
+      "53",
+      "87"
+    ]
+  },
+  {
+    "alert_id": "A234",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 60437\nFlow Duration: 50\nForward Packets: 1\nFlow Bytes/s: 240000.00\nFlow Packets/s: 40000.00\nACK Flag Count: 1",
+    "evidence_tokens": [
+      "1",
+      "40000",
+      "240000",
+      "00",
+      "50",
+      "60437"
+    ]
+  },
+  {
+    "alert_id": "A235",
+    "alert_type": "Brute Force",
+    "evidence": "Destination Port: 22\nFlow Duration: 13853542\nForward Packets: 22\nFlow Bytes/s: 343.09\nFlow Packets/s: 3.83\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "0",
+      "343",
+      "22",
+      "83",
+      "09",
+      "3",
+      "13853542"
+    ]
+  },
+  {
+    "alert_id": "A236",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 8068\nFlow Duration: 63\nForward Packets: 1\nFlow Bytes/s: 190476.19\nFlow Packets/s: 31746.03\nACK Flag Count: 1",
+    "evidence_tokens": [
+      "19",
+      "1",
+      "190476",
+      "31746",
+      "03",
+      "63",
+      "8068"
+    ]
+  },
+  {
+    "alert_id": "A237",
+    "alert_type": "DoS",
+    "evidence": "Destination Port: 80\nFlow Duration: 99949575\nForward Packets: 6\nFlow Bytes/s: 119.80\nFlow Packets/s: 0.13\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "0",
+      "13",
+      "80",
+      "99949575",
+      "6",
+      "119"
+    ]
+  },
+  {
+    "alert_id": "A238",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 53\nFlow Duration: 60570\nForward Packets: 1\nFlow Bytes/s: 3434.04\nFlow Packets/s: 33.02\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "1",
+      "0",
+      "02",
+      "33",
+      "60570",
+      "04",
+      "3434",
+      "53"
+    ]
+  },
+  {
+    "alert_id": "A239",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 53\nFlow Duration: 401277\nForward Packets: 2\nFlow Bytes/s: 1181.23\nFlow Packets/s: 9.97\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "0",
+      "97",
+      "23",
+      "1181",
+      "401277",
+      "9",
+      "53",
+      "2"
+    ]
+  },
+  {
+    "alert_id": "A240",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 53\nFlow Duration: 23768\nForward Packets: 2\nFlow Bytes/s: 10770.78\nFlow Packets/s: 168.29\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "0",
+      "168",
+      "23768",
+      "78",
+      "29",
+      "10770",
+      "53",
+      "2"
+    ]
+  },
+  {
+    "alert_id": "A241",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 53\nFlow Duration: 555\nForward Packets: 1\nFlow Bytes/s: 374774.77\nFlow Packets/s: 3603.60\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "1",
+      "0",
+      "77",
+      "60",
+      "3603",
+      "374774",
+      "555",
+      "53"
+    ]
+  },
+  {
+    "alert_id": "A242",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 55558\nFlow Duration: 111\nForward Packets: 1\nFlow Bytes/s: 162162.16\nFlow Packets/s: 36036.04\nACK Flag Count: 1",
+    "evidence_tokens": [
+      "1",
+      "111",
+      "16",
+      "162162",
+      "04",
+      "36036",
+      "55558"
+    ]
+  },
+  {
+    "alert_id": "A243",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 53\nFlow Duration: 101569470\nForward Packets: 2\nFlow Bytes/s: 4.14\nFlow Packets/s: 0.04\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "4",
+      "0",
+      "14",
+      "101569470",
+      "04",
+      "53",
+      "2"
+    ]
+  },
+  {
+    "alert_id": "A244",
+    "alert_type": "Port Scanning",
+    "evidence": "Destination Port: 26214\nFlow Duration: 56\nForward Packets: 1\nFlow Bytes/s: 107142.86\nFlow Packets/s: 35714.29\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "1",
+      "0",
+      "56",
+      "86",
+      "35714",
+      "26214",
+      "107142",
+      "29"
+    ]
+  },
+  {
+    "alert_id": "A245",
+    "alert_type": "DDoS",
+    "evidence": "Destination Port: 80\nFlow Duration: 1731994\nForward Packets: 3\nFlow Bytes/s: 6716.54\nFlow Packets/s: 4.04\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "6716",
+      "4",
+      "0",
+      "54",
+      "3",
+      "80",
+      "1731994",
+      "04"
+    ]
+  },
+  {
+    "alert_id": "A246",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 80\nFlow Duration: 42635\nForward Packets: 1\nFlow Bytes/s: 0.00\nFlow Packets/s: 46.91\nACK Flag Count: 1",
+    "evidence_tokens": [
+      "1",
+      "0",
+      "80",
+      "46",
+      "42635",
+      "91",
+      "00"
+    ]
+  },
+  {
+    "alert_id": "A247",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 53\nFlow Duration: 61092\nForward Packets: 2\nFlow Bytes/s: 5238.00\nFlow Packets/s: 65.48\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "48",
+      "0",
+      "61092",
+      "65",
+      "5238",
+      "00",
+      "53",
+      "2"
+    ]
+  },
+  {
+    "alert_id": "A248",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 55515\nFlow Duration: 92\nForward Packets: 1\nFlow Bytes/s: 130434.78\nFlow Packets/s: 21739.13\nACK Flag Count: 1",
+    "evidence_tokens": [
+      "1",
+      "55515",
+      "130434",
+      "13",
+      "78",
+      "21739",
+      "92"
+    ]
+  },
+  {
+    "alert_id": "A249",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 53402\nFlow Duration: 2700\nForward Packets: 3\nFlow Bytes/s: 15925.93\nFlow Packets/s: 1111.11\nACK Flag Count: 1",
+    "evidence_tokens": [
+      "1",
+      "2700",
+      "1111",
+      "3",
+      "11",
+      "93",
+      "53402",
+      "15925"
+    ]
+  },
+  {
+    "alert_id": "A250",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 53\nFlow Duration: 1206479\nForward Packets: 6\nFlow Bytes/s: 455.87\nFlow Packets/s: 6.63\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "0",
+      "1206479",
+      "6",
+      "63",
+      "455",
+      "53",
+      "87"
+    ]
+  },
+  {
+    "alert_id": "A251",
+    "alert_type": "DoS",
+    "evidence": "Destination Port: 80\nFlow Duration: 98329876\nForward Packets: 7\nFlow Bytes/s: 121.71\nFlow Packets/s: 0.13\nACK Flag Count: 1",
+    "evidence_tokens": [
+      "98329876",
+      "1",
+      "0",
+      "71",
+      "7",
+      "13",
+      "80",
+      "121"
+    ]
+  },
+  {
+    "alert_id": "A252",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 443\nFlow Duration: 276881\nForward Packets: 6\nFlow Bytes/s: 14930.60\nFlow Packets/s: 43.34\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "0",
+      "60",
+      "276881",
+      "443",
+      "6",
+      "43",
+      "34",
+      "14930"
+    ]
+  },
+  {
+    "alert_id": "A253",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 53\nFlow Duration: 47429\nForward Packets: 1\nFlow Bytes/s: 2551.18\nFlow Packets/s: 42.17\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "1",
+      "0",
+      "18",
+      "42",
+      "2551",
+      "17",
+      "47429",
+      "53"
+    ]
+  },
+  {
+    "alert_id": "A254",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 53\nFlow Duration: 30316\nForward Packets: 1\nFlow Bytes/s: 6927.04\nFlow Packets/s: 65.97\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "1",
+      "0",
+      "97",
+      "30316",
+      "65",
+      "6927",
+      "04",
+      "53"
+    ]
+  },
+  {
+    "alert_id": "A255",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 53\nFlow Duration: 48507\nForward Packets: 2\nFlow Bytes/s: 10060.40\nFlow Packets/s: 82.46\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "0",
+      "40",
+      "48507",
+      "82",
+      "46",
+      "2",
+      "53",
+      "10060"
+    ]
+  },
+  {
+    "alert_id": "A256",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 53\nFlow Duration: 59555\nForward Packets: 2\nFlow Bytes/s: 3291.08\nFlow Packets/s: 67.16\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "59555",
+      "0",
+      "3291",
+      "16",
+      "08",
+      "67",
+      "53",
+      "2"
+    ]
+  },
+  {
+    "alert_id": "A257",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 443\nFlow Duration: 115291539\nForward Packets: 23\nFlow Bytes/s: 40.04\nFlow Packets/s: 0.36\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "0",
+      "36",
+      "40",
+      "443",
+      "04",
+      "23",
+      "115291539"
+    ]
+  },
+  {
+    "alert_id": "A258",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 443\nFlow Duration: 406939\nForward Packets: 8\nFlow Bytes/s: 12163.99\nFlow Packets/s: 36.86\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "406939",
+      "8",
+      "0",
+      "36",
+      "86",
+      "99",
+      "443",
+      "12163"
+    ]
+  },
+  {
+    "alert_id": "A259",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 443\nFlow Duration: 471\nForward Packets: 1\nFlow Bytes/s: 25477.71\nFlow Packets/s: 4246.28\nACK Flag Count: 1",
+    "evidence_tokens": [
+      "1",
+      "71",
+      "28",
+      "443",
+      "471",
+      "4246",
+      "25477"
+    ]
+  },
+  {
+    "alert_id": "A260",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 34811\nFlow Duration: 38\nForward Packets: 1\nFlow Bytes/s: 0.00\nFlow Packets/s: 52631.58\nACK Flag Count: 1",
+    "evidence_tokens": [
+      "1",
+      "0",
+      "34811",
+      "38",
+      "58",
+      "52631",
+      "00"
+    ]
+  },
+  {
+    "alert_id": "A261",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 52224\nFlow Duration: 69\nForward Packets: 1\nFlow Bytes/s: 0.00\nFlow Packets/s: 28985.51\nACK Flag Count: 1",
+    "evidence_tokens": [
+      "1",
+      "0",
+      "51",
+      "69",
+      "00",
+      "52224",
+      "28985"
+    ]
+  },
+  {
+    "alert_id": "A262",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 8479\nFlow Duration: 47\nForward Packets: 1\nFlow Bytes/s: 255319.15\nFlow Packets/s: 42553.19\nACK Flag Count: 1",
+    "evidence_tokens": [
+      "19",
+      "42553",
+      "1",
+      "255319",
+      "47",
+      "8479",
+      "15"
+    ]
+  },
+  {
+    "alert_id": "A263",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 80\nFlow Duration: 3631900\nForward Packets: 3\nFlow Bytes/s: 0.00\nFlow Packets/s: 1.65\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "1",
+      "0",
+      "3631900",
+      "65",
+      "3",
+      "80",
+      "00"
+    ]
+  },
+  {
+    "alert_id": "A264",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 49372\nFlow Duration: 66\nForward Packets: 1\nFlow Bytes/s: 181818.18\nFlow Packets/s: 30303.03\nACK Flag Count: 1",
+    "evidence_tokens": [
+      "181818",
+      "1",
+      "49372",
+      "30303",
+      "66",
+      "18",
+      "03"
+    ]
+  },
+  {
+    "alert_id": "A265",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 53\nFlow Duration: 104923\nForward Packets: 1\nFlow Bytes/s: 1944.28\nFlow Packets/s: 19.06\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "19",
+      "1",
+      "104923",
+      "0",
+      "1944",
+      "53",
+      "06",
+      "28"
+    ]
+  },
+  {
+    "alert_id": "A266",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 53\nFlow Duration: 30818\nForward Packets: 2\nFlow Bytes/s: 12395.35\nFlow Packets/s: 129.79\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "0",
+      "12395",
+      "35",
+      "129",
+      "79",
+      "30818",
+      "53",
+      "2"
+    ]
+  },
+  {
+    "alert_id": "A267",
+    "alert_type": "DoS",
+    "evidence": "Destination Port: 80\nFlow Duration: 99453842\nForward Packets: 8\nFlow Bytes/s: 120.48\nFlow Packets/s: 0.15\nACK Flag Count: 1",
+    "evidence_tokens": [
+      "48",
+      "8",
+      "1",
+      "0",
+      "80",
+      "99453842",
+      "120",
+      "15"
+    ]
+  },
+  {
+    "alert_id": "A268",
+    "alert_type": "DoS",
+    "evidence": "Destination Port: 80\nFlow Duration: 84712217\nForward Packets: 6\nFlow Bytes/s: 141.53\nFlow Packets/s: 0.17\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "84712217",
+      "141",
+      "0",
+      "80",
+      "6",
+      "17",
+      "53"
+    ]
+  },
+  {
+    "alert_id": "A269",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 443\nFlow Duration: 50567\nForward Packets: 3\nFlow Bytes/s: 850.36\nFlow Packets/s: 59.33\nACK Flag Count: 1",
+    "evidence_tokens": [
+      "1",
+      "36",
+      "50567",
+      "33",
+      "3",
+      "443",
+      "59",
+      "850"
+    ]
+  },
+  {
+    "alert_id": "A270",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 56562\nFlow Duration: 46\nForward Packets: 2\nFlow Bytes/s: 260869.57\nFlow Packets/s: 43478.26\nACK Flag Count: 1",
+    "evidence_tokens": [
+      "57",
+      "1",
+      "260869",
+      "56562",
+      "46",
+      "43478",
+      "26",
+      "2"
+    ]
+  },
+  {
+    "alert_id": "A271",
+    "alert_type": "DoS",
+    "evidence": "Destination Port: 80\nFlow Duration: 82698127\nForward Packets: 6\nFlow Bytes/s: 144.26\nFlow Packets/s: 0.13\nACK Flag Count: 1",
+    "evidence_tokens": [
+      "1",
+      "0",
+      "82698127",
+      "13",
+      "80",
+      "6",
+      "144",
+      "26"
+    ]
+  },
+  {
+    "alert_id": "A272",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 53\nFlow Duration: 30733\nForward Packets: 2\nFlow Bytes/s: 11388.41\nFlow Packets/s: 130.15\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "0",
+      "130",
+      "15",
+      "41",
+      "11388",
+      "30733",
+      "53",
+      "2"
+    ]
+  },
+  {
+    "alert_id": "A273",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 53\nFlow Duration: 195\nForward Packets: 2\nFlow Bytes/s: 1415384.61\nFlow Packets/s: 20512.82\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "0",
+      "1415384",
+      "195",
+      "61",
+      "82",
+      "20512",
+      "53",
+      "2"
+    ]
+  },
+  {
+    "alert_id": "A274",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 443\nFlow Duration: 4754228\nForward Packets: 10\nFlow Bytes/s: 978.71\nFlow Packets/s: 4.21\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "21",
+      "4",
+      "0",
+      "978",
+      "71",
+      "10",
+      "4754228",
+      "443"
+    ]
+  },
+  {
+    "alert_id": "A275",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 443\nFlow Duration: 4159977\nForward Packets: 5\nFlow Bytes/s: 43.51\nFlow Packets/s: 1.44\nACK Flag Count: 1",
+    "evidence_tokens": [
+      "1",
+      "44",
+      "4159977",
+      "443",
+      "5",
+      "43",
+      "51"
+    ]
+  },
+  {
+    "alert_id": "A276",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 49868\nFlow Duration: 3\nForward Packets: 2\nFlow Bytes/s: 12300000.00\nFlow Packets/s: 666666.67\nACK Flag Count: 1",
+    "evidence_tokens": [
+      "1",
+      "666666",
+      "12300000",
+      "3",
+      "49868",
+      "67",
+      "00",
+      "2"
+    ]
+  },
+  {
+    "alert_id": "A277",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 53\nFlow Duration: 31168\nForward Packets: 2\nFlow Bytes/s: 7251.03\nFlow Packets/s: 128.34\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "0",
+      "31168",
+      "128",
+      "03",
+      "7251",
+      "34",
+      "53",
+      "2"
+    ]
+  },
+  {
+    "alert_id": "A278",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 53\nFlow Duration: 95056\nForward Packets: 1\nFlow Bytes/s: 2282.86\nFlow Packets/s: 21.04\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "21",
+      "1",
+      "0",
+      "2282",
+      "86",
+      "95056",
+      "04",
+      "53"
+    ]
+  },
+  {
+    "alert_id": "A279",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 54182\nFlow Duration: 83794\nForward Packets: 5\nFlow Bytes/s: 369.95\nFlow Packets/s: 59.67\nACK Flag Count: 1",
+    "evidence_tokens": [
+      "1",
+      "95",
+      "83794",
+      "369",
+      "59",
+      "5",
+      "54182",
+      "67"
+    ]
+  },
+  {
+    "alert_id": "A280",
+    "alert_type": "DDoS",
+    "evidence": "Destination Port: 80\nFlow Duration: 8039775\nForward Packets: 4\nFlow Bytes/s: 2.99\nFlow Packets/s: 0.50\nACK Flag Count: 1",
+    "evidence_tokens": [
+      "4",
+      "1",
+      "0",
+      "99",
+      "80",
+      "8039775",
+      "50",
+      "2"
+    ]
+  },
+  {
+    "alert_id": "A281",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 443\nFlow Duration: 116169922\nForward Packets: 34\nFlow Bytes/s: 342.20\nFlow Packets/s: 0.66\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "342",
+      "0",
+      "443",
+      "66",
+      "116169922",
+      "20",
+      "34"
+    ]
+  },
+  {
+    "alert_id": "A282",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 53\nFlow Duration: 23557\nForward Packets: 1\nFlow Bytes/s: 5094.03\nFlow Packets/s: 84.90\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "1",
+      "0",
+      "90",
+      "84",
+      "03",
+      "23557",
+      "5094",
+      "53"
+    ]
+  },
+  {
+    "alert_id": "A283",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 53\nFlow Duration: 302\nForward Packets: 2\nFlow Bytes/s: 596026.49\nFlow Packets/s: 13245.03\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "0",
+      "49",
+      "302",
+      "03",
+      "13245",
+      "596026",
+      "53",
+      "2"
+    ]
+  },
+  {
+    "alert_id": "A284",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 443\nFlow Duration: 10183861\nForward Packets: 9\nFlow Bytes/s: 737.15\nFlow Packets/s: 1.67\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "1",
+      "0",
+      "15",
+      "443",
+      "10183861",
+      "737",
+      "67",
+      "9"
+    ]
+  },
+  {
+    "alert_id": "A285",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 53\nFlow Duration: 70520\nForward Packets: 2\nFlow Bytes/s: 3942.14\nFlow Packets/s: 56.72\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "72",
+      "0",
+      "56",
+      "14",
+      "70520",
+      "3942",
+      "53",
+      "2"
+    ]
+  },
+  {
+    "alert_id": "A286",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 443\nFlow Duration: 5987871\nForward Packets: 7\nFlow Bytes/s: 83.50\nFlow Packets/s: 2.17\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "0",
+      "83",
+      "7",
+      "443",
+      "5987871",
+      "17",
+      "50",
+      "2"
+    ]
+  },
+  {
+    "alert_id": "A287",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 59706\nFlow Duration: 48\nForward Packets: 2\nFlow Bytes/s: 770833.33\nFlow Packets/s: 41666.67\nACK Flag Count: 1",
+    "evidence_tokens": [
+      "48",
+      "1",
+      "59706",
+      "770833",
+      "67",
+      "41666",
+      "33",
+      "2"
+    ]
+  },
+  {
+    "alert_id": "A288",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 53\nFlow Duration: 107724\nForward Packets: 1\nFlow Bytes/s: 1763.77\nFlow Packets/s: 18.57\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "1",
+      "57",
+      "0",
+      "77",
+      "18",
+      "107724",
+      "1763",
+      "53"
+    ]
+  },
+  {
+    "alert_id": "A289",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 59782\nFlow Duration: 215\nForward Packets: 2\nFlow Bytes/s: 55813.95\nFlow Packets/s: 9302.33\nACK Flag Count: 1",
+    "evidence_tokens": [
+      "55813",
+      "1",
+      "95",
+      "9302",
+      "215",
+      "59782",
+      "33",
+      "2"
+    ]
+  },
+  {
+    "alert_id": "A290",
+    "alert_type": "DoS",
+    "evidence": "Destination Port: 80\nFlow Duration: 115993689\nForward Packets: 6\nFlow Bytes/s: 0.00\nFlow Packets/s: 0.05\nACK Flag Count: 1",
+    "evidence_tokens": [
+      "1",
+      "0",
+      "05",
+      "80",
+      "6",
+      "00",
+      "115993689"
+    ]
+  },
+  {
+    "alert_id": "A291",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 53\nFlow Duration: 41596\nForward Packets: 2\nFlow Bytes/s: 6875.66\nFlow Packets/s: 96.16\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "41596",
+      "0",
+      "16",
+      "66",
+      "96",
+      "6875",
+      "53",
+      "2"
+    ]
+  },
+  {
+    "alert_id": "A292",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 443\nFlow Duration: 60270810\nForward Packets: 8\nFlow Bytes/s: 82.00\nFlow Packets/s: 0.23\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "8",
+      "0",
+      "443",
+      "82",
+      "23",
+      "00",
+      "60270810"
+    ]
+  },
+  {
+    "alert_id": "A293",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 53\nFlow Duration: 47778\nForward Packets: 1\nFlow Bytes/s: 3286.03\nFlow Packets/s: 41.86\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "1",
+      "3286",
+      "0",
+      "47778",
+      "86",
+      "41",
+      "03",
+      "53"
+    ]
+  },
+  {
+    "alert_id": "A294",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 53\nFlow Duration: 195\nForward Packets: 2\nFlow Bytes/s: 2912820.51\nFlow Packets/s: 20512.82\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "0",
+      "195",
+      "82",
+      "2912820",
+      "20512",
+      "51",
+      "53",
+      "2"
+    ]
+  },
+  {
+    "alert_id": "A295",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 80\nFlow Duration: 117437777\nForward Packets: 26\nFlow Bytes/s: 140.81\nFlow Packets/s: 0.43\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "0",
+      "81",
+      "80",
+      "140",
+      "26",
+      "43",
+      "117437777"
+    ]
+  },
+  {
+    "alert_id": "A296",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 4731\nFlow Duration: 217\nForward Packets: 1\nFlow Bytes/s: 0.00\nFlow Packets/s: 9216.59\nACK Flag Count: 1",
+    "evidence_tokens": [
+      "1",
+      "0",
+      "217",
+      "4731",
+      "9216",
+      "59",
+      "00"
+    ]
+  },
+  {
+    "alert_id": "A297",
+    "alert_type": "DDoS",
+    "evidence": "Destination Port: 80\nFlow Duration: 8581\nForward Packets: 3\nFlow Bytes/s: 1354970.28\nFlow Packets/s: 815.76\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "8581",
+      "0",
+      "1354970",
+      "815",
+      "3",
+      "80",
+      "76",
+      "28"
+    ]
+  },
+  {
+    "alert_id": "A298",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 443\nFlow Duration: 244317\nForward Packets: 8\nFlow Bytes/s: 18291.81\nFlow Packets/s: 77.77\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "8",
+      "244317",
+      "18291",
+      "0",
+      "77",
+      "81",
+      "443"
+    ]
+  },
+  {
+    "alert_id": "A299",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 443\nFlow Duration: 14688361\nForward Packets: 8\nFlow Bytes/s: 452.26\nFlow Packets/s: 1.23\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "8",
+      "1",
+      "0",
+      "14688361",
+      "452",
+      "443",
+      "23",
+      "26"
+    ]
+  },
+  {
+    "alert_id": "A300",
+    "alert_type": "Port Scanning",
+    "evidence": "Destination Port: 545\nFlow Duration: 59\nForward Packets: 1\nFlow Bytes/s: 101694.92\nFlow Packets/s: 33898.31\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "1",
+      "0",
+      "31",
+      "59",
+      "33898",
+      "545",
+      "92",
+      "101694"
+    ]
+  },
+  {
+    "alert_id": "A301",
+    "alert_type": "DoS",
+    "evidence": "Destination Port: 80\nFlow Duration: 98841982\nForward Packets: 5\nFlow Bytes/s: 121.21\nFlow Packets/s: 0.13\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "21",
+      "0",
+      "13",
+      "80",
+      "5",
+      "98841982",
+      "121"
+    ]
+  },
+  {
+    "alert_id": "A302",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 443\nFlow Duration: 5873308\nForward Packets: 9\nFlow Bytes/s: 638.65\nFlow Packets/s: 2.38\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "638",
+      "0",
+      "65",
+      "38",
+      "5873308",
+      "443",
+      "2",
+      "9"
+    ]
+  },
+  {
+    "alert_id": "A303",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 80\nFlow Duration: 104745\nForward Packets: 3\nFlow Bytes/s: 18406.61\nFlow Packets/s: 47.73\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "0",
+      "3",
+      "80",
+      "104745",
+      "61",
+      "73",
+      "18406",
+      "47"
+    ]
+  },
+  {
+    "alert_id": "A304",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 443\nFlow Duration: 115921306\nForward Packets: 27\nFlow Bytes/s: 195.24\nFlow Packets/s: 0.47\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "115921306",
+      "27",
+      "0",
+      "195",
+      "443",
+      "24",
+      "47"
+    ]
+  },
+  {
+    "alert_id": "A305",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 443\nFlow Duration: 269286\nForward Packets: 22\nFlow Bytes/s: 130894.29\nFlow Packets/s: 174.54\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "0",
+      "54",
+      "130894",
+      "269286",
+      "22",
+      "174",
+      "443",
+      "29"
+    ]
+  },
+  {
+    "alert_id": "A306",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 80\nFlow Duration: 2120832\nForward Packets: 4\nFlow Bytes/s: 463.97\nFlow Packets/s: 3.77\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "4",
+      "0",
+      "97",
+      "77",
+      "3",
+      "80",
+      "2120832",
+      "463"
+    ]
+  },
+  {
+    "alert_id": "A307",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 53\nFlow Duration: 30739\nForward Packets: 2\nFlow Bytes/s: 9239.08\nFlow Packets/s: 130.13\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "30739",
+      "0",
+      "130",
+      "13",
+      "08",
+      "9239",
+      "53",
+      "2"
+    ]
+  },
+  {
+    "alert_id": "A308",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 443\nFlow Duration: 5127227\nForward Packets: 5\nFlow Bytes/s: 35.30\nFlow Packets/s: 1.17\nACK Flag Count: 1",
+    "evidence_tokens": [
+      "1",
+      "30",
+      "443",
+      "5",
+      "35",
+      "5127227",
+      "17"
+    ]
+  },
+  {
+    "alert_id": "A309",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 59017\nFlow Duration: 41\nForward Packets: 1\nFlow Bytes/s: 292682.93\nFlow Packets/s: 48780.49\nACK Flag Count: 1",
+    "evidence_tokens": [
+      "1",
+      "49",
+      "59017",
+      "41",
+      "292682",
+      "48780",
+      "93"
+    ]
+  },
+  {
+    "alert_id": "A310",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 53\nFlow Duration: 61173\nForward Packets: 1\nFlow Bytes/s: 3988.69\nFlow Packets/s: 32.69\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "1",
+      "0",
+      "32",
+      "61173",
+      "69",
+      "3988",
+      "53"
+    ]
+  },
+  {
+    "alert_id": "A311",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 53\nFlow Duration: 241881\nForward Packets: 2\nFlow Bytes/s: 1438.72\nFlow Packets/s: 16.54\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "241881",
+      "72",
+      "0",
+      "54",
+      "16",
+      "1438",
+      "53",
+      "2"
+    ]
+  },
+  {
+    "alert_id": "A312",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 63991\nFlow Duration: 88\nForward Packets: 1\nFlow Bytes/s: 0.00\nFlow Packets/s: 22727.27\nACK Flag Count: 1",
+    "evidence_tokens": [
+      "63991",
+      "1",
+      "0",
+      "27",
+      "88",
+      "22727",
+      "00"
+    ]
+  },
+  {
+    "alert_id": "A313",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 53073\nFlow Duration: 52\nForward Packets: 1\nFlow Bytes/s: 0.00\nFlow Packets/s: 38461.54\nACK Flag Count: 1",
+    "evidence_tokens": [
+      "1",
+      "0",
+      "53073",
+      "52",
+      "54",
+      "00",
+      "38461"
+    ]
+  },
+  {
+    "alert_id": "A314",
+    "alert_type": "DoS",
+    "evidence": "Destination Port: 80\nFlow Duration: 99585736\nForward Packets: 7\nFlow Bytes/s: 120.07\nFlow Packets/s: 0.13\nACK Flag Count: 1",
+    "evidence_tokens": [
+      "99585736",
+      "1",
+      "0",
+      "7",
+      "13",
+      "80",
+      "07",
+      "120"
+    ]
+  },
+  {
+    "alert_id": "A315",
+    "alert_type": "DoS",
+    "evidence": "Destination Port: 80\nFlow Duration: 100165646\nForward Packets: 6\nFlow Bytes/s: 119.70\nFlow Packets/s: 0.13\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "0",
+      "100165646",
+      "70",
+      "13",
+      "80",
+      "6",
+      "119"
+    ]
+  },
+  {
+    "alert_id": "A316",
+    "alert_type": "Port Scanning",
+    "evidence": "Destination Port: 1183\nFlow Duration: 16\nForward Packets: 1\nFlow Bytes/s: 500000.00\nFlow Packets/s: 125000.00\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "1",
+      "0",
+      "16",
+      "1183",
+      "500000",
+      "00",
+      "125000"
+    ]
+  },
+  {
+    "alert_id": "A317",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 53\nFlow Duration: 31073\nForward Packets: 2\nFlow Bytes/s: 8431.76\nFlow Packets/s: 128.73\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "0",
+      "128",
+      "73",
+      "8431",
+      "76",
+      "31073",
+      "53",
+      "2"
+    ]
+  },
+  {
+    "alert_id": "A318",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 443\nFlow Duration: 924098\nForward Packets: 10\nFlow Bytes/s: 5195.34\nFlow Packets/s: 21.64\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "21",
+      "0",
+      "924098",
+      "5195",
+      "10",
+      "443",
+      "34",
+      "64"
+    ]
+  },
+  {
+    "alert_id": "A319",
+    "alert_type": "Port Scanning",
+    "evidence": "Destination Port: 873\nFlow Duration: 19\nForward Packets: 1\nFlow Bytes/s: 315789.47\nFlow Packets/s: 105263.16\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "19",
+      "105263",
+      "1",
+      "0",
+      "315789",
+      "16",
+      "873",
+      "47"
+    ]
+  },
+  {
+    "alert_id": "A320",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 2605\nFlow Duration: 2\nForward Packets: 2\nFlow Bytes/s: 8000000.00\nFlow Packets/s: 2000000.00\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "2000000",
+      "0",
+      "2605",
+      "8000000",
+      "00",
+      "2"
+    ]
+  },
+  {
+    "alert_id": "A321",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 53\nFlow Duration: 46354\nForward Packets: 1\nFlow Bytes/s: 5263.84\nFlow Packets/s: 43.15\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "1",
+      "0",
+      "46354",
+      "84",
+      "5263",
+      "43",
+      "53",
+      "15"
+    ]
+  },
+  {
+    "alert_id": "A322",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 49034\nFlow Duration: 58221\nForward Packets: 2\nFlow Bytes/s: 395.05\nFlow Packets/s: 68.70\nACK Flag Count: 1",
+    "evidence_tokens": [
+      "1",
+      "05",
+      "70",
+      "58221",
+      "68",
+      "49034",
+      "395",
+      "2"
+    ]
+  },
+  {
+    "alert_id": "A323",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 53\nFlow Duration: 78201\nForward Packets: 2\nFlow Bytes/s: 2046.01\nFlow Packets/s: 51.15\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "0",
+      "15",
+      "01",
+      "2046",
+      "78201",
+      "51",
+      "53",
+      "2"
+    ]
+  },
+  {
+    "alert_id": "A324",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 80\nFlow Duration: 375934\nForward Packets: 1\nFlow Bytes/s: 0.00\nFlow Packets/s: 5.32\nACK Flag Count: 1",
+    "evidence_tokens": [
+      "1",
+      "0",
+      "375934",
+      "32",
+      "80",
+      "5",
+      "00"
+    ]
+  },
+  {
+    "alert_id": "A325",
+    "alert_type": "DoS",
+    "evidence": "Destination Port: 80\nFlow Duration: 99753703\nForward Packets: 8\nFlow Bytes/s: 119.43\nFlow Packets/s: 0.14\nACK Flag Count: 1",
+    "evidence_tokens": [
+      "8",
+      "1",
+      "0",
+      "99753703",
+      "14",
+      "80",
+      "43",
+      "119"
+    ]
+  },
+  {
+    "alert_id": "A326",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 53\nFlow Duration: 189\nForward Packets: 2\nFlow Bytes/s: 1375661.38\nFlow Packets/s: 21164.02\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "0",
+      "21164",
+      "02",
+      "38",
+      "189",
+      "1375661",
+      "53",
+      "2"
+    ]
+  },
+  {
+    "alert_id": "A327",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 443\nFlow Duration: 222777\nForward Packets: 13\nFlow Bytes/s: 33360.71\nFlow Packets/s: 112.22\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "0",
+      "222777",
+      "22",
+      "71",
+      "13",
+      "443",
+      "33360",
+      "112"
+    ]
+  },
+  {
+    "alert_id": "A328",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 53\nFlow Duration: 190\nForward Packets: 2\nFlow Bytes/s: 1189473.68\nFlow Packets/s: 21052.63\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "0",
+      "1189473",
+      "21052",
+      "63",
+      "190",
+      "68",
+      "53",
+      "2"
+    ]
+  },
+  {
+    "alert_id": "A329",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 37094\nFlow Duration: 50\nForward Packets: 2\nFlow Bytes/s: 0.00\nFlow Packets/s: 60000.00\nACK Flag Count: 1",
+    "evidence_tokens": [
+      "60000",
+      "0",
+      "1",
+      "00",
+      "37094",
+      "50",
+      "2"
+    ]
+  },
+  {
+    "alert_id": "A330",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 80\nFlow Duration: 115417026\nForward Packets: 20\nFlow Bytes/s: 117.34\nFlow Packets/s: 0.35\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "115417026",
+      "0",
+      "80",
+      "35",
+      "20",
+      "34",
+      "117"
+    ]
+  },
+  {
+    "alert_id": "A331",
+    "alert_type": "DoS",
+    "evidence": "Destination Port: 80\nFlow Duration: 83426186\nForward Packets: 6\nFlow Bytes/s: 143.34\nFlow Packets/s: 0.16\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "83426186",
+      "0",
+      "16",
+      "80",
+      "6",
+      "143",
+      "34"
+    ]
+  },
+  {
+    "alert_id": "A332",
+    "alert_type": "DDoS",
+    "evidence": "Destination Port: 80\nFlow Duration: 100760430\nForward Packets: 8\nFlow Bytes/s: 115.69\nFlow Packets/s: 0.14\nACK Flag Count: 1",
+    "evidence_tokens": [
+      "8",
+      "1",
+      "0",
+      "115",
+      "100760430",
+      "14",
+      "80",
+      "69"
+    ]
+  },
+  {
+    "alert_id": "A333",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 53\nFlow Duration: 179\nForward Packets: 2\nFlow Bytes/s: 1072625.70\nFlow Packets/s: 22346.37\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "1072625",
+      "0",
+      "37",
+      "179",
+      "70",
+      "22346",
+      "53",
+      "2"
+    ]
+  },
+  {
+    "alert_id": "A334",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 443\nFlow Duration: 119757258\nForward Packets: 179\nFlow Bytes/s: 2042.16\nFlow Packets/s: 3.62\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "0",
+      "16",
+      "119757258",
+      "2042",
+      "179",
+      "3",
+      "443",
+      "62"
+    ]
+  },
+  {
+    "alert_id": "A335",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 53\nFlow Duration: 30842\nForward Packets: 1\nFlow Bytes/s: 3566.57\nFlow Packets/s: 64.85\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "85",
+      "1",
+      "57",
+      "0",
+      "3566",
+      "30842",
+      "64",
+      "53"
+    ]
+  },
+  {
+    "alert_id": "A336",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 36310\nFlow Duration: 4\nForward Packets: 3\nFlow Bytes/s: 7750000.00\nFlow Packets/s: 750000.00\nACK Flag Count: 1",
+    "evidence_tokens": [
+      "4",
+      "1",
+      "3",
+      "7750000",
+      "750000",
+      "00",
+      "36310"
+    ]
+  },
+  {
+    "alert_id": "A337",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 443\nFlow Duration: 6000472\nForward Packets: 7\nFlow Bytes/s: 131.99\nFlow Packets/s: 1.83\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "6000472",
+      "1",
+      "0",
+      "99",
+      "7",
+      "83",
+      "443",
+      "131"
+    ]
+  },
+  {
+    "alert_id": "A338",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 55207\nFlow Duration: 3\nForward Packets: 2\nFlow Bytes/s: 4000000.00\nFlow Packets/s: 666666.67\nACK Flag Count: 1",
+    "evidence_tokens": [
+      "1",
+      "666666",
+      "3",
+      "55207",
+      "4000000",
+      "67",
+      "00",
+      "2"
+    ]
+  },
+  {
+    "alert_id": "A339",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 50067\nFlow Duration: 37\nForward Packets: 2\nFlow Bytes/s: 486486.49\nFlow Packets/s: 81081.08\nACK Flag Count: 1",
+    "evidence_tokens": [
+      "81081",
+      "1",
+      "49",
+      "37",
+      "486486",
+      "08",
+      "50067",
+      "2"
+    ]
+  },
+  {
+    "alert_id": "A340",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 51222\nFlow Duration: 108\nForward Packets: 1\nFlow Bytes/s: 0.00\nFlow Packets/s: 18518.52\nACK Flag Count: 1",
+    "evidence_tokens": [
+      "1",
+      "0",
+      "52",
+      "00",
+      "18518",
+      "108",
+      "51222"
+    ]
+  },
+  {
+    "alert_id": "A341",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 53\nFlow Duration: 360\nForward Packets: 2\nFlow Bytes/s: 788888.89\nFlow Packets/s: 11111.11\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "0",
+      "11",
+      "2",
+      "788888",
+      "11111",
+      "360",
+      "53",
+      "89"
+    ]
+  },
+  {
+    "alert_id": "A342",
+    "alert_type": "DDoS",
+    "evidence": "Destination Port: 80\nFlow Duration: 1116165\nForward Packets: 3\nFlow Bytes/s: 10422.29\nFlow Packets/s: 8.06\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "8",
+      "0",
+      "3",
+      "1116165",
+      "80",
+      "06",
+      "29",
+      "10422"
+    ]
+  },
+  {
+    "alert_id": "A343",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 53\nFlow Duration: 224\nForward Packets: 2\nFlow Bytes/s: 785714.29\nFlow Packets/s: 17857.14\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "17857",
+      "0",
+      "224",
+      "14",
+      "29",
+      "785714",
+      "53",
+      "2"
+    ]
+  },
+  {
+    "alert_id": "A344",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 52963\nFlow Duration: 12\nForward Packets: 1\nFlow Bytes/s: 1000000.00\nFlow Packets/s: 166666.67\nACK Flag Count: 1",
+    "evidence_tokens": [
+      "1",
+      "12",
+      "166666",
+      "67",
+      "00",
+      "1000000",
+      "52963"
+    ]
+  },
+  {
+    "alert_id": "A345",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 53\nFlow Duration: 119563\nForward Packets: 2\nFlow Bytes/s: 4566.63\nFlow Packets/s: 33.46\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "0",
+      "33",
+      "46",
+      "4566",
+      "63",
+      "119563",
+      "53",
+      "2"
+    ]
+  },
+  {
+    "alert_id": "A346",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 6156\nFlow Duration: 45\nForward Packets: 2\nFlow Bytes/s: 355555.56\nFlow Packets/s: 88888.89\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "355555",
+      "88888",
+      "0",
+      "56",
+      "45",
+      "6156",
+      "89",
+      "2"
+    ]
+  },
+  {
+    "alert_id": "A347",
+    "alert_type": "DDoS",
+    "evidence": "Destination Port: 80\nFlow Duration: 10243884\nForward Packets: 5\nFlow Bytes/s: 2.93\nFlow Packets/s: 0.49\nACK Flag Count: 1",
+    "evidence_tokens": [
+      "1",
+      "0",
+      "49",
+      "80",
+      "5",
+      "93",
+      "10243884",
+      "2"
+    ]
+  },
+  {
+    "alert_id": "A348",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 53\nFlow Duration: 31253\nForward Packets: 2\nFlow Bytes/s: 17662.30\nFlow Packets/s: 127.99\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "17662",
+      "0",
+      "30",
+      "31253",
+      "99",
+      "127",
+      "53",
+      "2"
+    ]
+  },
+  {
+    "alert_id": "A349",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 443\nFlow Duration: 46934\nForward Packets: 2\nFlow Bytes/s: 255.68\nFlow Packets/s: 42.61\nACK Flag Count: 1",
+    "evidence_tokens": [
+      "1",
+      "46934",
+      "255",
+      "443",
+      "61",
+      "42",
+      "68",
+      "2"
+    ]
+  },
+  {
+    "alert_id": "A350",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 123\nFlow Duration: 57398\nForward Packets: 1\nFlow Bytes/s: 1672.53\nFlow Packets/s: 34.84\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "1",
+      "0",
+      "57398",
+      "84",
+      "34",
+      "1672",
+      "53",
+      "123"
+    ]
+  },
+  {
+    "alert_id": "A351",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 53\nFlow Duration: 253\nForward Packets: 2\nFlow Bytes/s: 1565217.39\nFlow Packets/s: 15810.28\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "253",
+      "0",
+      "28",
+      "1565217",
+      "39",
+      "15810",
+      "53",
+      "2"
+    ]
+  },
+  {
+    "alert_id": "A352",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 443\nFlow Duration: 39719\nForward Packets: 4\nFlow Bytes/s: 730.13\nFlow Packets/s: 100.71\nACK Flag Count: 1",
+    "evidence_tokens": [
+      "39719",
+      "4",
+      "1",
+      "71",
+      "13",
+      "443",
+      "730",
+      "100"
+    ]
+  },
+  {
+    "alert_id": "A353",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 80\nFlow Duration: 115887840\nForward Packets: 16\nFlow Bytes/s: 10.21\nFlow Packets/s: 0.26\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "21",
+      "0",
+      "16",
+      "10",
+      "80",
+      "26",
+      "115887840"
+    ]
+  },
+  {
+    "alert_id": "A354",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 51326\nFlow Duration: 97\nForward Packets: 3\nFlow Bytes/s: 505154.64\nFlow Packets/s: 41237.11\nACK Flag Count: 1",
+    "evidence_tokens": [
+      "1",
+      "51326",
+      "97",
+      "3",
+      "11",
+      "41237",
+      "505154",
+      "64"
+    ]
+  },
+  {
+    "alert_id": "A355",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 53\nFlow Duration: 24125\nForward Packets: 1\nFlow Bytes/s: 6673.58\nFlow Packets/s: 82.90\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "1",
+      "0",
+      "58",
+      "90",
+      "82",
+      "24125",
+      "6673",
+      "53"
+    ]
+  },
+  {
+    "alert_id": "A356",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 53\nFlow Duration: 76747\nForward Packets: 4\nFlow Bytes/s: 7036.11\nFlow Packets/s: 104.24\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "4",
+      "76747",
+      "104",
+      "0",
+      "7036",
+      "11",
+      "24",
+      "53"
+    ]
+  },
+  {
+    "alert_id": "A357",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 53\nFlow Duration: 271\nForward Packets: 2\nFlow Bytes/s: 1808118.08\nFlow Packets/s: 14760.15\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "0",
+      "15",
+      "14760",
+      "08",
+      "1808118",
+      "271",
+      "53",
+      "2"
+    ]
+  },
+  {
+    "alert_id": "A358",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 53\nFlow Duration: 32075\nForward Packets: 2\nFlow Bytes/s: 8293.06\nFlow Packets/s: 124.71\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "0",
+      "71",
+      "8293",
+      "124",
+      "32075",
+      "06",
+      "53",
+      "2"
+    ]
+  },
+  {
+    "alert_id": "A359",
+    "alert_type": "DDoS",
+    "evidence": "Destination Port: 80\nFlow Duration: 20635\nForward Packets: 3\nFlow Bytes/s: 563460.14\nFlow Packets/s: 436.15\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "20635",
+      "0",
+      "436",
+      "14",
+      "3",
+      "80",
+      "563460",
+      "15"
+    ]
+  },
+  {
+    "alert_id": "A360",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 443\nFlow Duration: 5886949\nForward Packets: 9\nFlow Bytes/s: 716.16\nFlow Packets/s: 2.55\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "0",
+      "55",
+      "16",
+      "5886949",
+      "443",
+      "2",
+      "716",
+      "9"
+    ]
+  },
+  {
+    "alert_id": "A361",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 443\nFlow Duration: 118155263\nForward Packets: 20\nFlow Bytes/s: 187.65\nFlow Packets/s: 0.34\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "0",
+      "65",
+      "443",
+      "118155263",
+      "20",
+      "34",
+      "187"
+    ]
+  },
+  {
+    "alert_id": "A362",
+    "alert_type": "Port Scanning",
+    "evidence": "Destination Port: 5862\nFlow Duration: 36791397\nForward Packets: 2\nFlow Bytes/s: 0.33\nFlow Packets/s: 0.11\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "36791397",
+      "0",
+      "5862",
+      "11",
+      "33",
+      "2"
+    ]
+  },
+  {
+    "alert_id": "A363",
+    "alert_type": "Brute Force",
+    "evidence": "Destination Port: 22\nFlow Duration: 111\nForward Packets: 1\nFlow Bytes/s: 0.00\nFlow Packets/s: 18018.02\nACK Flag Count: 1",
+    "evidence_tokens": [
+      "1",
+      "111",
+      "0",
+      "02",
+      "22",
+      "18018",
+      "00"
+    ]
+  },
+  {
+    "alert_id": "A364",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 443\nFlow Duration: 7810139\nForward Packets: 10\nFlow Bytes/s: 723.93\nFlow Packets/s: 2.18\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "7810139",
+      "0",
+      "723",
+      "10",
+      "443",
+      "18",
+      "93",
+      "2"
+    ]
+  },
+  {
+    "alert_id": "A365",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 6148\nFlow Duration: 314\nForward Packets: 2\nFlow Bytes/s: 38216.56\nFlow Packets/s: 6369.43\nACK Flag Count: 1",
+    "evidence_tokens": [
+      "6148",
+      "1",
+      "56",
+      "6369",
+      "314",
+      "43",
+      "38216",
+      "2"
+    ]
+  },
+  {
+    "alert_id": "A366",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 53\nFlow Duration: 213\nForward Packets: 2\nFlow Bytes/s: 1596244.13\nFlow Packets/s: 18779.34\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "18779",
+      "0",
+      "1596244",
+      "13",
+      "34",
+      "213",
+      "53",
+      "2"
+    ]
+  },
+  {
+    "alert_id": "A367",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 443\nFlow Duration: 575746\nForward Packets: 2\nFlow Bytes/s: 20.84\nFlow Packets/s: 3.47\nACK Flag Count: 1",
+    "evidence_tokens": [
+      "1",
+      "3",
+      "443",
+      "84",
+      "20",
+      "47",
+      "575746",
+      "2"
+    ]
+  },
+  {
+    "alert_id": "A368",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 443\nFlow Duration: 116441842\nForward Packets: 25\nFlow Bytes/s: 161.23\nFlow Packets/s: 0.39\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "0",
+      "116441842",
+      "443",
+      "39",
+      "23",
+      "25",
+      "161"
+    ]
+  },
+  {
+    "alert_id": "A369",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 443\nFlow Duration: 4132007\nForward Packets: 5\nFlow Bytes/s: 53.48\nFlow Packets/s: 1.69\nACK Flag Count: 1",
+    "evidence_tokens": [
+      "4132007",
+      "48",
+      "1",
+      "443",
+      "5",
+      "69",
+      "53"
+    ]
+  },
+  {
+    "alert_id": "A370",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 60727\nFlow Duration: 180\nForward Packets: 3\nFlow Bytes/s: 238888.89\nFlow Packets/s: 16666.67\nACK Flag Count: 1",
+    "evidence_tokens": [
+      "180",
+      "1",
+      "60727",
+      "3",
+      "16666",
+      "238888",
+      "67",
+      "89"
+    ]
+  },
+  {
+    "alert_id": "A371",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 54581\nFlow Duration: 70\nForward Packets: 1\nFlow Bytes/s: 171428.57\nFlow Packets/s: 28571.43\nACK Flag Count: 1",
+    "evidence_tokens": [
+      "1",
+      "57",
+      "43",
+      "171428",
+      "70",
+      "54581",
+      "28571"
+    ]
+  },
+  {
+    "alert_id": "A372",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 53\nFlow Duration: 40964\nForward Packets: 2\nFlow Bytes/s: 5565.86\nFlow Packets/s: 97.65\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "40964",
+      "0",
+      "97",
+      "65",
+      "86",
+      "53",
+      "5565",
+      "2"
+    ]
+  },
+  {
+    "alert_id": "A373",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 58739\nFlow Duration: 2\nForward Packets: 2\nFlow Bytes/s: 0.00\nFlow Packets/s: 1000000.00\nACK Flag Count: 1",
+    "evidence_tokens": [
+      "1",
+      "58739",
+      "0",
+      "00",
+      "1000000",
+      "2"
+    ]
+  },
+  {
+    "alert_id": "A374",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 53\nFlow Duration: 30948\nForward Packets: 1\nFlow Bytes/s: 6559.39\nFlow Packets/s: 64.62\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "6559",
+      "1",
+      "0",
+      "30948",
+      "39",
+      "62",
+      "64",
+      "53"
+    ]
+  },
+  {
+    "alert_id": "A375",
+    "alert_type": "DoS",
+    "evidence": "Destination Port: 80\nFlow Duration: 98755278\nForward Packets: 8\nFlow Bytes/s: 120.66\nFlow Packets/s: 0.14\nACK Flag Count: 1",
+    "evidence_tokens": [
+      "8",
+      "1",
+      "0",
+      "98755278",
+      "14",
+      "66",
+      "80",
+      "120"
+    ]
+  },
+  {
+    "alert_id": "A376",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 80\nFlow Duration: 114681017\nForward Packets: 27\nFlow Bytes/s: 93.88\nFlow Packets/s: 0.46\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "114681017",
+      "27",
+      "0",
+      "88",
+      "80",
+      "46",
+      "93"
+    ]
+  },
+  {
+    "alert_id": "A377",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 53\nFlow Duration: 50831\nForward Packets: 1\nFlow Bytes/s: 6767.52\nFlow Packets/s: 39.35\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "1",
+      "0",
+      "52",
+      "53",
+      "50831",
+      "35",
+      "39",
+      "6767"
+    ]
+  },
+  {
+    "alert_id": "A378",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 52546\nFlow Duration: 14\nForward Packets: 1\nFlow Bytes/s: 857142.86\nFlow Packets/s: 142857.14\nACK Flag Count: 1",
+    "evidence_tokens": [
+      "1",
+      "142857",
+      "86",
+      "14",
+      "857142",
+      "52546"
+    ]
+  },
+  {
+    "alert_id": "A379",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 52666\nFlow Duration: 1\nForward Packets: 2\nFlow Bytes/s: 12000000.00\nFlow Packets/s: 2000000.00\nACK Flag Count: 1",
+    "evidence_tokens": [
+      "2000000",
+      "1",
+      "52666",
+      "12000000",
+      "00",
+      "2"
+    ]
+  },
+  {
+    "alert_id": "A380",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 53\nFlow Duration: 31526\nForward Packets: 2\nFlow Bytes/s: 9769.71\nFlow Packets/s: 126.88\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "9769",
+      "0",
+      "88",
+      "71",
+      "126",
+      "31526",
+      "53",
+      "2"
+    ]
+  },
+  {
+    "alert_id": "A381",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 53\nFlow Duration: 23497\nForward Packets: 1\nFlow Bytes/s: 6511.47\nFlow Packets/s: 85.12\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "85",
+      "6511",
+      "1",
+      "0",
+      "12",
+      "23497",
+      "47",
+      "53"
+    ]
+  },
+  {
+    "alert_id": "A382",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 55966\nFlow Duration: 229\nForward Packets: 2\nFlow Bytes/s: 52401.75\nFlow Packets/s: 8733.62\nACK Flag Count: 1",
+    "evidence_tokens": [
+      "75",
+      "52401",
+      "1",
+      "229",
+      "55966",
+      "62",
+      "8733",
+      "2"
+    ]
+  },
+  {
+    "alert_id": "A383",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 443\nFlow Duration: 124\nForward Packets: 2\nFlow Bytes/s: 96774.19\nFlow Packets/s: 16129.03\nACK Flag Count: 1",
+    "evidence_tokens": [
+      "19",
+      "1",
+      "16129",
+      "443",
+      "03",
+      "124",
+      "96774",
+      "2"
+    ]
+  },
+  {
+    "alert_id": "A384",
+    "alert_type": "DoS",
+    "evidence": "Destination Port: 80\nFlow Duration: 97487733\nForward Packets: 8\nFlow Bytes/s: 122.61\nFlow Packets/s: 0.14\nACK Flag Count: 1",
+    "evidence_tokens": [
+      "8",
+      "1",
+      "0",
+      "122",
+      "14",
+      "80",
+      "61",
+      "97487733"
+    ]
+  },
+  {
+    "alert_id": "A385",
+    "alert_type": "Brute Force",
+    "evidence": "Destination Port: 22\nFlow Duration: 11976449\nForward Packets: 21\nFlow Bytes/s: 396.86\nFlow Packets/s: 4.34\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "21",
+      "4",
+      "0",
+      "86",
+      "22",
+      "396",
+      "11976449",
+      "34"
+    ]
+  },
+  {
+    "alert_id": "A386",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 443\nFlow Duration: 3495014\nForward Packets: 15\nFlow Bytes/s: 1781.11\nFlow Packets/s: 6.87\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "0",
+      "87",
+      "443",
+      "11",
+      "6",
+      "3495014",
+      "1781",
+      "15"
+    ]
+  },
+  {
+    "alert_id": "A387",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 53\nFlow Duration: 129992\nForward Packets: 1\nFlow Bytes/s: 1807.80\nFlow Packets/s: 15.39\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "129992",
+      "1",
+      "0",
+      "80",
+      "39",
+      "1807",
+      "53",
+      "15"
+    ]
+  },
+  {
+    "alert_id": "A388",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 53\nFlow Duration: 31283\nForward Packets: 1\nFlow Bytes/s: 3708.08\nFlow Packets/s: 63.93\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "1",
+      "0",
+      "3708",
+      "31283",
+      "08",
+      "93",
+      "63",
+      "53"
+    ]
+  },
+  {
+    "alert_id": "A389",
+    "alert_type": "DDoS",
+    "evidence": "Destination Port: 80\nFlow Duration: 3135981\nForward Packets: 5\nFlow Bytes/s: 9.57\nFlow Packets/s: 1.59\nACK Flag Count: 1",
+    "evidence_tokens": [
+      "57",
+      "1",
+      "59",
+      "80",
+      "5",
+      "3135981",
+      "9"
+    ]
+  },
+  {
+    "alert_id": "A390",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 443\nFlow Duration: 149492\nForward Packets: 3\nFlow Bytes/s: 207.37\nFlow Packets/s: 20.07\nACK Flag Count: 1",
+    "evidence_tokens": [
+      "1",
+      "149492",
+      "37",
+      "3",
+      "443",
+      "07",
+      "20",
+      "207"
+    ]
+  },
+  {
+    "alert_id": "A391",
+    "alert_type": "Port Scanning",
+    "evidence": "Destination Port: 2161\nFlow Duration: 49\nForward Packets: 1\nFlow Bytes/s: 163265.31\nFlow Packets/s: 40816.33\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "40816",
+      "1",
+      "0",
+      "49",
+      "31",
+      "163265",
+      "2161",
+      "33"
+    ]
+  },
+  {
+    "alert_id": "A392",
+    "alert_type": "DDoS",
+    "evidence": "Destination Port: 80\nFlow Duration: 1284134\nForward Packets: 3\nFlow Bytes/s: 9059.02\nFlow Packets/s: 7.01\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "0",
+      "02",
+      "9059",
+      "3",
+      "80",
+      "7",
+      "01",
+      "1284134"
+    ]
+  },
+  {
+    "alert_id": "A393",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 4848\nFlow Duration: 50\nForward Packets: 2\nFlow Bytes/s: 320000.00\nFlow Packets/s: 80000.00\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "320000",
+      "4848",
+      "0",
+      "00",
+      "50",
+      "80000",
+      "2"
+    ]
+  },
+  {
+    "alert_id": "A394",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 55055\nFlow Duration: 98\nForward Packets: 2\nFlow Bytes/s: 163265.31\nFlow Packets/s: 40816.33\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "40816",
+      "0",
+      "55055",
+      "31",
+      "98",
+      "163265",
+      "33",
+      "2"
+    ]
+  },
+  {
+    "alert_id": "A395",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 443\nFlow Duration: 589\nForward Packets: 2\nFlow Bytes/s: 20373.51\nFlow Packets/s: 3395.59\nACK Flag Count: 1",
+    "evidence_tokens": [
+      "3395",
+      "589",
+      "1",
+      "20373",
+      "59",
+      "443",
+      "51",
+      "2"
+    ]
+  },
+  {
+    "alert_id": "A396",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 80\nFlow Duration: 413610\nForward Packets: 3\nFlow Bytes/s: 3143.06\nFlow Packets/s: 16.92\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "0",
+      "16",
+      "3143",
+      "3",
+      "80",
+      "413610",
+      "92",
+      "06"
+    ]
+  },
+  {
+    "alert_id": "A397",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 52486\nFlow Duration: 254\nForward Packets: 2\nFlow Bytes/s: 145669.29\nFlow Packets/s: 11811.02\nACK Flag Count: 1",
+    "evidence_tokens": [
+      "1",
+      "02",
+      "145669",
+      "11811",
+      "254",
+      "29",
+      "52486",
+      "2"
+    ]
+  },
+  {
+    "alert_id": "A398",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 53\nFlow Duration: 687\nForward Packets: 1\nFlow Bytes/s: 310043.67\nFlow Packets/s: 2911.21\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "21",
+      "1",
+      "0",
+      "687",
+      "2911",
+      "67",
+      "310043",
+      "53"
+    ]
+  },
+  {
+    "alert_id": "A399",
+    "alert_type": "Normal Traffic",
+    "evidence": "Destination Port: 123\nFlow Duration: 43282\nForward Packets: 1\nFlow Bytes/s: 2218.01\nFlow Packets/s: 46.21\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "21",
+      "1",
+      "0",
+      "2218",
+      "46",
+      "01",
+      "43282",
+      "123"
+    ]
+  },
+  {
+    "alert_id": "A400",
+    "alert_type": "Port Scanning",
+    "evidence": "Destination Port: 9003\nFlow Duration: 77\nForward Packets: 1\nFlow Bytes/s: 77922.08\nFlow Packets/s: 25974.03\nACK Flag Count: 0",
+    "evidence_tokens": [
+      "1",
+      "0",
+      "25974",
+      "77",
+      "77922",
+      "9003",
+      "08",
+      "03"
+    ]
+  }
+]

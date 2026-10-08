@@ -1,0 +1,36 @@
+cff-version: 1.2.0
+message: "If you use this software or its results, please cite it as below, and cite the CIC-IDS 2017 dataset."
+title: "Auditing unsupported claims in LLM-generated IDS alert explanations"
+type: software
+authors:
+  - family-names: "Soryan"
+    given-names: "Ishita"
+version: "v1.0-paper"
+date-released: "2026-10-08"
+license: MIT
+# Add the Zenodo DOI here once it is minted, e.g.
+# identifiers:
+#   - type: doi
+#     value: "10.5281/zenodo.XXXXXXX"
+# and the repository URL once the GitHub repository exists:
+# repository-code: "https://github.com/<user>/<repository>"
+keywords:
+  - hallucination
+  - large language models
+  - intrusion detection
+  - explainability
+  - CIC-IDS 2017
+references:
+  - type: conference-paper
+    title: "Toward Generating a New Intrusion Detection Dataset and Intrusion Traffic Characterization"
+    authors:
+      - family-names: "Sharafaldin"
+        given-names: "Iman"
+      - family-names: "Habibi Lashkari"
+        given-names: "Arash"
+      - family-names: "Ghorbani"
+        given-names: "Ali A."
+    collection-title: "Proceedings of the 4th International Conference on Information Systems Security and Privacy (ICISSP)"
+    year: 2018
+    start: 108
+    end: 116

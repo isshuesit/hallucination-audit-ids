@@ -1,0 +1,213 @@
+{
+  "computed_on": "items valid for both labellers",
+  "n_items": 240,
+  "excluded": 10,
+  "agreement": {
+    "n_sentences": 240,
+    "n_explanations": 25,
+    "bootstrap": {
+      "draws": 2000,
+      "seed": 42,
+      "unit": "explanation"
+    },
+    "kappa": {
+      "label": {
+        "kappa": 0.8336452484924098,
+        "ci95": [
+          0.7772277227722771,
+          0.888627422142148
+        ],
+        "valid_draws": 2000,
+        "observed_agreement": 0.9166666666666666
+      },
+      "lenient": {
+        "kappa": 0.9264405394360444,
+        "ci95": [
+          0.8435681965093729,
+          1.0
+        ],
+        "valid_draws": 2000,
+        "observed_agreement": 0.9875,
+        "positives": [
+          22,
+          23
+        ]
+      },
+      "tier": {
+        "kappa": 0.8337599759072429,
+        "ci95": [
+          0.7801096227687078,
+          0.8866141732283462
+        ],
+        "valid_draws": 2000,
+        "observed_agreement": 0.9041666666666667
+      },
+      "tier1": {
+        "kappa": 0.9234042553191492,
+        "ci95": [
+          0.8485229415461969,
+          1.0
+        ],
+        "valid_draws": 2000,
+        "observed_agreement": 0.9875,
+        "positives": [
+          20,
+          23
+        ]
+      },
+      "tier2": {
+        "kappa": 0.8039494246341811,
+        "ci95": [
+          0.7409298085688241,
+          0.864701754385965
+        ],
+        "valid_draws": 2000,
+        "observed_agreement": 0.9041666666666667,
+        "positives": [
+          97,
+          106
+        ]
+      },
+      "subtype:attack_technique": {
+        "kappa": 0.957805907172996,
+        "ci95": [
+          0.8734379154480187,
+          1.0
+        ],
+        "valid_draws": 2000,
+        "observed_agreement": 0.9958333333333333,
+        "positives": [
+          12,
+          13
+        ]
+      },
+      "subtype:baseline": {
+        "kappa": 0.5530726256983242,
+        "ci95": [
+          0.4235752083206616,
+          0.6621406598069374
+        ],
+        "valid_draws": 2000,
+        "observed_agreement": 0.8666666666666667,
+        "positives": [
+          32,
+          54
+        ]
+      },
+      "subtype:encryption": {
+        "kappa": -0.004184100418410714,
+        "ci95": [
+          -0.010101010101011677,
+          0.0
+        ],
+        "valid_draws": 1725,
+        "observed_agreement": 0.9916666666666667,
+        "positives": [
+          1,
+          1
+        ]
+      },
+      "subtype:hard_certainty": {
+        "kappa": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "valid_draws": 1312,
+        "observed_agreement": 0.9958333333333333,
+        "positives": [
+          0,
+          1
+        ]
+      },
+      "subtype:inferred_outcome": {
+        "kappa": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "valid_draws": 1299,
+        "observed_agreement": 0.9958333333333333,
+        "positives": [
+          0,
+          1
+        ]
+      },
+      "subtype:other_knowledge": {
+        "kappa": 0.4920634920634908,
+        "ci95": [
+          -0.01133144475920917,
+          1.0
+        ],
+        "valid_draws": 1991,
+        "observed_agreement": 0.9833333333333333,
+        "positives": [
+          3,
+          5
+        ]
+      },
+      "subtype:port": {
+        "kappa": 0.8214285714285714,
+        "ci95": [
+          0.6803328108042932,
+          0.9292452830188682
+        ],
+        "valid_draws": 2000,
+        "observed_agreement": 0.9708333333333333,
+        "positives": [
+          24,
+          19
+        ]
+      },
+      "subtype:protocol": {
+        "kappa": 0.581056466302368,
+        "ci95": [
+          0.4255529877847474,
+          0.7202224173251393
+        ],
+        "valid_draws": 2000,
+        "observed_agreement": 0.9041666666666667,
+        "positives": [
+          36,
+          27
+        ]
+      },
+      "subtype:unit": {
+        "kappa": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "valid_draws": 1244,
+        "observed_agreement": 0.9958333333333333,
+        "positives": [
+          1,
+          0
+        ]
+      },
+      "subtype:unit_wrong": {
+        "kappa": 1.0,
+        "ci95": [
+          1.0,
+          1.0
+        ],
+        "valid_draws": 2000,
+        "observed_agreement": 1.0,
+        "positives": [
+          8,
+          8
+        ]
+      }
+    },
+    "catch_all_counts": {
+      "a": 3,
+      "b": 5
+    },
+    "unsure_counts": {
+      "a": 0,
+      "b": 0
+    }
+  },
+  "hedged_kappa_where_both_hallucinated": 0.7589476179189381,
+  "n_both_hallucinated": 113
+}

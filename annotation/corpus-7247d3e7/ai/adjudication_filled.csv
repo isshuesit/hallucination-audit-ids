@@ -1,0 +1,104 @@
+﻿item_id,explanation_id,sentence_no,sentence,label,subtype,hedged,other_subtypes,note,unsure
+E014-05,E014,5,"This significant discrepancy implies a substantial volume of packets were traveling in the reverse direction, from the DNS server.",hallucinated,other_fabrication,no,port,"4 fwd pkts, total is ~6 (249.58 x 0.024s) so like 2 going back. not 'substantial'. dns server = port stuff",
+E002-07,E002,7,"Crucially, the ACK flag count for this flow was zero, indicating no acknowledgments were sent from the destination.",hallucinated,protocol,no,,"0 acks is fine but 'from the destination' is tcp stuff, not in the numbers",yes
+E017-06,E017,6,The presence of one forward packet with an ACK flag suggests an attempt to initiate a connection or a network probe.,hallucinated,attack_technique,yes,"other_fabrication, protocol","probe = attack type. also says the ack was on the fwd pkt, we dont know that (~2 pkts total)",
+E007-09,E007,9,These combined characteristics suggest an abnormal or non-responsive connection state.,hallucinated,other_fabrication,yes,baseline,"~17 pkts total vs 9 fwd so stuff did come back, not non-responsive. abnormal = baseline",yes
+E002-10,E002,10,This anomaly warrants further investigation to determine its true nature and potential security implications.,hallucinated,baseline,no,,"'anomaly' = baseline, rest is just generic advice",
+E025-06,E025,6,"The absence of ACK flags strongly suggests that this flow is utilizing UDP, which is the primary transport protocol for most DNS queries.",hallucinated,protocol,yes,port,udp + dns stuff is outside knowledge,
+E023-10,E023,10,"Such an isolated, high-speed interaction often warrants further security review.",hallucinated,baseline,no,,"'often' feels like baseline, kinda generic advice tho",yes
+E014-08,E014,8,An extended flow duration coupled with a very high implied reverse packet volume on a DNS port is an atypical pattern for standard DNS queries.,hallucinated,other_fabrication,no,"baseline, port",duration is 0.024s so not 'extended'. reverse is ~2 pkts not 'very high',
+E006-03,E006,3,"The flow maintained an unusually long duration, spanning over ten hours.",hallucinated,unit_wrong,no,baseline,36.8 sec not 10 hrs,
+E019-11,E019,11,Such an anomalous and incomplete flow to a non-standard port warrants further security investigation into its origin and intent.,hallucinated,port,no,"protocol, baseline","non-standard port + incomplete + anomalous, all outside stuff",
+E024-04,E024,4,"Despite this extended timeframe, only six packets were observed in the forward direction.",grounded,,,,,
+E014-09,E014,9,This unusual activity could indicate the transfer of a large amount of data from the DNS server to the client.,hallucinated,other_fabrication,yes,"baseline, port","~236 bytes total, not a large amount",
+E015-05,E015,5,This single forward packet had the TCP ACK flag enabled.,hallucinated,other_fabrication,no,protocol,"ack count is for the whole flow, ~2 pkts total, cant say its the fwd one. tcp not in evidence",yes
+E006-10,E006,10,These attributes might suggest a low-volume persistent channel or an incomplete connection attempt.,hallucinated,protocol,yes,,'incomplete connection attempt' is tcp stuff. 'persistent channel' sounds sus but no named attack,yes
+E015-11,E015,11,"Collectively, these characteristics strongly suggest network scanning activity.",hallucinated,attack_technique,yes,,scanning = attack type,
+E003-03,E003,3,The entire flow occurred over an exceptionally brief duration of 4 time units.,grounded,,,,,
+E012-02,E012,2,"The flow exhibits a very long duration, spanning approximately 3.3 hours.",hallucinated,unit_wrong,no,,12 sec not 3.3 hrs,
+E007-03,E007,3,"The flow shows an exceptionally long duration of 10,183,861 units.",grounded,,,,,
+E005-09,E005,9,A zero ACK flag count is highly atypical for a successfully established and active TCP communication like SSH.,hallucinated,port,no,"protocol, baseline",ssh + tcp + atypical,
+E025-10,E025,10,"This could signify a single DNS query followed by a significant response, or a highly compressed data exchange within the flow, which would contribute to the high overall byte and packet rates.",hallucinated,other_fabrication,yes,port,"~2 pkts, ~162 bytes total. compression is made up",
+E012-04,E012,4,This low packet count over a long duration suggests minimal data transfer or activity.,grounded,,,,,
+E017-04,E017,4,The flow had a total duration of 112 units of time.,grounded,,,,,
+E006-04,E006,4,"During this extended period, only two packets were observed in the forward direction.",grounded,,,,,
+E011-09,E011,9,"This combination of a single packet, long duration, and no ACK flags is not typical for a successful DNS query-response exchange.",hallucinated,port,no,"protocol, baseline",dns + query-response + not typical,
+E013-08,E013,8,"The absence of ACK flags suggests either a UDP-based communication, which is typical for DNS, or an unsuccessful TCP connection attempt.",hallucinated,port,yes,"protocol, baseline",'udp typical for dns' = outside knowledge,
+E016-03,E016,3,"The flow recorded a duration of 19 units of time, during which only one packet was observed in the forward direction.",grounded,,,,,
+E006-06,E006,6,"Correspondingly, the average packet rate was also very low, at 0.11 packets per second.",grounded,,,,,
+E008-10,E008,10,This unusual flow profile warrants further investigation from a security perspective.,hallucinated,baseline,no,,unusual = baseline,
+E002-08,E002,8,"This combination of minimal forward packets, zero acknowledgments, and high calculated flow rates is atypical for a standard, successful DNS transaction or a fully established connection.",hallucinated,port,no,"protocol, baseline",,
+E012-10,E012,10,The combination of a prolonged duration with extremely low activity and zero ACK flags indicates an anomalous or incomplete connection attempt on the SSH port.,hallucinated,port,no,"protocol, baseline",,
+E016-09,E016,9,"From a security perspective, this anomalous and unacknowledged connection attempt to a sensitive service warrants further investigation.",hallucinated,port,no,"protocol, baseline",'sensitive service' = port 873 knowledge,
+E014-04,E014,4,"Despite the low forward packet count, the overall flow processed packets at a high rate of 249.58 packets per second.",grounded,,,,,
+E005-11,E005,11,The combination of a prolonged connection attempt with minimal packet exchange and no acknowledgments indicates an unestablished or unsuccessful communication over an extended period.,hallucinated,protocol,no,,~53 pkts total vs 21 fwd so other side did send stuff? 'unsuccessful' is a tcp assumption,yes
+E025-05,E025,5,There were no ACK (acknowledgment) flags present in the entire flow.,grounded,,,,,
+E013-11,E013,11,The observed characteristics deviate from normal network behavior and warrant further investigation.,hallucinated,baseline,no,,,
+E018-05,E018,5,The presence of only a single ACK flag across the 28-hour flow with multiple forward packets is highly unusual.,hallucinated,unit_wrong,no,baseline,100.8 sec not 28 hrs,
+E021-08,E021,8,"The combination of a very long duration, minimal forward packets, and no observed acknowledgments represents anomalous network behavior.",hallucinated,baseline,no,,,
+E008-04,E008,4,"Despite this extended duration, only 8 packets were transmitted in the forward direction.",grounded,,,,,
+E010-08,E010,8,"Such an anomaly, especially with no acknowledgments, suggests an incomplete or malformed connection attempt.",hallucinated,protocol,yes,baseline,,
+E025-09,E025,9,"The combination of a single forward packet, no ACKs, and high flow rates indicates a potentially bursty or highly efficient data transfer.",hallucinated,other_knowledge,no,,"bursty/efficient not supported, rates are just averages. 'potentially' not on hedge list",yes
+E004-02,E004,2,The communication persisted for a duration of 84212 time units.,grounded,,,,,
+E023-05,E023,5,This sole forward packet had its ACK flag set.,hallucinated,other_fabrication,no,,"~4 pkts total, ack could be on any of them",yes
+E021-10,E021,10,The lack of standard TCP acknowledgment makes the nature of this communication suspicious from a security perspective.,hallucinated,protocol,no,baseline,,
+E005-06,E005,6,"The flow's data transfer rate is very low, averaging approximately 358 bytes per second.",grounded,,,,,
+E022-07,E022,7,"The combination of a long duration, low packet count, and zero acknowledgments is highly anomalous.",hallucinated,baseline,no,,,
+E007-05,E007,5,"The data transfer rate is very low, at 737.15 bytes per second.",grounded,,,,,
+E008-03,E008,3,"The flow exhibits an exceptionally long duration, recorded at over 27 hours.",hallucinated,unit_wrong,no,,99.8 sec not 27 hrs,
+E007-08,E007,8,"A zero ACK flag count is highly unusual for a long-duration connection, especially one typically employing TCP.",hallucinated,protocol,no,baseline,,
+E020-08,E020,8,"The discrepancy suggests a very short, high-rate burst of activity within an otherwise prolonged and idle flow.",hallucinated,other_fabrication,yes,,"burst then idle is made up, its just averages. ~4 pkts in 0.049s",
+E009-10,E009,10,"This combination of highly anomalous indicators on a DNS port could imply covert communication channels, data exfiltration, or other malicious activities.",hallucinated,attack_technique,yes,"inferred_outcome, port, baseline",covert channel + exfil,
+E015-06,E015,6,"No actual data payload was transferred, as indicated by the Flow Bytes/s rate of 0.00.",grounded,,,,,
+E020-02,E020,2,"The flow registered an ACK Flag Count of 0, indicating no TCP acknowledgments were observed.",hallucinated,protocol,no,,only 'tcp' is extra here. strict call,yes
+E012-08,E012,8,"The lack of ACK flags is highly atypical for a normal TCP-based communication, which relies on acknowledgments.",hallucinated,protocol,no,baseline,,
+E024-08,E024,8,Such an unusual pattern deviates from typical network traffic and warrants further investigation for potential security implications.,hallucinated,baseline,no,,,
+E019-02,E019,2,"The network communication was directed to destination port 59625, which is a high-numbered port not typically associated with standard, well-known services.",hallucinated,port,no,baseline,"high-numbered is fine, 'not associated w/ services' is port knowledge",
+E005-10,E005,10,This suggests that no data segments were acknowledged by the recipient throughout the flow's entire duration.,hallucinated,protocol,yes,,,
+E011-05,E011,5,No TCP ACK flags were detected during the observed flow.,hallucinated,protocol,no,,"same as E020-02, just the 'tcp'",yes
+E011-02,E011,2,Port 53 is conventionally utilized for Domain Name System (DNS) traffic.,hallucinated,port,no,,,
+E016-04,E016,4,"Crucially, no acknowledgment flags were set in any packets within this flow.",grounded,,,,,
+E014-07,E014,7,The absence of ACK flags aligns with the expected behavior of UDP-based DNS communication.,hallucinated,port,no,"protocol, baseline",,
+E012-09,E012,9,"This suggests that a full, successful TCP three-way handshake or reliable data transfer did not occur.",hallucinated,protocol,yes,,,
+E001-11,E001,11,These flow characteristics collectively point to potentially suspicious or unusual network behavior that requires further investigation.,hallucinated,baseline,no,,'potentially' not on hedge list,
+E001-02,E001,2,"The communication targets destination port 8192, which is not commonly associated with standard internet services.",hallucinated,port,no,,,
+E022-06,E022,6,The flow maintained an extremely low rate of 3.83 packets per second and 343.09 bytes per second.,grounded,,,,,
+E019-07,E019,7,The absence of any transmitted data bytes raises questions about the legitimate purpose of this communication.,hallucinated,baseline,no,,assumes legit traffic has data. could also be attacker_intent,yes
+E019-10,E019,10,"Collectively, these observations suggest an attempted connection that did not fully establish or exchange any meaningful information.",hallucinated,protocol,yes,,,
+E015-04,E015,4,Only one packet was sent from the source to the destination during this period.,grounded,,,,,
+E014-10,E014,10,Such a profile warrants further investigation due to its deviation from typical DNS query and response exchanges.,hallucinated,port,no,"protocol, baseline",,
+E011-07,E011,7,The reported flow rates of 968.74 bytes per second and 11.89 packets per second appear inconsistent with the observation of only one forward packet over the stated duration.,hallucinated,other_fabrication,yes,,"not actually inconsistent, 11.89 x 0.168 = 2 pkts so 1 fwd 1 back",yes
+E004-07,E004,7,The complete absence of ACK flags is highly unusual for a standard TCP connection to an HTTP service.,hallucinated,port,no,"protocol, baseline",,
+E008-01,E008,1,"Based on the provided evidence:
+
+1.",grounded,,,,just a heading,
+E012-06,E012,6,"Similarly, the packet rate of 4.34 packets per second further supports a low activity level.",grounded,,,,,
+E021-05,E021,5,"The flow persisted for an exceptionally long duration of 83,213,094 milliseconds, approximately 23 hours.",hallucinated,unit_wrong,no,,83.2 sec. ms and 23 hrs both wrong,
+E024-02,E024,2,"The communication is directed towards destination port 80, typically associated with unencrypted web services.",hallucinated,port,no,encryption,,
+E004-01,E004,1,"This network flow targets destination port 80, which commonly hosts unencrypted HTTP web services.",hallucinated,port,no,encryption,"http on 80 = port, not protocol_without_port",
+E010-06,E010,6,This indicates that a standard TCP three-way handshake was likely not successfully completed from the destination's perspective.,hallucinated,protocol,yes,,,
+E022-09,E022,9,It confirms that an established and active SSH session did not occur.,hallucinated,hard_certainty,no,"port, protocol",'confirms' isnt on the list but reads as certain,yes
+E009-11,E009,11,The unusual characteristics of this network flow warrant further investigation from a security perspective.,hallucinated,baseline,no,,,
+E013-09,E013,9,"From a security standpoint, the high byte and packet rates attributed to a single forward packet are highly anomalous.",hallucinated,baseline,no,,also treats the flow rates like theyre from the 1 fwd pkt,
+E015-02,E015,2,"The destination port for this network flow is 61206, which is a high-numbered port not typically assigned to standard services.",hallucinated,port,no,,,
+E020-07,E020,7,This combination of a minimal packet count over a long duration with high average rates is inconsistent.,hallucinated,other_fabrication,no,,"4 pkts in 0.049s, not inconsistent. duration isnt even long",yes
+E021-03,E021,3,"This absence of ACK flags is highly unusual for a standard, successfully established TCP connection.",hallucinated,protocol,no,baseline,,
+E022-04,E022,4,"The ACK flag count is zero, indicating no acknowledgments were received from the destination system.",hallucinated,protocol,no,,same as E002-07,yes
+E018-07,E018,7,Such characteristics could suggest a stealthy communication attempt or an inefficient connection.,hallucinated,attack_technique,yes,,'stealthy' hints at something covert but nothing named,yes
+E004-05,E004,5,"The flow also exhibited a high overall packet rate of 95 packets per second, implying a significant number of total packets exchanged.",hallucinated,other_fabrication,no,,"95 x 0.084 = 8 pkts total, not that significant",yes
+E011-03,E011,3,Only one forward packet was recorded within this flow.,grounded,,,,,
+E024-05,E024,5,"The average data transfer rate was very low, at 122.14 bytes per second, and the average packet rate was also remarkably low, at 0.13 packets per second.",grounded,,,,,
+E001-01,E001,1,This network flow exhibits several characteristics that warrant security attention.,grounded,,,,,
+E008-09,E008,9,The single ACK flag count indicates at least one acknowledgment within this minimal interaction.,grounded,,,,,
+E001-08,E001,8,The combination of a single forward packet and no ACKs could suggest an unsuccessful connection attempt.,hallucinated,protocol,yes,,,
+E009-07,E009,7,"The very low number of forward packets, contrasted with the high overall flow rates, suggests an asymmetric or otherwise unusual communication pattern.",hallucinated,other_fabrication,yes,baseline,"4 pkts total, 2 fwd 2 back so not asymmetric on pkts. bytes unknown tho",yes
+E017-10,E017,10,"This pattern suggests potential reconnaissance activity, such as a port scan, or an incomplete connection establishment targeting a database service.",hallucinated,attack_technique,yes,"port, protocol",,
+E022-05,E022,5,This strongly suggests that a TCP three-way handshake was not successfully completed.,hallucinated,protocol,yes,,,
+E003-05,E003,5,"One acknowledgment (ACK) flag was observed within the flow, indicating the connection progressed beyond a simple initial request.",hallucinated,protocol,no,,'progressed beyond initial request' = tcp stuff,
+E007-10,E007,10,"The observed traffic pattern does not align with a typical, healthy secure web browsing session.",hallucinated,port,no,"encryption, baseline",,
+E019-05,E019,5,The presence of one ACK flag suggests an acknowledgment or a response to the initial packet within this minimal exchange.,hallucinated,protocol,yes,,,
+E008-07,E008,7,Such a combination of prolonged duration with minimal packet and byte activity is highly atypical for standard HTTP communication.,hallucinated,port,no,baseline,,
+E013-10,E013,10,"This could indicate a rapid, one-way transmission of a significant amount of data within that single packet.",hallucinated,other_fabrication,yes,,"~2 pkts total so not one-way, ~208 bytes not significant",
+E009-04,E009,4,"The flow also exhibits an exceptionally high packet rate of over 18,000 packets per second.",grounded,,,,,
+E003-02,E003,2,This port is typically not assigned to well-known or common services.,hallucinated,port,no,,,
+E006-02,E006,2,"This port is not commonly associated with standard, well-known network services.",hallucinated,port,no,,,

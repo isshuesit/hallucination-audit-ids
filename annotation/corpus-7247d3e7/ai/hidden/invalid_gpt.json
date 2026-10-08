@@ -1,0 +1,39 @@
+{
+  "labeller": "gpt",
+  "decision": "D33",
+  "invalid": {
+    "E005-11": [
+      "unknown_subtype"
+    ],
+    "E006-10": [
+      "catch_all_without_note"
+    ],
+    "E009-10": [
+      "catch_all_without_note"
+    ],
+    "E012-02": [
+      "invalid_label"
+    ],
+    "E013-10": [
+      "catch_all_without_note",
+      "unknown_subtype"
+    ],
+    "E014-09": [
+      "catch_all_without_note",
+      "unknown_subtype"
+    ],
+    "E016-09": [
+      "catch_all_without_note"
+    ],
+    "E019-07": [
+      "catch_all_without_note",
+      "unknown_subtype"
+    ],
+    "E019-11": [
+      "catch_all_without_note"
+    ],
+    "E020-08": [
+      "unknown_subtype"
+    ]
+  }
+}

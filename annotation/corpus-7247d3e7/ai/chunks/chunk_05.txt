@@ -1,0 +1,98 @@
+EXPLANATION E021
+Evidence:
+Destination Port: 80
+Flow Duration: 83213094
+Forward Packets: 5
+Flow Bytes/s: 143.99
+Flow Packets/s: 0.14
+ACK Flag Count: 0
+Sentences to label:
+[E021-01] This network flow was directed towards destination port 80, which is typically used for HTTP web services.
+[E021-02] A key observation is the ACK flag count of zero, indicating no acknowledgments were observed within this traffic.
+[E021-03] This absence of ACK flags is highly unusual for a standard, successfully established TCP connection.
+[E021-04] Only five forward packets were transmitted throughout the entire flow duration.
+[E021-05] The flow persisted for an exceptionally long duration of 83,213,094 milliseconds, approximately 23 hours.
+[E021-06] Despite this extended duration, the flow exhibited an extremely low rate of 0.14 packets per second.
+[E021-07] Similarly, the data transfer rate was very low, at 143.99 bytes per second.
+[E021-08] The combination of a very long duration, minimal forward packets, and no observed acknowledgments represents anomalous network behavior.
+[E021-09] This pattern could indicate an incomplete connection attempt, a network scanning activity, or a persistent but unacknowledged probe of the service on port 80.
+[E021-10] The lack of standard TCP acknowledgment makes the nature of this communication suspicious from a security perspective.
+
+EXPLANATION E022
+Evidence:
+Destination Port: 22
+Flow Duration: 13853542
+Forward Packets: 22
+Flow Bytes/s: 343.09
+Flow Packets/s: 3.83
+ACK Flag Count: 0
+Sentences to label:
+[E022-01] This network flow targets destination port 22, which is commonly associated with SSH services.
+[E022-02] The flow exhibits an unusually long duration of approximately 3 hours and 50 minutes.
+[E022-03] Over this extended period, only 22 forward packets were transmitted.
+[E022-04] The ACK flag count is zero, indicating no acknowledgments were received from the destination system.
+[E022-05] This strongly suggests that a TCP three-way handshake was not successfully completed.
+[E022-06] The flow maintained an extremely low rate of 3.83 packets per second and 343.09 bytes per second.
+[E022-07] The combination of a long duration, low packet count, and zero acknowledgments is highly anomalous.
+[E022-08] This pattern could indicate an incomplete connection attempt or a stalled scanning activity targeting the SSH service.
+[E022-09] It confirms that an established and active SSH session did not occur.
+
+EXPLANATION E023
+Evidence:
+Destination Port: 55558
+Flow Duration: 111
+Forward Packets: 1
+Flow Bytes/s: 162162.16
+Flow Packets/s: 36036.04
+ACK Flag Count: 1
+Sentences to label:
+[E023-01] A network flow was observed targeting destination port 55558.
+[E023-02] This destination port is a high-numbered and non-standard port.
+[E023-03] The total duration of this network flow was very short, recorded as 111 units.
+[E023-04] Only a single packet was detected traveling in the forward direction.
+[E023-05] This sole forward packet had its ACK flag set.
+[E023-06] The flow generated a high byte rate, exceeding 162,000 bytes per second.
+[E023-07] An extremely high packet rate of over 36,000 packets per second was also observed.
+[E023-08] The presence of a single ACK packet directed to a high, non-standard port is an unusual network event.
+[E023-09] This pattern deviates from typical handshake procedures for establishing legitimate connections.
+[E023-10] Such an isolated, high-speed interaction often warrants further security review.
+
+EXPLANATION E024
+Evidence:
+Destination Port: 80
+Flow Duration: 98334939
+Forward Packets: 6
+Flow Bytes/s: 122.14
+Flow Packets/s: 0.13
+ACK Flag Count: 1
+Sentences to label:
+[E024-01] This network flow data indicates several unusual characteristics from a security perspective.
+[E024-02] The communication is directed towards destination port 80, typically associated with unencrypted web services.
+[E024-03] However, the flow persisted for an extremely long duration, exceeding 27 hours.
+[E024-04] Despite this extended timeframe, only six packets were observed in the forward direction.
+[E024-05] The average data transfer rate was very low, at 122.14 bytes per second, and the average packet rate was also remarkably low, at 0.13 packets per second.
+[E024-06] Additionally, only one ACK flag was counted throughout the entire duration of the flow, which is highly atypical for a standard TCP connection of this length.
+[E024-07] These combined factors suggest minimal communication activity over a significantly prolonged period.
+[E024-08] Such an unusual pattern deviates from typical network traffic and warrants further investigation for potential security implications.
+
+EXPLANATION E025
+Evidence:
+Destination Port: 53
+Flow Duration: 431
+Forward Packets: 1
+Flow Bytes/s: 375870.07
+Flow Packets/s: 4640.37
+ACK Flag Count: 0
+Sentences to label:
+[E025-01] This network flow data indicates several key observations from a security perspective:
+
+1.
+[E025-02] The traffic is destined for port 53, which is commonly associated with DNS (Domain Name System) services.
+[E025-03] The flow had a relatively short duration of 431 units of time.
+[E025-04] Only a single packet was observed traveling in the forward direction from the source to the destination.
+[E025-05] There were no ACK (acknowledgment) flags present in the entire flow.
+[E025-06] The absence of ACK flags strongly suggests that this flow is utilizing UDP, which is the primary transport protocol for most DNS queries.
+[E025-07] Despite reporting only one forward packet, the flow exhibited a very high rate of bytes per second, at 375870.07.
+[E025-08] Similarly, the flow demonstrated a very high rate of packets per second, recorded at 4640.37.
+[E025-09] The combination of a single forward packet, no ACKs, and high flow rates indicates a potentially bursty or highly efficient data transfer.
+[E025-10] This could signify a single DNS query followed by a significant response, or a highly compressed data exchange within the flow, which would contribute to the high overall byte and packet rates.

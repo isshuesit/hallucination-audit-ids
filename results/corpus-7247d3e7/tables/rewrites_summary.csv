@@ -1,0 +1,3 @@
+# source: earlier run, API-default sampling, prompt v1, 63 attack-flow and 337 benign-flow explanations; not generated under freeze-1
+n_rewrites,with_numbers_absent_from_evidence,with_new_numbers_absent_from_evidence_and_original
+132,32,28

@@ -1,0 +1,323 @@
+{
+  "labellers": [
+    "gemini",
+    "gpt"
+  ],
+  "seed": 42,
+  "spot_check_share": 0.2,
+  "decisions": [
+    "D30",
+    "D33"
+  ],
+  "n_items": 250,
+  "n_valid_for_both": 240,
+  "n_invalid_or_missing_for_either": 10,
+  "n_disagreements": 54,
+  "n_agreements": 186,
+  "n_spot_check": 37,
+  "items": {
+    "E014-05": [
+      "spot-check"
+    ],
+    "E002-07": [
+      "disagreement"
+    ],
+    "E017-06": [
+      "disagreement"
+    ],
+    "E007-09": [
+      "disagreement"
+    ],
+    "E002-10": [
+      "disagreement"
+    ],
+    "E025-06": [
+      "spot-check"
+    ],
+    "E023-10": [
+      "spot-check"
+    ],
+    "E014-08": [
+      "disagreement"
+    ],
+    "E006-03": [
+      "spot-check"
+    ],
+    "E019-11": [
+      "invalid-gpt"
+    ],
+    "E024-04": [
+      "spot-check"
+    ],
+    "E014-09": [
+      "invalid-gpt"
+    ],
+    "E015-05": [
+      "disagreement"
+    ],
+    "E006-10": [
+      "invalid-gpt"
+    ],
+    "E015-11": [
+      "disagreement"
+    ],
+    "E003-03": [
+      "disagreement"
+    ],
+    "E012-02": [
+      "invalid-gpt"
+    ],
+    "E007-03": [
+      "disagreement"
+    ],
+    "E005-09": [
+      "disagreement"
+    ],
+    "E025-10": [
+      "disagreement"
+    ],
+    "E012-04": [
+      "disagreement"
+    ],
+    "E017-04": [
+      "spot-check"
+    ],
+    "E006-04": [
+      "spot-check"
+    ],
+    "E011-09": [
+      "disagreement"
+    ],
+    "E013-08": [
+      "disagreement"
+    ],
+    "E016-03": [
+      "spot-check"
+    ],
+    "E006-06": [
+      "spot-check"
+    ],
+    "E008-10": [
+      "disagreement"
+    ],
+    "E002-08": [
+      "disagreement"
+    ],
+    "E012-10": [
+      "disagreement"
+    ],
+    "E016-09": [
+      "invalid-gpt"
+    ],
+    "E014-04": [
+      "spot-check"
+    ],
+    "E005-11": [
+      "invalid-gpt"
+    ],
+    "E025-05": [
+      "spot-check"
+    ],
+    "E013-11": [
+      "disagreement"
+    ],
+    "E018-05": [
+      "disagreement"
+    ],
+    "E021-08": [
+      "spot-check"
+    ],
+    "E008-04": [
+      "spot-check"
+    ],
+    "E010-08": [
+      "disagreement"
+    ],
+    "E025-09": [
+      "disagreement"
+    ],
+    "E004-02": [
+      "spot-check"
+    ],
+    "E023-05": [
+      "spot-check"
+    ],
+    "E021-10": [
+      "disagreement"
+    ],
+    "E005-06": [
+      "spot-check"
+    ],
+    "E022-07": [
+      "spot-check"
+    ],
+    "E007-05": [
+      "spot-check"
+    ],
+    "E008-03": [
+      "spot-check"
+    ],
+    "E007-08": [
+      "disagreement"
+    ],
+    "E020-08": [
+      "invalid-gpt"
+    ],
+    "E009-10": [
+      "invalid-gpt"
+    ],
+    "E015-06": [
+      "spot-check"
+    ],
+    "E020-02": [
+      "disagreement"
+    ],
+    "E012-08": [
+      "disagreement"
+    ],
+    "E024-08": [
+      "disagreement"
+    ],
+    "E019-02": [
+      "disagreement"
+    ],
+    "E005-10": [
+      "disagreement"
+    ],
+    "E011-05": [
+      "spot-check"
+    ],
+    "E011-02": [
+      "spot-check"
+    ],
+    "E016-04": [
+      "spot-check"
+    ],
+    "E014-07": [
+      "spot-check"
+    ],
+    "E012-09": [
+      "disagreement"
+    ],
+    "E001-11": [
+      "disagreement"
+    ],
+    "E001-02": [
+      "disagreement"
+    ],
+    "E022-06": [
+      "spot-check"
+    ],
+    "E019-07": [
+      "invalid-gpt"
+    ],
+    "E019-10": [
+      "spot-check"
+    ],
+    "E015-04": [
+      "spot-check"
+    ],
+    "E014-10": [
+      "disagreement"
+    ],
+    "E011-07": [
+      "disagreement"
+    ],
+    "E004-07": [
+      "disagreement"
+    ],
+    "E008-01": [
+      "spot-check"
+    ],
+    "E012-06": [
+      "disagreement"
+    ],
+    "E021-05": [
+      "spot-check"
+    ],
+    "E024-02": [
+      "disagreement"
+    ],
+    "E004-01": [
+      "spot-check"
+    ],
+    "E010-06": [
+      "spot-check"
+    ],
+    "E022-09": [
+      "disagreement"
+    ],
+    "E009-11": [
+      "disagreement"
+    ],
+    "E013-09": [
+      "spot-check"
+    ],
+    "E015-02": [
+      "disagreement"
+    ],
+    "E020-07": [
+      "disagreement"
+    ],
+    "E021-03": [
+      "disagreement"
+    ],
+    "E022-04": [
+      "disagreement"
+    ],
+    "E018-07": [
+      "disagreement"
+    ],
+    "E004-05": [
+      "disagreement"
+    ],
+    "E011-03": [
+      "spot-check"
+    ],
+    "E024-05": [
+      "spot-check"
+    ],
+    "E001-01": [
+      "spot-check"
+    ],
+    "E008-09": [
+      "disagreement"
+    ],
+    "E001-08": [
+      "disagreement"
+    ],
+    "E009-07": [
+      "disagreement"
+    ],
+    "E017-10": [
+      "spot-check"
+    ],
+    "E022-05": [
+      "disagreement"
+    ],
+    "E003-05": [
+      "disagreement"
+    ],
+    "E007-10": [
+      "disagreement"
+    ],
+    "E019-05": [
+      "disagreement"
+    ],
+    "E008-07": [
+      "disagreement"
+    ],
+    "E013-10": [
+      "invalid-gpt"
+    ],
+    "E009-04": [
+      "spot-check"
+    ],
+    "E003-02": [
+      "disagreement"
+    ],
+    "E006-02": [
+      "disagreement"
+    ]
+  }
+}

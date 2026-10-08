@@ -1,0 +1,136 @@
+{
+  "labeller": "gemini",
+  "counts": {
+    "collapsed_lines_split": 0,
+    "records_recovered_from_split_lines": 0,
+    "multi_subtype_fields_repaired": 14
+  },
+  "repairs": [
+    {
+      "repair": "multi_subtype_field",
+      "item": "E002-08",
+      "field": "baseline, protocol",
+      "primary": "protocol",
+      "moved_to_other_subtypes": [
+        "baseline"
+      ]
+    },
+    {
+      "repair": "multi_subtype_field",
+      "item": "E004-01",
+      "field": "port, encryption",
+      "primary": "port",
+      "moved_to_other_subtypes": [
+        "encryption"
+      ]
+    },
+    {
+      "repair": "multi_subtype_field",
+      "item": "E004-07",
+      "field": "baseline, protocol",
+      "primary": "protocol",
+      "moved_to_other_subtypes": [
+        "baseline"
+      ]
+    },
+    {
+      "repair": "multi_subtype_field",
+      "item": "E005-09",
+      "field": "baseline, protocol",
+      "primary": "protocol",
+      "moved_to_other_subtypes": [
+        "baseline"
+      ]
+    },
+    {
+      "repair": "multi_subtype_field",
+      "item": "E007-08",
+      "field": "baseline, protocol",
+      "primary": "protocol",
+      "moved_to_other_subtypes": [
+        "baseline"
+      ]
+    },
+    {
+      "repair": "multi_subtype_field",
+      "item": "E007-10",
+      "field": "baseline, encryption",
+      "primary": "encryption",
+      "moved_to_other_subtypes": [
+        "baseline"
+      ]
+    },
+    {
+      "repair": "multi_subtype_field",
+      "item": "E008-07",
+      "field": "baseline, protocol",
+      "primary": "protocol",
+      "moved_to_other_subtypes": [
+        "baseline"
+      ]
+    },
+    {
+      "repair": "multi_subtype_field",
+      "item": "E011-09",
+      "field": "baseline, protocol",
+      "primary": "protocol",
+      "moved_to_other_subtypes": [
+        "baseline"
+      ]
+    },
+    {
+      "repair": "multi_subtype_field",
+      "item": "E012-08",
+      "field": "baseline, protocol",
+      "primary": "protocol",
+      "moved_to_other_subtypes": [
+        "baseline"
+      ]
+    },
+    {
+      "repair": "multi_subtype_field",
+      "item": "E012-10",
+      "field": "baseline, protocol",
+      "primary": "protocol",
+      "moved_to_other_subtypes": [
+        "baseline"
+      ]
+    },
+    {
+      "repair": "multi_subtype_field",
+      "item": "E014-08",
+      "field": "baseline, protocol",
+      "primary": "protocol",
+      "moved_to_other_subtypes": [
+        "baseline"
+      ]
+    },
+    {
+      "repair": "multi_subtype_field",
+      "item": "E018-05",
+      "field": "baseline, protocol",
+      "primary": "protocol",
+      "moved_to_other_subtypes": [
+        "baseline"
+      ]
+    },
+    {
+      "repair": "multi_subtype_field",
+      "item": "E021-03",
+      "field": "baseline, protocol",
+      "primary": "protocol",
+      "moved_to_other_subtypes": [
+        "baseline"
+      ]
+    },
+    {
+      "repair": "multi_subtype_field",
+      "item": "E024-06",
+      "field": "baseline, protocol",
+      "primary": "protocol",
+      "moved_to_other_subtypes": [
+        "baseline"
+      ]
+    }
+  ]
+}

@@ -2,3 +2,8 @@
 # Prompt files are part of the experimental protocol and are hashed: never let git touch their bytes.
 * text=auto eol=lf
 hallucination_pipeline/prompts/** -text
+# Research data and results are hashed and compared byte for byte (corpus_id = hash of old_run/ files;
+# tools/reproduce_corpus_results.py): store them exactly as they are, never convert line endings.
+old_run/** -text
+annotation/** -text
+results/** -text

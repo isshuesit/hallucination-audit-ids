@@ -1,0 +1,71 @@
+{
+  "labels": "labels: two AI annotators (gemini: Gemini 1.5; gpt: GPT-5.6 Luna 5.6), author-adjudicated; 54 disagreements; 10 items invalid or missing for at least one labeller were adjudicated by the author; 20% blind spot-check (37 items); overrule rate 14% (5/37)",
+  "source": "source: earlier run, API-default sampling, prompt v1, 63 attack-flow and 337 benign-flow explanations; not generated under freeze-1",
+  "labellers": {
+    "gemini": {
+      "model_name": "Gemini",
+      "model_version": "1.5",
+      "date": "2026-10-08",
+      "interface": "Chat",
+      "tools": "None",
+      "customisation": "None"
+    },
+    "gpt": {
+      "model_name": "GPT-5.6 Luna",
+      "model_version": "5.6",
+      "date": "2026-10-08",
+      "interface": "ChatGPT",
+      "tools": "None",
+      "customisation": "None"
+    }
+  },
+  "import": {
+    "gemini": {
+      "decision": "D33",
+      "items": 250,
+      "valid": 250,
+      "invalid_or_missing": 0,
+      "missing": 0,
+      "invalid_by_reason": {},
+      "unknown_item_codes_ignored": 0,
+      "unreadable_lines_ignored": 0,
+      "other_lines_ignored": 0
+    },
+    "gpt": {
+      "decision": "D33",
+      "items": 250,
+      "valid": 240,
+      "invalid_or_missing": 10,
+      "missing": 0,
+      "invalid_by_reason": {
+        "catch_all_without_note": 7,
+        "invalid_label": 1,
+        "unknown_subtype": 5
+      },
+      "unknown_item_codes_ignored": 0,
+      "unreadable_lines_ignored": 0,
+      "other_lines_ignored": 0
+    }
+  },
+  "author": "IS",
+  "items": 250,
+  "adjudicated": 101,
+  "disagreements": 54,
+  "invalid_or_missing_adjudicated": 10,
+  "spot_check": 37,
+  "spot_check_overruled": 5,
+  "overrule_rate": 0.13513513513513514,
+  "overruled_items": [
+    "E011-05",
+    "E014-05",
+    "E014-07",
+    "E023-05",
+    "E023-10"
+  ],
+  "disagreements_resolved": {
+    "with_gemini": 12,
+    "with_gpt": 18,
+    "with_both (they differed only in hedged)": 5,
+    "with_neither": 19
+  }
+}

@@ -1,0 +1,50 @@
+# source: earlier run, API-default sampling, prompt v1, 63 attack-flow and 337 benign-flow explanations; not generated under freeze-1
+level,category,n_attack_expl,n_attack_units,rate_attack,n_benign_expl,n_benign_units,rate_benign,difference,ci95_low,ci95_high
+sentence,flag (strict),63,634,0.2429,335,3357,0.1761,0.0669,0.0319,0.0999
+sentence,flag (lenient),63,634,0.0820,335,3357,0.0596,0.0224,0.0054,0.0391
+sentence,any Tier 1,63,634,0.0820,335,3357,0.0596,0.0224,0.0054,0.0391
+sentence,any Tier 2,63,634,0.1609,335,3357,0.1171,0.0438,0.0160,0.0698
+sentence,subtype cve (tier 1; counts under both),63,634,0.0000,335,3357,0.0000,0.0000,0.0000,0.0000
+sentence,subtype tool (tier 1; counts under both),63,634,0.0000,335,3357,0.0000,0.0000,0.0000,0.0000
+sentence,subtype version (tier 1; counts under both),63,634,0.0000,335,3357,0.0000,0.0000,0.0000,0.0000
+sentence,subtype ip_address (tier 1; counts under both),63,634,0.0000,335,3357,0.0000,0.0000,0.0000,0.0000
+sentence,subtype port_not_in_evidence (tier 1; counts under both),63,634,0.0000,335,3357,0.0000,0.0000,0.0000,0.0000
+sentence,subtype protocol_without_port (tier 1; counts under both),63,634,0.0000,335,3357,0.0000,0.0000,0.0000,0.0000
+sentence,subtype unit_wrong (tier 1; counts under both),63,634,0.0521,335,3357,0.0378,0.0142,-0.0002,0.0270
+sentence,subtype patch_reference (tier 1; counts under both),63,634,0.0000,335,3357,0.0000,0.0000,0.0000,0.0000
+sentence,subtype attack_technique (tier 1; counts under both),63,634,0.0268,335,3357,0.0211,0.0057,-0.0063,0.0185
+sentence,subtype impact_claim (tier 1; counts under both),63,634,0.0032,335,3357,0.0009,0.0023,-0.0012,0.0074
+sentence,subtype inferred_outcome (tier 1; counts under both),63,634,0.0000,335,3357,0.0000,0.0000,0.0000,0.0000
+sentence,subtype threat_actor (tier 1; counts under both),63,634,0.0000,335,3357,0.0000,0.0000,0.0000,0.0000
+sentence,subtype attacker_intent (tier 1; counts under both),63,634,0.0000,335,3357,0.0000,0.0000,0.0000,0.0000
+sentence,subtype compromise_claim (tier 1; counts under both),63,634,0.0000,335,3357,0.0000,0.0000,0.0000,0.0000
+sentence,subtype hard_certainty (tier 1; counts under both),63,634,0.0000,335,3357,0.0000,0.0000,0.0000,0.0000
+sentence,subtype port (tier 2; counts under strict only),63,634,0.0694,335,3357,0.0748,-0.0054,-0.0183,0.0070
+sentence,subtype protocol (tier 2; counts under strict only),63,634,0.0710,335,3357,0.0262,0.0448,0.0247,0.0644
+sentence,subtype encryption (tier 2; counts under strict only),63,634,0.0347,335,3357,0.0188,0.0159,0.0031,0.0294
+sentence,subtype baseline (tier 2; counts under strict only),63,634,0.0457,335,3357,0.0217,0.0240,0.0073,0.0405
+sentence,subtype unit (tier 2; counts under strict only),63,634,0.0000,335,3357,0.0003,-0.0003,-0.0009,0.0000
+explanation,flag (strict),63,63,0.9524,335,335,0.9194,0.0330,-0.0316,0.0907
+explanation,flag (lenient),63,63,0.6984,335,335,0.5045,0.1939,0.0619,0.3160
+explanation,any Tier 1,63,63,0.6984,335,335,0.5045,0.1939,0.0619,0.3160
+explanation,any Tier 2,63,63,0.8571,335,335,0.7970,0.0601,-0.0401,0.1524
+explanation,subtype cve (tier 1; counts under both),63,63,0.0000,335,335,0.0000,0.0000,0.0000,0.0000
+explanation,subtype tool (tier 1; counts under both),63,63,0.0000,335,335,0.0000,0.0000,0.0000,0.0000
+explanation,subtype version (tier 1; counts under both),63,63,0.0000,335,335,0.0000,0.0000,0.0000,0.0000
+explanation,subtype ip_address (tier 1; counts under both),63,63,0.0000,335,335,0.0000,0.0000,0.0000,0.0000
+explanation,subtype port_not_in_evidence (tier 1; counts under both),63,63,0.0000,335,335,0.0000,0.0000,0.0000,0.0000
+explanation,subtype protocol_without_port (tier 1; counts under both),63,63,0.0000,335,335,0.0000,0.0000,0.0000,0.0000
+explanation,subtype unit_wrong (tier 1; counts under both),63,63,0.5238,335,335,0.3582,0.1656,0.0225,0.2965
+explanation,subtype patch_reference (tier 1; counts under both),63,63,0.0000,335,335,0.0000,0.0000,0.0000,0.0000
+explanation,subtype attack_technique (tier 1; counts under both),63,63,0.2540,335,335,0.2030,0.0510,-0.0611,0.1692
+explanation,subtype impact_claim (tier 1; counts under both),63,63,0.0317,335,335,0.0090,0.0228,-0.0119,0.0734
+explanation,subtype inferred_outcome (tier 1; counts under both),63,63,0.0000,335,335,0.0000,0.0000,0.0000,0.0000
+explanation,subtype threat_actor (tier 1; counts under both),63,63,0.0000,335,335,0.0000,0.0000,0.0000,0.0000
+explanation,subtype attacker_intent (tier 1; counts under both),63,63,0.0000,335,335,0.0000,0.0000,0.0000,0.0000
+explanation,subtype compromise_claim (tier 1; counts under both),63,63,0.0000,335,335,0.0000,0.0000,0.0000,0.0000
+explanation,subtype hard_certainty (tier 1; counts under both),63,63,0.0000,335,335,0.0000,0.0000,0.0000,0.0000
+explanation,subtype port (tier 2; counts under strict only),63,63,0.6984,335,335,0.7194,-0.0210,-0.1500,0.1000
+explanation,subtype protocol (tier 2; counts under strict only),63,63,0.5238,335,335,0.2269,0.2969,0.1709,0.4260
+explanation,subtype encryption (tier 2; counts under strict only),63,63,0.3492,335,335,0.1731,0.1761,0.0540,0.3081
+explanation,subtype baseline (tier 2; counts under strict only),63,63,0.3810,335,335,0.2000,0.1810,0.0469,0.3119
+explanation,subtype unit (tier 2; counts under strict only),63,63,0.0000,335,335,0.0030,-0.0030,-0.0090,0.0000

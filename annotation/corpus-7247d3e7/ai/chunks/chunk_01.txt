@@ -1,0 +1,100 @@
+EXPLANATION E001
+Evidence:
+Destination Port: 8192
+Flow Duration: 59
+Forward Packets: 1
+Flow Bytes/s: 135593.22
+Flow Packets/s: 33898.31
+ACK Flag Count: 0
+Sentences to label:
+[E001-01] This network flow exhibits several characteristics that warrant security attention.
+[E001-02] The communication targets destination port 8192, which is not commonly associated with standard internet services.
+[E001-03] Only one packet was sent in the forward direction during the entire flow.
+[E001-04] Despite this, the flow registered a very high overall rate of 33898.31 packets per second.
+[E001-05] Concurrently, a significant data volume was observed, with a rate of 135593.22 bytes per second.
+[E001-06] A key observation is the complete absence of any TCP ACK flags throughout the flow.
+[E001-07] This lack of ACK flags indicates that a standard TCP three-way handshake was not successfully completed or acknowledged.
+[E001-08] The combination of a single forward packet and no ACKs could suggest an unsuccessful connection attempt.
+[E001-09] It might also represent a network probing or scanning activity.
+[E001-10] The extremely high packet and byte rates, despite a single forward packet, are anomalous.
+[E001-11] These flow characteristics collectively point to potentially suspicious or unusual network behavior that requires further investigation.
+
+EXPLANATION E002
+Evidence:
+Destination Port: 53
+Flow Duration: 192
+Forward Packets: 2
+Flow Bytes/s: 895833.33
+Flow Packets/s: 20833.33
+ACK Flag Count: 0
+Sentences to label:
+[E002-01] This network flow data indicates several unusual characteristics from a security perspective.
+[E002-02] The flow was directed towards destination port 53, which is commonly used for DNS services.
+[E002-03] The entire flow had a duration of 192 units.
+[E002-04] Only two packets were observed traveling in the forward direction during this period.
+[E002-05] Despite the extremely low number of forward packets, the flow recorded an exceptionally high rate of bytes per second at 895833.33.
+[E002-06] Similarly, an exceptionally high rate of packets per second, totaling 20833.33, was also observed.
+[E002-07] Crucially, the ACK flag count for this flow was zero, indicating no acknowledgments were sent from the destination.
+[E002-08] This combination of minimal forward packets, zero acknowledgments, and high calculated flow rates is atypical for a standard, successful DNS transaction or a fully established connection.
+[E002-09] These characteristics may suggest an incomplete connection attempt, a scanning probe, or a form of one-way communication without expected responses.
+[E002-10] This anomaly warrants further investigation to determine its true nature and potential security implications.
+
+EXPLANATION E003
+Evidence:
+Destination Port: 36310
+Flow Duration: 4
+Forward Packets: 3
+Flow Bytes/s: 7750000.00
+Flow Packets/s: 750000.00
+ACK Flag Count: 1
+Sentences to label:
+[E003-01] This network flow targets a high-numbered destination port, specifically 36310.
+[E003-02] This port is typically not assigned to well-known or common services.
+[E003-03] The entire flow occurred over an exceptionally brief duration of 4 time units.
+[E003-04] Only three packets were transmitted in the forward direction during this period.
+[E003-05] One acknowledgment (ACK) flag was observed within the flow, indicating the connection progressed beyond a simple initial request.
+[E003-06] The reported flow bytes per second (7,750,000) and flow packets per second (750,000) reflect the rapid transfer of these few packets.
+[E003-07] These metrics are derived from a very small data sample and a short timeframe, not sustained high-volume traffic.
+[E003-08] The combination of a non-standard destination port, short duration, and minimal packet count suggests a potential connection attempt or a brief probe.
+[E003-09] This activity deviates from typical long-running service connections and warrants further examination.
+
+EXPLANATION E004
+Evidence:
+Destination Port: 80
+Flow Duration: 84212
+Forward Packets: 3
+Flow Bytes/s: 138139.46
+Flow Packets/s: 95.00
+ACK Flag Count: 0
+Sentences to label:
+[E004-01] This network flow targets destination port 80, which commonly hosts unencrypted HTTP web services.
+[E004-02] The communication persisted for a duration of 84212 time units.
+[E004-03] Only three packets were observed being sent in the forward direction of this flow.
+[E004-04] Despite the minimal forward packet count, a high data rate of 138139.46 bytes per second was associated with this flow.
+[E004-05] The flow also exhibited a high overall packet rate of 95 packets per second, implying a significant number of total packets exchanged.
+[E004-06] Crucially, no ACK flags were detected in any of the TCP packets within this flow.
+[E004-07] The complete absence of ACK flags is highly unusual for a standard TCP connection to an HTTP service.
+[E004-08] This indicates that a typical TCP three-way handshake was not completed or acknowledged data transfer did not occur.
+[E004-09] Such anomalous network behavior could be indicative of a port scan or an attempt to probe the service without full session establishment.
+[E004-10] The combined evidence points to a potentially malicious or malformed interaction rather than legitimate web traffic.
+
+EXPLANATION E005
+Evidence:
+Destination Port: 22
+Flow Duration: 13244433
+Forward Packets: 21
+Flow Bytes/s: 358.87
+Flow Packets/s: 4.00
+ACK Flag Count: 0
+Sentences to label:
+[E005-01] This network flow data indicates several unusual characteristics from a security perspective.
+[E005-02] The network flow targets destination port 22, which is commonly associated with the Secure Shell (SSH) service.
+[E005-03] The flow exhibits an exceptionally long duration, lasting over three hours.
+[E005-04] Despite this long duration, only 21 forward packets were transmitted.
+[E005-05] This indicates very minimal packet activity over the extended period.
+[E005-06] The flow's data transfer rate is very low, averaging approximately 358 bytes per second.
+[E005-07] The flow also shows a very low packet rate of 4 packets per second.
+[E005-08] A critical observation is that the ACK flag count is zero.
+[E005-09] A zero ACK flag count is highly atypical for a successfully established and active TCP communication like SSH.
+[E005-10] This suggests that no data segments were acknowledged by the recipient throughout the flow's entire duration.
+[E005-11] The combination of a prolonged connection attempt with minimal packet exchange and no acknowledgments indicates an unestablished or unsuccessful communication over an extended period.

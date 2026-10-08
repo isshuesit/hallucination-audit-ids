@@ -1,0 +1,5136 @@
+[
+  {
+    "alert_id": "A001",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A002",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A003",
+    "alert_type": "DDoS",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "None found.",
+    "matched_rules": [],
+    "detection_method": "llm",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A004",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A005",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A006",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A007",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A008",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A009",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A010",
+    "alert_type": "DoS",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "None found.",
+    "matched_rules": [],
+    "detection_method": "llm",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A011",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A012",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": true,
+    "confidence": "high",
+    "hallucination_type": "reasoning",
+    "reason": "Named attack technique \u2014 not derivable from flow numbers",
+    "matched_rules": [
+      {
+        "rule": "Named attack technique \u2014 not derivable from flow numbers",
+        "type": "reasoning",
+        "matched": [
+          "network scanning"
+        ]
+      }
+    ],
+    "detection_method": "rule",
+    "gold_label": "hallucinated"
+  },
+  {
+    "alert_id": "A013",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A014",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": true,
+    "confidence": "high",
+    "hallucination_type": "reasoning",
+    "reason": "Named attack technique \u2014 not derivable from flow numbers",
+    "matched_rules": [
+      {
+        "rule": "Named attack technique \u2014 not derivable from flow numbers",
+        "type": "reasoning",
+        "matched": [
+          "DNS tunneling",
+          "data exfiltration",
+          "command and control"
+        ]
+      }
+    ],
+    "detection_method": "rule",
+    "gold_label": "hallucinated"
+  },
+  {
+    "alert_id": "A015",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": true,
+    "confidence": "high",
+    "hallucination_type": "reasoning",
+    "reason": "Named attack technique \u2014 not derivable from flow numbers",
+    "matched_rules": [
+      {
+        "rule": "Named attack technique \u2014 not derivable from flow numbers",
+        "type": "reasoning",
+        "matched": [
+          "data exfiltration",
+          "DNS tunneling"
+        ]
+      }
+    ],
+    "detection_method": "rule",
+    "gold_label": "hallucinated"
+  },
+  {
+    "alert_id": "A016",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A017",
+    "alert_type": "Port Scanning",
+    "contains_hallucination": true,
+    "confidence": "high",
+    "hallucination_type": "reasoning",
+    "reason": "Named attack technique \u2014 not derivable from flow numbers",
+    "matched_rules": [
+      {
+        "rule": "Named attack technique \u2014 not derivable from flow numbers",
+        "type": "reasoning",
+        "matched": [
+          "port scan"
+        ]
+      }
+    ],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A018",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A019",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A020",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A021",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A022",
+    "alert_type": "DoS",
+    "contains_hallucination": true,
+    "confidence": "high",
+    "hallucination_type": "reasoning",
+    "reason": "Named attack technique \u2014 not derivable from flow numbers",
+    "matched_rules": [
+      {
+        "rule": "Named attack technique \u2014 not derivable from flow numbers",
+        "type": "reasoning",
+        "matched": [
+          "reconnaissance"
+        ]
+      }
+    ],
+    "detection_method": "rule",
+    "gold_label": "hallucinated"
+  },
+  {
+    "alert_id": "A023",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A024",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A025",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": true,
+    "confidence": "high",
+    "hallucination_type": "reasoning",
+    "reason": "Named attack technique \u2014 not derivable from flow numbers",
+    "matched_rules": [
+      {
+        "rule": "Named attack technique \u2014 not derivable from flow numbers",
+        "type": "reasoning",
+        "matched": [
+          "reconnaissance",
+          "port scan"
+        ]
+      }
+    ],
+    "detection_method": "rule",
+    "gold_label": "hallucinated"
+  },
+  {
+    "alert_id": "A026",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A027",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A028",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": true,
+    "confidence": "high",
+    "hallucination_type": "reasoning",
+    "reason": "Named attack technique \u2014 not derivable from flow numbers",
+    "matched_rules": [
+      {
+        "rule": "Named attack technique \u2014 not derivable from flow numbers",
+        "type": "reasoning",
+        "matched": [
+          "reconnaissance"
+        ]
+      }
+    ],
+    "detection_method": "rule",
+    "gold_label": "hallucinated"
+  },
+  {
+    "alert_id": "A029",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A030",
+    "alert_type": "Port Scanning",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "None found. The AI's explanation correctly references and interprets the provided numeric evidence without introducing forbidden elements. Statements about port numbering, TCP behavior, and flow rate anomalies are either direct observations, allowed general context, or hedged inferences derivable from the evidence, falling within the 'acceptable' category.",
+    "matched_rules": [],
+    "detection_method": "llm",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A031",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": true,
+    "confidence": "high",
+    "hallucination_type": "reasoning",
+    "reason": "Named attack technique \u2014 not derivable from flow numbers",
+    "matched_rules": [
+      {
+        "rule": "Named attack technique \u2014 not derivable from flow numbers",
+        "type": "reasoning",
+        "matched": [
+          "port scan"
+        ]
+      }
+    ],
+    "detection_method": "rule",
+    "gold_label": "hallucinated"
+  },
+  {
+    "alert_id": "A032",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A033",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A034",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A035",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A036",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A037",
+    "alert_type": "DoS",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "None found.",
+    "matched_rules": [],
+    "detection_method": "llm",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A038",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A039",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": true,
+    "confidence": "high",
+    "hallucination_type": "reasoning",
+    "reason": "Named attack technique \u2014 not derivable from flow numbers",
+    "matched_rules": [
+      {
+        "rule": "Named attack technique \u2014 not derivable from flow numbers",
+        "type": "reasoning",
+        "matched": [
+          "reconnaissance",
+          "port scan"
+        ]
+      }
+    ],
+    "detection_method": "rule",
+    "gold_label": "hallucinated"
+  },
+  {
+    "alert_id": "A040",
+    "alert_type": "Port Scanning",
+    "contains_hallucination": true,
+    "confidence": "high",
+    "hallucination_type": "reasoning",
+    "reason": "Named attack technique \u2014 not derivable from flow numbers",
+    "matched_rules": [
+      {
+        "rule": "Named attack technique \u2014 not derivable from flow numbers",
+        "type": "reasoning",
+        "matched": [
+          "reconnaissance"
+        ]
+      }
+    ],
+    "detection_method": "rule",
+    "gold_label": "hallucinated"
+  },
+  {
+    "alert_id": "A041",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A042",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A043",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A044",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A045",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A046",
+    "alert_type": "Port Scanning",
+    "contains_hallucination": true,
+    "confidence": "high",
+    "hallucination_type": "reasoning",
+    "reason": "Named attack technique \u2014 not derivable from flow numbers",
+    "matched_rules": [
+      {
+        "rule": "Named attack technique \u2014 not derivable from flow numbers",
+        "type": "reasoning",
+        "matched": [
+          "reconnaissance"
+        ]
+      }
+    ],
+    "detection_method": "rule",
+    "gold_label": "hallucinated"
+  },
+  {
+    "alert_id": "A047",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A048",
+    "alert_type": "DoS",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "None found.",
+    "matched_rules": [],
+    "detection_method": "llm",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A049",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A050",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": true,
+    "confidence": "high",
+    "hallucination_type": "reasoning",
+    "reason": "Named attack technique \u2014 not derivable from flow numbers",
+    "matched_rules": [
+      {
+        "rule": "Named attack technique \u2014 not derivable from flow numbers",
+        "type": "reasoning",
+        "matched": [
+          "data exfiltration"
+        ]
+      }
+    ],
+    "detection_method": "rule",
+    "gold_label": "hallucinated"
+  },
+  {
+    "alert_id": "A051",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A052",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A053",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A054",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A055",
+    "alert_type": "DDoS",
+    "contains_hallucination": true,
+    "confidence": "high",
+    "hallucination_type": "reasoning",
+    "reason": "Resource exhaustion / DoS impact claim",
+    "matched_rules": [
+      {
+        "rule": "Resource exhaustion / DoS impact claim",
+        "type": "reasoning",
+        "matched": [
+          "denial-of-service"
+        ]
+      }
+    ],
+    "detection_method": "rule",
+    "gold_label": "hallucinated"
+  },
+  {
+    "alert_id": "A056",
+    "alert_type": "DDoS",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "None found. All statements are either directly from the evidence, acceptable external knowledge (port protocols, TCP behavior), or hedged inferences comparing observed values to typical patterns.",
+    "matched_rules": [],
+    "detection_method": "llm",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A057",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": true,
+    "confidence": "high",
+    "hallucination_type": "reasoning",
+    "reason": "Named attack technique \u2014 not derivable from flow numbers",
+    "matched_rules": [
+      {
+        "rule": "Named attack technique \u2014 not derivable from flow numbers",
+        "type": "reasoning",
+        "matched": [
+          "DNS tunneling",
+          "data exfiltration",
+          "command and control"
+        ]
+      }
+    ],
+    "detection_method": "rule",
+    "gold_label": "hallucinated"
+  },
+  {
+    "alert_id": "A058",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A059",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A060",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A061",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A062",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A063",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A064",
+    "alert_type": "DoS",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "None found.",
+    "matched_rules": [],
+    "detection_method": "llm",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A065",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": true,
+    "confidence": "high",
+    "hallucination_type": "reasoning",
+    "reason": "Named attack technique \u2014 not derivable from flow numbers",
+    "matched_rules": [
+      {
+        "rule": "Named attack technique \u2014 not derivable from flow numbers",
+        "type": "reasoning",
+        "matched": [
+          "reconnaissance"
+        ]
+      }
+    ],
+    "detection_method": "rule",
+    "gold_label": "hallucinated"
+  },
+  {
+    "alert_id": "A066",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": true,
+    "confidence": "high",
+    "hallucination_type": "reasoning",
+    "reason": "Named attack technique \u2014 not derivable from flow numbers",
+    "matched_rules": [
+      {
+        "rule": "Named attack technique \u2014 not derivable from flow numbers",
+        "type": "reasoning",
+        "matched": [
+          "data exfiltration"
+        ]
+      }
+    ],
+    "detection_method": "rule",
+    "gold_label": "hallucinated"
+  },
+  {
+    "alert_id": "A067",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A068",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": true,
+    "confidence": "high",
+    "hallucination_type": "reasoning",
+    "reason": "Named attack technique \u2014 not derivable from flow numbers",
+    "matched_rules": [
+      {
+        "rule": "Named attack technique \u2014 not derivable from flow numbers",
+        "type": "reasoning",
+        "matched": [
+          "reconnaissance"
+        ]
+      }
+    ],
+    "detection_method": "rule",
+    "gold_label": "hallucinated"
+  },
+  {
+    "alert_id": "A069",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A070",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A071",
+    "alert_type": "DoS",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "None found.",
+    "matched_rules": [],
+    "detection_method": "llm",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A072",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": true,
+    "confidence": "high",
+    "hallucination_type": "reasoning",
+    "reason": "Named attack technique \u2014 not derivable from flow numbers",
+    "matched_rules": [
+      {
+        "rule": "Named attack technique \u2014 not derivable from flow numbers",
+        "type": "reasoning",
+        "matched": [
+          "reconnaissance"
+        ]
+      }
+    ],
+    "detection_method": "rule",
+    "gold_label": "hallucinated"
+  },
+  {
+    "alert_id": "A073",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A074",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A075",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A076",
+    "alert_type": "Port Scanning",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "None found.",
+    "matched_rules": [],
+    "detection_method": "llm",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A077",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A078",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A079",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A080",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A081",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A082",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": true,
+    "confidence": "high",
+    "hallucination_type": "reasoning",
+    "reason": "Named attack technique \u2014 not derivable from flow numbers",
+    "matched_rules": [
+      {
+        "rule": "Named attack technique \u2014 not derivable from flow numbers",
+        "type": "reasoning",
+        "matched": [
+          "reconnaissance",
+          "port scan"
+        ]
+      }
+    ],
+    "detection_method": "rule",
+    "gold_label": "hallucinated"
+  },
+  {
+    "alert_id": "A083",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A084",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A085",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A086",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": true,
+    "confidence": "high",
+    "hallucination_type": "reasoning",
+    "reason": "Named attack technique \u2014 not derivable from flow numbers",
+    "matched_rules": [
+      {
+        "rule": "Named attack technique \u2014 not derivable from flow numbers",
+        "type": "reasoning",
+        "matched": [
+          "reconnaissance",
+          "port scan"
+        ]
+      }
+    ],
+    "detection_method": "rule",
+    "gold_label": "hallucinated"
+  },
+  {
+    "alert_id": "A087",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A088",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A089",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A090",
+    "alert_type": "DDoS",
+    "contains_hallucination": true,
+    "confidence": "high",
+    "hallucination_type": "reasoning",
+    "reason": "Named attack technique \u2014 not derivable from flow numbers",
+    "matched_rules": [
+      {
+        "rule": "Named attack technique \u2014 not derivable from flow numbers",
+        "type": "reasoning",
+        "matched": [
+          "port scan"
+        ]
+      }
+    ],
+    "detection_method": "rule",
+    "gold_label": "hallucinated"
+  },
+  {
+    "alert_id": "A091",
+    "alert_type": "DDoS",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "None found.",
+    "matched_rules": [],
+    "detection_method": "llm",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A092",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": true,
+    "confidence": "high",
+    "hallucination_type": "reasoning",
+    "reason": "Named attack technique \u2014 not derivable from flow numbers",
+    "matched_rules": [
+      {
+        "rule": "Named attack technique \u2014 not derivable from flow numbers",
+        "type": "reasoning",
+        "matched": [
+          "reconnaissance"
+        ]
+      }
+    ],
+    "detection_method": "rule",
+    "gold_label": "hallucinated"
+  },
+  {
+    "alert_id": "A093",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A094",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A095",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A096",
+    "alert_type": "DoS",
+    "contains_hallucination": true,
+    "confidence": "high",
+    "hallucination_type": "reasoning",
+    "reason": "Named attack technique \u2014 not derivable from flow numbers",
+    "matched_rules": [
+      {
+        "rule": "Named attack technique \u2014 not derivable from flow numbers",
+        "type": "reasoning",
+        "matched": [
+          "reconnaissance",
+          "port scan"
+        ]
+      }
+    ],
+    "detection_method": "rule",
+    "gold_label": "hallucinated"
+  },
+  {
+    "alert_id": "A097",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A098",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": true,
+    "confidence": "high",
+    "hallucination_type": "reasoning",
+    "reason": "Named attack technique \u2014 not derivable from flow numbers",
+    "matched_rules": [
+      {
+        "rule": "Named attack technique \u2014 not derivable from flow numbers",
+        "type": "reasoning",
+        "matched": [
+          "reconnaissance"
+        ]
+      }
+    ],
+    "detection_method": "rule",
+    "gold_label": "hallucinated"
+  },
+  {
+    "alert_id": "A099",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A100",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A101",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A102",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A103",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A104",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": true,
+    "confidence": "high",
+    "hallucination_type": "reasoning",
+    "reason": "Named attack technique \u2014 not derivable from flow numbers",
+    "matched_rules": [
+      {
+        "rule": "Named attack technique \u2014 not derivable from flow numbers",
+        "type": "reasoning",
+        "matched": [
+          "reconnaissance"
+        ]
+      }
+    ],
+    "detection_method": "rule",
+    "gold_label": "hallucinated"
+  },
+  {
+    "alert_id": "A105",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A106",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": true,
+    "confidence": "high",
+    "hallucination_type": "reasoning",
+    "reason": "Named attack technique \u2014 not derivable from flow numbers",
+    "matched_rules": [
+      {
+        "rule": "Named attack technique \u2014 not derivable from flow numbers",
+        "type": "reasoning",
+        "matched": [
+          "network scanning"
+        ]
+      }
+    ],
+    "detection_method": "rule",
+    "gold_label": "hallucinated"
+  },
+  {
+    "alert_id": "A107",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": true,
+    "confidence": "high",
+    "hallucination_type": "reasoning",
+    "reason": "Named attack technique \u2014 not derivable from flow numbers",
+    "matched_rules": [
+      {
+        "rule": "Named attack technique \u2014 not derivable from flow numbers",
+        "type": "reasoning",
+        "matched": [
+          "reconnaissance"
+        ]
+      }
+    ],
+    "detection_method": "rule",
+    "gold_label": "hallucinated"
+  },
+  {
+    "alert_id": "A108",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": true,
+    "confidence": "high",
+    "hallucination_type": "reasoning",
+    "reason": "Named attack technique \u2014 not derivable from flow numbers",
+    "matched_rules": [
+      {
+        "rule": "Named attack technique \u2014 not derivable from flow numbers",
+        "type": "reasoning",
+        "matched": [
+          "reconnaissance"
+        ]
+      }
+    ],
+    "detection_method": "rule",
+    "gold_label": "hallucinated"
+  },
+  {
+    "alert_id": "A109",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A110",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A111",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A112",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A113",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": true,
+    "confidence": "high",
+    "hallucination_type": "reasoning",
+    "reason": "Named attack technique \u2014 not derivable from flow numbers",
+    "matched_rules": [
+      {
+        "rule": "Named attack technique \u2014 not derivable from flow numbers",
+        "type": "reasoning",
+        "matched": [
+          "reconnaissance"
+        ]
+      }
+    ],
+    "detection_method": "rule",
+    "gold_label": "hallucinated"
+  },
+  {
+    "alert_id": "A114",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A115",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A116",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A117",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A118",
+    "alert_type": "DoS",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "None found.",
+    "matched_rules": [],
+    "detection_method": "llm",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A119",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A120",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A121",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": true,
+    "confidence": "high",
+    "hallucination_type": "reasoning",
+    "reason": "Named attack technique \u2014 not derivable from flow numbers",
+    "matched_rules": [
+      {
+        "rule": "Named attack technique \u2014 not derivable from flow numbers",
+        "type": "reasoning",
+        "matched": [
+          "DNS tunneling"
+        ]
+      }
+    ],
+    "detection_method": "rule",
+    "gold_label": "hallucinated"
+  },
+  {
+    "alert_id": "A122",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": true,
+    "confidence": "high",
+    "hallucination_type": "reasoning",
+    "reason": "Named attack technique \u2014 not derivable from flow numbers",
+    "matched_rules": [
+      {
+        "rule": "Named attack technique \u2014 not derivable from flow numbers",
+        "type": "reasoning",
+        "matched": [
+          "reconnaissance"
+        ]
+      }
+    ],
+    "detection_method": "rule",
+    "gold_label": "hallucinated"
+  },
+  {
+    "alert_id": "A123",
+    "alert_type": "DDoS",
+    "contains_hallucination": true,
+    "confidence": "high",
+    "hallucination_type": "reasoning",
+    "reason": "Named attack technique \u2014 not derivable from flow numbers",
+    "matched_rules": [
+      {
+        "rule": "Named attack technique \u2014 not derivable from flow numbers",
+        "type": "reasoning",
+        "matched": [
+          "port scan"
+        ]
+      }
+    ],
+    "detection_method": "rule",
+    "gold_label": "hallucinated"
+  },
+  {
+    "alert_id": "A124",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A125",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A126",
+    "alert_type": "Brute Force",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "None found.",
+    "matched_rules": [],
+    "detection_method": "llm",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A127",
+    "alert_type": "DDoS",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "None found.",
+    "matched_rules": [],
+    "detection_method": "llm",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A128",
+    "alert_type": "DoS",
+    "contains_hallucination": true,
+    "confidence": "high",
+    "hallucination_type": "external_knowledge",
+    "reason": "The explanation introduces the named attack type 'low-and-slow' as a conclusion, which is explicitly listed as a hallucination.",
+    "matched_rules": [],
+    "detection_method": "llm",
+    "gold_label": "hallucinated"
+  },
+  {
+    "alert_id": "A129",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A130",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A131",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A132",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A133",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": true,
+    "confidence": "high",
+    "hallucination_type": "reasoning",
+    "reason": "Named attack technique \u2014 not derivable from flow numbers",
+    "matched_rules": [
+      {
+        "rule": "Named attack technique \u2014 not derivable from flow numbers",
+        "type": "reasoning",
+        "matched": [
+          "reconnaissance"
+        ]
+      }
+    ],
+    "detection_method": "rule",
+    "gold_label": "hallucinated"
+  },
+  {
+    "alert_id": "A134",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A135",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A136",
+    "alert_type": "DDoS",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "None found.",
+    "matched_rules": [],
+    "detection_method": "llm",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A137",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A138",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A139",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": true,
+    "confidence": "high",
+    "hallucination_type": "reasoning",
+    "reason": "Named attack technique \u2014 not derivable from flow numbers",
+    "matched_rules": [
+      {
+        "rule": "Named attack technique \u2014 not derivable from flow numbers",
+        "type": "reasoning",
+        "matched": [
+          "reconnaissance"
+        ]
+      }
+    ],
+    "detection_method": "rule",
+    "gold_label": "hallucinated"
+  },
+  {
+    "alert_id": "A140",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A141",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": true,
+    "confidence": "high",
+    "hallucination_type": "reasoning",
+    "reason": "Named attack technique \u2014 not derivable from flow numbers",
+    "matched_rules": [
+      {
+        "rule": "Named attack technique \u2014 not derivable from flow numbers",
+        "type": "reasoning",
+        "matched": [
+          "port scan"
+        ]
+      }
+    ],
+    "detection_method": "rule",
+    "gold_label": "hallucinated"
+  },
+  {
+    "alert_id": "A142",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A143",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": true,
+    "confidence": "high",
+    "hallucination_type": "reasoning",
+    "reason": "Named attack technique \u2014 not derivable from flow numbers",
+    "matched_rules": [
+      {
+        "rule": "Named attack technique \u2014 not derivable from flow numbers",
+        "type": "reasoning",
+        "matched": [
+          "reconnaissance"
+        ]
+      }
+    ],
+    "detection_method": "rule",
+    "gold_label": "hallucinated"
+  },
+  {
+    "alert_id": "A144",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A145",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A146",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A147",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A148",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": true,
+    "confidence": "high",
+    "hallucination_type": "reasoning",
+    "reason": "Named attack technique \u2014 not derivable from flow numbers",
+    "matched_rules": [
+      {
+        "rule": "Named attack technique \u2014 not derivable from flow numbers",
+        "type": "reasoning",
+        "matched": [
+          "reconnaissance"
+        ]
+      }
+    ],
+    "detection_method": "rule",
+    "gold_label": "hallucinated"
+  },
+  {
+    "alert_id": "A149",
+    "alert_type": "DoS",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "None found.",
+    "matched_rules": [],
+    "detection_method": "llm",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A150",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A151",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": true,
+    "confidence": "high",
+    "hallucination_type": "reasoning",
+    "reason": "Named attack technique \u2014 not derivable from flow numbers",
+    "matched_rules": [
+      {
+        "rule": "Named attack technique \u2014 not derivable from flow numbers",
+        "type": "reasoning",
+        "matched": [
+          "data exfiltration",
+          "command-and-control",
+          "DNS tunneling"
+        ]
+      }
+    ],
+    "detection_method": "rule",
+    "gold_label": "hallucinated"
+  },
+  {
+    "alert_id": "A152",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A153",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A154",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A155",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A156",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A157",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A158",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": true,
+    "confidence": "high",
+    "hallucination_type": "reasoning",
+    "reason": "Named attack technique \u2014 not derivable from flow numbers",
+    "matched_rules": [
+      {
+        "rule": "Named attack technique \u2014 not derivable from flow numbers",
+        "type": "reasoning",
+        "matched": [
+          "port scan",
+          "reconnaissance"
+        ]
+      }
+    ],
+    "detection_method": "rule",
+    "gold_label": "hallucinated"
+  },
+  {
+    "alert_id": "A159",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A160",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A161",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A162",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A163",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A164",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A165",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": true,
+    "confidence": "high",
+    "hallucination_type": "reasoning",
+    "reason": "Named attack technique \u2014 not derivable from flow numbers",
+    "matched_rules": [
+      {
+        "rule": "Named attack technique \u2014 not derivable from flow numbers",
+        "type": "reasoning",
+        "matched": [
+          "data exfiltration"
+        ]
+      }
+    ],
+    "detection_method": "rule",
+    "gold_label": "hallucinated"
+  },
+  {
+    "alert_id": "A166",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A167",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A168",
+    "alert_type": "DoS",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "None found.",
+    "matched_rules": [],
+    "detection_method": "llm",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A169",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A170",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A171",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A172",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A173",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A174",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A175",
+    "alert_type": "Port Scanning",
+    "contains_hallucination": true,
+    "confidence": "high",
+    "hallucination_type": "reasoning",
+    "reason": "Named attack technique \u2014 not derivable from flow numbers",
+    "matched_rules": [
+      {
+        "rule": "Named attack technique \u2014 not derivable from flow numbers",
+        "type": "reasoning",
+        "matched": [
+          "port scan"
+        ]
+      }
+    ],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A176",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A177",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A178",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A179",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A180",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": true,
+    "confidence": "high",
+    "hallucination_type": "reasoning",
+    "reason": "Named attack technique \u2014 not derivable from flow numbers",
+    "matched_rules": [
+      {
+        "rule": "Named attack technique \u2014 not derivable from flow numbers",
+        "type": "reasoning",
+        "matched": [
+          "reconnaissance"
+        ]
+      }
+    ],
+    "detection_method": "rule",
+    "gold_label": "hallucinated"
+  },
+  {
+    "alert_id": "A181",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A182",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A183",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A184",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": true,
+    "confidence": "high",
+    "hallucination_type": "reasoning",
+    "reason": "Named attack technique \u2014 not derivable from flow numbers",
+    "matched_rules": [
+      {
+        "rule": "Named attack technique \u2014 not derivable from flow numbers",
+        "type": "reasoning",
+        "matched": [
+          "reconnaissance"
+        ]
+      }
+    ],
+    "detection_method": "rule",
+    "gold_label": "hallucinated"
+  },
+  {
+    "alert_id": "A185",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": true,
+    "confidence": "high",
+    "hallucination_type": "reasoning",
+    "reason": "Named attack technique \u2014 not derivable from flow numbers",
+    "matched_rules": [
+      {
+        "rule": "Named attack technique \u2014 not derivable from flow numbers",
+        "type": "reasoning",
+        "matched": [
+          "reconnaissance"
+        ]
+      }
+    ],
+    "detection_method": "rule",
+    "gold_label": "hallucinated"
+  },
+  {
+    "alert_id": "A186",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A187",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": true,
+    "confidence": "high",
+    "hallucination_type": "reasoning",
+    "reason": "Resource exhaustion / DoS impact claim",
+    "matched_rules": [
+      {
+        "rule": "Resource exhaustion / DoS impact claim",
+        "type": "reasoning",
+        "matched": [
+          "denial-of-service"
+        ]
+      }
+    ],
+    "detection_method": "rule",
+    "gold_label": "hallucinated"
+  },
+  {
+    "alert_id": "A188",
+    "alert_type": "Port Scanning",
+    "contains_hallucination": true,
+    "confidence": "high",
+    "hallucination_type": "reasoning",
+    "reason": "Named attack technique \u2014 not derivable from flow numbers",
+    "matched_rules": [
+      {
+        "rule": "Named attack technique \u2014 not derivable from flow numbers",
+        "type": "reasoning",
+        "matched": [
+          "reconnaissance"
+        ]
+      }
+    ],
+    "detection_method": "rule",
+    "gold_label": "hallucinated"
+  },
+  {
+    "alert_id": "A189",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A190",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A191",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": true,
+    "confidence": "high",
+    "hallucination_type": "reasoning",
+    "reason": "Named attack technique \u2014 not derivable from flow numbers",
+    "matched_rules": [
+      {
+        "rule": "Named attack technique \u2014 not derivable from flow numbers",
+        "type": "reasoning",
+        "matched": [
+          "reconnaissance",
+          "port scanning"
+        ]
+      }
+    ],
+    "detection_method": "rule",
+    "gold_label": "hallucinated"
+  },
+  {
+    "alert_id": "A192",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": true,
+    "confidence": "high",
+    "hallucination_type": "reasoning",
+    "reason": "Named attack technique \u2014 not derivable from flow numbers",
+    "matched_rules": [
+      {
+        "rule": "Named attack technique \u2014 not derivable from flow numbers",
+        "type": "reasoning",
+        "matched": [
+          "reconnaissance"
+        ]
+      }
+    ],
+    "detection_method": "rule",
+    "gold_label": "hallucinated"
+  },
+  {
+    "alert_id": "A193",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A194",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A195",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": true,
+    "confidence": "high",
+    "hallucination_type": "reasoning",
+    "reason": "Named attack technique \u2014 not derivable from flow numbers",
+    "matched_rules": [
+      {
+        "rule": "Named attack technique \u2014 not derivable from flow numbers",
+        "type": "reasoning",
+        "matched": [
+          "port scan",
+          "reconnaissance"
+        ]
+      }
+    ],
+    "detection_method": "rule",
+    "gold_label": "hallucinated"
+  },
+  {
+    "alert_id": "A196",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": true,
+    "confidence": "high",
+    "hallucination_type": "reasoning",
+    "reason": "Named attack technique \u2014 not derivable from flow numbers",
+    "matched_rules": [
+      {
+        "rule": "Named attack technique \u2014 not derivable from flow numbers",
+        "type": "reasoning",
+        "matched": [
+          "network scan"
+        ]
+      }
+    ],
+    "detection_method": "rule",
+    "gold_label": "hallucinated"
+  },
+  {
+    "alert_id": "A197",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A198",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A199",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A200",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A201",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A202",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": true,
+    "confidence": "high",
+    "hallucination_type": "reasoning",
+    "reason": "Named attack technique \u2014 not derivable from flow numbers",
+    "matched_rules": [
+      {
+        "rule": "Named attack technique \u2014 not derivable from flow numbers",
+        "type": "reasoning",
+        "matched": [
+          "port scanning"
+        ]
+      }
+    ],
+    "detection_method": "rule",
+    "gold_label": "hallucinated"
+  },
+  {
+    "alert_id": "A203",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A204",
+    "alert_type": "DoS",
+    "contains_hallucination": true,
+    "confidence": "high",
+    "hallucination_type": "reasoning",
+    "reason": "Named attack technique \u2014 not derivable from flow numbers",
+    "matched_rules": [
+      {
+        "rule": "Named attack technique \u2014 not derivable from flow numbers",
+        "type": "reasoning",
+        "matched": [
+          "network scanning"
+        ]
+      }
+    ],
+    "detection_method": "rule",
+    "gold_label": "hallucinated"
+  },
+  {
+    "alert_id": "A205",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A206",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A207",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A208",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A209",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": true,
+    "confidence": "high",
+    "hallucination_type": "reasoning",
+    "reason": "Named attack technique \u2014 not derivable from flow numbers; Resource exhaustion / DoS impact claim",
+    "matched_rules": [
+      {
+        "rule": "Named attack technique \u2014 not derivable from flow numbers",
+        "type": "reasoning",
+        "matched": [
+          "reflection attack"
+        ]
+      },
+      {
+        "rule": "Resource exhaustion / DoS impact claim",
+        "type": "reasoning",
+        "matched": [
+          "denial-of-service"
+        ]
+      }
+    ],
+    "detection_method": "rule",
+    "gold_label": "hallucinated"
+  },
+  {
+    "alert_id": "A210",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A211",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A212",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A213",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A214",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A215",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A216",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A217",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A218",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A219",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A220",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A221",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A222",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A223",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": true,
+    "confidence": "high",
+    "hallucination_type": "reasoning",
+    "reason": "Named attack technique \u2014 not derivable from flow numbers",
+    "matched_rules": [
+      {
+        "rule": "Named attack technique \u2014 not derivable from flow numbers",
+        "type": "reasoning",
+        "matched": [
+          "reconnaissance"
+        ]
+      }
+    ],
+    "detection_method": "rule",
+    "gold_label": "hallucinated"
+  },
+  {
+    "alert_id": "A224",
+    "alert_type": "DDoS",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "None found.",
+    "matched_rules": [],
+    "detection_method": "llm",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A225",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": true,
+    "confidence": "high",
+    "hallucination_type": "reasoning",
+    "reason": "Named attack technique \u2014 not derivable from flow numbers",
+    "matched_rules": [
+      {
+        "rule": "Named attack technique \u2014 not derivable from flow numbers",
+        "type": "reasoning",
+        "matched": [
+          "reconnaissance"
+        ]
+      }
+    ],
+    "detection_method": "rule",
+    "gold_label": "hallucinated"
+  },
+  {
+    "alert_id": "A226",
+    "alert_type": "DDoS",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "None found.",
+    "matched_rules": [],
+    "detection_method": "llm",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A227",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A228",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A229",
+    "alert_type": "Port Scanning",
+    "contains_hallucination": true,
+    "confidence": "high",
+    "hallucination_type": "external_knowledge",
+    "reason": "The AI claimed port 3322 is 'not a commonly known or standard service port' which requires external knowledge beyond the provided numeric flow features.",
+    "matched_rules": [],
+    "detection_method": "llm",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A230",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A231",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A232",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": true,
+    "confidence": "high",
+    "hallucination_type": "reasoning",
+    "reason": "Named attack technique \u2014 not derivable from flow numbers",
+    "matched_rules": [
+      {
+        "rule": "Named attack technique \u2014 not derivable from flow numbers",
+        "type": "reasoning",
+        "matched": [
+          "network scanning"
+        ]
+      }
+    ],
+    "detection_method": "rule",
+    "gold_label": "hallucinated"
+  },
+  {
+    "alert_id": "A233",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A234",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A235",
+    "alert_type": "Brute Force",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "None found.",
+    "matched_rules": [],
+    "detection_method": "llm",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A236",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A237",
+    "alert_type": "DoS",
+    "contains_hallucination": true,
+    "confidence": "high",
+    "hallucination_type": "factual",
+    "reason": "The AI assumes 'Flow Duration' is measured in milliseconds to calculate 'nearly 28 hours', but the unit for 'Flow Duration' is not provided in the raw evidence.",
+    "matched_rules": [],
+    "detection_method": "llm",
+    "gold_label": "hallucinated"
+  },
+  {
+    "alert_id": "A238",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A239",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A240",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A241",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A242",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A243",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A244",
+    "alert_type": "Port Scanning",
+    "contains_hallucination": true,
+    "confidence": "high",
+    "hallucination_type": "reasoning",
+    "reason": "Named attack technique \u2014 not derivable from flow numbers; Resource exhaustion / DoS impact claim",
+    "matched_rules": [
+      {
+        "rule": "Named attack technique \u2014 not derivable from flow numbers",
+        "type": "reasoning",
+        "matched": [
+          "reflection attack"
+        ]
+      },
+      {
+        "rule": "Resource exhaustion / DoS impact claim",
+        "type": "reasoning",
+        "matched": [
+          "Denial of Service"
+        ]
+      }
+    ],
+    "detection_method": "rule",
+    "gold_label": "hallucinated"
+  },
+  {
+    "alert_id": "A245",
+    "alert_type": "DDoS",
+    "contains_hallucination": true,
+    "confidence": "high",
+    "hallucination_type": "reasoning",
+    "reason": "Named attack technique \u2014 not derivable from flow numbers",
+    "matched_rules": [
+      {
+        "rule": "Named attack technique \u2014 not derivable from flow numbers",
+        "type": "reasoning",
+        "matched": [
+          "reconnaissance"
+        ]
+      }
+    ],
+    "detection_method": "rule",
+    "gold_label": "hallucinated"
+  },
+  {
+    "alert_id": "A246",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": true,
+    "confidence": "high",
+    "hallucination_type": "reasoning",
+    "reason": "Named attack technique \u2014 not derivable from flow numbers",
+    "matched_rules": [
+      {
+        "rule": "Named attack technique \u2014 not derivable from flow numbers",
+        "type": "reasoning",
+        "matched": [
+          "port scan"
+        ]
+      }
+    ],
+    "detection_method": "rule",
+    "gold_label": "hallucinated"
+  },
+  {
+    "alert_id": "A247",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A248",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A249",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": true,
+    "confidence": "high",
+    "hallucination_type": "reasoning",
+    "reason": "Named attack technique \u2014 not derivable from flow numbers",
+    "matched_rules": [
+      {
+        "rule": "Named attack technique \u2014 not derivable from flow numbers",
+        "type": "reasoning",
+        "matched": [
+          "port scan",
+          "reconnaissance",
+          "command and control"
+        ]
+      }
+    ],
+    "detection_method": "rule",
+    "gold_label": "hallucinated"
+  },
+  {
+    "alert_id": "A250",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A251",
+    "alert_type": "DoS",
+    "contains_hallucination": true,
+    "confidence": "high",
+    "hallucination_type": "factual",
+    "reason": "The explanation introduces 'low and slow' as a communication pattern, which is explicitly listed as a disallowed named attack type.",
+    "matched_rules": [],
+    "detection_method": "llm",
+    "gold_label": "hallucinated"
+  },
+  {
+    "alert_id": "A252",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": true,
+    "confidence": "high",
+    "hallucination_type": "reasoning",
+    "reason": "Named attack technique \u2014 not derivable from flow numbers; Resource exhaustion / DoS impact claim",
+    "matched_rules": [
+      {
+        "rule": "Named attack technique \u2014 not derivable from flow numbers",
+        "type": "reasoning",
+        "matched": [
+          "reconnaissance",
+          "port scan"
+        ]
+      },
+      {
+        "rule": "Resource exhaustion / DoS impact claim",
+        "type": "reasoning",
+        "matched": [
+          "denial-of-service"
+        ]
+      }
+    ],
+    "detection_method": "rule",
+    "gold_label": "hallucinated"
+  },
+  {
+    "alert_id": "A253",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": true,
+    "confidence": "high",
+    "hallucination_type": "reasoning",
+    "reason": "Named attack technique \u2014 not derivable from flow numbers",
+    "matched_rules": [
+      {
+        "rule": "Named attack technique \u2014 not derivable from flow numbers",
+        "type": "reasoning",
+        "matched": [
+          "reconnaissance"
+        ]
+      }
+    ],
+    "detection_method": "rule",
+    "gold_label": "hallucinated"
+  },
+  {
+    "alert_id": "A254",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A255",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A256",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A257",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A258",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A259",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": true,
+    "confidence": "high",
+    "hallucination_type": "reasoning",
+    "reason": "Named attack technique \u2014 not derivable from flow numbers",
+    "matched_rules": [
+      {
+        "rule": "Named attack technique \u2014 not derivable from flow numbers",
+        "type": "reasoning",
+        "matched": [
+          "network scan"
+        ]
+      }
+    ],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A260",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A261",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": true,
+    "confidence": "high",
+    "hallucination_type": "reasoning",
+    "reason": "Named attack technique \u2014 not derivable from flow numbers",
+    "matched_rules": [
+      {
+        "rule": "Named attack technique \u2014 not derivable from flow numbers",
+        "type": "reasoning",
+        "matched": [
+          "reconnaissance"
+        ]
+      }
+    ],
+    "detection_method": "rule",
+    "gold_label": "hallucinated"
+  },
+  {
+    "alert_id": "A262",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A263",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A264",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A265",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A266",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A267",
+    "alert_type": "DoS",
+    "contains_hallucination": true,
+    "confidence": "high",
+    "hallucination_type": "external_knowledge",
+    "reason": "The explanation introduces 'low and slow' communication, which is a named attack type explicitly forbidden by the guidelines, even when hedged.",
+    "matched_rules": [],
+    "detection_method": "llm",
+    "gold_label": "hallucinated"
+  },
+  {
+    "alert_id": "A268",
+    "alert_type": "DoS",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "None found.",
+    "matched_rules": [],
+    "detection_method": "llm",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A269",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A270",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A271",
+    "alert_type": "DoS",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "None found.",
+    "matched_rules": [],
+    "detection_method": "llm",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A272",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A273",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A274",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A275",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A276",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A277",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A278",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A279",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A280",
+    "alert_type": "DDoS",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "None found.",
+    "matched_rules": [],
+    "detection_method": "llm",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A281",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A282",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A283",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A284",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A285",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A286",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A287",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A288",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A289",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A290",
+    "alert_type": "DoS",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "None found.",
+    "matched_rules": [],
+    "detection_method": "llm",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A291",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A292",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A293",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A294",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A295",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A296",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A297",
+    "alert_type": "DDoS",
+    "contains_hallucination": true,
+    "confidence": "high",
+    "hallucination_type": "reasoning",
+    "reason": "Named attack technique \u2014 not derivable from flow numbers",
+    "matched_rules": [
+      {
+        "rule": "Named attack technique \u2014 not derivable from flow numbers",
+        "type": "reasoning",
+        "matched": [
+          "network scanning"
+        ]
+      }
+    ],
+    "detection_method": "rule",
+    "gold_label": "hallucinated"
+  },
+  {
+    "alert_id": "A298",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A299",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A300",
+    "alert_type": "Port Scanning",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "None found.",
+    "matched_rules": [],
+    "detection_method": "llm",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A301",
+    "alert_type": "DoS",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "None found.",
+    "matched_rules": [],
+    "detection_method": "llm",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A302",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A303",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A304",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A305",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A306",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A307",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A308",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A309",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A310",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A311",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A312",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": true,
+    "confidence": "high",
+    "hallucination_type": "reasoning",
+    "reason": "Named attack technique \u2014 not derivable from flow numbers",
+    "matched_rules": [
+      {
+        "rule": "Named attack technique \u2014 not derivable from flow numbers",
+        "type": "reasoning",
+        "matched": [
+          "reconnaissance"
+        ]
+      }
+    ],
+    "detection_method": "rule",
+    "gold_label": "hallucinated"
+  },
+  {
+    "alert_id": "A313",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A314",
+    "alert_type": "DoS",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "None found.",
+    "matched_rules": [],
+    "detection_method": "llm",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A315",
+    "alert_type": "DoS",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "None found.",
+    "matched_rules": [],
+    "detection_method": "llm",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A316",
+    "alert_type": "Port Scanning",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "None found.",
+    "matched_rules": [],
+    "detection_method": "llm",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A317",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": true,
+    "confidence": "high",
+    "hallucination_type": "reasoning",
+    "reason": "Named attack technique \u2014 not derivable from flow numbers",
+    "matched_rules": [
+      {
+        "rule": "Named attack technique \u2014 not derivable from flow numbers",
+        "type": "reasoning",
+        "matched": [
+          "reconnaissance"
+        ]
+      }
+    ],
+    "detection_method": "rule",
+    "gold_label": "hallucinated"
+  },
+  {
+    "alert_id": "A318",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A319",
+    "alert_type": "Port Scanning",
+    "contains_hallucination": true,
+    "confidence": "high",
+    "hallucination_type": "reasoning",
+    "reason": "Named attack technique \u2014 not derivable from flow numbers",
+    "matched_rules": [
+      {
+        "rule": "Named attack technique \u2014 not derivable from flow numbers",
+        "type": "reasoning",
+        "matched": [
+          "port scanning",
+          "reconnaissance"
+        ]
+      }
+    ],
+    "detection_method": "rule",
+    "gold_label": "hallucinated"
+  },
+  {
+    "alert_id": "A320",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A321",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A322",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A323",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A324",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A325",
+    "alert_type": "DoS",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "None found.",
+    "matched_rules": [],
+    "detection_method": "llm",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A326",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A327",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A328",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": true,
+    "confidence": "high",
+    "hallucination_type": "reasoning",
+    "reason": "Named attack technique \u2014 not derivable from flow numbers",
+    "matched_rules": [
+      {
+        "rule": "Named attack technique \u2014 not derivable from flow numbers",
+        "type": "reasoning",
+        "matched": [
+          "reflection attack",
+          "data exfiltration",
+          "DNS tunneling"
+        ]
+      }
+    ],
+    "detection_method": "rule",
+    "gold_label": "hallucinated"
+  },
+  {
+    "alert_id": "A329",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": true,
+    "confidence": "high",
+    "hallucination_type": "reasoning",
+    "reason": "Named attack technique \u2014 not derivable from flow numbers",
+    "matched_rules": [
+      {
+        "rule": "Named attack technique \u2014 not derivable from flow numbers",
+        "type": "reasoning",
+        "matched": [
+          "reconnaissance",
+          "port scan"
+        ]
+      }
+    ],
+    "detection_method": "rule",
+    "gold_label": "hallucinated"
+  },
+  {
+    "alert_id": "A330",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A331",
+    "alert_type": "DoS",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "None found.",
+    "matched_rules": [],
+    "detection_method": "llm",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A332",
+    "alert_type": "DDoS",
+    "contains_hallucination": true,
+    "confidence": "high",
+    "hallucination_type": "reasoning",
+    "reason": "The AI introduces 'stealthy communication attempt,' which is a form of threat-actor framing implying intent and specific actor behavior, explicitly prohibited by the rules.",
+    "matched_rules": [],
+    "detection_method": "llm",
+    "gold_label": "hallucinated"
+  },
+  {
+    "alert_id": "A333",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A334",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A335",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": true,
+    "confidence": "high",
+    "hallucination_type": "reasoning",
+    "reason": "Named attack technique \u2014 not derivable from flow numbers",
+    "matched_rules": [
+      {
+        "rule": "Named attack technique \u2014 not derivable from flow numbers",
+        "type": "reasoning",
+        "matched": [
+          "exploitation"
+        ]
+      }
+    ],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A336",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A337",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A338",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A339",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": true,
+    "confidence": "high",
+    "hallucination_type": "reasoning",
+    "reason": "Named attack technique \u2014 not derivable from flow numbers",
+    "matched_rules": [
+      {
+        "rule": "Named attack technique \u2014 not derivable from flow numbers",
+        "type": "reasoning",
+        "matched": [
+          "reconnaissance"
+        ]
+      }
+    ],
+    "detection_method": "rule",
+    "gold_label": "hallucinated"
+  },
+  {
+    "alert_id": "A340",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A341",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A342",
+    "alert_type": "DDoS",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "None found.",
+    "matched_rules": [],
+    "detection_method": "llm",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A343",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A344",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A345",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A346",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": true,
+    "confidence": "high",
+    "hallucination_type": "reasoning",
+    "reason": "Named attack technique \u2014 not derivable from flow numbers",
+    "matched_rules": [
+      {
+        "rule": "Named attack technique \u2014 not derivable from flow numbers",
+        "type": "reasoning",
+        "matched": [
+          "network scanning"
+        ]
+      }
+    ],
+    "detection_method": "rule",
+    "gold_label": "hallucinated"
+  },
+  {
+    "alert_id": "A347",
+    "alert_type": "DDoS",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "None found.",
+    "matched_rules": [],
+    "detection_method": "llm",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A348",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A349",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": true,
+    "confidence": "high",
+    "hallucination_type": "reasoning",
+    "reason": "Named attack technique \u2014 not derivable from flow numbers",
+    "matched_rules": [
+      {
+        "rule": "Named attack technique \u2014 not derivable from flow numbers",
+        "type": "reasoning",
+        "matched": [
+          "reconnaissance"
+        ]
+      }
+    ],
+    "detection_method": "rule",
+    "gold_label": "hallucinated"
+  },
+  {
+    "alert_id": "A350",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A351",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A352",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A353",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A354",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": true,
+    "confidence": "high",
+    "hallucination_type": "reasoning",
+    "reason": "Named attack technique \u2014 not derivable from flow numbers",
+    "matched_rules": [
+      {
+        "rule": "Named attack technique \u2014 not derivable from flow numbers",
+        "type": "reasoning",
+        "matched": [
+          "reconnaissance"
+        ]
+      }
+    ],
+    "detection_method": "rule",
+    "gold_label": "hallucinated"
+  },
+  {
+    "alert_id": "A355",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A356",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A357",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A358",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A359",
+    "alert_type": "DDoS",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "None found.",
+    "matched_rules": [],
+    "detection_method": "llm",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A360",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A361",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A362",
+    "alert_type": "Port Scanning",
+    "contains_hallucination": true,
+    "confidence": "high",
+    "hallucination_type": "external_knowledge",
+    "reason": "The claim 'This port is not commonly associated with standard, well-known network services' relies on external knowledge about port assignments, which was not provided in the numeric flow features.",
+    "matched_rules": [],
+    "detection_method": "llm",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A363",
+    "alert_type": "Brute Force",
+    "contains_hallucination": true,
+    "confidence": "high",
+    "hallucination_type": "reasoning",
+    "reason": "Named attack technique \u2014 not derivable from flow numbers",
+    "matched_rules": [
+      {
+        "rule": "Named attack technique \u2014 not derivable from flow numbers",
+        "type": "reasoning",
+        "matched": [
+          "reconnaissance",
+          "reconnaissance"
+        ]
+      }
+    ],
+    "detection_method": "rule",
+    "gold_label": "hallucinated"
+  },
+  {
+    "alert_id": "A364",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A365",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A366",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": true,
+    "confidence": "high",
+    "hallucination_type": "reasoning",
+    "reason": "Named attack technique \u2014 not derivable from flow numbers",
+    "matched_rules": [
+      {
+        "rule": "Named attack technique \u2014 not derivable from flow numbers",
+        "type": "reasoning",
+        "matched": [
+          "data exfiltration",
+          "reconnaissance"
+        ]
+      }
+    ],
+    "detection_method": "rule",
+    "gold_label": "hallucinated"
+  },
+  {
+    "alert_id": "A367",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A368",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A369",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A370",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A371",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A372",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A373",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A374",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A375",
+    "alert_type": "DoS",
+    "contains_hallucination": true,
+    "confidence": "high",
+    "hallucination_type": "external_knowledge",
+    "reason": "The explanation introduces 'low and slow' as a named attack type, which is explicitly listed as a forbidden hallucination.",
+    "matched_rules": [],
+    "detection_method": "llm",
+    "gold_label": "hallucinated"
+  },
+  {
+    "alert_id": "A376",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A377",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": true,
+    "confidence": "high",
+    "hallucination_type": "reasoning",
+    "reason": "Named attack technique \u2014 not derivable from flow numbers",
+    "matched_rules": [
+      {
+        "rule": "Named attack technique \u2014 not derivable from flow numbers",
+        "type": "reasoning",
+        "matched": [
+          "data exfiltration"
+        ]
+      }
+    ],
+    "detection_method": "rule",
+    "gold_label": "hallucinated"
+  },
+  {
+    "alert_id": "A378",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A379",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": true,
+    "confidence": "high",
+    "hallucination_type": "reasoning",
+    "reason": "Named attack technique \u2014 not derivable from flow numbers",
+    "matched_rules": [
+      {
+        "rule": "Named attack technique \u2014 not derivable from flow numbers",
+        "type": "reasoning",
+        "matched": [
+          "port scan"
+        ]
+      }
+    ],
+    "detection_method": "rule",
+    "gold_label": "hallucinated"
+  },
+  {
+    "alert_id": "A380",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A381",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A382",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A383",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A384",
+    "alert_type": "DoS",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "None found.",
+    "matched_rules": [],
+    "detection_method": "llm",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A385",
+    "alert_type": "Brute Force",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "None found.",
+    "matched_rules": [],
+    "detection_method": "llm",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A386",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A387",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A388",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A389",
+    "alert_type": "DDoS",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "None found. The explanation accurately interprets the numeric evidence, names well-known protocols for ports, converts duration, compares observations to typical patterns, references general TCP behavior, and uses hedged language, all of which are explicitly allowed.",
+    "matched_rules": [],
+    "detection_method": "llm",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A390",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A391",
+    "alert_type": "Port Scanning",
+    "contains_hallucination": true,
+    "confidence": "high",
+    "hallucination_type": "reasoning",
+    "reason": "Named attack technique \u2014 not derivable from flow numbers",
+    "matched_rules": [
+      {
+        "rule": "Named attack technique \u2014 not derivable from flow numbers",
+        "type": "reasoning",
+        "matched": [
+          "reconnaissance"
+        ]
+      }
+    ],
+    "detection_method": "rule",
+    "gold_label": "hallucinated"
+  },
+  {
+    "alert_id": "A392",
+    "alert_type": "DDoS",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "None found.",
+    "matched_rules": [],
+    "detection_method": "llm",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A393",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": true,
+    "confidence": "high",
+    "hallucination_type": "reasoning",
+    "reason": "Named attack technique \u2014 not derivable from flow numbers",
+    "matched_rules": [
+      {
+        "rule": "Named attack technique \u2014 not derivable from flow numbers",
+        "type": "reasoning",
+        "matched": [
+          "network scanning",
+          "reconnaissance"
+        ]
+      }
+    ],
+    "detection_method": "rule",
+    "gold_label": "hallucinated"
+  },
+  {
+    "alert_id": "A394",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": true,
+    "confidence": "high",
+    "hallucination_type": "reasoning",
+    "reason": "Named attack technique \u2014 not derivable from flow numbers",
+    "matched_rules": [
+      {
+        "rule": "Named attack technique \u2014 not derivable from flow numbers",
+        "type": "reasoning",
+        "matched": [
+          "reconnaissance"
+        ]
+      }
+    ],
+    "detection_method": "rule",
+    "gold_label": "hallucinated"
+  },
+  {
+    "alert_id": "A395",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": true,
+    "confidence": "high",
+    "hallucination_type": "reasoning",
+    "reason": "Named attack technique \u2014 not derivable from flow numbers",
+    "matched_rules": [
+      {
+        "rule": "Named attack technique \u2014 not derivable from flow numbers",
+        "type": "reasoning",
+        "matched": [
+          "port scan"
+        ]
+      }
+    ],
+    "detection_method": "rule",
+    "gold_label": "hallucinated"
+  },
+  {
+    "alert_id": "A396",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": true,
+    "confidence": "high",
+    "hallucination_type": "reasoning",
+    "reason": "Named attack technique \u2014 not derivable from flow numbers",
+    "matched_rules": [
+      {
+        "rule": "Named attack technique \u2014 not derivable from flow numbers",
+        "type": "reasoning",
+        "matched": [
+          "port scan"
+        ]
+      }
+    ],
+    "detection_method": "rule",
+    "gold_label": "hallucinated"
+  },
+  {
+    "alert_id": "A397",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": true,
+    "confidence": "high",
+    "hallucination_type": "reasoning",
+    "reason": "Named attack technique \u2014 not derivable from flow numbers",
+    "matched_rules": [
+      {
+        "rule": "Named attack technique \u2014 not derivable from flow numbers",
+        "type": "reasoning",
+        "matched": [
+          "reconnaissance"
+        ]
+      }
+    ],
+    "detection_method": "rule",
+    "gold_label": "hallucinated"
+  },
+  {
+    "alert_id": "A398",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": true,
+    "confidence": "high",
+    "hallucination_type": "reasoning",
+    "reason": "Named attack technique \u2014 not derivable from flow numbers",
+    "matched_rules": [
+      {
+        "rule": "Named attack technique \u2014 not derivable from flow numbers",
+        "type": "reasoning",
+        "matched": [
+          "data exfiltration"
+        ]
+      }
+    ],
+    "detection_method": "rule",
+    "gold_label": "hallucinated"
+  },
+  {
+    "alert_id": "A399",
+    "alert_type": "Normal Traffic",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "No rule patterns matched.",
+    "matched_rules": [],
+    "detection_method": "rule",
+    "gold_label": "grounded"
+  },
+  {
+    "alert_id": "A400",
+    "alert_type": "Port Scanning",
+    "contains_hallucination": false,
+    "confidence": "high",
+    "hallucination_type": null,
+    "reason": "None found.",
+    "matched_rules": [],
+    "detection_method": "llm",
+    "gold_label": "grounded"
+  }
+]

@@ -1,0 +1,7163 @@
+{
+  "source": "source: earlier run, API-default sampling, prompt v1, 63 attack-flow and 337 benign-flow explanations; not generated under freeze-1",
+  "excluded": [
+    {
+      "alert_id": "A132",
+      "group": "benign-flow",
+      "reason": "generation failed"
+    },
+    {
+      "alert_id": "A140",
+      "group": "benign-flow",
+      "reason": "generation failed"
+    }
+  ],
+  "explanations": [
+    {
+      "alert_id": "A001",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": false,
+      "flagged_strict": 1,
+      "flagged_lenient": 1,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "unit_wrong"
+      ],
+      "unit_wrong": true
+    },
+    {
+      "alert_id": "A002",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 11,
+      "strict": true,
+      "lenient": false,
+      "tier1": false,
+      "tier2": true,
+      "flagged_strict": 1,
+      "flagged_lenient": 0,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "port"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A003",
+      "group": "attack-flow",
+      "alert_type": "DDoS",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": true,
+      "flagged_strict": 4,
+      "flagged_lenient": 1,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "baseline",
+        "port",
+        "protocol",
+        "unit_wrong"
+      ],
+      "unit_wrong": true
+    },
+    {
+      "alert_id": "A004",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 11,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": true,
+      "flagged_strict": 4,
+      "flagged_lenient": 1,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "baseline",
+        "encryption",
+        "port",
+        "protocol",
+        "unit_wrong"
+      ],
+      "unit_wrong": true
+    },
+    {
+      "alert_id": "A005",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 11,
+      "strict": true,
+      "lenient": false,
+      "tier1": false,
+      "tier2": true,
+      "flagged_strict": 1,
+      "flagged_lenient": 0,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "encryption"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A006",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": true,
+      "flagged_strict": 3,
+      "flagged_lenient": 1,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "baseline",
+        "port",
+        "unit_wrong"
+      ],
+      "unit_wrong": true
+    },
+    {
+      "alert_id": "A007",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 10,
+      "strict": false,
+      "lenient": false,
+      "tier1": false,
+      "tier2": false,
+      "flagged_strict": 0,
+      "flagged_lenient": 0,
+      "ambiguous_strict": 0,
+      "subtypes": [],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A008",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": true,
+      "flagged_strict": 5,
+      "flagged_lenient": 1,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "baseline",
+        "port",
+        "protocol",
+        "unit_wrong"
+      ],
+      "unit_wrong": true
+    },
+    {
+      "alert_id": "A009",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 9,
+      "strict": true,
+      "lenient": false,
+      "tier1": false,
+      "tier2": true,
+      "flagged_strict": 1,
+      "flagged_lenient": 0,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "baseline"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A010",
+      "group": "attack-flow",
+      "alert_type": "DoS",
+      "n_sentences": 11,
+      "strict": true,
+      "lenient": false,
+      "tier1": false,
+      "tier2": true,
+      "flagged_strict": 3,
+      "flagged_lenient": 0,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "baseline",
+        "port",
+        "protocol"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A011",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 11,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": true,
+      "flagged_strict": 2,
+      "flagged_lenient": 1,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "port",
+        "unit_wrong"
+      ],
+      "unit_wrong": true
+    },
+    {
+      "alert_id": "A012",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": false,
+      "flagged_strict": 1,
+      "flagged_lenient": 1,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "attack_technique"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A013",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 11,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": true,
+      "flagged_strict": 2,
+      "flagged_lenient": 1,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "port",
+        "unit_wrong"
+      ],
+      "unit_wrong": true
+    },
+    {
+      "alert_id": "A014",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": true,
+      "flagged_strict": 3,
+      "flagged_lenient": 2,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "attack_technique",
+        "port",
+        "unit_wrong"
+      ],
+      "unit_wrong": true
+    },
+    {
+      "alert_id": "A015",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": true,
+      "flagged_strict": 2,
+      "flagged_lenient": 1,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "attack_technique",
+        "port"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A016",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": false,
+      "tier1": false,
+      "tier2": true,
+      "flagged_strict": 2,
+      "flagged_lenient": 0,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "baseline",
+        "port"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A017",
+      "group": "attack-flow",
+      "alert_type": "Port Scanning",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": false,
+      "flagged_strict": 1,
+      "flagged_lenient": 1,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "attack_technique"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A018",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 11,
+      "strict": true,
+      "lenient": false,
+      "tier1": false,
+      "tier2": true,
+      "flagged_strict": 1,
+      "flagged_lenient": 0,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "port"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A019",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 9,
+      "strict": false,
+      "lenient": false,
+      "tier1": false,
+      "tier2": false,
+      "flagged_strict": 0,
+      "flagged_lenient": 0,
+      "ambiguous_strict": 0,
+      "subtypes": [],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A020",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": false,
+      "tier1": false,
+      "tier2": true,
+      "flagged_strict": 1,
+      "flagged_lenient": 0,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "port"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A021",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": true,
+      "flagged_strict": 2,
+      "flagged_lenient": 1,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "port",
+        "unit_wrong"
+      ],
+      "unit_wrong": true
+    },
+    {
+      "alert_id": "A022",
+      "group": "attack-flow",
+      "alert_type": "DoS",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": true,
+      "flagged_strict": 2,
+      "flagged_lenient": 1,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "attack_technique",
+        "encryption",
+        "port"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A023",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": false,
+      "tier1": false,
+      "tier2": true,
+      "flagged_strict": 1,
+      "flagged_lenient": 0,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "port"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A024",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": false,
+      "flagged_strict": 1,
+      "flagged_lenient": 1,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "unit_wrong"
+      ],
+      "unit_wrong": true
+    },
+    {
+      "alert_id": "A025",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 9,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": false,
+      "flagged_strict": 1,
+      "flagged_lenient": 1,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "attack_technique"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A026",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 9,
+      "strict": true,
+      "lenient": false,
+      "tier1": false,
+      "tier2": true,
+      "flagged_strict": 3,
+      "flagged_lenient": 0,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "port",
+        "protocol"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A027",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": true,
+      "flagged_strict": 4,
+      "flagged_lenient": 1,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "baseline",
+        "port",
+        "unit_wrong"
+      ],
+      "unit_wrong": true
+    },
+    {
+      "alert_id": "A028",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 11,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": false,
+      "flagged_strict": 2,
+      "flagged_lenient": 2,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "attack_technique",
+        "unit_wrong"
+      ],
+      "unit_wrong": true
+    },
+    {
+      "alert_id": "A029",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 11,
+      "strict": false,
+      "lenient": false,
+      "tier1": false,
+      "tier2": false,
+      "flagged_strict": 0,
+      "flagged_lenient": 0,
+      "ambiguous_strict": 0,
+      "subtypes": [],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A030",
+      "group": "attack-flow",
+      "alert_type": "Port Scanning",
+      "n_sentences": 10,
+      "strict": false,
+      "lenient": false,
+      "tier1": false,
+      "tier2": false,
+      "flagged_strict": 0,
+      "flagged_lenient": 0,
+      "ambiguous_strict": 0,
+      "subtypes": [],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A031",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": true,
+      "flagged_strict": 2,
+      "flagged_lenient": 1,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "attack_technique",
+        "encryption",
+        "port"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A032",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 10,
+      "strict": false,
+      "lenient": false,
+      "tier1": false,
+      "tier2": false,
+      "flagged_strict": 0,
+      "flagged_lenient": 0,
+      "ambiguous_strict": 0,
+      "subtypes": [],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A033",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": false,
+      "flagged_strict": 1,
+      "flagged_lenient": 1,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "unit_wrong"
+      ],
+      "unit_wrong": true
+    },
+    {
+      "alert_id": "A034",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 11,
+      "strict": true,
+      "lenient": false,
+      "tier1": false,
+      "tier2": true,
+      "flagged_strict": 3,
+      "flagged_lenient": 0,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "baseline",
+        "port"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A035",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 9,
+      "strict": true,
+      "lenient": false,
+      "tier1": false,
+      "tier2": true,
+      "flagged_strict": 1,
+      "flagged_lenient": 0,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "port"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A036",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": true,
+      "flagged_strict": 2,
+      "flagged_lenient": 1,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "port",
+        "unit_wrong"
+      ],
+      "unit_wrong": true
+    },
+    {
+      "alert_id": "A037",
+      "group": "attack-flow",
+      "alert_type": "DoS",
+      "n_sentences": 9,
+      "strict": true,
+      "lenient": false,
+      "tier1": false,
+      "tier2": true,
+      "flagged_strict": 1,
+      "flagged_lenient": 0,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "encryption",
+        "port"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A038",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 11,
+      "strict": true,
+      "lenient": false,
+      "tier1": false,
+      "tier2": true,
+      "flagged_strict": 2,
+      "flagged_lenient": 0,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "port",
+        "protocol"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A039",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 9,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": true,
+      "flagged_strict": 2,
+      "flagged_lenient": 1,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "attack_technique",
+        "encryption",
+        "port"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A040",
+      "group": "attack-flow",
+      "alert_type": "Port Scanning",
+      "n_sentences": 11,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": true,
+      "flagged_strict": 3,
+      "flagged_lenient": 2,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "attack_technique",
+        "port",
+        "unit_wrong"
+      ],
+      "unit_wrong": true
+    },
+    {
+      "alert_id": "A041",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 11,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": true,
+      "flagged_strict": 3,
+      "flagged_lenient": 1,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "baseline",
+        "port",
+        "unit_wrong"
+      ],
+      "unit_wrong": true
+    },
+    {
+      "alert_id": "A042",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 9,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": true,
+      "flagged_strict": 3,
+      "flagged_lenient": 1,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "port",
+        "protocol",
+        "unit_wrong"
+      ],
+      "unit_wrong": true
+    },
+    {
+      "alert_id": "A043",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": false,
+      "tier1": false,
+      "tier2": true,
+      "flagged_strict": 1,
+      "flagged_lenient": 0,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "port"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A044",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 11,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": true,
+      "flagged_strict": 3,
+      "flagged_lenient": 2,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "baseline",
+        "port",
+        "unit_wrong"
+      ],
+      "unit_wrong": true
+    },
+    {
+      "alert_id": "A045",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": false,
+      "tier1": false,
+      "tier2": true,
+      "flagged_strict": 1,
+      "flagged_lenient": 0,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "protocol"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A046",
+      "group": "attack-flow",
+      "alert_type": "Port Scanning",
+      "n_sentences": 9,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": false,
+      "flagged_strict": 1,
+      "flagged_lenient": 1,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "attack_technique"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A047",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 10,
+      "strict": false,
+      "lenient": false,
+      "tier1": false,
+      "tier2": false,
+      "flagged_strict": 0,
+      "flagged_lenient": 0,
+      "ambiguous_strict": 0,
+      "subtypes": [],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A048",
+      "group": "attack-flow",
+      "alert_type": "DoS",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": true,
+      "flagged_strict": 4,
+      "flagged_lenient": 1,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "baseline",
+        "encryption",
+        "port",
+        "protocol",
+        "unit_wrong"
+      ],
+      "unit_wrong": true
+    },
+    {
+      "alert_id": "A049",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": false,
+      "tier1": false,
+      "tier2": true,
+      "flagged_strict": 1,
+      "flagged_lenient": 0,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "port"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A050",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 11,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": false,
+      "flagged_strict": 1,
+      "flagged_lenient": 1,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "attack_technique"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A051",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 9,
+      "strict": true,
+      "lenient": false,
+      "tier1": false,
+      "tier2": true,
+      "flagged_strict": 2,
+      "flagged_lenient": 0,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "baseline",
+        "port"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A052",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": false,
+      "tier1": false,
+      "tier2": true,
+      "flagged_strict": 1,
+      "flagged_lenient": 0,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "port"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A053",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": true,
+      "flagged_strict": 2,
+      "flagged_lenient": 1,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "encryption",
+        "port",
+        "unit_wrong"
+      ],
+      "unit_wrong": true
+    },
+    {
+      "alert_id": "A054",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": true,
+      "flagged_strict": 3,
+      "flagged_lenient": 1,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "encryption",
+        "port",
+        "protocol",
+        "unit_wrong"
+      ],
+      "unit_wrong": true
+    },
+    {
+      "alert_id": "A055",
+      "group": "attack-flow",
+      "alert_type": "DDoS",
+      "n_sentences": 11,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": true,
+      "flagged_strict": 5,
+      "flagged_lenient": 2,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "baseline",
+        "impact_claim",
+        "port",
+        "protocol",
+        "unit_wrong"
+      ],
+      "unit_wrong": true
+    },
+    {
+      "alert_id": "A056",
+      "group": "attack-flow",
+      "alert_type": "DDoS",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": false,
+      "tier1": false,
+      "tier2": true,
+      "flagged_strict": 2,
+      "flagged_lenient": 0,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "baseline",
+        "encryption",
+        "port",
+        "protocol"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A057",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 9,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": false,
+      "flagged_strict": 2,
+      "flagged_lenient": 2,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "attack_technique",
+        "unit_wrong"
+      ],
+      "unit_wrong": true
+    },
+    {
+      "alert_id": "A058",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 8,
+      "strict": true,
+      "lenient": false,
+      "tier1": false,
+      "tier2": true,
+      "flagged_strict": 1,
+      "flagged_lenient": 0,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "port"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A059",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 11,
+      "strict": true,
+      "lenient": false,
+      "tier1": false,
+      "tier2": true,
+      "flagged_strict": 2,
+      "flagged_lenient": 0,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "port"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A060",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": true,
+      "flagged_strict": 3,
+      "flagged_lenient": 1,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "baseline",
+        "port",
+        "unit_wrong"
+      ],
+      "unit_wrong": true
+    },
+    {
+      "alert_id": "A061",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": false,
+      "tier1": false,
+      "tier2": true,
+      "flagged_strict": 2,
+      "flagged_lenient": 0,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "encryption",
+        "port",
+        "protocol"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A062",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": false,
+      "flagged_strict": 1,
+      "flagged_lenient": 1,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "unit_wrong"
+      ],
+      "unit_wrong": true
+    },
+    {
+      "alert_id": "A063",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": false,
+      "flagged_strict": 1,
+      "flagged_lenient": 1,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "unit_wrong"
+      ],
+      "unit_wrong": true
+    },
+    {
+      "alert_id": "A064",
+      "group": "attack-flow",
+      "alert_type": "DoS",
+      "n_sentences": 8,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": true,
+      "flagged_strict": 4,
+      "flagged_lenient": 1,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "baseline",
+        "encryption",
+        "port",
+        "protocol",
+        "unit_wrong"
+      ],
+      "unit_wrong": true
+    },
+    {
+      "alert_id": "A065",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 11,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": false,
+      "flagged_strict": 1,
+      "flagged_lenient": 1,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "attack_technique"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A066",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 11,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": false,
+      "flagged_strict": 2,
+      "flagged_lenient": 2,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "attack_technique",
+        "unit_wrong"
+      ],
+      "unit_wrong": true
+    },
+    {
+      "alert_id": "A067",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": true,
+      "flagged_strict": 3,
+      "flagged_lenient": 1,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "port",
+        "unit_wrong"
+      ],
+      "unit_wrong": true
+    },
+    {
+      "alert_id": "A068",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 9,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": true,
+      "flagged_strict": 3,
+      "flagged_lenient": 2,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "attack_technique",
+        "port",
+        "unit_wrong"
+      ],
+      "unit_wrong": true
+    },
+    {
+      "alert_id": "A069",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": false,
+      "tier1": false,
+      "tier2": true,
+      "flagged_strict": 2,
+      "flagged_lenient": 0,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "port",
+        "protocol"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A070",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": false,
+      "tier1": false,
+      "tier2": true,
+      "flagged_strict": 2,
+      "flagged_lenient": 0,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "baseline",
+        "encryption",
+        "port",
+        "protocol"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A071",
+      "group": "attack-flow",
+      "alert_type": "DoS",
+      "n_sentences": 9,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": true,
+      "flagged_strict": 3,
+      "flagged_lenient": 1,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "baseline",
+        "port",
+        "protocol",
+        "unit_wrong"
+      ],
+      "unit_wrong": true
+    },
+    {
+      "alert_id": "A072",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 9,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": true,
+      "flagged_strict": 2,
+      "flagged_lenient": 1,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "attack_technique",
+        "port"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A073",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 9,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": false,
+      "flagged_strict": 1,
+      "flagged_lenient": 1,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "unit_wrong"
+      ],
+      "unit_wrong": true
+    },
+    {
+      "alert_id": "A074",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": false,
+      "tier1": false,
+      "tier2": true,
+      "flagged_strict": 2,
+      "flagged_lenient": 0,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "baseline",
+        "port"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A075",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": false,
+      "flagged_strict": 1,
+      "flagged_lenient": 1,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "unit_wrong"
+      ],
+      "unit_wrong": true
+    },
+    {
+      "alert_id": "A076",
+      "group": "attack-flow",
+      "alert_type": "Port Scanning",
+      "n_sentences": 11,
+      "strict": true,
+      "lenient": false,
+      "tier1": false,
+      "tier2": true,
+      "flagged_strict": 2,
+      "flagged_lenient": 0,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "port",
+        "protocol"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A077",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 9,
+      "strict": true,
+      "lenient": false,
+      "tier1": false,
+      "tier2": true,
+      "flagged_strict": 1,
+      "flagged_lenient": 0,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "port"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A078",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 11,
+      "strict": true,
+      "lenient": false,
+      "tier1": false,
+      "tier2": true,
+      "flagged_strict": 1,
+      "flagged_lenient": 0,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "port"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A079",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": false,
+      "tier1": false,
+      "tier2": true,
+      "flagged_strict": 1,
+      "flagged_lenient": 0,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "port"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A080",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": false,
+      "tier1": false,
+      "tier2": true,
+      "flagged_strict": 1,
+      "flagged_lenient": 0,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "port"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A081",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 11,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": true,
+      "flagged_strict": 3,
+      "flagged_lenient": 2,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "port",
+        "unit_wrong"
+      ],
+      "unit_wrong": true
+    },
+    {
+      "alert_id": "A082",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": true,
+      "flagged_strict": 2,
+      "flagged_lenient": 1,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "attack_technique",
+        "port"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A083",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": false,
+      "tier1": false,
+      "tier2": true,
+      "flagged_strict": 1,
+      "flagged_lenient": 0,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "port"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A084",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": true,
+      "flagged_strict": 2,
+      "flagged_lenient": 1,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "encryption",
+        "port",
+        "unit_wrong"
+      ],
+      "unit_wrong": true
+    },
+    {
+      "alert_id": "A085",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": false,
+      "tier1": false,
+      "tier2": true,
+      "flagged_strict": 1,
+      "flagged_lenient": 0,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "port"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A086",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 11,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": true,
+      "flagged_strict": 4,
+      "flagged_lenient": 2,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "attack_technique",
+        "port",
+        "protocol",
+        "unit_wrong"
+      ],
+      "unit_wrong": true
+    },
+    {
+      "alert_id": "A087",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": false,
+      "tier1": false,
+      "tier2": true,
+      "flagged_strict": 1,
+      "flagged_lenient": 0,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "port"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A088",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": false,
+      "tier1": false,
+      "tier2": true,
+      "flagged_strict": 2,
+      "flagged_lenient": 0,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "port",
+        "protocol"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A089",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 11,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": true,
+      "flagged_strict": 2,
+      "flagged_lenient": 1,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "encryption",
+        "port",
+        "unit_wrong"
+      ],
+      "unit_wrong": true
+    },
+    {
+      "alert_id": "A090",
+      "group": "attack-flow",
+      "alert_type": "DDoS",
+      "n_sentences": 11,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": true,
+      "flagged_strict": 4,
+      "flagged_lenient": 2,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "attack_technique",
+        "baseline",
+        "port",
+        "protocol",
+        "unit_wrong"
+      ],
+      "unit_wrong": true
+    },
+    {
+      "alert_id": "A091",
+      "group": "attack-flow",
+      "alert_type": "DDoS",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": true,
+      "flagged_strict": 2,
+      "flagged_lenient": 1,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "port",
+        "unit_wrong"
+      ],
+      "unit_wrong": true
+    },
+    {
+      "alert_id": "A092",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": true,
+      "flagged_strict": 5,
+      "flagged_lenient": 2,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "attack_technique",
+        "baseline",
+        "port",
+        "protocol",
+        "unit_wrong"
+      ],
+      "unit_wrong": true
+    },
+    {
+      "alert_id": "A093",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": true,
+      "flagged_strict": 2,
+      "flagged_lenient": 1,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "port",
+        "unit_wrong"
+      ],
+      "unit_wrong": true
+    },
+    {
+      "alert_id": "A094",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": false,
+      "tier1": false,
+      "tier2": true,
+      "flagged_strict": 3,
+      "flagged_lenient": 0,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "baseline",
+        "port",
+        "protocol"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A095",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 11,
+      "strict": true,
+      "lenient": false,
+      "tier1": false,
+      "tier2": true,
+      "flagged_strict": 2,
+      "flagged_lenient": 0,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "port",
+        "protocol"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A096",
+      "group": "attack-flow",
+      "alert_type": "DoS",
+      "n_sentences": 11,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": true,
+      "flagged_strict": 2,
+      "flagged_lenient": 1,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "attack_technique",
+        "encryption",
+        "port"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A097",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 11,
+      "strict": true,
+      "lenient": false,
+      "tier1": false,
+      "tier2": true,
+      "flagged_strict": 2,
+      "flagged_lenient": 0,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "baseline",
+        "port"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A098",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": true,
+      "flagged_strict": 4,
+      "flagged_lenient": 1,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "attack_technique",
+        "port",
+        "protocol"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A099",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 11,
+      "strict": true,
+      "lenient": false,
+      "tier1": false,
+      "tier2": true,
+      "flagged_strict": 1,
+      "flagged_lenient": 0,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "port"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A100",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 10,
+      "strict": false,
+      "lenient": false,
+      "tier1": false,
+      "tier2": false,
+      "flagged_strict": 0,
+      "flagged_lenient": 0,
+      "ambiguous_strict": 0,
+      "subtypes": [],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A101",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": false,
+      "tier1": false,
+      "tier2": true,
+      "flagged_strict": 1,
+      "flagged_lenient": 0,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "port"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A102",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": false,
+      "tier1": false,
+      "tier2": true,
+      "flagged_strict": 1,
+      "flagged_lenient": 0,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "port"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A103",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": false,
+      "tier1": false,
+      "tier2": true,
+      "flagged_strict": 1,
+      "flagged_lenient": 0,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "port"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A104",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": true,
+      "flagged_strict": 4,
+      "flagged_lenient": 2,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "attack_technique",
+        "port",
+        "protocol",
+        "unit_wrong"
+      ],
+      "unit_wrong": true
+    },
+    {
+      "alert_id": "A105",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 8,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": true,
+      "flagged_strict": 3,
+      "flagged_lenient": 1,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "baseline",
+        "port",
+        "unit_wrong"
+      ],
+      "unit_wrong": true
+    },
+    {
+      "alert_id": "A106",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": true,
+      "flagged_strict": 3,
+      "flagged_lenient": 1,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "attack_technique",
+        "port",
+        "protocol"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A107",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 11,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": true,
+      "flagged_strict": 2,
+      "flagged_lenient": 1,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "attack_technique",
+        "port"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A108",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 11,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": true,
+      "flagged_strict": 3,
+      "flagged_lenient": 1,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "attack_technique",
+        "port"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A109",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 11,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": true,
+      "flagged_strict": 2,
+      "flagged_lenient": 1,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "port",
+        "unit_wrong"
+      ],
+      "unit_wrong": true
+    },
+    {
+      "alert_id": "A110",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": false,
+      "tier1": false,
+      "tier2": true,
+      "flagged_strict": 2,
+      "flagged_lenient": 0,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "encryption",
+        "port"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A111",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 9,
+      "strict": false,
+      "lenient": false,
+      "tier1": false,
+      "tier2": false,
+      "flagged_strict": 0,
+      "flagged_lenient": 0,
+      "ambiguous_strict": 0,
+      "subtypes": [],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A112",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 11,
+      "strict": false,
+      "lenient": false,
+      "tier1": false,
+      "tier2": false,
+      "flagged_strict": 0,
+      "flagged_lenient": 0,
+      "ambiguous_strict": 0,
+      "subtypes": [],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A113",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": false,
+      "flagged_strict": 1,
+      "flagged_lenient": 1,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "attack_technique"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A114",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 10,
+      "strict": false,
+      "lenient": false,
+      "tier1": false,
+      "tier2": false,
+      "flagged_strict": 0,
+      "flagged_lenient": 0,
+      "ambiguous_strict": 0,
+      "subtypes": [],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A115",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 8,
+      "strict": true,
+      "lenient": false,
+      "tier1": false,
+      "tier2": true,
+      "flagged_strict": 1,
+      "flagged_lenient": 0,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "port"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A116",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 11,
+      "strict": true,
+      "lenient": false,
+      "tier1": false,
+      "tier2": true,
+      "flagged_strict": 1,
+      "flagged_lenient": 0,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "port"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A117",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": false,
+      "tier1": false,
+      "tier2": true,
+      "flagged_strict": 1,
+      "flagged_lenient": 0,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "port"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A118",
+      "group": "attack-flow",
+      "alert_type": "DoS",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": false,
+      "tier1": false,
+      "tier2": true,
+      "flagged_strict": 1,
+      "flagged_lenient": 0,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "encryption",
+        "port"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A119",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": false,
+      "tier1": false,
+      "tier2": true,
+      "flagged_strict": 1,
+      "flagged_lenient": 0,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "port"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A120",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 9,
+      "strict": true,
+      "lenient": false,
+      "tier1": false,
+      "tier2": true,
+      "flagged_strict": 1,
+      "flagged_lenient": 0,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "port"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A121",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": false,
+      "flagged_strict": 1,
+      "flagged_lenient": 1,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "attack_technique"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A122",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 11,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": false,
+      "flagged_strict": 1,
+      "flagged_lenient": 1,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "attack_technique"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A123",
+      "group": "attack-flow",
+      "alert_type": "DDoS",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": true,
+      "flagged_strict": 4,
+      "flagged_lenient": 1,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "attack_technique",
+        "baseline",
+        "encryption",
+        "protocol"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A124",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 11,
+      "strict": true,
+      "lenient": false,
+      "tier1": false,
+      "tier2": true,
+      "flagged_strict": 1,
+      "flagged_lenient": 0,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "port"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A125",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 9,
+      "strict": true,
+      "lenient": false,
+      "tier1": false,
+      "tier2": true,
+      "flagged_strict": 1,
+      "flagged_lenient": 0,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "port"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A126",
+      "group": "attack-flow",
+      "alert_type": "Brute Force",
+      "n_sentences": 11,
+      "strict": true,
+      "lenient": false,
+      "tier1": false,
+      "tier2": true,
+      "flagged_strict": 1,
+      "flagged_lenient": 0,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "port"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A127",
+      "group": "attack-flow",
+      "alert_type": "DDoS",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": false,
+      "tier1": false,
+      "tier2": true,
+      "flagged_strict": 1,
+      "flagged_lenient": 0,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "baseline",
+        "protocol"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A128",
+      "group": "attack-flow",
+      "alert_type": "DoS",
+      "n_sentences": 11,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": true,
+      "flagged_strict": 4,
+      "flagged_lenient": 1,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "baseline",
+        "encryption",
+        "port",
+        "protocol",
+        "unit_wrong"
+      ],
+      "unit_wrong": true
+    },
+    {
+      "alert_id": "A129",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": true,
+      "flagged_strict": 2,
+      "flagged_lenient": 1,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "baseline",
+        "protocol",
+        "unit_wrong"
+      ],
+      "unit_wrong": true
+    },
+    {
+      "alert_id": "A130",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 9,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": true,
+      "flagged_strict": 2,
+      "flagged_lenient": 1,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "port",
+        "unit_wrong"
+      ],
+      "unit_wrong": true
+    },
+    {
+      "alert_id": "A131",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 11,
+      "strict": true,
+      "lenient": false,
+      "tier1": false,
+      "tier2": true,
+      "flagged_strict": 2,
+      "flagged_lenient": 0,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "encryption",
+        "protocol"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A133",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": true,
+      "flagged_strict": 5,
+      "flagged_lenient": 2,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "attack_technique",
+        "baseline",
+        "encryption",
+        "port",
+        "protocol",
+        "unit_wrong"
+      ],
+      "unit_wrong": true
+    },
+    {
+      "alert_id": "A134",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": false,
+      "tier1": false,
+      "tier2": true,
+      "flagged_strict": 1,
+      "flagged_lenient": 0,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "encryption",
+        "port"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A135",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": false,
+      "tier1": false,
+      "tier2": true,
+      "flagged_strict": 2,
+      "flagged_lenient": 0,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "baseline",
+        "port"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A136",
+      "group": "attack-flow",
+      "alert_type": "DDoS",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": true,
+      "flagged_strict": 3,
+      "flagged_lenient": 1,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "port",
+        "protocol",
+        "unit_wrong"
+      ],
+      "unit_wrong": true
+    },
+    {
+      "alert_id": "A137",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": true,
+      "flagged_strict": 2,
+      "flagged_lenient": 1,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "port",
+        "unit_wrong"
+      ],
+      "unit_wrong": true
+    },
+    {
+      "alert_id": "A138",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": false,
+      "tier1": false,
+      "tier2": true,
+      "flagged_strict": 1,
+      "flagged_lenient": 0,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "port"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A139",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": true,
+      "flagged_strict": 2,
+      "flagged_lenient": 1,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "attack_technique",
+        "port"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A141",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 11,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": true,
+      "flagged_strict": 2,
+      "flagged_lenient": 1,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "attack_technique",
+        "protocol"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A142",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 10,
+      "strict": false,
+      "lenient": false,
+      "tier1": false,
+      "tier2": false,
+      "flagged_strict": 0,
+      "flagged_lenient": 0,
+      "ambiguous_strict": 0,
+      "subtypes": [],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A143",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": false,
+      "flagged_strict": 1,
+      "flagged_lenient": 1,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "attack_technique"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A144",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": false,
+      "tier1": false,
+      "tier2": true,
+      "flagged_strict": 1,
+      "flagged_lenient": 0,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "protocol"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A145",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": true,
+      "flagged_strict": 4,
+      "flagged_lenient": 1,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "encryption",
+        "port",
+        "protocol",
+        "unit_wrong"
+      ],
+      "unit_wrong": true
+    },
+    {
+      "alert_id": "A146",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": false,
+      "tier1": false,
+      "tier2": true,
+      "flagged_strict": 1,
+      "flagged_lenient": 0,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "port"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A147",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 9,
+      "strict": true,
+      "lenient": false,
+      "tier1": false,
+      "tier2": true,
+      "flagged_strict": 1,
+      "flagged_lenient": 0,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "port"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A148",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": false,
+      "flagged_strict": 1,
+      "flagged_lenient": 1,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "attack_technique"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A149",
+      "group": "attack-flow",
+      "alert_type": "DoS",
+      "n_sentences": 9,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": true,
+      "flagged_strict": 3,
+      "flagged_lenient": 1,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "baseline",
+        "encryption",
+        "port",
+        "unit_wrong"
+      ],
+      "unit_wrong": true
+    },
+    {
+      "alert_id": "A150",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 9,
+      "strict": true,
+      "lenient": false,
+      "tier1": false,
+      "tier2": true,
+      "flagged_strict": 1,
+      "flagged_lenient": 0,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "port"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A151",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 11,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": true,
+      "flagged_strict": 3,
+      "flagged_lenient": 2,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "attack_technique",
+        "port",
+        "unit_wrong"
+      ],
+      "unit_wrong": true
+    },
+    {
+      "alert_id": "A152",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": true,
+      "flagged_strict": 3,
+      "flagged_lenient": 1,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "baseline",
+        "port",
+        "protocol",
+        "unit_wrong"
+      ],
+      "unit_wrong": true
+    },
+    {
+      "alert_id": "A153",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": true,
+      "flagged_strict": 3,
+      "flagged_lenient": 1,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "baseline",
+        "encryption",
+        "port",
+        "protocol",
+        "unit_wrong"
+      ],
+      "unit_wrong": true
+    },
+    {
+      "alert_id": "A154",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": false,
+      "tier1": false,
+      "tier2": true,
+      "flagged_strict": 2,
+      "flagged_lenient": 0,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "port"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A155",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": false,
+      "tier1": false,
+      "tier2": true,
+      "flagged_strict": 1,
+      "flagged_lenient": 0,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "encryption",
+        "port"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A156",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": false,
+      "tier1": false,
+      "tier2": true,
+      "flagged_strict": 1,
+      "flagged_lenient": 0,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "port"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A157",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": true,
+      "flagged_strict": 3,
+      "flagged_lenient": 1,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "baseline",
+        "port",
+        "protocol",
+        "unit_wrong"
+      ],
+      "unit_wrong": true
+    },
+    {
+      "alert_id": "A158",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 11,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": false,
+      "flagged_strict": 2,
+      "flagged_lenient": 2,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "attack_technique"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A159",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": false,
+      "tier1": false,
+      "tier2": true,
+      "flagged_strict": 1,
+      "flagged_lenient": 0,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "port"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A160",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": false,
+      "tier1": false,
+      "tier2": true,
+      "flagged_strict": 1,
+      "flagged_lenient": 0,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "encryption",
+        "port"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A161",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 11,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": false,
+      "flagged_strict": 1,
+      "flagged_lenient": 1,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "unit_wrong"
+      ],
+      "unit_wrong": true
+    },
+    {
+      "alert_id": "A162",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": false,
+      "tier1": false,
+      "tier2": true,
+      "flagged_strict": 1,
+      "flagged_lenient": 0,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "baseline",
+        "protocol"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A163",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": true,
+      "flagged_strict": 3,
+      "flagged_lenient": 1,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "port",
+        "unit_wrong"
+      ],
+      "unit_wrong": true
+    },
+    {
+      "alert_id": "A164",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": true,
+      "flagged_strict": 2,
+      "flagged_lenient": 1,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "port",
+        "unit_wrong"
+      ],
+      "unit_wrong": true
+    },
+    {
+      "alert_id": "A165",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 11,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": true,
+      "flagged_strict": 3,
+      "flagged_lenient": 1,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "attack_technique",
+        "baseline",
+        "port"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A166",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": false,
+      "tier1": false,
+      "tier2": true,
+      "flagged_strict": 3,
+      "flagged_lenient": 0,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "encryption",
+        "port",
+        "protocol"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A167",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 10,
+      "strict": false,
+      "lenient": false,
+      "tier1": false,
+      "tier2": false,
+      "flagged_strict": 0,
+      "flagged_lenient": 0,
+      "ambiguous_strict": 0,
+      "subtypes": [],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A168",
+      "group": "attack-flow",
+      "alert_type": "DoS",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": true,
+      "flagged_strict": 4,
+      "flagged_lenient": 1,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "port",
+        "protocol",
+        "unit_wrong"
+      ],
+      "unit_wrong": true
+    },
+    {
+      "alert_id": "A169",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 9,
+      "strict": true,
+      "lenient": false,
+      "tier1": false,
+      "tier2": true,
+      "flagged_strict": 2,
+      "flagged_lenient": 0,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "baseline",
+        "encryption",
+        "port"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A170",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": false,
+      "tier1": false,
+      "tier2": true,
+      "flagged_strict": 1,
+      "flagged_lenient": 0,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "port"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A171",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 11,
+      "strict": false,
+      "lenient": false,
+      "tier1": false,
+      "tier2": false,
+      "flagged_strict": 0,
+      "flagged_lenient": 0,
+      "ambiguous_strict": 0,
+      "subtypes": [],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A172",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": false,
+      "tier1": false,
+      "tier2": true,
+      "flagged_strict": 1,
+      "flagged_lenient": 0,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "port"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A173",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": false,
+      "tier1": false,
+      "tier2": true,
+      "flagged_strict": 1,
+      "flagged_lenient": 0,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "encryption",
+        "port"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A174",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 11,
+      "strict": true,
+      "lenient": false,
+      "tier1": false,
+      "tier2": true,
+      "flagged_strict": 3,
+      "flagged_lenient": 0,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "baseline",
+        "port"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A175",
+      "group": "attack-flow",
+      "alert_type": "Port Scanning",
+      "n_sentences": 11,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": false,
+      "flagged_strict": 1,
+      "flagged_lenient": 1,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "attack_technique"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A176",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": false,
+      "tier1": false,
+      "tier2": true,
+      "flagged_strict": 1,
+      "flagged_lenient": 0,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "port"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A177",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 9,
+      "strict": true,
+      "lenient": false,
+      "tier1": false,
+      "tier2": true,
+      "flagged_strict": 1,
+      "flagged_lenient": 0,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "port"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A178",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 11,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": true,
+      "flagged_strict": 3,
+      "flagged_lenient": 1,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "port",
+        "protocol",
+        "unit_wrong"
+      ],
+      "unit_wrong": true
+    },
+    {
+      "alert_id": "A179",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": true,
+      "flagged_strict": 3,
+      "flagged_lenient": 1,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "baseline",
+        "port",
+        "protocol",
+        "unit_wrong"
+      ],
+      "unit_wrong": true
+    },
+    {
+      "alert_id": "A180",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 9,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": true,
+      "flagged_strict": 2,
+      "flagged_lenient": 1,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "attack_technique",
+        "port"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A181",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": false,
+      "tier1": false,
+      "tier2": true,
+      "flagged_strict": 2,
+      "flagged_lenient": 0,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "port",
+        "protocol"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A182",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": true,
+      "flagged_strict": 2,
+      "flagged_lenient": 1,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "port",
+        "unit_wrong"
+      ],
+      "unit_wrong": true
+    },
+    {
+      "alert_id": "A183",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": false,
+      "tier1": false,
+      "tier2": true,
+      "flagged_strict": 1,
+      "flagged_lenient": 0,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "port"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A184",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 11,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": false,
+      "flagged_strict": 1,
+      "flagged_lenient": 1,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "attack_technique"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A185",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": true,
+      "flagged_strict": 3,
+      "flagged_lenient": 1,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "attack_technique",
+        "port",
+        "protocol"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A186",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 9,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": true,
+      "flagged_strict": 2,
+      "flagged_lenient": 1,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "port",
+        "unit_wrong"
+      ],
+      "unit_wrong": true
+    },
+    {
+      "alert_id": "A187",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 11,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": false,
+      "flagged_strict": 1,
+      "flagged_lenient": 1,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "impact_claim"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A188",
+      "group": "attack-flow",
+      "alert_type": "Port Scanning",
+      "n_sentences": 11,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": true,
+      "flagged_strict": 3,
+      "flagged_lenient": 1,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "attack_technique",
+        "port",
+        "protocol"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A189",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 10,
+      "strict": false,
+      "lenient": false,
+      "tier1": false,
+      "tier2": false,
+      "flagged_strict": 0,
+      "flagged_lenient": 0,
+      "ambiguous_strict": 0,
+      "subtypes": [],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A190",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": true,
+      "flagged_strict": 3,
+      "flagged_lenient": 1,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "baseline",
+        "encryption",
+        "port",
+        "protocol",
+        "unit_wrong"
+      ],
+      "unit_wrong": true
+    },
+    {
+      "alert_id": "A191",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": false,
+      "flagged_strict": 1,
+      "flagged_lenient": 1,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "attack_technique"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A192",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 8,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": true,
+      "flagged_strict": 2,
+      "flagged_lenient": 1,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "attack_technique",
+        "port"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A193",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 11,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": true,
+      "flagged_strict": 6,
+      "flagged_lenient": 1,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "baseline",
+        "encryption",
+        "port",
+        "protocol",
+        "unit_wrong"
+      ],
+      "unit_wrong": true
+    },
+    {
+      "alert_id": "A194",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 11,
+      "strict": false,
+      "lenient": false,
+      "tier1": false,
+      "tier2": false,
+      "flagged_strict": 0,
+      "flagged_lenient": 0,
+      "ambiguous_strict": 0,
+      "subtypes": [],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A195",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": true,
+      "flagged_strict": 2,
+      "flagged_lenient": 1,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "attack_technique",
+        "encryption",
+        "port"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A196",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": true,
+      "flagged_strict": 4,
+      "flagged_lenient": 1,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "attack_technique",
+        "port",
+        "protocol"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A197",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": true,
+      "flagged_strict": 3,
+      "flagged_lenient": 1,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "baseline",
+        "port",
+        "protocol",
+        "unit_wrong"
+      ],
+      "unit_wrong": true
+    },
+    {
+      "alert_id": "A198",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 9,
+      "strict": true,
+      "lenient": false,
+      "tier1": false,
+      "tier2": true,
+      "flagged_strict": 2,
+      "flagged_lenient": 0,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "baseline",
+        "port",
+        "protocol"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A199",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": true,
+      "flagged_strict": 2,
+      "flagged_lenient": 1,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "port",
+        "unit_wrong"
+      ],
+      "unit_wrong": true
+    },
+    {
+      "alert_id": "A200",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": true,
+      "flagged_strict": 2,
+      "flagged_lenient": 1,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "port",
+        "unit_wrong"
+      ],
+      "unit_wrong": true
+    },
+    {
+      "alert_id": "A201",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 11,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": true,
+      "flagged_strict": 2,
+      "flagged_lenient": 2,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "baseline",
+        "protocol",
+        "unit_wrong"
+      ],
+      "unit_wrong": true
+    },
+    {
+      "alert_id": "A202",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 11,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": false,
+      "flagged_strict": 2,
+      "flagged_lenient": 2,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "attack_technique",
+        "unit_wrong"
+      ],
+      "unit_wrong": true
+    },
+    {
+      "alert_id": "A203",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 9,
+      "strict": true,
+      "lenient": false,
+      "tier1": false,
+      "tier2": true,
+      "flagged_strict": 2,
+      "flagged_lenient": 0,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "port",
+        "protocol"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A204",
+      "group": "attack-flow",
+      "alert_type": "DoS",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": true,
+      "flagged_strict": 3,
+      "flagged_lenient": 2,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "attack_technique",
+        "port",
+        "unit_wrong"
+      ],
+      "unit_wrong": true
+    },
+    {
+      "alert_id": "A205",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": true,
+      "flagged_strict": 3,
+      "flagged_lenient": 1,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "baseline",
+        "port",
+        "unit_wrong"
+      ],
+      "unit_wrong": true
+    },
+    {
+      "alert_id": "A206",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 9,
+      "strict": true,
+      "lenient": false,
+      "tier1": false,
+      "tier2": true,
+      "flagged_strict": 1,
+      "flagged_lenient": 0,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "port"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A207",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": false,
+      "tier1": false,
+      "tier2": true,
+      "flagged_strict": 1,
+      "flagged_lenient": 0,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "port"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A208",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": false,
+      "tier1": false,
+      "tier2": true,
+      "flagged_strict": 1,
+      "flagged_lenient": 0,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "port"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A209",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 11,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": false,
+      "flagged_strict": 2,
+      "flagged_lenient": 2,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "attack_technique",
+        "impact_claim",
+        "unit_wrong"
+      ],
+      "unit_wrong": true
+    },
+    {
+      "alert_id": "A210",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 9,
+      "strict": true,
+      "lenient": false,
+      "tier1": false,
+      "tier2": true,
+      "flagged_strict": 2,
+      "flagged_lenient": 0,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "baseline",
+        "encryption"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A211",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 9,
+      "strict": true,
+      "lenient": false,
+      "tier1": false,
+      "tier2": true,
+      "flagged_strict": 4,
+      "flagged_lenient": 0,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "baseline",
+        "encryption",
+        "port",
+        "protocol",
+        "unit"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A212",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": true,
+      "flagged_strict": 3,
+      "flagged_lenient": 1,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "baseline",
+        "encryption",
+        "port",
+        "protocol",
+        "unit_wrong"
+      ],
+      "unit_wrong": true
+    },
+    {
+      "alert_id": "A213",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 10,
+      "strict": false,
+      "lenient": false,
+      "tier1": false,
+      "tier2": false,
+      "flagged_strict": 0,
+      "flagged_lenient": 0,
+      "ambiguous_strict": 0,
+      "subtypes": [],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A214",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": false,
+      "tier1": false,
+      "tier2": true,
+      "flagged_strict": 2,
+      "flagged_lenient": 0,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "port",
+        "protocol"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A215",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 11,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": false,
+      "flagged_strict": 1,
+      "flagged_lenient": 1,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "unit_wrong"
+      ],
+      "unit_wrong": true
+    },
+    {
+      "alert_id": "A216",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": true,
+      "flagged_strict": 3,
+      "flagged_lenient": 1,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "baseline",
+        "encryption",
+        "port",
+        "unit_wrong"
+      ],
+      "unit_wrong": true
+    },
+    {
+      "alert_id": "A217",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 8,
+      "strict": true,
+      "lenient": false,
+      "tier1": false,
+      "tier2": true,
+      "flagged_strict": 1,
+      "flagged_lenient": 0,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "port"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A218",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 11,
+      "strict": true,
+      "lenient": false,
+      "tier1": false,
+      "tier2": true,
+      "flagged_strict": 1,
+      "flagged_lenient": 0,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "port"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A219",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": true,
+      "flagged_strict": 2,
+      "flagged_lenient": 1,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "encryption",
+        "port",
+        "unit_wrong"
+      ],
+      "unit_wrong": true
+    },
+    {
+      "alert_id": "A220",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": false,
+      "tier1": false,
+      "tier2": true,
+      "flagged_strict": 1,
+      "flagged_lenient": 0,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "port"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A221",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": false,
+      "tier1": false,
+      "tier2": true,
+      "flagged_strict": 2,
+      "flagged_lenient": 0,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "encryption",
+        "port",
+        "protocol"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A222",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 11,
+      "strict": true,
+      "lenient": false,
+      "tier1": false,
+      "tier2": true,
+      "flagged_strict": 2,
+      "flagged_lenient": 0,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "baseline",
+        "port",
+        "protocol"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A223",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 11,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": false,
+      "flagged_strict": 2,
+      "flagged_lenient": 2,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "attack_technique",
+        "unit_wrong"
+      ],
+      "unit_wrong": true
+    },
+    {
+      "alert_id": "A224",
+      "group": "attack-flow",
+      "alert_type": "DDoS",
+      "n_sentences": 8,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": false,
+      "flagged_strict": 1,
+      "flagged_lenient": 1,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "unit_wrong"
+      ],
+      "unit_wrong": true
+    },
+    {
+      "alert_id": "A225",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": true,
+      "flagged_strict": 4,
+      "flagged_lenient": 2,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "attack_technique",
+        "baseline",
+        "encryption",
+        "port",
+        "protocol",
+        "unit_wrong"
+      ],
+      "unit_wrong": true
+    },
+    {
+      "alert_id": "A226",
+      "group": "attack-flow",
+      "alert_type": "DDoS",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": true,
+      "flagged_strict": 4,
+      "flagged_lenient": 1,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "baseline",
+        "encryption",
+        "protocol",
+        "unit_wrong"
+      ],
+      "unit_wrong": true
+    },
+    {
+      "alert_id": "A227",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": true,
+      "flagged_strict": 2,
+      "flagged_lenient": 1,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "port",
+        "unit_wrong"
+      ],
+      "unit_wrong": true
+    },
+    {
+      "alert_id": "A228",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": true,
+      "flagged_strict": 3,
+      "flagged_lenient": 1,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "encryption",
+        "port",
+        "protocol",
+        "unit_wrong"
+      ],
+      "unit_wrong": true
+    },
+    {
+      "alert_id": "A229",
+      "group": "attack-flow",
+      "alert_type": "Port Scanning",
+      "n_sentences": 11,
+      "strict": false,
+      "lenient": false,
+      "tier1": false,
+      "tier2": false,
+      "flagged_strict": 0,
+      "flagged_lenient": 0,
+      "ambiguous_strict": 0,
+      "subtypes": [],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A230",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 9,
+      "strict": true,
+      "lenient": false,
+      "tier1": false,
+      "tier2": true,
+      "flagged_strict": 1,
+      "flagged_lenient": 0,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "port"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A231",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": false,
+      "tier1": false,
+      "tier2": true,
+      "flagged_strict": 2,
+      "flagged_lenient": 0,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "baseline",
+        "port",
+        "protocol"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A232",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 11,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": true,
+      "flagged_strict": 2,
+      "flagged_lenient": 1,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "attack_technique",
+        "protocol"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A233",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": false,
+      "tier1": false,
+      "tier2": true,
+      "flagged_strict": 1,
+      "flagged_lenient": 0,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "port"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A234",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 9,
+      "strict": false,
+      "lenient": false,
+      "tier1": false,
+      "tier2": false,
+      "flagged_strict": 0,
+      "flagged_lenient": 0,
+      "ambiguous_strict": 0,
+      "subtypes": [],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A235",
+      "group": "attack-flow",
+      "alert_type": "Brute Force",
+      "n_sentences": 9,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": true,
+      "flagged_strict": 3,
+      "flagged_lenient": 1,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "port",
+        "protocol",
+        "unit_wrong"
+      ],
+      "unit_wrong": true
+    },
+    {
+      "alert_id": "A236",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 11,
+      "strict": true,
+      "lenient": false,
+      "tier1": false,
+      "tier2": true,
+      "flagged_strict": 1,
+      "flagged_lenient": 0,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "port"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A237",
+      "group": "attack-flow",
+      "alert_type": "DoS",
+      "n_sentences": 9,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": true,
+      "flagged_strict": 3,
+      "flagged_lenient": 1,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "encryption",
+        "port",
+        "protocol",
+        "unit_wrong"
+      ],
+      "unit_wrong": true
+    },
+    {
+      "alert_id": "A238",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": true,
+      "flagged_strict": 2,
+      "flagged_lenient": 1,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "port",
+        "unit_wrong"
+      ],
+      "unit_wrong": true
+    },
+    {
+      "alert_id": "A239",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 9,
+      "strict": true,
+      "lenient": false,
+      "tier1": false,
+      "tier2": true,
+      "flagged_strict": 1,
+      "flagged_lenient": 0,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "port"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A240",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 9,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": true,
+      "flagged_strict": 2,
+      "flagged_lenient": 1,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "port",
+        "unit_wrong"
+      ],
+      "unit_wrong": true
+    },
+    {
+      "alert_id": "A241",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 11,
+      "strict": true,
+      "lenient": false,
+      "tier1": false,
+      "tier2": true,
+      "flagged_strict": 2,
+      "flagged_lenient": 0,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "baseline",
+        "port",
+        "protocol"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A242",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": false,
+      "tier1": false,
+      "tier2": true,
+      "flagged_strict": 1,
+      "flagged_lenient": 0,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "baseline"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A243",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": true,
+      "flagged_strict": 3,
+      "flagged_lenient": 1,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "baseline",
+        "protocol",
+        "unit_wrong"
+      ],
+      "unit_wrong": true
+    },
+    {
+      "alert_id": "A244",
+      "group": "attack-flow",
+      "alert_type": "Port Scanning",
+      "n_sentences": 9,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": true,
+      "flagged_strict": 3,
+      "flagged_lenient": 2,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "attack_technique",
+        "impact_claim",
+        "port"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A245",
+      "group": "attack-flow",
+      "alert_type": "DDoS",
+      "n_sentences": 11,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": true,
+      "flagged_strict": 5,
+      "flagged_lenient": 2,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "attack_technique",
+        "port",
+        "protocol",
+        "unit_wrong"
+      ],
+      "unit_wrong": true
+    },
+    {
+      "alert_id": "A246",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 9,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": true,
+      "flagged_strict": 3,
+      "flagged_lenient": 1,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "attack_technique",
+        "encryption",
+        "port",
+        "protocol"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A247",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 9,
+      "strict": true,
+      "lenient": false,
+      "tier1": false,
+      "tier2": true,
+      "flagged_strict": 1,
+      "flagged_lenient": 0,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "baseline",
+        "protocol"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A248",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 11,
+      "strict": false,
+      "lenient": false,
+      "tier1": false,
+      "tier2": false,
+      "flagged_strict": 0,
+      "flagged_lenient": 0,
+      "ambiguous_strict": 0,
+      "subtypes": [],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A249",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": true,
+      "flagged_strict": 3,
+      "flagged_lenient": 2,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "attack_technique",
+        "baseline"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A250",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": false,
+      "tier1": false,
+      "tier2": true,
+      "flagged_strict": 1,
+      "flagged_lenient": 0,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "port"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A251",
+      "group": "attack-flow",
+      "alert_type": "DoS",
+      "n_sentences": 9,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": true,
+      "flagged_strict": 4,
+      "flagged_lenient": 1,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "baseline",
+        "encryption",
+        "protocol",
+        "unit_wrong"
+      ],
+      "unit_wrong": true
+    },
+    {
+      "alert_id": "A252",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 9,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": true,
+      "flagged_strict": 4,
+      "flagged_lenient": 2,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "attack_technique",
+        "encryption",
+        "impact_claim",
+        "port"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A253",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": false,
+      "flagged_strict": 1,
+      "flagged_lenient": 1,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "attack_technique"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A254",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 11,
+      "strict": false,
+      "lenient": false,
+      "tier1": false,
+      "tier2": false,
+      "flagged_strict": 0,
+      "flagged_lenient": 0,
+      "ambiguous_strict": 0,
+      "subtypes": [],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A255",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 9,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": true,
+      "flagged_strict": 2,
+      "flagged_lenient": 1,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "port",
+        "unit_wrong"
+      ],
+      "unit_wrong": true
+    },
+    {
+      "alert_id": "A256",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 11,
+      "strict": true,
+      "lenient": false,
+      "tier1": false,
+      "tier2": true,
+      "flagged_strict": 1,
+      "flagged_lenient": 0,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "port"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A257",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": false,
+      "tier1": false,
+      "tier2": true,
+      "flagged_strict": 2,
+      "flagged_lenient": 0,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "encryption",
+        "port"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A258",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 11,
+      "strict": true,
+      "lenient": false,
+      "tier1": false,
+      "tier2": true,
+      "flagged_strict": 1,
+      "flagged_lenient": 0,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "encryption",
+        "port"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A259",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 9,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": true,
+      "flagged_strict": 3,
+      "flagged_lenient": 1,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "attack_technique",
+        "encryption",
+        "port",
+        "protocol"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A260",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 11,
+      "strict": false,
+      "lenient": false,
+      "tier1": false,
+      "tier2": false,
+      "flagged_strict": 0,
+      "flagged_lenient": 0,
+      "ambiguous_strict": 0,
+      "subtypes": [],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A261",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": true,
+      "flagged_strict": 2,
+      "flagged_lenient": 1,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "attack_technique",
+        "port"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A262",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": false,
+      "tier1": false,
+      "tier2": true,
+      "flagged_strict": 1,
+      "flagged_lenient": 0,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "port"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A263",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": false,
+      "tier1": false,
+      "tier2": true,
+      "flagged_strict": 2,
+      "flagged_lenient": 0,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "encryption",
+        "port",
+        "protocol"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A264",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 10,
+      "strict": false,
+      "lenient": false,
+      "tier1": false,
+      "tier2": false,
+      "flagged_strict": 0,
+      "flagged_lenient": 0,
+      "ambiguous_strict": 0,
+      "subtypes": [],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A265",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": false,
+      "tier1": false,
+      "tier2": true,
+      "flagged_strict": 1,
+      "flagged_lenient": 0,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "port"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A266",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 8,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": true,
+      "flagged_strict": 2,
+      "flagged_lenient": 1,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "port",
+        "unit_wrong"
+      ],
+      "unit_wrong": true
+    },
+    {
+      "alert_id": "A267",
+      "group": "attack-flow",
+      "alert_type": "DoS",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": true,
+      "flagged_strict": 4,
+      "flagged_lenient": 1,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "baseline",
+        "port",
+        "unit_wrong"
+      ],
+      "unit_wrong": true
+    },
+    {
+      "alert_id": "A268",
+      "group": "attack-flow",
+      "alert_type": "DoS",
+      "n_sentences": 9,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": true,
+      "flagged_strict": 3,
+      "flagged_lenient": 1,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "baseline",
+        "encryption",
+        "port",
+        "unit_wrong"
+      ],
+      "unit_wrong": true
+    },
+    {
+      "alert_id": "A269",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": false,
+      "tier1": false,
+      "tier2": true,
+      "flagged_strict": 1,
+      "flagged_lenient": 0,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "encryption",
+        "port"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A270",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 11,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": true,
+      "flagged_strict": 2,
+      "flagged_lenient": 1,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "baseline",
+        "unit_wrong"
+      ],
+      "unit_wrong": true
+    },
+    {
+      "alert_id": "A271",
+      "group": "attack-flow",
+      "alert_type": "DoS",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": false,
+      "tier1": false,
+      "tier2": true,
+      "flagged_strict": 3,
+      "flagged_lenient": 0,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "encryption",
+        "port",
+        "protocol"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A272",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": false,
+      "tier1": false,
+      "tier2": true,
+      "flagged_strict": 2,
+      "flagged_lenient": 0,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "baseline",
+        "port"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A273",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": false,
+      "tier1": false,
+      "tier2": true,
+      "flagged_strict": 2,
+      "flagged_lenient": 0,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "port"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A274",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": false,
+      "tier1": false,
+      "tier2": true,
+      "flagged_strict": 1,
+      "flagged_lenient": 0,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "encryption",
+        "port"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A275",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 9,
+      "strict": true,
+      "lenient": false,
+      "tier1": false,
+      "tier2": true,
+      "flagged_strict": 1,
+      "flagged_lenient": 0,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "port"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A276",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": false,
+      "flagged_strict": 1,
+      "flagged_lenient": 1,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "unit_wrong"
+      ],
+      "unit_wrong": true
+    },
+    {
+      "alert_id": "A277",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": true,
+      "flagged_strict": 3,
+      "flagged_lenient": 1,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "baseline",
+        "port",
+        "unit_wrong"
+      ],
+      "unit_wrong": true
+    },
+    {
+      "alert_id": "A278",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": false,
+      "tier1": false,
+      "tier2": true,
+      "flagged_strict": 1,
+      "flagged_lenient": 0,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "port"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A279",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 11,
+      "strict": false,
+      "lenient": false,
+      "tier1": false,
+      "tier2": false,
+      "flagged_strict": 0,
+      "flagged_lenient": 0,
+      "ambiguous_strict": 0,
+      "subtypes": [],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A280",
+      "group": "attack-flow",
+      "alert_type": "DDoS",
+      "n_sentences": 11,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": true,
+      "flagged_strict": 2,
+      "flagged_lenient": 1,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "baseline",
+        "unit_wrong"
+      ],
+      "unit_wrong": true
+    },
+    {
+      "alert_id": "A281",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": true,
+      "flagged_strict": 2,
+      "flagged_lenient": 1,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "port",
+        "unit_wrong"
+      ],
+      "unit_wrong": true
+    },
+    {
+      "alert_id": "A282",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 8,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": true,
+      "flagged_strict": 2,
+      "flagged_lenient": 1,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "port",
+        "unit_wrong"
+      ],
+      "unit_wrong": true
+    },
+    {
+      "alert_id": "A283",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 9,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": true,
+      "flagged_strict": 2,
+      "flagged_lenient": 1,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "port",
+        "unit_wrong"
+      ],
+      "unit_wrong": true
+    },
+    {
+      "alert_id": "A284",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": false,
+      "tier1": false,
+      "tier2": true,
+      "flagged_strict": 1,
+      "flagged_lenient": 0,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "port"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A285",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": false,
+      "tier1": false,
+      "tier2": true,
+      "flagged_strict": 1,
+      "flagged_lenient": 0,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "port"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A286",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 11,
+      "strict": true,
+      "lenient": false,
+      "tier1": false,
+      "tier2": true,
+      "flagged_strict": 1,
+      "flagged_lenient": 0,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "encryption",
+        "port"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A287",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 11,
+      "strict": true,
+      "lenient": false,
+      "tier1": false,
+      "tier2": true,
+      "flagged_strict": 1,
+      "flagged_lenient": 0,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "port"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A288",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 11,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": true,
+      "flagged_strict": 3,
+      "flagged_lenient": 1,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "baseline",
+        "port",
+        "unit_wrong"
+      ],
+      "unit_wrong": true
+    },
+    {
+      "alert_id": "A289",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 11,
+      "strict": true,
+      "lenient": false,
+      "tier1": false,
+      "tier2": true,
+      "flagged_strict": 1,
+      "flagged_lenient": 0,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "baseline",
+        "protocol"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A290",
+      "group": "attack-flow",
+      "alert_type": "DoS",
+      "n_sentences": 11,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": true,
+      "flagged_strict": 3,
+      "flagged_lenient": 1,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "baseline",
+        "port",
+        "protocol",
+        "unit_wrong"
+      ],
+      "unit_wrong": true
+    },
+    {
+      "alert_id": "A291",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": false,
+      "tier1": false,
+      "tier2": true,
+      "flagged_strict": 1,
+      "flagged_lenient": 0,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "port"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A292",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 9,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": true,
+      "flagged_strict": 3,
+      "flagged_lenient": 1,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "encryption",
+        "port",
+        "protocol",
+        "unit_wrong"
+      ],
+      "unit_wrong": true
+    },
+    {
+      "alert_id": "A293",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 9,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": true,
+      "flagged_strict": 2,
+      "flagged_lenient": 1,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "baseline",
+        "unit_wrong"
+      ],
+      "unit_wrong": true
+    },
+    {
+      "alert_id": "A294",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 11,
+      "strict": true,
+      "lenient": false,
+      "tier1": false,
+      "tier2": true,
+      "flagged_strict": 2,
+      "flagged_lenient": 0,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "baseline",
+        "port"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A295",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": true,
+      "flagged_strict": 4,
+      "flagged_lenient": 1,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "baseline",
+        "encryption",
+        "port",
+        "protocol",
+        "unit_wrong"
+      ],
+      "unit_wrong": true
+    },
+    {
+      "alert_id": "A296",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 10,
+      "strict": false,
+      "lenient": false,
+      "tier1": false,
+      "tier2": false,
+      "flagged_strict": 0,
+      "flagged_lenient": 0,
+      "ambiguous_strict": 0,
+      "subtypes": [],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A297",
+      "group": "attack-flow",
+      "alert_type": "DDoS",
+      "n_sentences": 11,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": true,
+      "flagged_strict": 4,
+      "flagged_lenient": 2,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "attack_technique",
+        "baseline",
+        "encryption",
+        "port",
+        "protocol",
+        "unit_wrong"
+      ],
+      "unit_wrong": true
+    },
+    {
+      "alert_id": "A298",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": false,
+      "tier1": false,
+      "tier2": true,
+      "flagged_strict": 2,
+      "flagged_lenient": 0,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "baseline",
+        "port"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A299",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": false,
+      "tier1": false,
+      "tier2": true,
+      "flagged_strict": 1,
+      "flagged_lenient": 0,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "port"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A300",
+      "group": "attack-flow",
+      "alert_type": "Port Scanning",
+      "n_sentences": 11,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": true,
+      "flagged_strict": 2,
+      "flagged_lenient": 1,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "protocol",
+        "unit_wrong"
+      ],
+      "unit_wrong": true
+    },
+    {
+      "alert_id": "A301",
+      "group": "attack-flow",
+      "alert_type": "DoS",
+      "n_sentences": 11,
+      "strict": true,
+      "lenient": false,
+      "tier1": false,
+      "tier2": true,
+      "flagged_strict": 1,
+      "flagged_lenient": 0,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "protocol"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A302",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": true,
+      "flagged_strict": 2,
+      "flagged_lenient": 1,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "protocol",
+        "unit_wrong"
+      ],
+      "unit_wrong": true
+    },
+    {
+      "alert_id": "A303",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 9,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": true,
+      "flagged_strict": 4,
+      "flagged_lenient": 1,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "port",
+        "protocol",
+        "unit_wrong"
+      ],
+      "unit_wrong": true
+    },
+    {
+      "alert_id": "A304",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": true,
+      "flagged_strict": 4,
+      "flagged_lenient": 1,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "baseline",
+        "port",
+        "protocol",
+        "unit_wrong"
+      ],
+      "unit_wrong": true
+    },
+    {
+      "alert_id": "A305",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": true,
+      "flagged_strict": 3,
+      "flagged_lenient": 1,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "encryption",
+        "port",
+        "protocol",
+        "unit_wrong"
+      ],
+      "unit_wrong": true
+    },
+    {
+      "alert_id": "A306",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 11,
+      "strict": true,
+      "lenient": false,
+      "tier1": false,
+      "tier2": true,
+      "flagged_strict": 2,
+      "flagged_lenient": 0,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "encryption",
+        "port",
+        "protocol"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A307",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": true,
+      "flagged_strict": 3,
+      "flagged_lenient": 1,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "baseline",
+        "port",
+        "unit_wrong"
+      ],
+      "unit_wrong": true
+    },
+    {
+      "alert_id": "A308",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": true,
+      "flagged_strict": 3,
+      "flagged_lenient": 1,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "encryption",
+        "port",
+        "protocol",
+        "unit_wrong"
+      ],
+      "unit_wrong": true
+    },
+    {
+      "alert_id": "A309",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": false,
+      "tier1": false,
+      "tier2": true,
+      "flagged_strict": 2,
+      "flagged_lenient": 0,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "port",
+        "protocol"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A310",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 11,
+      "strict": true,
+      "lenient": false,
+      "tier1": false,
+      "tier2": true,
+      "flagged_strict": 1,
+      "flagged_lenient": 0,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "port"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A311",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 11,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": true,
+      "flagged_strict": 3,
+      "flagged_lenient": 2,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "port",
+        "unit_wrong"
+      ],
+      "unit_wrong": true
+    },
+    {
+      "alert_id": "A312",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": true,
+      "flagged_strict": 2,
+      "flagged_lenient": 1,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "attack_technique",
+        "port"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A313",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 11,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": false,
+      "flagged_strict": 2,
+      "flagged_lenient": 2,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "unit_wrong"
+      ],
+      "unit_wrong": true
+    },
+    {
+      "alert_id": "A314",
+      "group": "attack-flow",
+      "alert_type": "DoS",
+      "n_sentences": 9,
+      "strict": true,
+      "lenient": false,
+      "tier1": false,
+      "tier2": true,
+      "flagged_strict": 1,
+      "flagged_lenient": 0,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "baseline",
+        "protocol"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A315",
+      "group": "attack-flow",
+      "alert_type": "DoS",
+      "n_sentences": 9,
+      "strict": true,
+      "lenient": false,
+      "tier1": false,
+      "tier2": true,
+      "flagged_strict": 1,
+      "flagged_lenient": 0,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "encryption",
+        "port"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A316",
+      "group": "attack-flow",
+      "alert_type": "Port Scanning",
+      "n_sentences": 11,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": true,
+      "flagged_strict": 2,
+      "flagged_lenient": 1,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "port",
+        "unit_wrong"
+      ],
+      "unit_wrong": true
+    },
+    {
+      "alert_id": "A317",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 11,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": true,
+      "flagged_strict": 5,
+      "flagged_lenient": 4,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "attack_technique",
+        "port",
+        "unit_wrong"
+      ],
+      "unit_wrong": true
+    },
+    {
+      "alert_id": "A318",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 9,
+      "strict": true,
+      "lenient": false,
+      "tier1": false,
+      "tier2": true,
+      "flagged_strict": 1,
+      "flagged_lenient": 0,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "encryption",
+        "port"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A319",
+      "group": "attack-flow",
+      "alert_type": "Port Scanning",
+      "n_sentences": 9,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": true,
+      "flagged_strict": 2,
+      "flagged_lenient": 1,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "attack_technique",
+        "port"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A320",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 11,
+      "strict": false,
+      "lenient": false,
+      "tier1": false,
+      "tier2": false,
+      "flagged_strict": 0,
+      "flagged_lenient": 0,
+      "ambiguous_strict": 0,
+      "subtypes": [],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A321",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 9,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": true,
+      "flagged_strict": 2,
+      "flagged_lenient": 1,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "port",
+        "unit_wrong"
+      ],
+      "unit_wrong": true
+    },
+    {
+      "alert_id": "A322",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 11,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": true,
+      "flagged_strict": 2,
+      "flagged_lenient": 1,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "port",
+        "unit_wrong"
+      ],
+      "unit_wrong": true
+    },
+    {
+      "alert_id": "A323",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": false,
+      "tier1": false,
+      "tier2": true,
+      "flagged_strict": 1,
+      "flagged_lenient": 0,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "port"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A324",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": false,
+      "tier1": false,
+      "tier2": true,
+      "flagged_strict": 1,
+      "flagged_lenient": 0,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "port"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A325",
+      "group": "attack-flow",
+      "alert_type": "DoS",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": false,
+      "flagged_strict": 1,
+      "flagged_lenient": 1,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "unit_wrong"
+      ],
+      "unit_wrong": true
+    },
+    {
+      "alert_id": "A326",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 9,
+      "strict": true,
+      "lenient": false,
+      "tier1": false,
+      "tier2": true,
+      "flagged_strict": 1,
+      "flagged_lenient": 0,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "port"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A327",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": false,
+      "tier1": false,
+      "tier2": true,
+      "flagged_strict": 2,
+      "flagged_lenient": 0,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "baseline",
+        "encryption",
+        "port",
+        "protocol"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A328",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": true,
+      "flagged_strict": 3,
+      "flagged_lenient": 2,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "attack_technique",
+        "port"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A329",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 9,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": false,
+      "flagged_strict": 1,
+      "flagged_lenient": 1,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "attack_technique"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A330",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": false,
+      "tier1": false,
+      "tier2": true,
+      "flagged_strict": 2,
+      "flagged_lenient": 0,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "baseline",
+        "encryption",
+        "port",
+        "protocol"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A331",
+      "group": "attack-flow",
+      "alert_type": "DoS",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": false,
+      "tier1": false,
+      "tier2": true,
+      "flagged_strict": 2,
+      "flagged_lenient": 0,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "baseline",
+        "encryption",
+        "port",
+        "protocol"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A332",
+      "group": "attack-flow",
+      "alert_type": "DDoS",
+      "n_sentences": 9,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": true,
+      "flagged_strict": 2,
+      "flagged_lenient": 1,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "protocol",
+        "unit_wrong"
+      ],
+      "unit_wrong": true
+    },
+    {
+      "alert_id": "A333",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": false,
+      "tier1": false,
+      "tier2": true,
+      "flagged_strict": 2,
+      "flagged_lenient": 0,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "port"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A334",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": true,
+      "flagged_strict": 4,
+      "flagged_lenient": 1,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "baseline",
+        "port",
+        "protocol",
+        "unit_wrong"
+      ],
+      "unit_wrong": true
+    },
+    {
+      "alert_id": "A335",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 11,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": false,
+      "flagged_strict": 1,
+      "flagged_lenient": 1,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "attack_technique"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A336",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 9,
+      "strict": true,
+      "lenient": false,
+      "tier1": false,
+      "tier2": true,
+      "flagged_strict": 1,
+      "flagged_lenient": 0,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "baseline"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A337",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 8,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": true,
+      "flagged_strict": 3,
+      "flagged_lenient": 1,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "baseline",
+        "port",
+        "unit_wrong"
+      ],
+      "unit_wrong": true
+    },
+    {
+      "alert_id": "A338",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": true,
+      "flagged_strict": 2,
+      "flagged_lenient": 1,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "baseline",
+        "unit_wrong"
+      ],
+      "unit_wrong": true
+    },
+    {
+      "alert_id": "A339",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 11,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": true,
+      "flagged_strict": 2,
+      "flagged_lenient": 1,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "attack_technique",
+        "protocol"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A340",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 9,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": true,
+      "flagged_strict": 3,
+      "flagged_lenient": 1,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "port",
+        "protocol",
+        "unit_wrong"
+      ],
+      "unit_wrong": true
+    },
+    {
+      "alert_id": "A341",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 8,
+      "strict": false,
+      "lenient": false,
+      "tier1": false,
+      "tier2": false,
+      "flagged_strict": 0,
+      "flagged_lenient": 0,
+      "ambiguous_strict": 0,
+      "subtypes": [],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A342",
+      "group": "attack-flow",
+      "alert_type": "DDoS",
+      "n_sentences": 11,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": true,
+      "flagged_strict": 5,
+      "flagged_lenient": 1,
+      "ambiguous_strict": 1,
+      "subtypes": [
+        "baseline",
+        "encryption",
+        "port",
+        "protocol",
+        "unit_wrong"
+      ],
+      "unit_wrong": true
+    },
+    {
+      "alert_id": "A343",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": false,
+      "tier1": false,
+      "tier2": true,
+      "flagged_strict": 1,
+      "flagged_lenient": 0,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "port"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A344",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 11,
+      "strict": false,
+      "lenient": false,
+      "tier1": false,
+      "tier2": false,
+      "flagged_strict": 0,
+      "flagged_lenient": 0,
+      "ambiguous_strict": 0,
+      "subtypes": [],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A345",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": false,
+      "tier1": false,
+      "tier2": true,
+      "flagged_strict": 1,
+      "flagged_lenient": 0,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "port"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A346",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": true,
+      "flagged_strict": 3,
+      "flagged_lenient": 2,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "attack_technique",
+        "protocol",
+        "unit_wrong"
+      ],
+      "unit_wrong": true
+    },
+    {
+      "alert_id": "A347",
+      "group": "attack-flow",
+      "alert_type": "DDoS",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": false,
+      "tier1": false,
+      "tier2": true,
+      "flagged_strict": 1,
+      "flagged_lenient": 0,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "port"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A348",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 9,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": false,
+      "flagged_strict": 1,
+      "flagged_lenient": 1,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "unit_wrong"
+      ],
+      "unit_wrong": true
+    },
+    {
+      "alert_id": "A349",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 11,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": true,
+      "flagged_strict": 3,
+      "flagged_lenient": 2,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "attack_technique",
+        "port",
+        "unit_wrong"
+      ],
+      "unit_wrong": true
+    },
+    {
+      "alert_id": "A350",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": true,
+      "flagged_strict": 2,
+      "flagged_lenient": 1,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "port",
+        "unit_wrong"
+      ],
+      "unit_wrong": true
+    },
+    {
+      "alert_id": "A351",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 9,
+      "strict": true,
+      "lenient": false,
+      "tier1": false,
+      "tier2": true,
+      "flagged_strict": 1,
+      "flagged_lenient": 0,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "port"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A352",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": true,
+      "flagged_strict": 2,
+      "flagged_lenient": 1,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "encryption",
+        "unit_wrong"
+      ],
+      "unit_wrong": true
+    },
+    {
+      "alert_id": "A353",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": true,
+      "flagged_strict": 2,
+      "flagged_lenient": 1,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "port",
+        "unit_wrong"
+      ],
+      "unit_wrong": true
+    },
+    {
+      "alert_id": "A354",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 9,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": false,
+      "flagged_strict": 1,
+      "flagged_lenient": 1,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "attack_technique"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A355",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 11,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": true,
+      "flagged_strict": 2,
+      "flagged_lenient": 1,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "port",
+        "unit_wrong"
+      ],
+      "unit_wrong": true
+    },
+    {
+      "alert_id": "A356",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 9,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": false,
+      "flagged_strict": 1,
+      "flagged_lenient": 1,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "unit_wrong"
+      ],
+      "unit_wrong": true
+    },
+    {
+      "alert_id": "A357",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": false,
+      "tier1": false,
+      "tier2": true,
+      "flagged_strict": 2,
+      "flagged_lenient": 0,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "port"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A358",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 9,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": true,
+      "flagged_strict": 3,
+      "flagged_lenient": 1,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "port",
+        "protocol",
+        "unit_wrong"
+      ],
+      "unit_wrong": true
+    },
+    {
+      "alert_id": "A359",
+      "group": "attack-flow",
+      "alert_type": "DDoS",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": false,
+      "tier1": false,
+      "tier2": true,
+      "flagged_strict": 2,
+      "flagged_lenient": 0,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "encryption",
+        "port",
+        "protocol"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A360",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": false,
+      "tier1": false,
+      "tier2": true,
+      "flagged_strict": 2,
+      "flagged_lenient": 0,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "baseline",
+        "encryption",
+        "port"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A361",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 11,
+      "strict": true,
+      "lenient": false,
+      "tier1": false,
+      "tier2": true,
+      "flagged_strict": 1,
+      "flagged_lenient": 0,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "encryption",
+        "port"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A362",
+      "group": "attack-flow",
+      "alert_type": "Port Scanning",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": false,
+      "tier1": false,
+      "tier2": true,
+      "flagged_strict": 1,
+      "flagged_lenient": 0,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "port"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A363",
+      "group": "attack-flow",
+      "alert_type": "Brute Force",
+      "n_sentences": 11,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": true,
+      "flagged_strict": 3,
+      "flagged_lenient": 2,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "attack_technique",
+        "port"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A364",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": false,
+      "tier1": false,
+      "tier2": true,
+      "flagged_strict": 1,
+      "flagged_lenient": 0,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "port"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A365",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": false,
+      "flagged_strict": 1,
+      "flagged_lenient": 1,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "unit_wrong"
+      ],
+      "unit_wrong": true
+    },
+    {
+      "alert_id": "A366",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 11,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": false,
+      "flagged_strict": 1,
+      "flagged_lenient": 1,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "attack_technique"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A367",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 9,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": true,
+      "flagged_strict": 2,
+      "flagged_lenient": 1,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "port",
+        "unit_wrong"
+      ],
+      "unit_wrong": true
+    },
+    {
+      "alert_id": "A368",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": true,
+      "flagged_strict": 2,
+      "flagged_lenient": 1,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "encryption",
+        "port",
+        "unit_wrong"
+      ],
+      "unit_wrong": true
+    },
+    {
+      "alert_id": "A369",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 9,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": true,
+      "flagged_strict": 3,
+      "flagged_lenient": 1,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "baseline",
+        "encryption",
+        "port",
+        "unit_wrong"
+      ],
+      "unit_wrong": true
+    },
+    {
+      "alert_id": "A370",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": false,
+      "tier1": false,
+      "tier2": true,
+      "flagged_strict": 1,
+      "flagged_lenient": 0,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "port"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A371",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 11,
+      "strict": true,
+      "lenient": false,
+      "tier1": false,
+      "tier2": true,
+      "flagged_strict": 1,
+      "flagged_lenient": 0,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "port"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A372",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": false,
+      "tier1": false,
+      "tier2": true,
+      "flagged_strict": 2,
+      "flagged_lenient": 0,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "baseline",
+        "port"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A373",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 9,
+      "strict": false,
+      "lenient": false,
+      "tier1": false,
+      "tier2": false,
+      "flagged_strict": 0,
+      "flagged_lenient": 0,
+      "ambiguous_strict": 0,
+      "subtypes": [],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A374",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": false,
+      "tier1": false,
+      "tier2": true,
+      "flagged_strict": 2,
+      "flagged_lenient": 0,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "port"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A375",
+      "group": "attack-flow",
+      "alert_type": "DoS",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": true,
+      "flagged_strict": 3,
+      "flagged_lenient": 1,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "baseline",
+        "encryption",
+        "port",
+        "unit_wrong"
+      ],
+      "unit_wrong": true
+    },
+    {
+      "alert_id": "A376",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": true,
+      "flagged_strict": 3,
+      "flagged_lenient": 1,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "baseline",
+        "protocol",
+        "unit_wrong"
+      ],
+      "unit_wrong": true
+    },
+    {
+      "alert_id": "A377",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 9,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": true,
+      "flagged_strict": 3,
+      "flagged_lenient": 2,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "attack_technique",
+        "port",
+        "unit_wrong"
+      ],
+      "unit_wrong": true
+    },
+    {
+      "alert_id": "A378",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 11,
+      "strict": false,
+      "lenient": false,
+      "tier1": false,
+      "tier2": false,
+      "flagged_strict": 0,
+      "flagged_lenient": 0,
+      "ambiguous_strict": 0,
+      "subtypes": [],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A379",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 8,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": true,
+      "flagged_strict": 3,
+      "flagged_lenient": 2,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "attack_technique",
+        "port",
+        "unit_wrong"
+      ],
+      "unit_wrong": true
+    },
+    {
+      "alert_id": "A380",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 11,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": true,
+      "flagged_strict": 2,
+      "flagged_lenient": 1,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "port",
+        "unit_wrong"
+      ],
+      "unit_wrong": true
+    },
+    {
+      "alert_id": "A381",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 9,
+      "strict": true,
+      "lenient": false,
+      "tier1": false,
+      "tier2": true,
+      "flagged_strict": 1,
+      "flagged_lenient": 0,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "port"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A382",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 11,
+      "strict": true,
+      "lenient": false,
+      "tier1": false,
+      "tier2": true,
+      "flagged_strict": 1,
+      "flagged_lenient": 0,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "protocol"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A383",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 11,
+      "strict": true,
+      "lenient": false,
+      "tier1": false,
+      "tier2": true,
+      "flagged_strict": 1,
+      "flagged_lenient": 0,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "encryption",
+        "port"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A384",
+      "group": "attack-flow",
+      "alert_type": "DoS",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": false,
+      "tier1": false,
+      "tier2": true,
+      "flagged_strict": 3,
+      "flagged_lenient": 0,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "encryption",
+        "port",
+        "protocol"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A385",
+      "group": "attack-flow",
+      "alert_type": "Brute Force",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": true,
+      "flagged_strict": 4,
+      "flagged_lenient": 1,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "port",
+        "protocol",
+        "unit_wrong"
+      ],
+      "unit_wrong": true
+    },
+    {
+      "alert_id": "A386",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": true,
+      "flagged_strict": 2,
+      "flagged_lenient": 1,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "encryption",
+        "port",
+        "unit_wrong"
+      ],
+      "unit_wrong": true
+    },
+    {
+      "alert_id": "A387",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": true,
+      "flagged_strict": 2,
+      "flagged_lenient": 1,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "port",
+        "unit_wrong"
+      ],
+      "unit_wrong": true
+    },
+    {
+      "alert_id": "A388",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 9,
+      "strict": true,
+      "lenient": false,
+      "tier1": false,
+      "tier2": true,
+      "flagged_strict": 1,
+      "flagged_lenient": 0,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "port"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A389",
+      "group": "attack-flow",
+      "alert_type": "DDoS",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": true,
+      "flagged_strict": 2,
+      "flagged_lenient": 1,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "baseline",
+        "protocol",
+        "unit_wrong"
+      ],
+      "unit_wrong": true
+    },
+    {
+      "alert_id": "A390",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 9,
+      "strict": true,
+      "lenient": false,
+      "tier1": false,
+      "tier2": true,
+      "flagged_strict": 1,
+      "flagged_lenient": 0,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "encryption",
+        "port"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A391",
+      "group": "attack-flow",
+      "alert_type": "Port Scanning",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": false,
+      "flagged_strict": 1,
+      "flagged_lenient": 1,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "attack_technique"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A392",
+      "group": "attack-flow",
+      "alert_type": "DDoS",
+      "n_sentences": 11,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": true,
+      "flagged_strict": 2,
+      "flagged_lenient": 1,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "port",
+        "unit_wrong"
+      ],
+      "unit_wrong": true
+    },
+    {
+      "alert_id": "A393",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": true,
+      "flagged_strict": 2,
+      "flagged_lenient": 1,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "attack_technique",
+        "port"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A394",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 11,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": false,
+      "flagged_strict": 1,
+      "flagged_lenient": 1,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "attack_technique"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A395",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": true,
+      "flagged_strict": 3,
+      "flagged_lenient": 1,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "attack_technique",
+        "port",
+        "protocol"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A396",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 11,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": true,
+      "flagged_strict": 4,
+      "flagged_lenient": 2,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "attack_technique",
+        "encryption",
+        "port",
+        "protocol",
+        "unit_wrong"
+      ],
+      "unit_wrong": true
+    },
+    {
+      "alert_id": "A397",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": false,
+      "flagged_strict": 1,
+      "flagged_lenient": 1,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "attack_technique"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A398",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 11,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": true,
+      "flagged_strict": 2,
+      "flagged_lenient": 1,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "attack_technique",
+        "port"
+      ],
+      "unit_wrong": false
+    },
+    {
+      "alert_id": "A399",
+      "group": "benign-flow",
+      "alert_type": "Normal Traffic",
+      "n_sentences": 10,
+      "strict": true,
+      "lenient": true,
+      "tier1": true,
+      "tier2": false,
+      "flagged_strict": 1,
+      "flagged_lenient": 1,
+      "ambiguous_strict": 0,
+      "subtypes": [
+        "unit_wrong"
+      ],
+      "unit_wrong": true
+    },
+    {
+      "alert_id": "A400",
+      "group": "attack-flow",
+      "alert_type": "Port Scanning",
+      "n_sentences": 10,
+      "strict": false,
+      "lenient": false,
+      "tier1": false,
+      "tier2": false,
+      "flagged_strict": 0,
+      "flagged_lenient": 0,
+      "ambiguous_strict": 0,
+      "subtypes": [],
+      "unit_wrong": false
+    }
+  ]
+}

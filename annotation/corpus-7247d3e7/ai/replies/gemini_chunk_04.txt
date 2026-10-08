@@ -1,0 +1,48 @@
+﻿E016-01 | hallucinated | port | no | other_knowledge | rsync service details |
+E016-02 | hallucinated | other_knowledge | no | | sensitive data transfer |
+E016-03 | grounded | | | | |
+E016-04 | grounded | | | | |
+E016-05 | hallucinated | protocol | yes | | |
+E016-06 | hallucinated | attack_technique | yes | port | |
+E016-07 | grounded | | | | |
+E016-08 | hallucinated | baseline | no | | |
+E016-09 | grounded | | | | |
+E017-01 | grounded | | | | |
+E017-02 | hallucinated | port | no | | |
+E017-03 | grounded | | | | |
+E017-04 | grounded | | | | |
+E017-05 | grounded | | | | |
+E017-06 | hallucinated | protocol | yes | | |
+E017-07 | grounded | | | | |
+E017-08 | grounded | | | | |
+E017-09 | hallucinated | baseline | no | | |
+E017-10 | hallucinated | attack_technique | yes | port | |
+E018-01 | hallucinated | port | no | | |
+E018-02 | hallucinated | unit_wrong | no | baseline | |
+E018-03 | grounded | | | | |
+E018-04 | grounded | | | | |
+E018-05 | hallucinated | baseline, protocol | no | | |
+E018-06 | hallucinated | baseline | no | | |
+E018-07 | hallucinated | protocol | yes | | |
+E018-08 | hallucinated | protocol | no | | |
+E018-09 | grounded | | | | |
+E019-01 | grounded | | | | |
+E019-02 | hallucinated | port | no | | |
+E019-03 | grounded | | | | |
+E019-04 | grounded | | | | |
+E019-05 | hallucinated | protocol | yes | | |
+E019-06 | hallucinated | protocol | no | | |
+E019-07 | hallucinated | other_knowledge | no | | purpose of communication assumption |
+E019-08 | grounded | | | | |
+E019-09 | hallucinated | baseline | no | | |
+E019-10 | hallucinated | protocol | no | | |
+E019-11 | grounded | | | | |
+E020-01 | hallucinated | port | no | | |
+E020-02 | grounded | | | | |
+E020-03 | hallucinated | protocol | yes | encryption | |
+E020-04 | grounded | | | | |
+E020-05 | grounded | | | | |
+E020-06 | grounded | | | | |
+E020-07 | hallucinated | baseline | no | | |
+E020-08 | hallucinated | other_knowledge | no | | burst activity assumption |
+E020-09 | hallucinated | baseline | no | | |

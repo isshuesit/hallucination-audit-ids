@@ -1,0 +1,6687 @@
+[
+  {
+    "alert_id": "A012",
+    "sentence_id": "S1",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A012",
+    "sentence_id": "S2",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A012",
+    "sentence_id": "S3",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A012",
+    "sentence_id": "S4",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A012",
+    "sentence_id": "S5",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A012",
+    "sentence_id": "S6",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A012",
+    "sentence_id": "S7",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A012",
+    "sentence_id": "S8",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A012",
+    "sentence_id": "S9",
+    "action": "QUALIFY",
+    "reason": "Named attack technique \u2014 not derivable from flow numbers: ['network scanning']",
+    "hallucination_type": "reasoning"
+  },
+  {
+    "alert_id": "A012",
+    "sentence_id": "S10",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A014",
+    "sentence_id": "S1",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A014",
+    "sentence_id": "S2",
+    "action": "KEEP",
+    "reason": "Port characterization \u2014 labelling a port's purpose is external knowledge: ['commonly used for']",
+    "hallucination_type": "external_knowledge"
+  },
+  {
+    "alert_id": "A014",
+    "sentence_id": "S3",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A014",
+    "sentence_id": "S4",
+    "action": "QUALIFY",
+    "reason": "Unit assumption \u2014 raw flow duration has no guaranteed unit: ['duration of approximately 92 seconds']",
+    "hallucination_type": "external_knowledge"
+  },
+  {
+    "alert_id": "A014",
+    "sentence_id": "S5",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A014",
+    "sentence_id": "S6",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A014",
+    "sentence_id": "S7",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A014",
+    "sentence_id": "S8",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A014",
+    "sentence_id": "S9",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A014",
+    "sentence_id": "S10",
+    "action": "QUALIFY",
+    "reason": "Named attack technique \u2014 not derivable from flow numbers: ['DNS tunneling', 'data exfiltration']",
+    "hallucination_type": "reasoning"
+  },
+  {
+    "alert_id": "A015",
+    "sentence_id": "S1",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A015",
+    "sentence_id": "S2",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A015",
+    "sentence_id": "S3",
+    "action": "KEEP",
+    "reason": "Port characterization \u2014 labelling a port's purpose is external knowledge: ['commonly used for']",
+    "hallucination_type": "external_knowledge"
+  },
+  {
+    "alert_id": "A015",
+    "sentence_id": "S4",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A015",
+    "sentence_id": "S5",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A015",
+    "sentence_id": "S6",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A015",
+    "sentence_id": "S7",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A015",
+    "sentence_id": "S8",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A015",
+    "sentence_id": "S9",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A015",
+    "sentence_id": "S10",
+    "action": "QUALIFY",
+    "reason": "Named attack technique \u2014 not derivable from flow numbers: ['data exfiltration', 'DNS tunneling']",
+    "hallucination_type": "reasoning"
+  },
+  {
+    "alert_id": "A017",
+    "sentence_id": "S1",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A017",
+    "sentence_id": "S2",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A017",
+    "sentence_id": "S3",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A017",
+    "sentence_id": "S4",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A017",
+    "sentence_id": "S5",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A017",
+    "sentence_id": "S6",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A017",
+    "sentence_id": "S7",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A017",
+    "sentence_id": "S8",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A017",
+    "sentence_id": "S9",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A017",
+    "sentence_id": "S10",
+    "action": "KEEP",
+    "reason": "Named attack technique \u2014 not derivable from flow numbers: ['port scan']",
+    "hallucination_type": "reasoning"
+  },
+  {
+    "alert_id": "A022",
+    "sentence_id": "S1",
+    "action": "KEEP",
+    "reason": "Port characterization \u2014 labelling a port's purpose is external knowledge: ['typically used for']",
+    "hallucination_type": "external_knowledge"
+  },
+  {
+    "alert_id": "A022",
+    "sentence_id": "S2",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A022",
+    "sentence_id": "S3",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A022",
+    "sentence_id": "S4",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A022",
+    "sentence_id": "S5",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A022",
+    "sentence_id": "S6",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A022",
+    "sentence_id": "S7",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A022",
+    "sentence_id": "S8",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A022",
+    "sentence_id": "S9",
+    "action": "QUALIFY",
+    "reason": "Named attack technique \u2014 not derivable from flow numbers: ['reconnaissance']",
+    "hallucination_type": "reasoning"
+  },
+  {
+    "alert_id": "A022",
+    "sentence_id": "S10",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A025",
+    "sentence_id": "S1",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A025",
+    "sentence_id": "S2",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A025",
+    "sentence_id": "S3",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A025",
+    "sentence_id": "S4",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A025",
+    "sentence_id": "S5",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A025",
+    "sentence_id": "S6",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A025",
+    "sentence_id": "S7",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A025",
+    "sentence_id": "S8",
+    "action": "QUALIFY",
+    "reason": "Named attack technique \u2014 not derivable from flow numbers: ['reconnaissance', 'port scan']",
+    "hallucination_type": "reasoning"
+  },
+  {
+    "alert_id": "A025",
+    "sentence_id": "S9",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A028",
+    "sentence_id": "S1",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A028",
+    "sentence_id": "S2",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A028",
+    "sentence_id": "S3",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A028",
+    "sentence_id": "S4",
+    "action": "QUALIFY",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": "external_knowledge"
+  },
+  {
+    "alert_id": "A028",
+    "sentence_id": "S5",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A028",
+    "sentence_id": "S6",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A028",
+    "sentence_id": "S7",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A028",
+    "sentence_id": "S8",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A028",
+    "sentence_id": "S9",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A028",
+    "sentence_id": "S10",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A028",
+    "sentence_id": "S11",
+    "action": "QUALIFY",
+    "reason": "Named attack technique \u2014 not derivable from flow numbers: ['reconnaissance']",
+    "hallucination_type": "reasoning"
+  },
+  {
+    "alert_id": "A031",
+    "sentence_id": "S1",
+    "action": "KEEP",
+    "reason": "Port characterization \u2014 labelling a port's purpose is external knowledge: ['commonly used for']",
+    "hallucination_type": "external_knowledge"
+  },
+  {
+    "alert_id": "A031",
+    "sentence_id": "S2",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A031",
+    "sentence_id": "S3",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A031",
+    "sentence_id": "S4",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A031",
+    "sentence_id": "S5",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A031",
+    "sentence_id": "S6",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A031",
+    "sentence_id": "S7",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A031",
+    "sentence_id": "S8",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A031",
+    "sentence_id": "S9",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A031",
+    "sentence_id": "S10",
+    "action": "QUALIFY",
+    "reason": "Named attack technique \u2014 not derivable from flow numbers: ['port scan']",
+    "hallucination_type": "reasoning"
+  },
+  {
+    "alert_id": "A039",
+    "sentence_id": "S1",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A039",
+    "sentence_id": "S2",
+    "action": "KEEP",
+    "reason": "Port characterization \u2014 labelling a port's purpose is external knowledge: ['commonly used for']",
+    "hallucination_type": "external_knowledge"
+  },
+  {
+    "alert_id": "A039",
+    "sentence_id": "S3",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A039",
+    "sentence_id": "S4",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A039",
+    "sentence_id": "S5",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A039",
+    "sentence_id": "S6",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A039",
+    "sentence_id": "S7",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A039",
+    "sentence_id": "S8",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A039",
+    "sentence_id": "S9",
+    "action": "QUALIFY",
+    "reason": "Named attack technique \u2014 not derivable from flow numbers: ['reconnaissance', 'port scan']",
+    "hallucination_type": "reasoning"
+  },
+  {
+    "alert_id": "A040",
+    "sentence_id": "S1",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A040",
+    "sentence_id": "S2",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A040",
+    "sentence_id": "S3",
+    "action": "KEEP",
+    "reason": "Port characterization \u2014 labelling a port's purpose is external knowledge: ['commonly associated with']",
+    "hallucination_type": "external_knowledge"
+  },
+  {
+    "alert_id": "A040",
+    "sentence_id": "S4",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A040",
+    "sentence_id": "S5",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A040",
+    "sentence_id": "S6",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A040",
+    "sentence_id": "S7",
+    "action": "QUALIFY",
+    "reason": "Unit assumption \u2014 raw flow duration has no guaranteed unit: ['duration of 86 seconds']",
+    "hallucination_type": "external_knowledge"
+  },
+  {
+    "alert_id": "A040",
+    "sentence_id": "S8",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A040",
+    "sentence_id": "S9",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A040",
+    "sentence_id": "S10",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A040",
+    "sentence_id": "S11",
+    "action": "QUALIFY",
+    "reason": "Named attack technique \u2014 not derivable from flow numbers: ['reconnaissance']",
+    "hallucination_type": "reasoning"
+  },
+  {
+    "alert_id": "A046",
+    "sentence_id": "S1",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A046",
+    "sentence_id": "S2",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A046",
+    "sentence_id": "S3",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A046",
+    "sentence_id": "S4",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A046",
+    "sentence_id": "S5",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A046",
+    "sentence_id": "S6",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A046",
+    "sentence_id": "S7",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A046",
+    "sentence_id": "S8",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A046",
+    "sentence_id": "S9",
+    "action": "QUALIFY",
+    "reason": "Named attack technique \u2014 not derivable from flow numbers: ['reconnaissance']",
+    "hallucination_type": "reasoning"
+  },
+  {
+    "alert_id": "A050",
+    "sentence_id": "S1",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A050",
+    "sentence_id": "S2",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A050",
+    "sentence_id": "S3",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A050",
+    "sentence_id": "S4",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A050",
+    "sentence_id": "S5",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A050",
+    "sentence_id": "S6",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A050",
+    "sentence_id": "S7",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A050",
+    "sentence_id": "S8",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A050",
+    "sentence_id": "S9",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A050",
+    "sentence_id": "S10",
+    "action": "QUALIFY",
+    "reason": "Named attack technique \u2014 not derivable from flow numbers: ['data exfiltration']",
+    "hallucination_type": "reasoning"
+  },
+  {
+    "alert_id": "A050",
+    "sentence_id": "S11",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A055",
+    "sentence_id": "S1",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A055",
+    "sentence_id": "S2",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A055",
+    "sentence_id": "S3",
+    "action": "KEEP",
+    "reason": "Port characterization \u2014 labelling a port's purpose is external knowledge: ['typically used for']",
+    "hallucination_type": "external_knowledge"
+  },
+  {
+    "alert_id": "A055",
+    "sentence_id": "S4",
+    "action": "QUALIFY",
+    "reason": "Unit assumption \u2014 raw flow duration has no guaranteed unit: ['over 23 minutes']",
+    "hallucination_type": "external_knowledge"
+  },
+  {
+    "alert_id": "A055",
+    "sentence_id": "S5",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A055",
+    "sentence_id": "S6",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A055",
+    "sentence_id": "S7",
+    "action": "KEEP",
+    "reason": "Protocol behavior knowledge \u2014 TCP/HTTP session norms are external knowledge: ['three-way handshake']",
+    "hallucination_type": "external_knowledge"
+  },
+  {
+    "alert_id": "A055",
+    "sentence_id": "S8",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A055",
+    "sentence_id": "S9",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A055",
+    "sentence_id": "S10",
+    "action": "KEEP",
+    "reason": "Protocol behavior knowledge \u2014 TCP/HTTP session norms are external knowledge: ['normal web']",
+    "hallucination_type": "external_knowledge"
+  },
+  {
+    "alert_id": "A055",
+    "sentence_id": "S11",
+    "action": "KEEP",
+    "reason": "Resource exhaustion / DoS impact claim: ['denial-of-service']",
+    "hallucination_type": "reasoning"
+  },
+  {
+    "alert_id": "A057",
+    "sentence_id": "S1",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A057",
+    "sentence_id": "S2",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A057",
+    "sentence_id": "S3",
+    "action": "QUALIFY",
+    "reason": "Unit assumption \u2014 raw flow duration has no guaranteed unit: ['approximately 24 seconds']",
+    "hallucination_type": "external_knowledge"
+  },
+  {
+    "alert_id": "A057",
+    "sentence_id": "S4",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A057",
+    "sentence_id": "S5",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A057",
+    "sentence_id": "S6",
+    "action": "QUALIFY",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": "external_knowledge"
+  },
+  {
+    "alert_id": "A057",
+    "sentence_id": "S7",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A057",
+    "sentence_id": "S8",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A057",
+    "sentence_id": "S9",
+    "action": "QUALIFY",
+    "reason": "Named attack technique \u2014 not derivable from flow numbers: ['DNS tunneling', 'data exfiltration']",
+    "hallucination_type": "reasoning"
+  },
+  {
+    "alert_id": "A065",
+    "sentence_id": "S1",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A065",
+    "sentence_id": "S2",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A065",
+    "sentence_id": "S3",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A065",
+    "sentence_id": "S4",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A065",
+    "sentence_id": "S5",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A065",
+    "sentence_id": "S6",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A065",
+    "sentence_id": "S7",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A065",
+    "sentence_id": "S8",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A065",
+    "sentence_id": "S9",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A065",
+    "sentence_id": "S10",
+    "action": "QUALIFY",
+    "reason": "Named attack technique \u2014 not derivable from flow numbers: ['reconnaissance']",
+    "hallucination_type": "reasoning"
+  },
+  {
+    "alert_id": "A065",
+    "sentence_id": "S11",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A066",
+    "sentence_id": "S1",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A066",
+    "sentence_id": "S2",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A066",
+    "sentence_id": "S3",
+    "action": "QUALIFY",
+    "reason": "Unit assumption \u2014 raw flow duration has no guaranteed unit: ['duration of approximately 31 seconds']",
+    "hallucination_type": "external_knowledge"
+  },
+  {
+    "alert_id": "A066",
+    "sentence_id": "S4",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A066",
+    "sentence_id": "S5",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A066",
+    "sentence_id": "S6",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A066",
+    "sentence_id": "S7",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A066",
+    "sentence_id": "S8",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A066",
+    "sentence_id": "S9",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A066",
+    "sentence_id": "S10",
+    "action": "QUALIFY",
+    "reason": "Named attack technique \u2014 not derivable from flow numbers: ['data exfiltration']",
+    "hallucination_type": "reasoning"
+  },
+  {
+    "alert_id": "A066",
+    "sentence_id": "S11",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A068",
+    "sentence_id": "S1",
+    "action": "KEEP",
+    "reason": "Port characterization \u2014 labelling a port's purpose is external knowledge: ['is the standard port']",
+    "hallucination_type": "external_knowledge"
+  },
+  {
+    "alert_id": "A068",
+    "sentence_id": "S2",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A068",
+    "sentence_id": "S3",
+    "action": "QUALIFY",
+    "reason": "Unit assumption \u2014 raw flow duration has no guaranteed unit: ['duration of approximately 48 seconds']",
+    "hallucination_type": "external_knowledge"
+  },
+  {
+    "alert_id": "A068",
+    "sentence_id": "S4",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A068",
+    "sentence_id": "S5",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A068",
+    "sentence_id": "S6",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A068",
+    "sentence_id": "S7",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A068",
+    "sentence_id": "S8",
+    "action": "QUALIFY",
+    "reason": "Named attack technique \u2014 not derivable from flow numbers: ['reconnaissance']",
+    "hallucination_type": "reasoning"
+  },
+  {
+    "alert_id": "A068",
+    "sentence_id": "S9",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A072",
+    "sentence_id": "S1",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A072",
+    "sentence_id": "S2",
+    "action": "KEEP",
+    "reason": "Port characterization \u2014 labelling a port's purpose is external knowledge: ['commonly associated with']",
+    "hallucination_type": "external_knowledge"
+  },
+  {
+    "alert_id": "A072",
+    "sentence_id": "S3",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A072",
+    "sentence_id": "S4",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A072",
+    "sentence_id": "S5",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A072",
+    "sentence_id": "S6",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A072",
+    "sentence_id": "S7",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A072",
+    "sentence_id": "S8",
+    "action": "QUALIFY",
+    "reason": "Named attack technique \u2014 not derivable from flow numbers: ['reconnaissance']",
+    "hallucination_type": "reasoning"
+  },
+  {
+    "alert_id": "A072",
+    "sentence_id": "S9",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A082",
+    "sentence_id": "S1",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A082",
+    "sentence_id": "S2",
+    "action": "KEEP",
+    "reason": "Port characterization \u2014 labelling a port's purpose is external knowledge: ['commonly associated with']",
+    "hallucination_type": "external_knowledge"
+  },
+  {
+    "alert_id": "A082",
+    "sentence_id": "S3",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A082",
+    "sentence_id": "S4",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A082",
+    "sentence_id": "S5",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A082",
+    "sentence_id": "S6",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A082",
+    "sentence_id": "S7",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A082",
+    "sentence_id": "S8",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A082",
+    "sentence_id": "S9",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A082",
+    "sentence_id": "S10",
+    "action": "QUALIFY",
+    "reason": "Named attack technique \u2014 not derivable from flow numbers: ['reconnaissance', 'port scan']",
+    "hallucination_type": "reasoning"
+  },
+  {
+    "alert_id": "A086",
+    "sentence_id": "S1",
+    "action": "KEEP",
+    "reason": "Port characterization \u2014 labelling a port's purpose is external knowledge: ['typically used for']",
+    "hallucination_type": "external_knowledge"
+  },
+  {
+    "alert_id": "A086",
+    "sentence_id": "S2",
+    "action": "QUALIFY",
+    "reason": "Unit assumption \u2014 raw flow duration has no guaranteed unit: ['approximately 111 seconds']",
+    "hallucination_type": "external_knowledge"
+  },
+  {
+    "alert_id": "A086",
+    "sentence_id": "S3",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A086",
+    "sentence_id": "S4",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A086",
+    "sentence_id": "S5",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A086",
+    "sentence_id": "S6",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A086",
+    "sentence_id": "S7",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A086",
+    "sentence_id": "S8",
+    "action": "KEEP",
+    "reason": "Protocol behavior knowledge \u2014 TCP/HTTP session norms are external knowledge: ['three-way handshake']",
+    "hallucination_type": "external_knowledge"
+  },
+  {
+    "alert_id": "A086",
+    "sentence_id": "S9",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A086",
+    "sentence_id": "S10",
+    "action": "QUALIFY",
+    "reason": "Named attack technique \u2014 not derivable from flow numbers: ['reconnaissance', 'port scan']",
+    "hallucination_type": "reasoning"
+  },
+  {
+    "alert_id": "A086",
+    "sentence_id": "S11",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A090",
+    "sentence_id": "S1",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A090",
+    "sentence_id": "S2",
+    "action": "KEEP",
+    "reason": "Port characterization \u2014 labelling a port's purpose is external knowledge: ['commonly used for']",
+    "hallucination_type": "external_knowledge"
+  },
+  {
+    "alert_id": "A090",
+    "sentence_id": "S3",
+    "action": "QUALIFY",
+    "reason": "Unit assumption \u2014 raw flow duration has no guaranteed unit: ['duration of approximately 21 seconds']",
+    "hallucination_type": "external_knowledge"
+  },
+  {
+    "alert_id": "A090",
+    "sentence_id": "S4",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A090",
+    "sentence_id": "S5",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A090",
+    "sentence_id": "S6",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A090",
+    "sentence_id": "S7",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A090",
+    "sentence_id": "S8",
+    "action": "KEEP",
+    "reason": "Protocol behavior knowledge \u2014 TCP/HTTP session norms are external knowledge: ['for a typical TCP']",
+    "hallucination_type": "external_knowledge"
+  },
+  {
+    "alert_id": "A090",
+    "sentence_id": "S9",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A090",
+    "sentence_id": "S10",
+    "action": "QUALIFY",
+    "reason": "Named attack technique \u2014 not derivable from flow numbers: ['port scan']",
+    "hallucination_type": "reasoning"
+  },
+  {
+    "alert_id": "A090",
+    "sentence_id": "S11",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A092",
+    "sentence_id": "S1",
+    "action": "KEEP",
+    "reason": "Port characterization \u2014 labelling a port's purpose is external knowledge: ['commonly used for']",
+    "hallucination_type": "external_knowledge"
+  },
+  {
+    "alert_id": "A092",
+    "sentence_id": "S2",
+    "action": "QUALIFY",
+    "reason": "Unit assumption \u2014 raw flow duration has no guaranteed unit: ['duration of approximately 37.5 minutes']",
+    "hallucination_type": "external_knowledge"
+  },
+  {
+    "alert_id": "A092",
+    "sentence_id": "S3",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A092",
+    "sentence_id": "S4",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A092",
+    "sentence_id": "S5",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A092",
+    "sentence_id": "S6",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A092",
+    "sentence_id": "S7",
+    "action": "KEEP",
+    "reason": "Protocol behavior knowledge \u2014 TCP/HTTP session norms are external knowledge: ['three-way handshake']",
+    "hallucination_type": "external_knowledge"
+  },
+  {
+    "alert_id": "A092",
+    "sentence_id": "S8",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A092",
+    "sentence_id": "S9",
+    "action": "KEEP",
+    "reason": "Protocol behavior knowledge \u2014 TCP/HTTP session norms are external knowledge: ['typical HTTP']",
+    "hallucination_type": "external_knowledge"
+  },
+  {
+    "alert_id": "A092",
+    "sentence_id": "S10",
+    "action": "QUALIFY",
+    "reason": "Named attack technique \u2014 not derivable from flow numbers: ['reconnaissance']",
+    "hallucination_type": "reasoning"
+  },
+  {
+    "alert_id": "A096",
+    "sentence_id": "S1",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A096",
+    "sentence_id": "S2",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A096",
+    "sentence_id": "S3",
+    "action": "KEEP",
+    "reason": "Port characterization \u2014 labelling a port's purpose is external knowledge: ['commonly associated with']",
+    "hallucination_type": "external_knowledge"
+  },
+  {
+    "alert_id": "A096",
+    "sentence_id": "S4",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A096",
+    "sentence_id": "S5",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A096",
+    "sentence_id": "S6",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A096",
+    "sentence_id": "S7",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A096",
+    "sentence_id": "S8",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A096",
+    "sentence_id": "S9",
+    "action": "QUALIFY",
+    "reason": "Named attack technique \u2014 not derivable from flow numbers: ['reconnaissance', 'port scan']",
+    "hallucination_type": "reasoning"
+  },
+  {
+    "alert_id": "A096",
+    "sentence_id": "S10",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A096",
+    "sentence_id": "S11",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A098",
+    "sentence_id": "S1",
+    "action": "KEEP",
+    "reason": "Port characterization \u2014 labelling a port's purpose is external knowledge: ['commonly associated with']",
+    "hallucination_type": "external_knowledge"
+  },
+  {
+    "alert_id": "A098",
+    "sentence_id": "S2",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A098",
+    "sentence_id": "S3",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A098",
+    "sentence_id": "S4",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A098",
+    "sentence_id": "S5",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A098",
+    "sentence_id": "S6",
+    "action": "KEEP",
+    "reason": "Protocol behavior knowledge \u2014 TCP/HTTP session norms are external knowledge: ['three-way handshake']",
+    "hallucination_type": "external_knowledge"
+  },
+  {
+    "alert_id": "A098",
+    "sentence_id": "S7",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A098",
+    "sentence_id": "S8",
+    "action": "KEEP",
+    "reason": "Protocol behavior knowledge \u2014 TCP/HTTP session norms are external knowledge: ['normal HTTP']",
+    "hallucination_type": "external_knowledge"
+  },
+  {
+    "alert_id": "A098",
+    "sentence_id": "S9",
+    "action": "QUALIFY",
+    "reason": "Named attack technique \u2014 not derivable from flow numbers: ['reconnaissance']",
+    "hallucination_type": "reasoning"
+  },
+  {
+    "alert_id": "A098",
+    "sentence_id": "S10",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A104",
+    "sentence_id": "S1",
+    "action": "KEEP",
+    "reason": "Port characterization \u2014 labelling a port's purpose is external knowledge: ['typically used for']",
+    "hallucination_type": "external_knowledge"
+  },
+  {
+    "alert_id": "A104",
+    "sentence_id": "S2",
+    "action": "QUALIFY",
+    "reason": "Unit assumption \u2014 raw flow duration has no guaranteed unit: ['approximately 1 hour']",
+    "hallucination_type": "external_knowledge"
+  },
+  {
+    "alert_id": "A104",
+    "sentence_id": "S3",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A104",
+    "sentence_id": "S4",
+    "action": "QUALIFY",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": "external_knowledge"
+  },
+  {
+    "alert_id": "A104",
+    "sentence_id": "S5",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A104",
+    "sentence_id": "S6",
+    "action": "KEEP",
+    "reason": "Protocol behavior knowledge \u2014 TCP/HTTP session norms are external knowledge: ['typical web']",
+    "hallucination_type": "external_knowledge"
+  },
+  {
+    "alert_id": "A104",
+    "sentence_id": "S7",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A104",
+    "sentence_id": "S8",
+    "action": "QUALIFY",
+    "reason": "Named attack technique \u2014 not derivable from flow numbers: ['reconnaissance']",
+    "hallucination_type": "reasoning"
+  },
+  {
+    "alert_id": "A104",
+    "sentence_id": "S9",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A104",
+    "sentence_id": "S10",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A106",
+    "sentence_id": "S1",
+    "action": "KEEP",
+    "reason": "Port characterization \u2014 labelling a port's purpose is external knowledge: ['commonly associated with']",
+    "hallucination_type": "external_knowledge"
+  },
+  {
+    "alert_id": "A106",
+    "sentence_id": "S2",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A106",
+    "sentence_id": "S3",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A106",
+    "sentence_id": "S4",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A106",
+    "sentence_id": "S5",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A106",
+    "sentence_id": "S6",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A106",
+    "sentence_id": "S7",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A106",
+    "sentence_id": "S8",
+    "action": "KEEP",
+    "reason": "Protocol behavior knowledge \u2014 TCP/HTTP session norms are external knowledge: ['normal TCP', 'three-way handshake']",
+    "hallucination_type": "external_knowledge"
+  },
+  {
+    "alert_id": "A106",
+    "sentence_id": "S9",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A106",
+    "sentence_id": "S10",
+    "action": "QUALIFY",
+    "reason": "Named attack technique \u2014 not derivable from flow numbers: ['network scanning']",
+    "hallucination_type": "reasoning"
+  },
+  {
+    "alert_id": "A107",
+    "sentence_id": "S1",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A107",
+    "sentence_id": "S2",
+    "action": "KEEP",
+    "reason": "Port characterization \u2014 labelling a port's purpose is external knowledge: ['commonly used for']",
+    "hallucination_type": "external_knowledge"
+  },
+  {
+    "alert_id": "A107",
+    "sentence_id": "S3",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A107",
+    "sentence_id": "S4",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A107",
+    "sentence_id": "S5",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A107",
+    "sentence_id": "S6",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A107",
+    "sentence_id": "S7",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A107",
+    "sentence_id": "S8",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A107",
+    "sentence_id": "S9",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A107",
+    "sentence_id": "S10",
+    "action": "QUALIFY",
+    "reason": "Named attack technique \u2014 not derivable from flow numbers: ['reconnaissance']",
+    "hallucination_type": "reasoning"
+  },
+  {
+    "alert_id": "A107",
+    "sentence_id": "S11",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A108",
+    "sentence_id": "S1",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A108",
+    "sentence_id": "S2",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A108",
+    "sentence_id": "S3",
+    "action": "KEEP",
+    "reason": "Port characterization \u2014 labelling a port's purpose is external knowledge: ['not typically associated with standard']",
+    "hallucination_type": "external_knowledge"
+  },
+  {
+    "alert_id": "A108",
+    "sentence_id": "S4",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A108",
+    "sentence_id": "S5",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A108",
+    "sentence_id": "S6",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A108",
+    "sentence_id": "S7",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A108",
+    "sentence_id": "S8",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A108",
+    "sentence_id": "S9",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A108",
+    "sentence_id": "S10",
+    "action": "KEEP",
+    "reason": "Port characterization \u2014 labelling a port's purpose is external knowledge: ['typically used for']",
+    "hallucination_type": "external_knowledge"
+  },
+  {
+    "alert_id": "A108",
+    "sentence_id": "S11",
+    "action": "QUALIFY",
+    "reason": "Named attack technique \u2014 not derivable from flow numbers: ['reconnaissance']",
+    "hallucination_type": "reasoning"
+  },
+  {
+    "alert_id": "A113",
+    "sentence_id": "S1",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A113",
+    "sentence_id": "S2",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A113",
+    "sentence_id": "S3",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A113",
+    "sentence_id": "S4",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A113",
+    "sentence_id": "S5",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A113",
+    "sentence_id": "S6",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A113",
+    "sentence_id": "S7",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A113",
+    "sentence_id": "S8",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A113",
+    "sentence_id": "S9",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A113",
+    "sentence_id": "S10",
+    "action": "QUALIFY",
+    "reason": "Named attack technique \u2014 not derivable from flow numbers: ['reconnaissance']",
+    "hallucination_type": "reasoning"
+  },
+  {
+    "alert_id": "A121",
+    "sentence_id": "S1",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A121",
+    "sentence_id": "S2",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A121",
+    "sentence_id": "S3",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A121",
+    "sentence_id": "S4",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A121",
+    "sentence_id": "S5",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A121",
+    "sentence_id": "S6",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A121",
+    "sentence_id": "S7",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A121",
+    "sentence_id": "S8",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A121",
+    "sentence_id": "S9",
+    "action": "QUALIFY",
+    "reason": "Named attack technique \u2014 not derivable from flow numbers: ['DNS tunneling']",
+    "hallucination_type": "reasoning"
+  },
+  {
+    "alert_id": "A121",
+    "sentence_id": "S10",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A122",
+    "sentence_id": "S1",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A122",
+    "sentence_id": "S2",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A122",
+    "sentence_id": "S3",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A122",
+    "sentence_id": "S4",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A122",
+    "sentence_id": "S5",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A122",
+    "sentence_id": "S6",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A122",
+    "sentence_id": "S7",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A122",
+    "sentence_id": "S8",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A122",
+    "sentence_id": "S9",
+    "action": "QUALIFY",
+    "reason": "Named attack technique \u2014 not derivable from flow numbers: ['reconnaissance']",
+    "hallucination_type": "reasoning"
+  },
+  {
+    "alert_id": "A122",
+    "sentence_id": "S10",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A122",
+    "sentence_id": "S11",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A123",
+    "sentence_id": "S1",
+    "action": "KEEP",
+    "reason": "Encryption assumption \u2014 not in flow evidence: ['unencrypted']",
+    "hallucination_type": "external_knowledge"
+  },
+  {
+    "alert_id": "A123",
+    "sentence_id": "S2",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A123",
+    "sentence_id": "S3",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A123",
+    "sentence_id": "S4",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A123",
+    "sentence_id": "S5",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A123",
+    "sentence_id": "S6",
+    "action": "QUALIFY",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": "external_knowledge"
+  },
+  {
+    "alert_id": "A123",
+    "sentence_id": "S7",
+    "action": "KEEP",
+    "reason": "Protocol behavior knowledge \u2014 TCP/HTTP session norms are external knowledge: ['for a standard TCP']",
+    "hallucination_type": "external_knowledge"
+  },
+  {
+    "alert_id": "A123",
+    "sentence_id": "S8",
+    "action": "KEEP",
+    "reason": "Protocol behavior knowledge \u2014 TCP/HTTP session norms are external knowledge: ['typical TCP', 'three-way handshake']",
+    "hallucination_type": "external_knowledge"
+  },
+  {
+    "alert_id": "A123",
+    "sentence_id": "S9",
+    "action": "QUALIFY",
+    "reason": "Named attack technique \u2014 not derivable from flow numbers: ['port scan']",
+    "hallucination_type": "reasoning"
+  },
+  {
+    "alert_id": "A123",
+    "sentence_id": "S10",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A128",
+    "sentence_id": "S1",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A128",
+    "sentence_id": "S2",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A128",
+    "sentence_id": "S3",
+    "action": "KEEP",
+    "reason": "Port characterization \u2014 labelling a port's purpose is external knowledge: ['conventionally utilized for']",
+    "hallucination_type": "external_knowledge"
+  },
+  {
+    "alert_id": "A128",
+    "sentence_id": "S4",
+    "action": "QUALIFY",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": "external_knowledge"
+  },
+  {
+    "alert_id": "A128",
+    "sentence_id": "S5",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A128",
+    "sentence_id": "S6",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A128",
+    "sentence_id": "S7",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A128",
+    "sentence_id": "S8",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A128",
+    "sentence_id": "S9",
+    "action": "KEEP",
+    "reason": "Protocol behavior knowledge \u2014 TCP/HTTP session norms are external knowledge: ['typical web']",
+    "hallucination_type": "external_knowledge"
+  },
+  {
+    "alert_id": "A128",
+    "sentence_id": "S10",
+    "action": "KEEP",
+    "reason": "External baseline comparison \u2014 requires outside knowledge: ['deviates from standard']",
+    "hallucination_type": "external_knowledge"
+  },
+  {
+    "alert_id": "A128",
+    "sentence_id": "S11",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A133",
+    "sentence_id": "S1",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A133",
+    "sentence_id": "S2",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A133",
+    "sentence_id": "S3",
+    "action": "KEEP",
+    "reason": "Port characterization \u2014 labelling a port's purpose is external knowledge: ['commonly used for']",
+    "hallucination_type": "external_knowledge"
+  },
+  {
+    "alert_id": "A133",
+    "sentence_id": "S4",
+    "action": "QUALIFY",
+    "reason": "Unit assumption \u2014 raw flow duration has no guaranteed unit: ['lasting approximately 41 minutes']",
+    "hallucination_type": "external_knowledge"
+  },
+  {
+    "alert_id": "A133",
+    "sentence_id": "S5",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A133",
+    "sentence_id": "S6",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A133",
+    "sentence_id": "S7",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A133",
+    "sentence_id": "S8",
+    "action": "KEEP",
+    "reason": "Protocol behavior knowledge \u2014 TCP/HTTP session norms are external knowledge: ['for a normal TCP']",
+    "hallucination_type": "external_knowledge"
+  },
+  {
+    "alert_id": "A133",
+    "sentence_id": "S9",
+    "action": "QUALIFY",
+    "reason": "Named attack technique \u2014 not derivable from flow numbers: ['reconnaissance']",
+    "hallucination_type": "reasoning"
+  },
+  {
+    "alert_id": "A133",
+    "sentence_id": "S10",
+    "action": "KEEP",
+    "reason": "External baseline comparison \u2014 requires outside knowledge: ['deviate significantly from typical']",
+    "hallucination_type": "external_knowledge"
+  },
+  {
+    "alert_id": "A139",
+    "sentence_id": "S1",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A139",
+    "sentence_id": "S2",
+    "action": "KEEP",
+    "reason": "Port characterization \u2014 labelling a port's purpose is external knowledge: ['not typically associated with standard']",
+    "hallucination_type": "external_knowledge"
+  },
+  {
+    "alert_id": "A139",
+    "sentence_id": "S3",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A139",
+    "sentence_id": "S4",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A139",
+    "sentence_id": "S5",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A139",
+    "sentence_id": "S6",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A139",
+    "sentence_id": "S7",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A139",
+    "sentence_id": "S8",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A139",
+    "sentence_id": "S9",
+    "action": "QUALIFY",
+    "reason": "Named attack technique \u2014 not derivable from flow numbers: ['reconnaissance']",
+    "hallucination_type": "reasoning"
+  },
+  {
+    "alert_id": "A139",
+    "sentence_id": "S10",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A141",
+    "sentence_id": "S1",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A141",
+    "sentence_id": "S2",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A141",
+    "sentence_id": "S3",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A141",
+    "sentence_id": "S4",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A141",
+    "sentence_id": "S5",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A141",
+    "sentence_id": "S6",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A141",
+    "sentence_id": "S7",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A141",
+    "sentence_id": "S8",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A141",
+    "sentence_id": "S9",
+    "action": "QUALIFY",
+    "reason": "Named attack technique \u2014 not derivable from flow numbers: ['port scan']",
+    "hallucination_type": "reasoning"
+  },
+  {
+    "alert_id": "A141",
+    "sentence_id": "S10",
+    "action": "KEEP",
+    "reason": "Protocol behavior knowledge \u2014 TCP/HTTP session norms are external knowledge: ['typical network']",
+    "hallucination_type": "external_knowledge"
+  },
+  {
+    "alert_id": "A141",
+    "sentence_id": "S11",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A143",
+    "sentence_id": "S1",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A143",
+    "sentence_id": "S2",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A143",
+    "sentence_id": "S3",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A143",
+    "sentence_id": "S4",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A143",
+    "sentence_id": "S5",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A143",
+    "sentence_id": "S6",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A143",
+    "sentence_id": "S7",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A143",
+    "sentence_id": "S8",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A143",
+    "sentence_id": "S9",
+    "action": "QUALIFY",
+    "reason": "Named attack technique \u2014 not derivable from flow numbers: ['reconnaissance']",
+    "hallucination_type": "reasoning"
+  },
+  {
+    "alert_id": "A143",
+    "sentence_id": "S10",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A148",
+    "sentence_id": "S1",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A148",
+    "sentence_id": "S2",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A148",
+    "sentence_id": "S3",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A148",
+    "sentence_id": "S4",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A148",
+    "sentence_id": "S5",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A148",
+    "sentence_id": "S6",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A148",
+    "sentence_id": "S7",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A148",
+    "sentence_id": "S8",
+    "action": "QUALIFY",
+    "reason": "Named attack technique \u2014 not derivable from flow numbers: ['reconnaissance']",
+    "hallucination_type": "reasoning"
+  },
+  {
+    "alert_id": "A148",
+    "sentence_id": "S9",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A148",
+    "sentence_id": "S10",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A151",
+    "sentence_id": "S1",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A151",
+    "sentence_id": "S2",
+    "action": "KEEP",
+    "reason": "Port characterization \u2014 labelling a port's purpose is external knowledge: ['commonly associated with']",
+    "hallucination_type": "external_knowledge"
+  },
+  {
+    "alert_id": "A151",
+    "sentence_id": "S3",
+    "action": "QUALIFY",
+    "reason": "Unit assumption \u2014 raw flow duration has no guaranteed unit: ['duration of approximately 47 seconds']",
+    "hallucination_type": "external_knowledge"
+  },
+  {
+    "alert_id": "A151",
+    "sentence_id": "S4",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A151",
+    "sentence_id": "S5",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A151",
+    "sentence_id": "S6",
+    "action": "QUALIFY",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": "external_knowledge"
+  },
+  {
+    "alert_id": "A151",
+    "sentence_id": "S7",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A151",
+    "sentence_id": "S8",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A151",
+    "sentence_id": "S9",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A151",
+    "sentence_id": "S10",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A151",
+    "sentence_id": "S11",
+    "action": "QUALIFY",
+    "reason": "Named attack technique \u2014 not derivable from flow numbers: ['data exfiltration', 'command-and-control']",
+    "hallucination_type": "reasoning"
+  },
+  {
+    "alert_id": "A158",
+    "sentence_id": "S1",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A158",
+    "sentence_id": "S2",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A158",
+    "sentence_id": "S3",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A158",
+    "sentence_id": "S4",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A158",
+    "sentence_id": "S5",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A158",
+    "sentence_id": "S6",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A158",
+    "sentence_id": "S7",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A158",
+    "sentence_id": "S8",
+    "action": "QUALIFY",
+    "reason": "Named attack technique \u2014 not derivable from flow numbers: ['port scan']",
+    "hallucination_type": "reasoning"
+  },
+  {
+    "alert_id": "A158",
+    "sentence_id": "S9",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A158",
+    "sentence_id": "S10",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A158",
+    "sentence_id": "S11",
+    "action": "QUALIFY",
+    "reason": "Named attack technique \u2014 not derivable from flow numbers: ['reconnaissance']",
+    "hallucination_type": "reasoning"
+  },
+  {
+    "alert_id": "A165",
+    "sentence_id": "S1",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A165",
+    "sentence_id": "S2",
+    "action": "KEEP",
+    "reason": "Port characterization \u2014 labelling a port's purpose is external knowledge: ['is the standard port']",
+    "hallucination_type": "external_knowledge"
+  },
+  {
+    "alert_id": "A165",
+    "sentence_id": "S3",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A165",
+    "sentence_id": "S4",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A165",
+    "sentence_id": "S5",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A165",
+    "sentence_id": "S6",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A165",
+    "sentence_id": "S7",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A165",
+    "sentence_id": "S8",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A165",
+    "sentence_id": "S9",
+    "action": "KEEP",
+    "reason": "External baseline comparison \u2014 requires outside knowledge: ['deviates from normal']",
+    "hallucination_type": "external_knowledge"
+  },
+  {
+    "alert_id": "A165",
+    "sentence_id": "S10",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A165",
+    "sentence_id": "S11",
+    "action": "QUALIFY",
+    "reason": "Named attack technique \u2014 not derivable from flow numbers: ['data exfiltration']",
+    "hallucination_type": "reasoning"
+  },
+  {
+    "alert_id": "A175",
+    "sentence_id": "S1",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A175",
+    "sentence_id": "S2",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A175",
+    "sentence_id": "S3",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A175",
+    "sentence_id": "S4",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A175",
+    "sentence_id": "S5",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A175",
+    "sentence_id": "S6",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A175",
+    "sentence_id": "S7",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A175",
+    "sentence_id": "S8",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A175",
+    "sentence_id": "S9",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A175",
+    "sentence_id": "S10",
+    "action": "KEEP",
+    "reason": "Named attack technique \u2014 not derivable from flow numbers: ['port scan']",
+    "hallucination_type": "reasoning"
+  },
+  {
+    "alert_id": "A175",
+    "sentence_id": "S11",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A180",
+    "sentence_id": "S1",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A180",
+    "sentence_id": "S2",
+    "action": "KEEP",
+    "reason": "Port characterization \u2014 labelling a port's purpose is external knowledge: ['not typically associated with standard']",
+    "hallucination_type": "external_knowledge"
+  },
+  {
+    "alert_id": "A180",
+    "sentence_id": "S3",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A180",
+    "sentence_id": "S4",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A180",
+    "sentence_id": "S5",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A180",
+    "sentence_id": "S6",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A180",
+    "sentence_id": "S7",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A180",
+    "sentence_id": "S8",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A180",
+    "sentence_id": "S9",
+    "action": "QUALIFY",
+    "reason": "Named attack technique \u2014 not derivable from flow numbers: ['reconnaissance']",
+    "hallucination_type": "reasoning"
+  },
+  {
+    "alert_id": "A184",
+    "sentence_id": "S1",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A184",
+    "sentence_id": "S2",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A184",
+    "sentence_id": "S3",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A184",
+    "sentence_id": "S4",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A184",
+    "sentence_id": "S5",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A184",
+    "sentence_id": "S6",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A184",
+    "sentence_id": "S7",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A184",
+    "sentence_id": "S8",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A184",
+    "sentence_id": "S9",
+    "action": "QUALIFY",
+    "reason": "Named attack technique \u2014 not derivable from flow numbers: ['reconnaissance']",
+    "hallucination_type": "reasoning"
+  },
+  {
+    "alert_id": "A184",
+    "sentence_id": "S10",
+    "action": "QUALIFY",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": "external_knowledge"
+  },
+  {
+    "alert_id": "A184",
+    "sentence_id": "S11",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A185",
+    "sentence_id": "S1",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A185",
+    "sentence_id": "S2",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A185",
+    "sentence_id": "S3",
+    "action": "KEEP",
+    "reason": "Port characterization \u2014 labelling a port's purpose is external knowledge: ['commonly associated with']",
+    "hallucination_type": "external_knowledge"
+  },
+  {
+    "alert_id": "A185",
+    "sentence_id": "S4",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A185",
+    "sentence_id": "S5",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A185",
+    "sentence_id": "S6",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A185",
+    "sentence_id": "S7",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A185",
+    "sentence_id": "S8",
+    "action": "KEEP",
+    "reason": "Protocol behavior knowledge \u2014 TCP/HTTP session norms are external knowledge: ['typical TCP']",
+    "hallucination_type": "external_knowledge"
+  },
+  {
+    "alert_id": "A185",
+    "sentence_id": "S9",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A185",
+    "sentence_id": "S10",
+    "action": "QUALIFY",
+    "reason": "Named attack technique \u2014 not derivable from flow numbers: ['reconnaissance']",
+    "hallucination_type": "reasoning"
+  },
+  {
+    "alert_id": "A187",
+    "sentence_id": "S1",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A187",
+    "sentence_id": "S2",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A187",
+    "sentence_id": "S3",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A187",
+    "sentence_id": "S4",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A187",
+    "sentence_id": "S5",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A187",
+    "sentence_id": "S6",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A187",
+    "sentence_id": "S7",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A187",
+    "sentence_id": "S8",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A187",
+    "sentence_id": "S9",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A187",
+    "sentence_id": "S10",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A187",
+    "sentence_id": "S11",
+    "action": "QUALIFY",
+    "reason": "Resource exhaustion / DoS impact claim: ['denial-of-service']",
+    "hallucination_type": "reasoning"
+  },
+  {
+    "alert_id": "A188",
+    "sentence_id": "S1",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A188",
+    "sentence_id": "S2",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A188",
+    "sentence_id": "S3",
+    "action": "KEEP",
+    "reason": "Port characterization \u2014 labelling a port's purpose is external knowledge: ['commonly associated with']",
+    "hallucination_type": "external_knowledge"
+  },
+  {
+    "alert_id": "A188",
+    "sentence_id": "S4",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A188",
+    "sentence_id": "S5",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A188",
+    "sentence_id": "S6",
+    "action": "QUALIFY",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": "external_knowledge"
+  },
+  {
+    "alert_id": "A188",
+    "sentence_id": "S7",
+    "action": "KEEP",
+    "reason": "Protocol behavior knowledge \u2014 TCP/HTTP session norms are external knowledge: ['three-way handshake']",
+    "hallucination_type": "external_knowledge"
+  },
+  {
+    "alert_id": "A188",
+    "sentence_id": "S8",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A188",
+    "sentence_id": "S9",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A188",
+    "sentence_id": "S10",
+    "action": "QUALIFY",
+    "reason": "Named attack technique \u2014 not derivable from flow numbers: ['reconnaissance']",
+    "hallucination_type": "reasoning"
+  },
+  {
+    "alert_id": "A188",
+    "sentence_id": "S11",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A191",
+    "sentence_id": "S1",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A191",
+    "sentence_id": "S2",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A191",
+    "sentence_id": "S3",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A191",
+    "sentence_id": "S4",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A191",
+    "sentence_id": "S5",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A191",
+    "sentence_id": "S6",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A191",
+    "sentence_id": "S7",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A191",
+    "sentence_id": "S8",
+    "action": "QUALIFY",
+    "reason": "Named attack technique \u2014 not derivable from flow numbers: ['reconnaissance', 'port scanning']",
+    "hallucination_type": "reasoning"
+  },
+  {
+    "alert_id": "A191",
+    "sentence_id": "S9",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A191",
+    "sentence_id": "S10",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A192",
+    "sentence_id": "S1",
+    "action": "KEEP",
+    "reason": "Port characterization \u2014 labelling a port's purpose is external knowledge: ['typically associated with']",
+    "hallucination_type": "external_knowledge"
+  },
+  {
+    "alert_id": "A192",
+    "sentence_id": "S2",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A192",
+    "sentence_id": "S3",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A192",
+    "sentence_id": "S4",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A192",
+    "sentence_id": "S5",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A192",
+    "sentence_id": "S6",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A192",
+    "sentence_id": "S7",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A192",
+    "sentence_id": "S8",
+    "action": "QUALIFY",
+    "reason": "Named attack technique \u2014 not derivable from flow numbers: ['reconnaissance']",
+    "hallucination_type": "reasoning"
+  },
+  {
+    "alert_id": "A195",
+    "sentence_id": "S1",
+    "action": "KEEP",
+    "reason": "Port characterization \u2014 labelling a port's purpose is external knowledge: ['commonly associated with']",
+    "hallucination_type": "external_knowledge"
+  },
+  {
+    "alert_id": "A195",
+    "sentence_id": "S2",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A195",
+    "sentence_id": "S3",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A195",
+    "sentence_id": "S4",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A195",
+    "sentence_id": "S5",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A195",
+    "sentence_id": "S6",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A195",
+    "sentence_id": "S7",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A195",
+    "sentence_id": "S8",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A195",
+    "sentence_id": "S9",
+    "action": "QUALIFY",
+    "reason": "Named attack technique \u2014 not derivable from flow numbers: ['port scan', 'reconnaissance']",
+    "hallucination_type": "reasoning"
+  },
+  {
+    "alert_id": "A195",
+    "sentence_id": "S10",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A196",
+    "sentence_id": "S1",
+    "action": "KEEP",
+    "reason": "Port characterization \u2014 labelling a port's purpose is external knowledge: ['commonly used for']",
+    "hallucination_type": "external_knowledge"
+  },
+  {
+    "alert_id": "A196",
+    "sentence_id": "S2",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A196",
+    "sentence_id": "S3",
+    "action": "QUALIFY",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": "external_knowledge"
+  },
+  {
+    "alert_id": "A196",
+    "sentence_id": "S4",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A196",
+    "sentence_id": "S5",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A196",
+    "sentence_id": "S6",
+    "action": "KEEP",
+    "reason": "Protocol behavior knowledge \u2014 TCP/HTTP session norms are external knowledge: ['for a standard TCP']",
+    "hallucination_type": "external_knowledge"
+  },
+  {
+    "alert_id": "A196",
+    "sentence_id": "S7",
+    "action": "KEEP",
+    "reason": "Protocol behavior knowledge \u2014 TCP/HTTP session norms are external knowledge: ['three-way handshake']",
+    "hallucination_type": "external_knowledge"
+  },
+  {
+    "alert_id": "A196",
+    "sentence_id": "S8",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A196",
+    "sentence_id": "S9",
+    "action": "KEEP",
+    "reason": "Named attack technique \u2014 not derivable from flow numbers: ['network scan']",
+    "hallucination_type": "reasoning"
+  },
+  {
+    "alert_id": "A196",
+    "sentence_id": "S10",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A202",
+    "sentence_id": "S1",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A202",
+    "sentence_id": "S2",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A202",
+    "sentence_id": "S3",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A202",
+    "sentence_id": "S4",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A202",
+    "sentence_id": "S5",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A202",
+    "sentence_id": "S6",
+    "action": "KEEP",
+    "reason": "Named attack technique \u2014 not derivable from flow numbers: ['port scanning']",
+    "hallucination_type": "reasoning"
+  },
+  {
+    "alert_id": "A202",
+    "sentence_id": "S7",
+    "action": "QUALIFY",
+    "reason": "Unit assumption \u2014 raw flow duration has no guaranteed unit: ['duration of approximately 139 seconds']",
+    "hallucination_type": "external_knowledge"
+  },
+  {
+    "alert_id": "A202",
+    "sentence_id": "S8",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A202",
+    "sentence_id": "S9",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A202",
+    "sentence_id": "S10",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A202",
+    "sentence_id": "S11",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A204",
+    "sentence_id": "S1",
+    "action": "KEEP",
+    "reason": "Port characterization \u2014 labelling a port's purpose is external knowledge: ['typically used for']",
+    "hallucination_type": "external_knowledge"
+  },
+  {
+    "alert_id": "A204",
+    "sentence_id": "S2",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A204",
+    "sentence_id": "S3",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A204",
+    "sentence_id": "S4",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A204",
+    "sentence_id": "S5",
+    "action": "QUALIFY",
+    "reason": "Unit assumption \u2014 raw flow duration has no guaranteed unit: ['approximately 23 hours']",
+    "hallucination_type": "external_knowledge"
+  },
+  {
+    "alert_id": "A204",
+    "sentence_id": "S6",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A204",
+    "sentence_id": "S7",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A204",
+    "sentence_id": "S8",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A204",
+    "sentence_id": "S9",
+    "action": "QUALIFY",
+    "reason": "Named attack technique \u2014 not derivable from flow numbers: ['network scanning']",
+    "hallucination_type": "reasoning"
+  },
+  {
+    "alert_id": "A204",
+    "sentence_id": "S10",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A209",
+    "sentence_id": "S1",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A209",
+    "sentence_id": "S2",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A209",
+    "sentence_id": "S3",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A209",
+    "sentence_id": "S4",
+    "action": "QUALIFY",
+    "reason": "Unit assumption \u2014 raw flow duration has no guaranteed unit: ['duration of 52 seconds']",
+    "hallucination_type": "external_knowledge"
+  },
+  {
+    "alert_id": "A209",
+    "sentence_id": "S5",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A209",
+    "sentence_id": "S6",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A209",
+    "sentence_id": "S7",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A209",
+    "sentence_id": "S8",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A209",
+    "sentence_id": "S9",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A209",
+    "sentence_id": "S10",
+    "action": "QUALIFY",
+    "reason": "Named attack technique \u2014 not derivable from flow numbers: ['reflection attack']",
+    "hallucination_type": "reasoning"
+  },
+  {
+    "alert_id": "A209",
+    "sentence_id": "S11",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A223",
+    "sentence_id": "S1",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A223",
+    "sentence_id": "S2",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A223",
+    "sentence_id": "S3",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A223",
+    "sentence_id": "S4",
+    "action": "QUALIFY",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": "external_knowledge"
+  },
+  {
+    "alert_id": "A223",
+    "sentence_id": "S5",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A223",
+    "sentence_id": "S6",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A223",
+    "sentence_id": "S7",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A223",
+    "sentence_id": "S8",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A223",
+    "sentence_id": "S9",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A223",
+    "sentence_id": "S10",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A223",
+    "sentence_id": "S11",
+    "action": "QUALIFY",
+    "reason": "Named attack technique \u2014 not derivable from flow numbers: ['reconnaissance']",
+    "hallucination_type": "reasoning"
+  },
+  {
+    "alert_id": "A225",
+    "sentence_id": "S1",
+    "action": "KEEP",
+    "reason": "Port characterization \u2014 labelling a port's purpose is external knowledge: ['typically used for']",
+    "hallucination_type": "external_knowledge"
+  },
+  {
+    "alert_id": "A225",
+    "sentence_id": "S2",
+    "action": "QUALIFY",
+    "reason": "Unit assumption \u2014 raw flow duration has no guaranteed unit: ['approximately 31 hours']",
+    "hallucination_type": "external_knowledge"
+  },
+  {
+    "alert_id": "A225",
+    "sentence_id": "S3",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A225",
+    "sentence_id": "S4",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A225",
+    "sentence_id": "S5",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A225",
+    "sentence_id": "S6",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A225",
+    "sentence_id": "S7",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A225",
+    "sentence_id": "S8",
+    "action": "KEEP",
+    "reason": "Protocol behavior knowledge \u2014 TCP/HTTP session norms are external knowledge: ['for a standard TCP']",
+    "hallucination_type": "external_knowledge"
+  },
+  {
+    "alert_id": "A225",
+    "sentence_id": "S9",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A225",
+    "sentence_id": "S10",
+    "action": "QUALIFY",
+    "reason": "Named attack technique \u2014 not derivable from flow numbers: ['reconnaissance']",
+    "hallucination_type": "reasoning"
+  },
+  {
+    "alert_id": "A229",
+    "sentence_id": "S1",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A229",
+    "sentence_id": "S2",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A229",
+    "sentence_id": "S3",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A229",
+    "sentence_id": "S4",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A229",
+    "sentence_id": "S5",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A229",
+    "sentence_id": "S6",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A229",
+    "sentence_id": "S7",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A229",
+    "sentence_id": "S8",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A229",
+    "sentence_id": "S9",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A229",
+    "sentence_id": "S10",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A229",
+    "sentence_id": "S11",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A232",
+    "sentence_id": "S1",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A232",
+    "sentence_id": "S2",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A232",
+    "sentence_id": "S3",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A232",
+    "sentence_id": "S4",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A232",
+    "sentence_id": "S5",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A232",
+    "sentence_id": "S6",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A232",
+    "sentence_id": "S7",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A232",
+    "sentence_id": "S8",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A232",
+    "sentence_id": "S9",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A232",
+    "sentence_id": "S10",
+    "action": "KEEP",
+    "reason": "Protocol behavior knowledge \u2014 TCP/HTTP session norms are external knowledge: ['typical network']",
+    "hallucination_type": "external_knowledge"
+  },
+  {
+    "alert_id": "A232",
+    "sentence_id": "S11",
+    "action": "QUALIFY",
+    "reason": "Named attack technique \u2014 not derivable from flow numbers: ['network scanning']",
+    "hallucination_type": "reasoning"
+  },
+  {
+    "alert_id": "A237",
+    "sentence_id": "S1",
+    "action": "KEEP",
+    "reason": "Port characterization \u2014 labelling a port's purpose is external knowledge: ['commonly used for']",
+    "hallucination_type": "external_knowledge"
+  },
+  {
+    "alert_id": "A237",
+    "sentence_id": "S2",
+    "action": "QUALIFY",
+    "reason": "Unit assumption \u2014 raw flow duration has no guaranteed unit: ['nearly 28 hours']",
+    "hallucination_type": "external_knowledge"
+  },
+  {
+    "alert_id": "A237",
+    "sentence_id": "S3",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A237",
+    "sentence_id": "S4",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A237",
+    "sentence_id": "S5",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A237",
+    "sentence_id": "S6",
+    "action": "QUALIFY",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": "external_knowledge"
+  },
+  {
+    "alert_id": "A237",
+    "sentence_id": "S7",
+    "action": "KEEP",
+    "reason": "Protocol behavior knowledge \u2014 TCP/HTTP session norms are external knowledge: ['typical web']",
+    "hallucination_type": "external_knowledge"
+  },
+  {
+    "alert_id": "A237",
+    "sentence_id": "S8",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A237",
+    "sentence_id": "S9",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A244",
+    "sentence_id": "S1",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A244",
+    "sentence_id": "S2",
+    "action": "KEEP",
+    "reason": "Port characterization \u2014 labelling a port's purpose is external knowledge: ['typically associated with']",
+    "hallucination_type": "external_knowledge"
+  },
+  {
+    "alert_id": "A244",
+    "sentence_id": "S3",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A244",
+    "sentence_id": "S4",
+    "action": "QUALIFY",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": "external_knowledge"
+  },
+  {
+    "alert_id": "A244",
+    "sentence_id": "S5",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A244",
+    "sentence_id": "S6",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A244",
+    "sentence_id": "S7",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A244",
+    "sentence_id": "S8",
+    "action": "QUALIFY",
+    "reason": "Named attack technique \u2014 not derivable from flow numbers: ['reflection attack']",
+    "hallucination_type": "reasoning"
+  },
+  {
+    "alert_id": "A244",
+    "sentence_id": "S9",
+    "action": "QUALIFY",
+    "reason": "Resource exhaustion / DoS impact claim: ['Denial of Service']",
+    "hallucination_type": "reasoning"
+  },
+  {
+    "alert_id": "A245",
+    "sentence_id": "S1",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A245",
+    "sentence_id": "S2",
+    "action": "KEEP",
+    "reason": "Port characterization \u2014 labelling a port's purpose is external knowledge: ['commonly associated with']",
+    "hallucination_type": "external_knowledge"
+  },
+  {
+    "alert_id": "A245",
+    "sentence_id": "S3",
+    "action": "QUALIFY",
+    "reason": "Unit assumption \u2014 raw flow duration has no guaranteed unit: ['over 28 minutes']",
+    "hallucination_type": "external_knowledge"
+  },
+  {
+    "alert_id": "A245",
+    "sentence_id": "S4",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A245",
+    "sentence_id": "S5",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A245",
+    "sentence_id": "S6",
+    "action": "KEEP",
+    "reason": "Protocol behavior knowledge \u2014 TCP/HTTP session norms are external knowledge: ['three-way handshake']",
+    "hallucination_type": "external_knowledge"
+  },
+  {
+    "alert_id": "A245",
+    "sentence_id": "S7",
+    "action": "KEEP",
+    "reason": "Protocol behavior knowledge \u2014 TCP/HTTP session norms are external knowledge: ['typical network']",
+    "hallucination_type": "external_knowledge"
+  },
+  {
+    "alert_id": "A245",
+    "sentence_id": "S8",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A245",
+    "sentence_id": "S9",
+    "action": "QUALIFY",
+    "reason": "Named attack technique \u2014 not derivable from flow numbers: ['reconnaissance']",
+    "hallucination_type": "reasoning"
+  },
+  {
+    "alert_id": "A245",
+    "sentence_id": "S10",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A245",
+    "sentence_id": "S11",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A246",
+    "sentence_id": "S1",
+    "action": "KEEP",
+    "reason": "Port characterization \u2014 labelling a port's purpose is external knowledge: ['typically used for']",
+    "hallucination_type": "external_knowledge"
+  },
+  {
+    "alert_id": "A246",
+    "sentence_id": "S2",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A246",
+    "sentence_id": "S3",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A246",
+    "sentence_id": "S4",
+    "action": "KEEP",
+    "reason": "Protocol behavior knowledge \u2014 TCP/HTTP session norms are external knowledge: ['in a standard connection']",
+    "hallucination_type": "external_knowledge"
+  },
+  {
+    "alert_id": "A246",
+    "sentence_id": "S5",
+    "action": "QUALIFY",
+    "reason": "Named attack technique \u2014 not derivable from flow numbers: ['port scan']",
+    "hallucination_type": "reasoning"
+  },
+  {
+    "alert_id": "A246",
+    "sentence_id": "S6",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A246",
+    "sentence_id": "S7",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A246",
+    "sentence_id": "S8",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A246",
+    "sentence_id": "S9",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A249",
+    "sentence_id": "S1",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A249",
+    "sentence_id": "S2",
+    "action": "KEEP",
+    "reason": "External baseline comparison \u2014 requires outside knowledge: ['deviate from expected']",
+    "hallucination_type": "external_knowledge"
+  },
+  {
+    "alert_id": "A249",
+    "sentence_id": "S3",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A249",
+    "sentence_id": "S4",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A249",
+    "sentence_id": "S5",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A249",
+    "sentence_id": "S6",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A249",
+    "sentence_id": "S7",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A249",
+    "sentence_id": "S8",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A249",
+    "sentence_id": "S9",
+    "action": "QUALIFY",
+    "reason": "Named attack technique \u2014 not derivable from flow numbers: ['port scan', 'reconnaissance']",
+    "hallucination_type": "reasoning"
+  },
+  {
+    "alert_id": "A249",
+    "sentence_id": "S10",
+    "action": "QUALIFY",
+    "reason": "Named attack technique \u2014 not derivable from flow numbers: ['command and control']",
+    "hallucination_type": "reasoning"
+  },
+  {
+    "alert_id": "A251",
+    "sentence_id": "S1",
+    "action": "KEEP",
+    "reason": "Encryption assumption \u2014 not in flow evidence: ['unencrypted']",
+    "hallucination_type": "external_knowledge"
+  },
+  {
+    "alert_id": "A251",
+    "sentence_id": "S2",
+    "action": "QUALIFY",
+    "reason": "Unit assumption \u2014 raw flow duration has no guaranteed unit: ['over 27 hours']",
+    "hallucination_type": "external_knowledge"
+  },
+  {
+    "alert_id": "A251",
+    "sentence_id": "S3",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A251",
+    "sentence_id": "S4",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A251",
+    "sentence_id": "S5",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A251",
+    "sentence_id": "S6",
+    "action": "KEEP",
+    "reason": "External baseline comparison \u2014 requires outside knowledge: ['unusual for standard web']",
+    "hallucination_type": "external_knowledge"
+  },
+  {
+    "alert_id": "A251",
+    "sentence_id": "S7",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A251",
+    "sentence_id": "S8",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A251",
+    "sentence_id": "S9",
+    "action": "KEEP",
+    "reason": "Protocol behavior knowledge \u2014 TCP/HTTP session norms are external knowledge: ['normal network']",
+    "hallucination_type": "external_knowledge"
+  },
+  {
+    "alert_id": "A252",
+    "sentence_id": "S1",
+    "action": "KEEP",
+    "reason": "Port characterization \u2014 labelling a port's purpose is external knowledge: ['typically used for']",
+    "hallucination_type": "external_knowledge"
+  },
+  {
+    "alert_id": "A252",
+    "sentence_id": "S2",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A252",
+    "sentence_id": "S3",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A252",
+    "sentence_id": "S4",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A252",
+    "sentence_id": "S5",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A252",
+    "sentence_id": "S6",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A252",
+    "sentence_id": "S7",
+    "action": "KEEP",
+    "reason": "Encryption assumption \u2014 not in flow evidence: ['secure web traffic']",
+    "hallucination_type": "external_knowledge"
+  },
+  {
+    "alert_id": "A252",
+    "sentence_id": "S8",
+    "action": "QUALIFY",
+    "reason": "Named attack technique \u2014 not derivable from flow numbers: ['reconnaissance', 'port scan']",
+    "hallucination_type": "reasoning"
+  },
+  {
+    "alert_id": "A252",
+    "sentence_id": "S9",
+    "action": "QUALIFY",
+    "reason": "Resource exhaustion / DoS impact claim: ['denial-of-service']",
+    "hallucination_type": "reasoning"
+  },
+  {
+    "alert_id": "A253",
+    "sentence_id": "S1",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A253",
+    "sentence_id": "S2",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A253",
+    "sentence_id": "S3",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A253",
+    "sentence_id": "S4",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A253",
+    "sentence_id": "S5",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A253",
+    "sentence_id": "S6",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A253",
+    "sentence_id": "S7",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A253",
+    "sentence_id": "S8",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A253",
+    "sentence_id": "S9",
+    "action": "QUALIFY",
+    "reason": "Named attack technique \u2014 not derivable from flow numbers: ['reconnaissance']",
+    "hallucination_type": "reasoning"
+  },
+  {
+    "alert_id": "A253",
+    "sentence_id": "S10",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A259",
+    "sentence_id": "S1",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A259",
+    "sentence_id": "S2",
+    "action": "KEEP",
+    "reason": "Port characterization \u2014 labelling a port's purpose is external knowledge: ['commonly associated with']",
+    "hallucination_type": "external_knowledge"
+  },
+  {
+    "alert_id": "A259",
+    "sentence_id": "S3",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A259",
+    "sentence_id": "S4",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A259",
+    "sentence_id": "S5",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A259",
+    "sentence_id": "S6",
+    "action": "KEEP",
+    "reason": "Protocol behavior knowledge \u2014 TCP/HTTP session norms are external knowledge: ['for a standard TCP']",
+    "hallucination_type": "external_knowledge"
+  },
+  {
+    "alert_id": "A259",
+    "sentence_id": "S7",
+    "action": "KEEP",
+    "reason": "Named attack technique \u2014 not derivable from flow numbers: ['network scan']",
+    "hallucination_type": "reasoning"
+  },
+  {
+    "alert_id": "A259",
+    "sentence_id": "S8",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A259",
+    "sentence_id": "S9",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A261",
+    "sentence_id": "S1",
+    "action": "KEEP",
+    "reason": "Port characterization \u2014 labelling a port's purpose is external knowledge: ['not typically associated with standard']",
+    "hallucination_type": "external_knowledge"
+  },
+  {
+    "alert_id": "A261",
+    "sentence_id": "S2",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A261",
+    "sentence_id": "S3",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A261",
+    "sentence_id": "S4",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A261",
+    "sentence_id": "S5",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A261",
+    "sentence_id": "S6",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A261",
+    "sentence_id": "S7",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A261",
+    "sentence_id": "S8",
+    "action": "QUALIFY",
+    "reason": "Named attack technique \u2014 not derivable from flow numbers: ['reconnaissance']",
+    "hallucination_type": "reasoning"
+  },
+  {
+    "alert_id": "A261",
+    "sentence_id": "S9",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A261",
+    "sentence_id": "S10",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A267",
+    "sentence_id": "S1",
+    "action": "KEEP",
+    "reason": "Port characterization \u2014 labelling a port's purpose is external knowledge: ['typically associated with']",
+    "hallucination_type": "external_knowledge"
+  },
+  {
+    "alert_id": "A267",
+    "sentence_id": "S2",
+    "action": "QUALIFY",
+    "reason": "Unit assumption \u2014 raw flow duration has no guaranteed unit: ['approximately 27.6 hours']",
+    "hallucination_type": "external_knowledge"
+  },
+  {
+    "alert_id": "A267",
+    "sentence_id": "S3",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A267",
+    "sentence_id": "S4",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A267",
+    "sentence_id": "S5",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A267",
+    "sentence_id": "S6",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A267",
+    "sentence_id": "S7",
+    "action": "KEEP",
+    "reason": "External baseline comparison \u2014 requires outside knowledge: ['unusual for standard web']",
+    "hallucination_type": "external_knowledge"
+  },
+  {
+    "alert_id": "A267",
+    "sentence_id": "S8",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A267",
+    "sentence_id": "S9",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A267",
+    "sentence_id": "S10",
+    "action": "KEEP",
+    "reason": "External baseline comparison \u2014 requires outside knowledge: ['deviates significantly from expected']",
+    "hallucination_type": "external_knowledge"
+  },
+  {
+    "alert_id": "A297",
+    "sentence_id": "S1",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A297",
+    "sentence_id": "S2",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A297",
+    "sentence_id": "S3",
+    "action": "KEEP",
+    "reason": "Port characterization \u2014 labelling a port's purpose is external knowledge: ['conventionally used for']",
+    "hallucination_type": "external_knowledge"
+  },
+  {
+    "alert_id": "A297",
+    "sentence_id": "S4",
+    "action": "QUALIFY",
+    "reason": "Unit assumption \u2014 raw flow duration has no guaranteed unit: ['flow lasted for approximately 8.5 seconds']",
+    "hallucination_type": "external_knowledge"
+  },
+  {
+    "alert_id": "A297",
+    "sentence_id": "S5",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A297",
+    "sentence_id": "S6",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A297",
+    "sentence_id": "S7",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A297",
+    "sentence_id": "S8",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A297",
+    "sentence_id": "S9",
+    "action": "KEEP",
+    "reason": "Protocol behavior knowledge \u2014 TCP/HTTP session norms are external knowledge: ['for a standard TCP']",
+    "hallucination_type": "external_knowledge"
+  },
+  {
+    "alert_id": "A297",
+    "sentence_id": "S10",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A297",
+    "sentence_id": "S11",
+    "action": "QUALIFY",
+    "reason": "Named attack technique \u2014 not derivable from flow numbers: ['network scanning']",
+    "hallucination_type": "reasoning"
+  },
+  {
+    "alert_id": "A312",
+    "sentence_id": "S1",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A312",
+    "sentence_id": "S2",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A312",
+    "sentence_id": "S3",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A312",
+    "sentence_id": "S4",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A312",
+    "sentence_id": "S5",
+    "action": "KEEP",
+    "reason": "Port characterization \u2014 labelling a port's purpose is external knowledge: ['typically associated with']",
+    "hallucination_type": "external_knowledge"
+  },
+  {
+    "alert_id": "A312",
+    "sentence_id": "S6",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A312",
+    "sentence_id": "S7",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A312",
+    "sentence_id": "S8",
+    "action": "QUALIFY",
+    "reason": "Named attack technique \u2014 not derivable from flow numbers: ['reconnaissance']",
+    "hallucination_type": "reasoning"
+  },
+  {
+    "alert_id": "A312",
+    "sentence_id": "S9",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A312",
+    "sentence_id": "S10",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A317",
+    "sentence_id": "S1",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A317",
+    "sentence_id": "S2",
+    "action": "KEEP",
+    "reason": "Port characterization \u2014 labelling a port's purpose is external knowledge: ['used for DNS']",
+    "hallucination_type": "external_knowledge"
+  },
+  {
+    "alert_id": "A317",
+    "sentence_id": "S3",
+    "action": "QUALIFY",
+    "reason": "Unit assumption \u2014 raw flow duration has no guaranteed unit: ['duration of approximately 31 seconds']",
+    "hallucination_type": "external_knowledge"
+  },
+  {
+    "alert_id": "A317",
+    "sentence_id": "S4",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A317",
+    "sentence_id": "S5",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A317",
+    "sentence_id": "S6",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A317",
+    "sentence_id": "S7",
+    "action": "QUALIFY",
+    "reason": "Unit assumption \u2014 raw flow duration has no guaranteed unit: ['duration of 31 seconds']",
+    "hallucination_type": "external_knowledge"
+  },
+  {
+    "alert_id": "A317",
+    "sentence_id": "S8",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A317",
+    "sentence_id": "S9",
+    "action": "QUALIFY",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": "external_knowledge"
+  },
+  {
+    "alert_id": "A317",
+    "sentence_id": "S10",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A317",
+    "sentence_id": "S11",
+    "action": "QUALIFY",
+    "reason": "Named attack technique \u2014 not derivable from flow numbers: ['reconnaissance']",
+    "hallucination_type": "reasoning"
+  },
+  {
+    "alert_id": "A319",
+    "sentence_id": "S1",
+    "action": "KEEP",
+    "reason": "Port characterization \u2014 labelling a port's purpose is external knowledge: ['commonly associated with']",
+    "hallucination_type": "external_knowledge"
+  },
+  {
+    "alert_id": "A319",
+    "sentence_id": "S2",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A319",
+    "sentence_id": "S3",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A319",
+    "sentence_id": "S4",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A319",
+    "sentence_id": "S5",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A319",
+    "sentence_id": "S6",
+    "action": "QUALIFY",
+    "reason": "Named attack technique \u2014 not derivable from flow numbers: ['port scanning', 'reconnaissance']",
+    "hallucination_type": "reasoning"
+  },
+  {
+    "alert_id": "A319",
+    "sentence_id": "S7",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A319",
+    "sentence_id": "S8",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A319",
+    "sentence_id": "S9",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A328",
+    "sentence_id": "S1",
+    "action": "KEEP",
+    "reason": "Port characterization \u2014 labelling a port's purpose is external knowledge: ['typically used for']",
+    "hallucination_type": "external_knowledge"
+  },
+  {
+    "alert_id": "A328",
+    "sentence_id": "S2",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A328",
+    "sentence_id": "S3",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A328",
+    "sentence_id": "S4",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A328",
+    "sentence_id": "S5",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A328",
+    "sentence_id": "S6",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A328",
+    "sentence_id": "S7",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A328",
+    "sentence_id": "S8",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A328",
+    "sentence_id": "S9",
+    "action": "QUALIFY",
+    "reason": "Named attack technique \u2014 not derivable from flow numbers: ['reflection attack']",
+    "hallucination_type": "reasoning"
+  },
+  {
+    "alert_id": "A328",
+    "sentence_id": "S10",
+    "action": "QUALIFY",
+    "reason": "Named attack technique \u2014 not derivable from flow numbers: ['data exfiltration', 'DNS tunneling']",
+    "hallucination_type": "reasoning"
+  },
+  {
+    "alert_id": "A329",
+    "sentence_id": "S1",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A329",
+    "sentence_id": "S2",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A329",
+    "sentence_id": "S3",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A329",
+    "sentence_id": "S4",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A329",
+    "sentence_id": "S5",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A329",
+    "sentence_id": "S6",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A329",
+    "sentence_id": "S7",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A329",
+    "sentence_id": "S8",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A329",
+    "sentence_id": "S9",
+    "action": "QUALIFY",
+    "reason": "Named attack technique \u2014 not derivable from flow numbers: ['reconnaissance', 'port scan']",
+    "hallucination_type": "reasoning"
+  },
+  {
+    "alert_id": "A332",
+    "sentence_id": "S1",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A332",
+    "sentence_id": "S2",
+    "action": "QUALIFY",
+    "reason": "Unit assumption \u2014 raw flow duration has no guaranteed unit: ['approximately 28 hours']",
+    "hallucination_type": "external_knowledge"
+  },
+  {
+    "alert_id": "A332",
+    "sentence_id": "S3",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A332",
+    "sentence_id": "S4",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A332",
+    "sentence_id": "S5",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A332",
+    "sentence_id": "S6",
+    "action": "KEEP",
+    "reason": "Protocol behavior knowledge \u2014 TCP/HTTP session norms are external knowledge: ['typical network']",
+    "hallucination_type": "external_knowledge"
+  },
+  {
+    "alert_id": "A332",
+    "sentence_id": "S7",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A332",
+    "sentence_id": "S8",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A332",
+    "sentence_id": "S9",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A335",
+    "sentence_id": "S1",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A335",
+    "sentence_id": "S2",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A335",
+    "sentence_id": "S3",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A335",
+    "sentence_id": "S4",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A335",
+    "sentence_id": "S5",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A335",
+    "sentence_id": "S6",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A335",
+    "sentence_id": "S7",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A335",
+    "sentence_id": "S8",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A335",
+    "sentence_id": "S9",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A335",
+    "sentence_id": "S10",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A335",
+    "sentence_id": "S11",
+    "action": "KEEP",
+    "reason": "Named attack technique \u2014 not derivable from flow numbers: ['exploitation']",
+    "hallucination_type": "reasoning"
+  },
+  {
+    "alert_id": "A339",
+    "sentence_id": "S1",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A339",
+    "sentence_id": "S2",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A339",
+    "sentence_id": "S3",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A339",
+    "sentence_id": "S4",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A339",
+    "sentence_id": "S5",
+    "action": "QUALIFY",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": "external_knowledge"
+  },
+  {
+    "alert_id": "A339",
+    "sentence_id": "S6",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A339",
+    "sentence_id": "S7",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A339",
+    "sentence_id": "S8",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A339",
+    "sentence_id": "S9",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A339",
+    "sentence_id": "S10",
+    "action": "KEEP",
+    "reason": "Protocol behavior knowledge \u2014 TCP/HTTP session norms are external knowledge: ['typical TCP']",
+    "hallucination_type": "external_knowledge"
+  },
+  {
+    "alert_id": "A339",
+    "sentence_id": "S11",
+    "action": "QUALIFY",
+    "reason": "Named attack technique \u2014 not derivable from flow numbers: ['reconnaissance']",
+    "hallucination_type": "reasoning"
+  },
+  {
+    "alert_id": "A346",
+    "sentence_id": "S1",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A346",
+    "sentence_id": "S2",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A346",
+    "sentence_id": "S3",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A346",
+    "sentence_id": "S4",
+    "action": "KEEP",
+    "reason": "Protocol behavior knowledge \u2014 TCP/HTTP session norms are external knowledge: ['three-way handshake']",
+    "hallucination_type": "external_knowledge"
+  },
+  {
+    "alert_id": "A346",
+    "sentence_id": "S5",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A346",
+    "sentence_id": "S6",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A346",
+    "sentence_id": "S7",
+    "action": "QUALIFY",
+    "reason": "Named attack technique \u2014 not derivable from flow numbers: ['network scanning']",
+    "hallucination_type": "reasoning"
+  },
+  {
+    "alert_id": "A346",
+    "sentence_id": "S8",
+    "action": "QUALIFY",
+    "reason": "Unit assumption \u2014 raw flow duration has no guaranteed unit: ['duration of 45 seconds']",
+    "hallucination_type": "external_knowledge"
+  },
+  {
+    "alert_id": "A346",
+    "sentence_id": "S9",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A346",
+    "sentence_id": "S10",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A349",
+    "sentence_id": "S1",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A349",
+    "sentence_id": "S2",
+    "action": "KEEP",
+    "reason": "Port characterization \u2014 labelling a port's purpose is external knowledge: ['commonly used for']",
+    "hallucination_type": "external_knowledge"
+  },
+  {
+    "alert_id": "A349",
+    "sentence_id": "S3",
+    "action": "QUALIFY",
+    "reason": "Unit assumption \u2014 raw flow duration has no guaranteed unit: ['approximately 47 seconds']",
+    "hallucination_type": "external_knowledge"
+  },
+  {
+    "alert_id": "A349",
+    "sentence_id": "S4",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A349",
+    "sentence_id": "S5",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A349",
+    "sentence_id": "S6",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A349",
+    "sentence_id": "S7",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A349",
+    "sentence_id": "S8",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A349",
+    "sentence_id": "S9",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A349",
+    "sentence_id": "S10",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A349",
+    "sentence_id": "S11",
+    "action": "QUALIFY",
+    "reason": "Named attack technique \u2014 not derivable from flow numbers: ['reconnaissance']",
+    "hallucination_type": "reasoning"
+  },
+  {
+    "alert_id": "A354",
+    "sentence_id": "S1",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A354",
+    "sentence_id": "S2",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A354",
+    "sentence_id": "S3",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A354",
+    "sentence_id": "S4",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A354",
+    "sentence_id": "S5",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A354",
+    "sentence_id": "S6",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A354",
+    "sentence_id": "S7",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A354",
+    "sentence_id": "S8",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A354",
+    "sentence_id": "S9",
+    "action": "QUALIFY",
+    "reason": "Named attack technique \u2014 not derivable from flow numbers: ['reconnaissance']",
+    "hallucination_type": "reasoning"
+  },
+  {
+    "alert_id": "A362",
+    "sentence_id": "S1",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A362",
+    "sentence_id": "S2",
+    "action": "KEEP",
+    "reason": "Port characterization \u2014 labelling a port's purpose is external knowledge: ['commonly associated with']",
+    "hallucination_type": "external_knowledge"
+  },
+  {
+    "alert_id": "A362",
+    "sentence_id": "S3",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A362",
+    "sentence_id": "S4",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A362",
+    "sentence_id": "S5",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A362",
+    "sentence_id": "S6",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A362",
+    "sentence_id": "S7",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A362",
+    "sentence_id": "S8",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A362",
+    "sentence_id": "S9",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A362",
+    "sentence_id": "S10",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A363",
+    "sentence_id": "S1",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A363",
+    "sentence_id": "S2",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A363",
+    "sentence_id": "S3",
+    "action": "KEEP",
+    "reason": "Port characterization \u2014 labelling a port's purpose is external knowledge: ['commonly used for']",
+    "hallucination_type": "external_knowledge"
+  },
+  {
+    "alert_id": "A363",
+    "sentence_id": "S4",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A363",
+    "sentence_id": "S5",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A363",
+    "sentence_id": "S6",
+    "action": "QUALIFY",
+    "reason": "Named attack technique \u2014 not derivable from flow numbers: ['reconnaissance']",
+    "hallucination_type": "reasoning"
+  },
+  {
+    "alert_id": "A363",
+    "sentence_id": "S7",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A363",
+    "sentence_id": "S8",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A363",
+    "sentence_id": "S9",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A363",
+    "sentence_id": "S10",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A363",
+    "sentence_id": "S11",
+    "action": "QUALIFY",
+    "reason": "Named attack technique \u2014 not derivable from flow numbers: ['reconnaissance']",
+    "hallucination_type": "reasoning"
+  },
+  {
+    "alert_id": "A366",
+    "sentence_id": "S1",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A366",
+    "sentence_id": "S2",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A366",
+    "sentence_id": "S3",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A366",
+    "sentence_id": "S4",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A366",
+    "sentence_id": "S5",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A366",
+    "sentence_id": "S6",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A366",
+    "sentence_id": "S7",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A366",
+    "sentence_id": "S8",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A366",
+    "sentence_id": "S9",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A366",
+    "sentence_id": "S10",
+    "action": "QUALIFY",
+    "reason": "Named attack technique \u2014 not derivable from flow numbers: ['data exfiltration', 'reconnaissance']",
+    "hallucination_type": "reasoning"
+  },
+  {
+    "alert_id": "A366",
+    "sentence_id": "S11",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A375",
+    "sentence_id": "S1",
+    "action": "KEEP",
+    "reason": "Port characterization \u2014 labelling a port's purpose is external knowledge: ['commonly used for']",
+    "hallucination_type": "external_knowledge"
+  },
+  {
+    "alert_id": "A375",
+    "sentence_id": "S2",
+    "action": "QUALIFY",
+    "reason": "Unit assumption \u2014 raw flow duration has no guaranteed unit: ['over 27 hours']",
+    "hallucination_type": "external_knowledge"
+  },
+  {
+    "alert_id": "A375",
+    "sentence_id": "S3",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A375",
+    "sentence_id": "S4",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A375",
+    "sentence_id": "S5",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A375",
+    "sentence_id": "S6",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A375",
+    "sentence_id": "S7",
+    "action": "KEEP",
+    "reason": "External baseline comparison \u2014 requires outside knowledge: ['deviates significantly from typical']",
+    "hallucination_type": "external_knowledge"
+  },
+  {
+    "alert_id": "A375",
+    "sentence_id": "S8",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A375",
+    "sentence_id": "S9",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A375",
+    "sentence_id": "S10",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A377",
+    "sentence_id": "S1",
+    "action": "KEEP",
+    "reason": "Port characterization \u2014 labelling a port's purpose is external knowledge: ['commonly associated with']",
+    "hallucination_type": "external_knowledge"
+  },
+  {
+    "alert_id": "A377",
+    "sentence_id": "S2",
+    "action": "QUALIFY",
+    "reason": "Unit assumption \u2014 raw flow duration has no guaranteed unit: ['duration of approximately 50 seconds']",
+    "hallucination_type": "external_knowledge"
+  },
+  {
+    "alert_id": "A377",
+    "sentence_id": "S3",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A377",
+    "sentence_id": "S4",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A377",
+    "sentence_id": "S5",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A377",
+    "sentence_id": "S6",
+    "action": "QUALIFY",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": "external_knowledge"
+  },
+  {
+    "alert_id": "A377",
+    "sentence_id": "S7",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A377",
+    "sentence_id": "S8",
+    "action": "QUALIFY",
+    "reason": "Named attack technique \u2014 not derivable from flow numbers: ['data exfiltration']",
+    "hallucination_type": "reasoning"
+  },
+  {
+    "alert_id": "A377",
+    "sentence_id": "S9",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A379",
+    "sentence_id": "S1",
+    "action": "KEEP",
+    "reason": "Port characterization \u2014 labelling a port's purpose is external knowledge: ['commonly associated with']",
+    "hallucination_type": "external_knowledge"
+  },
+  {
+    "alert_id": "A379",
+    "sentence_id": "S2",
+    "action": "QUALIFY",
+    "reason": "Unit assumption \u2014 raw flow duration has no guaranteed unit: ['duration of 1 second']",
+    "hallucination_type": "external_knowledge"
+  },
+  {
+    "alert_id": "A379",
+    "sentence_id": "S3",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A379",
+    "sentence_id": "S4",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A379",
+    "sentence_id": "S5",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A379",
+    "sentence_id": "S6",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A379",
+    "sentence_id": "S7",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A379",
+    "sentence_id": "S8",
+    "action": "QUALIFY",
+    "reason": "Named attack technique \u2014 not derivable from flow numbers: ['port scan']",
+    "hallucination_type": "reasoning"
+  },
+  {
+    "alert_id": "A391",
+    "sentence_id": "S1",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A391",
+    "sentence_id": "S2",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A391",
+    "sentence_id": "S3",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A391",
+    "sentence_id": "S4",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A391",
+    "sentence_id": "S5",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A391",
+    "sentence_id": "S6",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A391",
+    "sentence_id": "S7",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A391",
+    "sentence_id": "S8",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A391",
+    "sentence_id": "S9",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A391",
+    "sentence_id": "S10",
+    "action": "QUALIFY",
+    "reason": "Named attack technique \u2014 not derivable from flow numbers: ['reconnaissance']",
+    "hallucination_type": "reasoning"
+  },
+  {
+    "alert_id": "A393",
+    "sentence_id": "S1",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A393",
+    "sentence_id": "S2",
+    "action": "KEEP",
+    "reason": "Port characterization \u2014 labelling a port's purpose is external knowledge: ['commonly associated with']",
+    "hallucination_type": "external_knowledge"
+  },
+  {
+    "alert_id": "A393",
+    "sentence_id": "S3",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A393",
+    "sentence_id": "S4",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A393",
+    "sentence_id": "S5",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A393",
+    "sentence_id": "S6",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A393",
+    "sentence_id": "S7",
+    "action": "QUALIFY",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": "external_knowledge"
+  },
+  {
+    "alert_id": "A393",
+    "sentence_id": "S8",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A393",
+    "sentence_id": "S9",
+    "action": "QUALIFY",
+    "reason": "Named attack technique \u2014 not derivable from flow numbers: ['network scanning', 'reconnaissance']",
+    "hallucination_type": "reasoning"
+  },
+  {
+    "alert_id": "A393",
+    "sentence_id": "S10",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A394",
+    "sentence_id": "S1",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A394",
+    "sentence_id": "S2",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A394",
+    "sentence_id": "S3",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A394",
+    "sentence_id": "S4",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A394",
+    "sentence_id": "S5",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A394",
+    "sentence_id": "S6",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A394",
+    "sentence_id": "S7",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A394",
+    "sentence_id": "S8",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A394",
+    "sentence_id": "S9",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A394",
+    "sentence_id": "S10",
+    "action": "QUALIFY",
+    "reason": "Named attack technique \u2014 not derivable from flow numbers: ['reconnaissance']",
+    "hallucination_type": "reasoning"
+  },
+  {
+    "alert_id": "A394",
+    "sentence_id": "S11",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A395",
+    "sentence_id": "S1",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A395",
+    "sentence_id": "S2",
+    "action": "KEEP",
+    "reason": "Port characterization \u2014 labelling a port's purpose is external knowledge: ['commonly used for']",
+    "hallucination_type": "external_knowledge"
+  },
+  {
+    "alert_id": "A395",
+    "sentence_id": "S3",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A395",
+    "sentence_id": "S4",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A395",
+    "sentence_id": "S5",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A395",
+    "sentence_id": "S6",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A395",
+    "sentence_id": "S7",
+    "action": "KEEP",
+    "reason": "Protocol behavior knowledge \u2014 TCP/HTTP session norms are external knowledge: ['typical established']",
+    "hallucination_type": "external_knowledge"
+  },
+  {
+    "alert_id": "A395",
+    "sentence_id": "S8",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A395",
+    "sentence_id": "S9",
+    "action": "QUALIFY",
+    "reason": "Named attack technique \u2014 not derivable from flow numbers: ['port scan']",
+    "hallucination_type": "reasoning"
+  },
+  {
+    "alert_id": "A395",
+    "sentence_id": "S10",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A396",
+    "sentence_id": "S1",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A396",
+    "sentence_id": "S2",
+    "action": "KEEP",
+    "reason": "Port characterization \u2014 labelling a port's purpose is external knowledge: ['typically used for']",
+    "hallucination_type": "external_knowledge"
+  },
+  {
+    "alert_id": "A396",
+    "sentence_id": "S3",
+    "action": "QUALIFY",
+    "reason": "Unit assumption \u2014 raw flow duration has no guaranteed unit: ['lasting approximately 413 seconds']",
+    "hallucination_type": "external_knowledge"
+  },
+  {
+    "alert_id": "A396",
+    "sentence_id": "S4",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A396",
+    "sentence_id": "S5",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A396",
+    "sentence_id": "S6",
+    "action": "KEEP",
+    "reason": "Protocol behavior knowledge \u2014 TCP/HTTP session norms are external knowledge: ['three-way handshake']",
+    "hallucination_type": "external_knowledge"
+  },
+  {
+    "alert_id": "A396",
+    "sentence_id": "S7",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A396",
+    "sentence_id": "S8",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A396",
+    "sentence_id": "S9",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A396",
+    "sentence_id": "S10",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A396",
+    "sentence_id": "S11",
+    "action": "QUALIFY",
+    "reason": "Named attack technique \u2014 not derivable from flow numbers: ['port scan']",
+    "hallucination_type": "reasoning"
+  },
+  {
+    "alert_id": "A397",
+    "sentence_id": "S1",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A397",
+    "sentence_id": "S2",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A397",
+    "sentence_id": "S3",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A397",
+    "sentence_id": "S4",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A397",
+    "sentence_id": "S5",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A397",
+    "sentence_id": "S6",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A397",
+    "sentence_id": "S7",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A397",
+    "sentence_id": "S8",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A397",
+    "sentence_id": "S9",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A397",
+    "sentence_id": "S10",
+    "action": "QUALIFY",
+    "reason": "Named attack technique \u2014 not derivable from flow numbers: ['reconnaissance']",
+    "hallucination_type": "reasoning"
+  },
+  {
+    "alert_id": "A398",
+    "sentence_id": "S1",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A398",
+    "sentence_id": "S2",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A398",
+    "sentence_id": "S3",
+    "action": "KEEP",
+    "reason": "Port characterization \u2014 labelling a port's purpose is external knowledge: ['is the standard port']",
+    "hallucination_type": "external_knowledge"
+  },
+  {
+    "alert_id": "A398",
+    "sentence_id": "S4",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A398",
+    "sentence_id": "S5",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A398",
+    "sentence_id": "S6",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A398",
+    "sentence_id": "S7",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A398",
+    "sentence_id": "S8",
+    "action": "QUALIFY",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": "external_knowledge"
+  },
+  {
+    "alert_id": "A398",
+    "sentence_id": "S9",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A398",
+    "sentence_id": "S10",
+    "action": "KEEP",
+    "reason": "Passed all rule layers. No unsupported claims detected.",
+    "hallucination_type": null
+  },
+  {
+    "alert_id": "A398",
+    "sentence_id": "S11",
+    "action": "QUALIFY",
+    "reason": "Named attack technique \u2014 not derivable from flow numbers: ['data exfiltration']",
+    "hallucination_type": "reasoning"
+  }
+]

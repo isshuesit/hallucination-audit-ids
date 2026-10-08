@@ -1,0 +1,55 @@
+﻿item_id,sentence,gemini_label,gemini_subtype,gemini_hedged,gpt_label,gpt_subtype,gpt_hedged
+E001-02,"The communication targets destination port 8192, which is not commonly associated with standard internet services.",hallucinated,port,False,hallucinated,baseline,False
+E001-08,The combination of a single forward packet and no ACKs could suggest an unsuccessful connection attempt.,hallucinated,protocol,True,hallucinated,inferred_outcome,True
+E001-11,These flow characteristics collectively point to potentially suspicious or unusual network behavior that requires further investigation.,grounded,,,hallucinated,baseline,False
+E002-07,"Crucially, the ACK flag count for this flow was zero, indicating no acknowledgments were sent from the destination.",grounded,,,hallucinated,protocol,False
+E002-08,"This combination of minimal forward packets, zero acknowledgments, and high calculated flow rates is atypical for a standard, successful DNS transaction or a fully established connection.",hallucinated,protocol,False,hallucinated,baseline,False
+E002-10,This anomaly warrants further investigation to determine its true nature and potential security implications.,grounded,,,hallucinated,baseline,False
+E003-02,This port is typically not assigned to well-known or common services.,hallucinated,port,False,hallucinated,baseline,False
+E003-03,The entire flow occurred over an exceptionally brief duration of 4 time units.,hallucinated,baseline,False,grounded,,
+E003-05,"One acknowledgment (ACK) flag was observed within the flow, indicating the connection progressed beyond a simple initial request.",grounded,,,hallucinated,protocol,False
+E004-05,"The flow also exhibited a high overall packet rate of 95 packets per second, implying a significant number of total packets exchanged.",grounded,,,hallucinated,baseline,False
+E004-07,The complete absence of ACK flags is highly unusual for a standard TCP connection to an HTTP service.,hallucinated,protocol,False,hallucinated,baseline,False
+E005-09,A zero ACK flag count is highly atypical for a successfully established and active TCP communication like SSH.,hallucinated,protocol,False,hallucinated,baseline,False
+E005-10,This suggests that no data segments were acknowledged by the recipient throughout the flow's entire duration.,grounded,,,hallucinated,protocol,False
+E006-02,"This port is not commonly associated with standard, well-known network services.",hallucinated,port,False,hallucinated,baseline,False
+E007-03,"The flow shows an exceptionally long duration of 10,183,861 units.",hallucinated,unit,False,grounded,,
+E007-08,"A zero ACK flag count is highly unusual for a long-duration connection, especially one typically employing TCP.",hallucinated,protocol,False,hallucinated,baseline,False
+E007-09,These combined characteristics suggest an abnormal or non-responsive connection state.,hallucinated,baseline,False,hallucinated,baseline,True
+E007-10,"The observed traffic pattern does not align with a typical, healthy secure web browsing session.",hallucinated,encryption,False,hallucinated,baseline,False
+E008-07,Such a combination of prolonged duration with minimal packet and byte activity is highly atypical for standard HTTP communication.,hallucinated,protocol,False,hallucinated,baseline,False
+E008-09,The single ACK flag count indicates at least one acknowledgment within this minimal interaction.,grounded,,,hallucinated,protocol,False
+E008-10,This unusual flow profile warrants further investigation from a security perspective.,grounded,,,hallucinated,baseline,False
+E009-07,"The very low number of forward packets, contrasted with the high overall flow rates, suggests an asymmetric or otherwise unusual communication pattern.",hallucinated,baseline,False,hallucinated,baseline,True
+E009-11,The unusual characteristics of this network flow warrant further investigation from a security perspective.,grounded,,,hallucinated,baseline,False
+E010-08,"Such an anomaly, especially with no acknowledgments, suggests an incomplete or malformed connection attempt.",hallucinated,protocol,False,hallucinated,protocol,True
+E011-07,The reported flow rates of 968.74 bytes per second and 11.89 packets per second appear inconsistent with the observation of only one forward packet over the stated duration.,grounded,,,hallucinated,baseline,True
+E011-09,"This combination of a single packet, long duration, and no ACK flags is not typical for a successful DNS query-response exchange.",hallucinated,protocol,False,hallucinated,baseline,False
+E012-04,This low packet count over a long duration suggests minimal data transfer or activity.,hallucinated,baseline,False,grounded,,
+E012-06,"Similarly, the packet rate of 4.34 packets per second further supports a low activity level.",hallucinated,baseline,False,grounded,,
+E012-08,"The lack of ACK flags is highly atypical for a normal TCP-based communication, which relies on acknowledgments.",hallucinated,protocol,False,hallucinated,baseline,False
+E012-09,"This suggests that a full, successful TCP three-way handshake or reliable data transfer did not occur.",hallucinated,protocol,False,hallucinated,protocol,True
+E012-10,The combination of a prolonged duration with extremely low activity and zero ACK flags indicates an anomalous or incomplete connection attempt on the SSH port.,hallucinated,protocol,False,hallucinated,baseline,False
+E013-08,"The absence of ACK flags suggests either a UDP-based communication, which is typical for DNS, or an unsuccessful TCP connection attempt.",hallucinated,protocol,False,hallucinated,protocol,True
+E013-11,The observed characteristics deviate from normal network behavior and warrant further investigation.,grounded,,,hallucinated,baseline,False
+E014-08,An extended flow duration coupled with a very high implied reverse packet volume on a DNS port is an atypical pattern for standard DNS queries.,hallucinated,protocol,False,hallucinated,baseline,False
+E014-10,Such a profile warrants further investigation due to its deviation from typical DNS query and response exchanges.,grounded,,,hallucinated,baseline,False
+E015-02,"The destination port for this network flow is 61206, which is a high-numbered port not typically assigned to standard services.",hallucinated,port,False,hallucinated,baseline,False
+E015-05,This single forward packet had the TCP ACK flag enabled.,grounded,,,hallucinated,protocol,False
+E015-11,"Collectively, these characteristics strongly suggest network scanning activity.",hallucinated,attack_technique,False,hallucinated,attack_technique,True
+E017-06,The presence of one forward packet with an ACK flag suggests an attempt to initiate a connection or a network probe.,hallucinated,protocol,True,hallucinated,attack_technique,True
+E018-05,The presence of only a single ACK flag across the 28-hour flow with multiple forward packets is highly unusual.,hallucinated,protocol,False,hallucinated,baseline,False
+E018-07,Such characteristics could suggest a stealthy communication attempt or an inefficient connection.,hallucinated,protocol,True,hallucinated,other_knowledge,True
+E019-02,"The network communication was directed to destination port 59625, which is a high-numbered port not typically associated with standard, well-known services.",hallucinated,port,False,hallucinated,baseline,False
+E019-05,The presence of one ACK flag suggests an acknowledgment or a response to the initial packet within this minimal exchange.,hallucinated,protocol,True,hallucinated,protocol,False
+E020-02,"The flow registered an ACK Flag Count of 0, indicating no TCP acknowledgments were observed.",grounded,,,hallucinated,protocol,False
+E020-07,This combination of a minimal packet count over a long duration with high average rates is inconsistent.,hallucinated,baseline,False,hallucinated,other_knowledge,False
+E021-03,"This absence of ACK flags is highly unusual for a standard, successfully established TCP connection.",hallucinated,protocol,False,hallucinated,baseline,False
+E021-10,The lack of standard TCP acknowledgment makes the nature of this communication suspicious from a security perspective.,hallucinated,protocol,False,hallucinated,baseline,False
+E022-04,"The ACK flag count is zero, indicating no acknowledgments were received from the destination system.",grounded,,,hallucinated,protocol,False
+E022-05,This strongly suggests that a TCP three-way handshake was not successfully completed.,hallucinated,protocol,False,hallucinated,protocol,True
+E022-09,It confirms that an established and active SSH session did not occur.,hallucinated,protocol,False,hallucinated,hard_certainty,False
+E024-02,"The communication is directed towards destination port 80, typically associated with unencrypted web services.",hallucinated,port,False,hallucinated,encryption,False
+E024-08,Such an unusual pattern deviates from typical network traffic and warrants further investigation for potential security implications.,grounded,,,hallucinated,baseline,False
+E025-09,"The combination of a single forward packet, no ACKs, and high flow rates indicates a potentially bursty or highly efficient data transfer.",hallucinated,baseline,False,hallucinated,other_knowledge,False
+E025-10,"This could signify a single DNS query followed by a significant response, or a highly compressed data exchange within the flow, which would contribute to the high overall byte and packet rates.",hallucinated,other_knowledge,True,hallucinated,port,False

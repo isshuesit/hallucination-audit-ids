@@ -1,167 +1,125 @@
-# LLM Hallucination Localization & Selective Unlearning Pipeline
-### Cybersecurity alert explanations on CIC-IDS 2017
+# Auditing unsupported claims in LLM-generated IDS alert explanations
 
-**Research question.** How can hallucinated or unsupported claims in LLM-generated
-cybersecurity alert explanations be *localized* (which sentence, what kind) and
-*selectively corrected* without retraining the model?
+This repository audits **hallucinated (unsupported) claims** in explanations that a large language model wrote for
+network-intrusion alerts. Each explanation was generated from a handful of numeric flow features of the
+CIC-IDS 2017 dataset, with no attack label. A claim is unsupported when it says something those numbers do not
+support. The repository holds a rule-based detector, a two-tier taxonomy, the analysis of an existing corpus of 400
+explanations, a 25-explanation label audit, and every file needed to reproduce the reported numbers offline.
 
-The pipeline: build evidence-only alerts from network flows -> have an LLM explain
-them -> detect hallucinated explanations -> localize the hallucinated sentences ->
-remove or rewrite them -> measure what that did.
+Paper: *placeholder, Zenodo DOI to be added: https://doi.org/10.5281/zenodo.XXXXXXX*
 
----
+## The taxonomy in five lines
 
-**Developing this project?** Start with `docs/EXPERIMENT_PLAN.md`, `docs/TASKS.md`, `docs/HANDOFF.md` and `docs/DECISIONS.md`.
+1. **Grounded:** the sentence restates the evidence numbers or follows from them by arithmetic.
+2. **Tier 1, unsupported specifics:** invented specifics (CVE, tool, version, IP address, a port or protocol absent from the evidence, a wrong duration unit, a patch), attack techniques and threat actors (hedged or not), impact and outcome claims, and definitive certainty.
+3. **Tier 2, knowledge beyond the numbers:** what a port in the evidence is used for, TCP/protocol norms, encryption assumptions, comparisons with "normal" traffic, and a correct unit attached to the raw duration.
+4. **Strict policy:** Tier 1 and Tier 2 count as hallucinations. **Lenient policy:** only Tier 1 does.
+5. The exact subtype names are in [docs/SUBTYPES.md](docs/SUBTYPES.md), and the rule-to-tier table is in [docs/RULE_TIERS.md](docs/RULE_TIERS.md).
 
-## Provenance
+## Headline results
 
-This is an independent rewrite of an earlier group project built around this idea.
-The earlier code worked but was hard to trust or reuse: three of its files were
-60-75% dead code (each held two or three stacked copies of itself, all but the last
-commented out), its README named the wrong API key variable, and its run order
-skipped a step. This rewrite has one copy of everything, a package structure,
-tests, and a way to prove it still behaves like the original (below).
+*Source of every number: earlier run, API-default sampling, prompt v1, 63 attack-flow and 337 benign-flow
+explanations; not generated under freeze-1.* 398 explanations were analysed (2 benign-flow generations had failed).
+Rules only, no LLM call. 95% confidence intervals use a percentile bootstrap over explanations (2000 draws, seed 42).
+All numbers are copied from [results/corpus-7247d3e7/REPORT.md](results/corpus-7247d3e7/REPORT.md) and
+[results/corpus-7247d3e7/audit_ai/](results/corpus-7247d3e7/audit_ai/).
 
-## Verification: does the rebuild behave like the original?
+**Prevalence, detected by the rules (explanation level, n = 398):**
 
-`tools/verify_against_original.py` runs the **original scripts** and **this rebuild**
-side by side on the same synthetic inputs (400 alerts, ~1,950 sentences), through every
-stage, with the same deterministic fake Gemini client for both. The fake client includes
-the awkward cases: HTTP 429 rate limits with a retry delay, generic errors, fenced and
-malformed JSON, unchanged rewrites, and rewrites that fail every retry.
+| | strict (Tier 1 + 2) | lenient (Tier 1 only) |
+|---|---|---|
+| all | 92.5% [89.7%, 95.0%] (368/398) | 53.5% [48.5%, 58.3%] (213/398) |
+| attack-flow (n = 63) | 95.2% [88.9%, 100.0%] | 69.8% [58.7%, 81.0%] |
+| benign-flow (n = 335) | 91.9% [89.0%, 94.6%] | 50.4% [45.1%, 55.8%] |
 
-```bash
-python tools/verify_against_original.py --original-dir /path/to/original/files
-```
+- **Durations:** 176 of 177 stated durations (99.4% [98.2%, 100.0%]) contradict Flow Duration read as microseconds.
+- **Hedging:** 76 of 88 attack-technique mentions (86.4% [78.2%, 93.5%]) were hedged ("could", "may", "consistent with").
+- **Old rewrites:** of the earlier run's 132 automatic rewrites, 28 contain a number absent from both the evidence and the original sentence.
 
-Result: **every output file is identical** - evidence-pure alerts, explanations,
-explanation-level detection, sentence-level localization, masks, corrected explanations,
-effect analysis, impact analysis, end-to-end metrics, and both markdown reports - apart from
-the deliberate deviations listed next. This verifies the *logic*. It cannot verify real
-Gemini behaviour, which is non-deterministic; see the notes on reproducing results.
+**Label audit (25 explanations, 250 sentences).** Labels: two AI annotators (gemini: Gemini 1.5; gpt: GPT-5.6
+Luna 5.6), author-adjudicated; 54 disagreements; 10 items invalid or missing for at least one labeller were
+adjudicated by the author; 20% blind spot-check (37 items); overrule rate 14% (5/37).
 
-### Deliberate deviations from the original
+| rules vs labels, sentence level | n | label positives | rule positives | precision | recall | F1 |
+|---|---|---|---|---|---|---|
+| strict | 250 | 142 | 50 | 1.00 [1.00, 1.00] | 0.35 [0.28, 0.44] | 0.52 [0.43, 0.61] |
+| lenient | 250 | 40 | 14 | 1.00 [1.00, 1.00] | 0.35 [0.21, 0.51] | 0.52 [0.35, 0.68] |
 
-| Deviation | Why |
-|---|---|
-| Qualitative before/after examples are aligned using the masks | The original paired a flagged sentence with the wrong "corrected" sentence whenever an earlier sentence in the same explanation had been removed (it indexed the corrected list by the *original* sentence number). The verification run reproduced this: a flagged CVE sentence was shown with an unrelated surviving sentence as its "correction". **Check any before/after examples in the paper.** |
-| `evidence_tokens` are sorted | The original wrote `list(set(...))`, whose order changes between runs, so files differed byte-for-byte run to run. |
-| Impact report says the real alert count | The original hard-coded "all 400 alerts" in its report text. |
-| Total rewrite failure keeps the (softened) original sentence | An early draft of this rebuild inserted a bracketed placeholder instead; the original's behaviour was the right one. |
-| Loader drops every benign label (`BENIGN`, `Normal Traffic`, `normal`) | The original excluded only `BENIGN`. On the processed 'Attack Type' version of CIC-IDS 2017, benign flows are named `Normal Traffic`, so 337 of the 400 "attack-class" alerts in the frozen data were actually benign traffic. |
-| Gold labels may be booleans or the strings `hallucinated`/`grounded` | The original evaluated explanation-level labels with `1 if gold else 0`, which counts the string `'grounded'` as hallucinated (precision 1.00 / recall 0.24 on the frozen file instead of 0.94 / 1.00). |
-| `HALLUC_ROOT` environment variable | Lets two experiments (a reproduction run and a fresh run) keep separate data trees. |
+At explanation level, lenient recall is 0.50 [0.29, 0.71] (12 of 24 positive explanations found). Strict
+explanation-level metrics are uninformative: all 25 audited explanations are positive for both the rules and the
+labels. Per-group rows are in `audit_ai/audit_metrics.csv`.
 
-## Things about the original method worth stating in the paper
+## Limitations
 
-These come from reading and testing the original behaviour, not from the rebuild:
+- **Existing corpus.** The 400 explanations come from an earlier run (gemini-2.5-flash, API-default sampling,
+  prompt v1). They were not generated under the frozen protocol, and 337 of the 400 are benign flows. The evidence
+  of every alert has 6 of the 9 intended features: Backward Packets, SYN and RST counts are missing
+  (`results/corpus-7247d3e7_extra/`).
+- **Small audit.** 25 explanations (12 attack-flow, 13 benign-flow), one adjudicator, no second pass, so the
+  intervals are wide.
+- **AI-annotated, author-adjudicated labels.** The labels are not independent human gold labels (decision D30).
+  One labeller (Gemini 1.5) shares a model family with the generator. The labeller instructions and the rules
+  implement the same taxonomy, so the perfect precision is not independent evidence of correctness.
+- **Rules have low recall.** The rules miss most unsupported sentences the labels identify (sentence recall about
+  0.35). Known gaps are listed in [docs/KNOWN_RULE_GAPS.md](docs/KNOWN_RULE_GAPS.md). No LLM judge, prompt-v2 or
+  rewrite arm was run (D27).
+- Every decision, including those made after the freeze, is logged in [docs/DECISIONS.md](docs/DECISIONS.md).
 
-1. **Phase 4 is driven by human gold labels where they exist.** Masks use the gold label
-   first and the pipeline's prediction only as a fallback. So the Phase 4 results measure
-   mitigation *given accurate localization* - an upper bound - not the fully automatic
-   pipeline. Run Phase 4 with no gold labels filled in to measure the automatic case.
-2. **Hallucination reduction is measured with the same rule engine that produced most of the
-   Phase 3 labels.** That is partly circular. The independent LLM re-check
-   (QUALIFY effectiveness) is the less circular signal; report both.
-3. **The threat-actor rule matches "an attacker" but not "the attacker"** (and needs "port
-   scanning"/"network scanning", not bare "scanning"). Real, narrow coverage gaps, preserved
-   deliberately (see `tests/test_rules.py`) because changing a rule changes the results.
-4. **Dataset-version hazard.** The "clean on an attack-class alert -> double-check with the
-   LLM" escalation matches coarse labels (`DoS`, `DDoS`, `Port Scanning`, ...). A CIC-IDS 2017
-   copy with only the fine-grained `Label` column (`DoS Hulk`, `PortScan`, `FTP-Patator`) will
-   match few of them and silently consult the LLM judge less. State which version you used.
-5. **Four measurement bugs were found and fixed over the project's life** (all documented in
-   the code): a nonsensical "-413% reduction" from comparing different alert sets; an LLM
-   re-check that silently passed everything because of unparsed thinking-mode output; QUALIFY
-   pairs silently dropped by a text-prefix match; and the qualitative-example misalignment above.
+## Reproduce the results offline
 
-## Reproducing results from frozen artifacts
-
-`tools/reproduce_frozen.py` recomputes the paper's tables from saved outputs and tests the rebuild against them. It is deterministic and needs no API key.
-
-```bash
-python tools/reproduce_frozen.py --frozen-dir /path/to/frozen --out REPRODUCTION_REPORT.md
-```
-
-It reports (A) whether this code reproduces the frozen run (rule decisions, masks), (B) each paper table versus the recomputed value, and (C) further findings the data supports (dataset composition, coverage, label stability, rewrite quality). Figures that depend on a live LLM, such as the LLM re-check effectiveness, are reported as not checkable rather than guessed.
-
-## Setup
+No API key and no network access are needed. Python 3.11 or newer.
 
 ```bash
 pip install -r requirements.txt
-export GEMINI_API_KEY="your-key-here"      # the variable is GEMINI_API_KEY: this project uses Gemini
+python -m pytest tests/ -q                     # all tests run offline
+git diff --stat freeze-1 -- hallucination_pipeline configs docs/ANNOTATION_GUIDE_v2.md   # prints nothing: frozen code unchanged
+python tools/reproduce_corpus_results.py       # re-runs everything into a temp folder and compares
 ```
-`.env.example` is a template only; the scripts read the environment, not the file.
 
-Get CIC-IDS 2017 from https://www.unb.ca/cic/datasets/ids-2017.html and put the CSVs in
-`data/raw/`.
+`reproduce_corpus_results.py` re-runs the rule analysis (`analyze_corpus`), the label merge and audit
+(`ai_finalize`, from the committed AI labels and the author's adjudication sheet), and the evidence-completeness
+tables. It compares each re-run output with the committed one and prints `REPRODUCED` if every file matches.
 
-## Run order
+The underlying commands write into the repository and refuse to overwrite. To run them directly, first move the
+committed outputs aside (`results/corpus-7247d3e7/`, and `final_labels.csv` and `final_summary.json` in
+`annotation/corpus-7247d3e7/ai/`):
 
 ```bash
-python -m hallucination_pipeline.cli load        # 1. evidence-pure alerts
-python -m hallucination_pipeline.cli generate     # 2. LLM explanations        (API key)
-python -m hallucination_pipeline.cli detect        # 3. explanation-level flags  (API key)
-python -m hallucination_pipeline.cli localize       # 4. sentence-level labels    (API key)
-
-#   ---- MANUAL: fill in `gold_label` fields; see docs/archive/ANNOTATION_GUIDE_v1.md (old run) ----
-
-python -m hallucination_pipeline.cli unlearn         # 5. REMOVE / QUALIFY / KEEP  (API key)
-python -m hallucination_pipeline.cli impact           # 6. before/after impact      (API key)
-python -m hallucination_pipeline.cli evaluate          # 7. precision / recall / F1
-python -m hallucination_pipeline.cli report             # 8. markdown results
-python -m hallucination_pipeline.cli status              # what exists, what's missing
+python -m hallucination_pipeline.cli analyze_corpus
+python tools/ai_labelling.py ai_finalize --labellers gemini gpt --author IS
 ```
 
-## Fresh controlled run (M0-M1)
-```bash
-python -m hallucination_pipeline.cli run --data-only    # sample only, no API key needed -> runs/<run_id>/
-python -m hallucination_pipeline.cli run                # + generation (needs GEMINI_API_KEY) + rule detection
-python -m hallucination_pipeline.cli run --dry-run      # count the LLM calls a run would make; no calls
-python -m hallucination_pipeline.cli run --config configs/pilot.toml       # M3b pilot (needs GEMINI_API_KEY)
-python -m hallucination_pipeline.cli pilot_report <run_id> --config configs/pilot.toml
-python -m hallucination_pipeline.cli freeze_run <run_id> # SHA256SUMS + read-only
-python -m hallucination_pipeline.cli verify_run <run_id>
-python tools/make_outbox.py P1 <run_id>                  # zip for the paper side
-```
-Annotation (after `git tag freeze-1`; see `docs/ANNOTATION_GUIDE_v2.md`):
-```bash
-python -m hallucination_pipeline.cli annotation_export <run_id>
-python -m hallucination_pipeline.cli annotation_import <run_id> filled.csv --sheet primary --annotator NAME
-python -m hallucination_pipeline.cli annotation_agreement <run_id> annotation/<run_id>/imported/primary_NAME.json annotation/<run_id>/imported/retest_NAME.json
-```
-Settings live in `configs/fresh_run.toml`; the run id is derived from them. LLM answers are cached in
-`llm_cache/`, so re-running costs nothing.
+The earlier run's audit of its own reported numbers can be reproduced with
+`python tools/reproduce_frozen.py --frozen-dir old_run`.
 
-## Tests
-
-```bash
-pytest tests/        # 46 offline tests: no API key, no dataset
-```
-They cover the rule engine, the Phase 4 decisions (including gold-label priority and the
-fallback behaviour), the sentence-alignment regressions, the verbatim prompts, and the
-evidence-purity guarantee. They do not call Gemini.
-
-## Layout
+## Repository layout
 
 ```
-hallucination_pipeline/
-  config.py                 paths, model, API-key variable (HALLUC_ROOT overrides the data root)
-  prompts/                  the 8 LLM prompts, extracted byte-for-byte from the original experiment
-  prompt_store.py           loads them
-  data_loader.py            Phase 1: CIC-IDS -> evidence-pure alerts
-  explanation_generator.py  Phase 2.2: LLM explanations
-  detection/                patterns.py (the one copy of every rule) + rules.py
-  detection_pipeline.py     Phase 2.3 + 3: hybrid rule+LLM detection and localization
-  unlearning.py             Phase 4: masks, type-aware rewrites, reconstruction
-  impact_analysis.py        Phase 5.8: before/after impact (three documented bug fixes)
-  evaluation.py             Phase 5.6: precision / recall / F1, qualitative examples
-  reporting.py              Phase 5.7: markdown report
-  llm_client.py             Gemini wrapper: retries, 429 handling, JSON parsing
-tools/verify_against_original.py     differential verification against the original
-tests/                               offline tests
-docs/ANNOTATION_GUIDE_v2.md          how to label (fresh run); v1 in docs/archive/
+hallucination_pipeline/   detector, two-tier policy, sampling, annotation and corpus-analysis code (frozen at tag freeze-1)
+configs/                  run configurations (frozen)
+tools/                    AI-labelling workflow, reproduction and audit tools
+tests/                    offline test suite (fake LLM; no API key)
+docs/                     decisions log, subtype vocabulary, rule-tier table, annotation guide v2, AI labeller prompt,
+                          known rule gaps, experiment plan, runbook
+old_run/                  the earlier run's 7 JSON files: the corpus being audited (see DATA.md)
+results/corpus-7247d3e7/  results pack: REPORT.md, MANIFEST.json, tables/, samples/, sentences.jsonl, audit_ai/
+results/corpus-7247d3e7_extra/   evidence-completeness tables (post-hoc, descriptive)
+annotation/corpus-7247d3e7/      blind sheet and key, AI chunks and replies, AI labels, adjudication sheets,
+                                 final labels, labelling manifest; ai/hidden/ holds what was hidden during adjudication
+data/raw/                 place the CIC-IDS 2017 CSVs here to re-run sampling (not included)
 ```
 
-The prompts are part of the method. Edit them only deliberately: changing a word changes
-what the model does, and therefore the results.
+The full pipeline for a new, controlled generation run (sampling, Gemini generation, C0-C3 detection, pilot) is in
+the code. It was not run for these results. The earlier pipeline documentation is archived in
+[docs/archive/README_pipeline_v1.md](docs/archive/README_pipeline_v1.md).
+
+## Data and citation
+
+CIC-IDS 2017 belongs to the Canadian Institute for Cybersecurity, University of New Brunswick, and must be cited
+when used. The raw dataset is **not** included. See [DATA.md](DATA.md).
+
+> Iman Sharafaldin, Arash Habibi Lashkari, and Ali A. Ghorbani. *Toward Generating a New Intrusion Detection Dataset
+> and Intrusion Traffic Characterization.* Proceedings of the 4th International Conference on Information Systems
+> Security and Privacy (ICISSP), 2018, pp. 108-116.
+
+To cite this repository, use [CITATION.cff](CITATION.cff). License: [MIT](LICENSE).

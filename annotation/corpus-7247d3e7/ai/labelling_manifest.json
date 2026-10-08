@@ -1,0 +1,64 @@
+{
+  "decision": "D31",
+  "note": "Fill every field. customisation: 'none', or the docs/ file holding the custom instructions you copied there.",
+  "labellers": {
+    "gemini": {
+      "model_name": "Gemini",
+      "model_version": "1.5",
+      "date": "2026-10-08",
+      "interface": "Chat",
+      "tools": "None",
+      "customisation": "None"
+    },
+    "gpt": {
+      "model_name": "GPT-5.6 Luna",
+      "model_version": "5.6",
+      "date": "2026-10-08",
+      "interface": "ChatGPT",
+      "tools": "None",
+      "customisation": "None"
+    }
+  },
+  "format_repairs": {
+    "gemini": {
+      "collapsed_lines_split": 0,
+      "records_recovered_from_split_lines": 0,
+      "multi_subtype_fields_repaired": 14,
+      "decision": "D32"
+    },
+    "gpt": {
+      "collapsed_lines_split": 5,
+      "records_recovered_from_split_lines": 250,
+      "multi_subtype_fields_repaired": 0,
+      "decision": "D32"
+    }
+  },
+  "import": {
+    "gemini": {
+      "decision": "D33",
+      "items": 250,
+      "valid": 250,
+      "invalid_or_missing": 0,
+      "missing": 0,
+      "invalid_by_reason": {},
+      "unknown_item_codes_ignored": 0,
+      "unreadable_lines_ignored": 0,
+      "other_lines_ignored": 0
+    },
+    "gpt": {
+      "decision": "D33",
+      "items": 250,
+      "valid": 240,
+      "invalid_or_missing": 10,
+      "missing": 0,
+      "invalid_by_reason": {
+        "catch_all_without_note": 7,
+        "invalid_label": 1,
+        "unknown_subtype": 5
+      },
+      "unknown_item_codes_ignored": 0,
+      "unreadable_lines_ignored": 0,
+      "other_lines_ignored": 0
+    }
+  }
+}
