@@ -253,3 +253,102 @@ def test_cli_end_to_end(setup, capsys):
     assert AL.main(["ai_finalize", "--labellers", "gemini", "gpt", "--author", "IS", *c]) == 0
     out = capsys.readouterr().out
     assert "author-adjudicated" in out and "overrule rate 0%" in out and "precision" in out
+
+
+# ── D32 deterministic format repairs ──────────────────────────────────────
+
+def collapsed_line(codes, fields=("grounded", "", "", "", "", "")):
+    return " ".join(f"{c} | " + " | ".join(fields) for c in codes)
+
+
+def test_d32a_a_collapsed_line_of_11_items_is_split():
+    codes = [f"E001-{i:02d}" for i in range(1, 12)]
+    for text in (collapsed_line(codes),
+                 "```" + collapsed_line(codes) + "```",
+                 "\u00a0" + collapsed_line(codes).replace(" | ", "\u00a0|\u00a0"),
+                 " ".join(f"{k}. {c} | grounded | | | | |" for k, c in enumerate(codes, 1))):
+        items, problems, ignored, repairs = AL.parse_reply_lines(text, "r.txt", set(codes))
+        assert [c for c, _, _ in items] == codes and problems == [], text[:40]
+        assert all(f[1] == "grounded" and f[2:] == ["", "", "", "", ""] for _, f, _ in items)
+        assert repairs == [{"repair": "split_collapsed_line", "where": "r.txt:1", "records": 11}]
+
+
+def test_d32a_bare_carriage_returns_are_line_breaks():
+    codes = ["E001-01", "E001-02", "E001-03"]
+    text = "\r".join(f"{c} | grounded | | | | |" for c in codes)
+    items, problems, _, repairs = AL.parse_reply_lines(text, "r.txt", set(codes))
+    assert [c for c, _, _ in items] == codes and problems == [] and repairs == []
+
+
+def ans(subtype, label="hallucinated", hedged="no", others=""):
+    return {"label": label, "subtype": subtype, "hedged": hedged, "other_subtypes": others, "note": "", "unsure": ""}
+
+
+@pytest.mark.parametrize("field,primary,moved", [
+    ("baseline, protocol", "protocol", ["baseline"]),          # both Tier 2: protocol is listed first
+    ("port, encryption", "port", ["encryption"]),
+    ("baseline, attack_technique", "attack_technique", ["baseline"]),   # Tier 1 beats Tier 2
+    ("unit, threat_actor, port", "threat_actor", ["unit", "port"]),
+    ("threat_actor, cve", "cve", ["threat_actor"]),             # within Tier 1: cve is listed first
+])
+def test_d32b_primary_subtype_rule(field, primary, moved):
+    out, repair, problem = AL.repair_multi_subtype("E001-01", ans(field, hedged="yes", others="unit"))
+    assert problem is None and out["subtype"] == primary
+    assert out["other_subtypes"].split(",") == moved + (["unit"] if "unit" not in moved and primary != "unit" else [])
+    assert (out["label"], out["hedged"]) == ("hallucinated", "yes")            # never changed
+    assert repair["moved_to_other_subtypes"] == moved
+
+
+def test_d32b_refuses_a_repair_that_would_need_a_label_change():
+    for label in ("grounded", ""):
+        out, repair, problem = AL.repair_multi_subtype("E001-02", ans("baseline, protocol", label=label, hedged=""))
+        assert repair is None and out["label"] == label and "not repaired" in problem and "E001-02" in problem
+    out, repair, problem = AL.repair_multi_subtype("E001-03", ans("baseline, port_scan"))
+    assert repair is None and "unknown subtype 'port_scan'" in problem
+    assert AL.repair_multi_subtype("E001-04", ans("baseline")) == (ans("baseline"), None, None)
+
+
+def test_d32_import_repairs_are_counted_logged_and_never_change_labels(setup):
+    s = setup
+    multi = {}
+
+    def gemini(row):                       # truthful, but Tier 2 port answers come as 'port, encryption'
+        a = truthful(row)
+        if a[1] == "port":
+            multi[row["item_id"]] = True
+            return ["hallucinated", "port, encryption", "no", "", "", ""]
+        return a
+    write_replies(s, "gemini", gemini)
+    write_replies(s, "gpt", truthful)
+    for f in (s["out"] / "replies").glob("gpt_*.txt"):                 # collapse each reply onto one line
+        f.write_text(f.read_text(encoding="utf-8").replace("\n", " ").strip() + "\n", encoding="utf-8")
+    rg = AL.ai_import(s["ann"], s["cid"], "gemini")
+    rp = AL.ai_import(s["ann"], s["cid"], "gpt")
+    assert rg["repairs"] == {"collapsed_lines_split": 0, "records_recovered_from_split_lines": 0,
+                             "multi_subtype_fields_repaired": len(multi)} and multi
+    assert rp["repairs"] == {"collapsed_lines_split": 5, "records_recovered_from_split_lines": 75,
+                             "multi_subtype_fields_repaired": 0}
+    man = json.loads((s["out"] / "labelling_manifest.json").read_text(encoding="utf-8"))
+    assert man["format_repairs"]["gpt"]["collapsed_lines_split"] == 5 and man["format_repairs"]["gemini"]["decision"] == "D32"
+    hidden = json.loads((s["out"] / "hidden" / "format_repairs_gemini.json").read_text(encoding="utf-8"))
+    assert sorted(r["item"] for r in hidden["repairs"]) == sorted(multi)
+    a = {g.item_id: g for g in AL._load_labels(s["out"], "gemini")}
+    b = {g.item_id: g for g in AL._load_labels(s["out"], "gpt")}
+    for i in a:
+        assert (a[i].label, a[i].hedged) == (b[i].label, b[i].hedged)            # labels and hedged untouched
+        if i in multi:
+            assert (a[i].subtype, a[i].other_subtypes) == ("port", ("encryption",))
+        else:
+            assert AL.answer(a[i]) == AL.answer(b[i])
+
+
+def test_d32_other_problems_still_stop_the_import(setup):
+    s = setup
+    target = s["sheet"][0]["item_id"]
+    write_replies(s, "gemini", lambda r: ["grounded", "baseline, protocol", "", "", "", ""] if r["item_id"] == target
+                  else truthful(r))
+    with pytest.raises(AL.LabellingError) as err:
+        AL.ai_import(s["ann"], s["cid"], "gemini")
+    assert any(target in p and "not repaired" in p for p in err.value.problems)
+    assert any("format repairs that were applied" in p for p in err.value.problems)
+    assert not (s["out"] / "labels_gemini.csv").exists()

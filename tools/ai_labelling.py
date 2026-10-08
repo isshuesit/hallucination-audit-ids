@@ -39,6 +39,7 @@ sys.path.insert(0, str(REPO_ROOT))
 from hallucination_pipeline import annotation as AN  # noqa: E402  (frozen, used read-only)
 from hallucination_pipeline import audit as AU  # noqa: E402
 from hallucination_pipeline import corpus as CO  # noqa: E402
+from hallucination_pipeline.policy import SUBTYPES  # noqa: E402  (frozen vocabulary = docs/SUBTYPES.md order)
 
 EXPLANATIONS_PER_CHUNK = 5
 SPOT_CHECK_SHARE = 0.20
@@ -117,46 +118,96 @@ def ai_export(annotation_dir: Path, corpus_id: str) -> Path:
 
 # ── 2. import one labeller's replies ──────────────────────────────────────
 
-_BULLET = re.compile(r"^\s*(?:[-*•+]|\d+[.)])\s+")
+_BULLET = re.compile(r"^\s*(?:[-*\u2022+]|\d+[.)])\s+")
 _SEPARATOR = re.compile(r"^[\s|:\-]+$")
+_CODE_BEFORE_BAR = re.compile(r"[\[`*_]*\b([A-Z]\d{3}-\d{2})\b[\]`*_]*\s*\|")
+_FENCE_ONLY = re.compile(r"^```[\w-]*$")
+_DANGLING_BULLET = re.compile(r"\s+(?:[-*•+]|\d+[.)])$")
+_ODD_SPACES = re.compile("[\u00a0\u2007\u202f\u2009\u200b\ufeff]")
 
 
 def _clean_code(s: str) -> str:
     return s.strip().strip("[]`*_ ").strip()
 
 
-def parse_reply_lines(text: str, source: str, known: set[str]) -> tuple[list[tuple], list[str], int]:
-    """(items as (code, fields, where), problems, ignored non-item lines). Tolerates code fences, bullets,
-    numbering, extra spaces, a leading/trailing '|', markdown table rows, header and separator rows."""
-    items, problems, ignored = [], [], 0
-    for n, raw in enumerate(text.splitlines(), start=1):
-        line = raw.strip()
-        if not line or line.startswith("```") or _SEPARATOR.match(line):
-            continue
-        line = _BULLET.sub("", line).strip()
-        if line.startswith("|"):
-            line = line[1:]
-        if line.endswith("|") and line.count("|") > 6:
-            line = line[:-1]
-        fields = [f.strip() for f in line.split("|")]
-        code = _clean_code(fields[0])
-        where = f"{source}:{n}"
-        if code.upper() == "ITEM_CODE":
-            continue
-        if code not in known:
-            if re.fullmatch(r"[A-Z]\d{3}-\d{2}", code):
-                problems.append(f"{code} ({where}): unknown item code")
-            elif any(k in line for k in known):
-                problems.append(f"{where}: could not read this line: {raw.strip()[:80]!r}")
-            else:
-                ignored += 1
-            continue
-        if len(fields) > len(FIELDS):
-            problems.append(f"{code} ({where}): {len(fields)} fields, expected {len(FIELDS)} (is there a | in the note?)")
-            continue
-        fields += [""] * (len(FIELDS) - len(fields))
-        items.append((code, fields, where))
-    return items, problems, ignored
+def normalise_text(text: str) -> str:
+    """D32(a): line breaks that are only \r (or \r\n) become \n; non-breaking and other odd spaces become spaces."""
+    return _ODD_SPACES.sub(" ", text.replace("\r\n", "\n").replace("\r", "\n"))
+
+
+def split_collapsed(line: str) -> list[str]:
+    """D32(a): a line holding several item codes (each directly before a '|') is split into one record per code.
+    Text before the first code (e.g. a code fence) is dropped. A line with 0 or 1 code is returned unchanged."""
+    starts = [m.start() for m in _CODE_BEFORE_BAR.finditer(line)]
+    if len(starts) < 2:
+        return [line]
+    parts = [line[a:b].strip() for a, b in zip(starts, starts[1:] + [len(line)])]
+    # a bullet or number that introduced the NEXT record ("... | 2. E001-02 | ...") is not part of this one
+    return [_DANGLING_BULLET.sub("", p) for p in parts[:-1]] + parts[-1:]
+
+
+def parse_reply_lines(text: str, source: str, known: set[str]) -> tuple[list[tuple], list[str], int, list[dict]]:
+    """(items as (code, fields, where), problems, ignored non-item lines, repairs). Tolerates code fences, bullets,
+    numbering, extra spaces, a leading/trailing '|', markdown table rows, header and separator rows, and (D32a)
+    whole replies collapsed onto one line, bare \r line breaks and non-breaking spaces."""
+    items, problems, ignored, repairs = [], [], 0, []
+    for n, raw in enumerate(normalise_text(text).splitlines(), start=1):
+        records = split_collapsed(raw.strip())
+        if len(records) > 1:
+            repairs.append({"repair": "split_collapsed_line", "where": f"{source}:{n}", "records": len(records)})
+        for k, rec in enumerate(records, start=1):
+            where = f"{source}:{n}" + (f" record {k}" if len(records) > 1 else "")
+            line = rec.strip()
+            if not line or _FENCE_ONLY.match(line) or _SEPARATOR.match(line):
+                continue
+            line = _BULLET.sub("", line.strip("`").strip()).strip()     # a fence glued to a record is not content
+            if line.startswith("|"):
+                line = line[1:]
+            line = line.rstrip()
+            if line.endswith("|") and line.count("|") > 6:
+                line = line[:-1]
+            fields = [f.strip() for f in line.split("|")]
+            code = _clean_code(fields[0])
+            if code.upper() == "ITEM_CODE":
+                continue
+            if code not in known:
+                if re.fullmatch(r"[A-Z]\d{3}-\d{2}", code):
+                    problems.append(f"{code} ({where}): unknown item code")
+                elif any(c in line for c in known):
+                    problems.append(f"{where}: could not read this line: {rec.strip()[:80]!r}")
+                else:
+                    ignored += 1
+                continue
+            if len(fields) > len(FIELDS):
+                problems.append(f"{code} ({where}): {len(fields)} fields, expected {len(FIELDS)} (is there a | in the note?)")
+                continue
+            fields += [""] * (len(FIELDS) - len(fields))
+            items.append((code, fields, where))
+    return items, problems, ignored, repairs
+
+
+SUBTYPE_ORDER = {name: i for i, name in enumerate(k for k, v in SUBTYPES.items() if v.label)}
+
+
+def repair_multi_subtype(code: str, answer: dict) -> tuple[dict, dict | None, str | None]:
+    """D32(b): a subtype field holding several names keeps ONE primary (Tier 1 beats Tier 2; within a tier the name
+    listed first in docs/SUBTYPES.md) and moves the rest to other_subtypes. Never changes the label, the hedged
+    value, or the tier beyond that rule. Returns (answer, repair record or None, problem or None)."""
+    names = [s.strip() for s in answer["subtype"].split(",") if s.strip()]
+    if len(names) < 2:
+        return answer, None, None
+    if answer["label"] != "hallucinated":
+        return answer, None, (f"{code}: several subtypes ({len(names)}) on a line whose label is not 'hallucinated'; "
+                              "not repaired (a repair never changes a label)")
+    unknown = [s for s in names if s not in SUBTYPE_ORDER]
+    if unknown:
+        return answer, None, f"{code}: unknown subtype {', '.join(map(repr, unknown))} in a multi-subtype field"
+    primary = min(names, key=lambda s: (SUBTYPES[s].tier, SUBTYPE_ORDER[s]))
+    others = [s for s in names if s != primary]
+    others += [s for s in answer["other_subtypes"].split(",") if s and s not in others and s != primary]
+    repaired = {**answer, "subtype": primary, "other_subtypes": ",".join(others)}
+    return repaired, {"repair": "multi_subtype_field", "item": code, "field": answer["subtype"], "primary": primary,
+                      "moved_to_other_subtypes": [s for s in names if s != primary]}, None
 
 
 def _norm(fields: list[str]) -> dict:
@@ -181,17 +232,24 @@ def ai_import(annotation_dir: Path, corpus_id: str, labeller: str) -> dict:
     known = set(key["sheets"]["primary"]["items"])
     seen: dict[str, str] = {}
     answers: dict[str, dict] = {}
-    problems, ignored = [], 0
+    problems, ignored, repairs = [], 0, []
     for f in files:
-        items, probs, ign = parse_reply_lines(f.read_text(encoding="utf-8-sig"), f.name, known)
+        items, probs, ign, reps = parse_reply_lines(f.read_text(encoding="utf-8-sig"), f.name, known)
         problems += probs
         ignored += ign
+        repairs += reps
         for code, fields, where in items:
             if code in seen:
                 problems.append(f"{code} ({where}): duplicate (first at {seen[code]})")
                 continue
             seen[code] = where
-            answers[code] = _norm(fields)
+            ans, repair, problem = repair_multi_subtype(code, _norm(fields))
+            if repair:
+                repairs.append(repair)
+            if problem:
+                problems.append(problem)
+            answers[code] = ans
+    counts = repair_counts(repairs)
     missing = [r["item_id"] for r in sheet if r["item_id"] not in answers]
     duplicates = sorted({p.split(" ")[0] for p in problems if "duplicate" in p})
     if not missing:   # the D23 rules, applied by the frozen importer
@@ -206,12 +264,38 @@ def ai_import(annotation_dir: Path, corpus_id: str, labeller: str) -> dict:
     else:
         problems.append(f"missing item codes ({len(missing)}): {', '.join(missing)}")
     if problems:
-        raise LabellingError(problems + ([f"duplicate item codes: {', '.join(duplicates)}"] if duplicates else []))
+        raise LabellingError(problems + ([f"duplicate item codes: {', '.join(duplicates)}"] if duplicates else [])
+                             + [f"format repairs that were applied before these checks (D32): {counts}"])
     _write_sheet_csv(out / f"labels_{labeller}.csv", rows)
     (out / f"labels_{labeller}.json").write_text(json.dumps(AN.labels_to_json(labels), indent=2, ensure_ascii=False)
                                                  + "\n", encoding="utf-8", newline="\n")
+    record_repairs(out, labeller, counts, repairs)
     return {"labeller": labeller, "files": [f.name for f in files], "items": len(labels),
-            "hallucinated": sum(g.label == "hallucinated" for g in labels), "ignored_lines": ignored}
+            "hallucinated": sum(g.label == "hallucinated" for g in labels), "ignored_lines": ignored,
+            "repairs": counts}
+
+
+def repair_counts(repairs: list[dict]) -> dict:
+    return {"collapsed_lines_split": sum(r["repair"] == "split_collapsed_line" for r in repairs),
+            "records_recovered_from_split_lines": sum(r.get("records", 0) for r in repairs
+                                                      if r["repair"] == "split_collapsed_line"),
+            "multi_subtype_fields_repaired": sum(r["repair"] == "multi_subtype_field" for r in repairs)}
+
+
+def record_repairs(out: Path, labeller: str, counts: dict, repairs: list[dict]) -> None:
+    """D32: counts go into labelling_manifest.json (format_repairs.<labeller>); the per-item details, which would
+    show what the AI answered, go to hidden/format_repairs_<labeller>.json (not to be opened before adjudication)."""
+    man_path = out / "labelling_manifest.json"
+    try:
+        man = json.loads(man_path.read_text(encoding="utf-8")) if man_path.exists() else manifest_template()
+    except json.JSONDecodeError as e:
+        raise LabellingError([f"{man_path} is not valid JSON ({e}); fix it (save it in VS Code) and import again"])
+    man.setdefault("format_repairs", {})[labeller] = {**counts, "decision": "D32"}
+    man_path.write_text(json.dumps(man, indent=2, ensure_ascii=False) + "\n", encoding="utf-8", newline="\n")
+    (out / "hidden").mkdir(exist_ok=True)
+    (out / "hidden" / f"format_repairs_{labeller}.json").write_text(
+        json.dumps({"labeller": labeller, "counts": counts, "repairs": repairs}, indent=2, ensure_ascii=False) + "\n",
+        encoding="utf-8", newline="\n")
 
 
 def _write_sheet_csv(path: Path, rows: list[dict], comments: list[str] = ()) -> None:
@@ -415,8 +499,12 @@ def main(argv=None) -> int:
             if not args.labeller:
                 ap.error("ai_import needs --labeller NAME")
             r = ai_import(ann, cid, args.labeller)
-            print(f"{args.labeller}: {r['items']} items read and valid ({r['hallucinated']} hallucinated) from "
-                  f"{len(r['files'])} file(s); {r['ignored_lines']} other line(s) ignored. Wrote labels_{args.labeller}.csv")
+            print(f"{args.labeller}: {r['items']} items read and valid from {len(r['files'])} file(s); "
+                  f"{r['ignored_lines']} other line(s) ignored. Wrote labels_{args.labeller}.csv")
+            print(f"  format repairs (D32): {r['repairs']['collapsed_lines_split']} collapsed line(s) split into "
+                  f"{r['repairs']['records_recovered_from_split_lines']} records; "
+                  f"{r['repairs']['multi_subtype_fields_repaired']} multi-subtype field(s) repaired. "
+                  "Counts saved in labelling_manifest.json.")
         elif args.command == "ai_compare":
             if not args.labellers:
                 ap.error("ai_compare needs --labellers NAME_A NAME_B")
