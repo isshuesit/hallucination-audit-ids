@@ -134,8 +134,8 @@ Upload `outbox\corpus-7247d3e7.zip` and `docs\DECISIONS.md` to the paper chat. N
 
 ## If something goes wrong
 
-- A command says something `already exists`: results, sheets and labels are never overwritten. Ask for help rather
-  than deleting anything.
+- A command says something `already exists`: results, sheets and labels are never overwritten. Ask for help
+  rather than deleting anything.
 - Any change to frozen code after `freeze-1` is a POST-HOC fix and must be logged in `docs\DECISIONS.md` (D26).
 - The human-label commands from the first version of this runbook (`annotation_import` with your own full labels,
   `audit_metrics`) are replaced by steps 5-10 (D30).
