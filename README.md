@@ -36,8 +36,8 @@ All numbers are copied from [results/corpus-7247d3e7/REPORT.md](results/corpus-7
 - **Hedging:** 76 of 88 attack-technique mentions (86.4% [78.2%, 93.5%]) were hedged ("could", "may", "consistent with").
 - **Old rewrites:** of the earlier run's 132 automatic rewrites, 28 contain a number absent from both the evidence and the original sentence.
 
-**Label audit (25 explanations, 250 sentences).** Labels: two AI annotators (gemini: Gemini 1.5; gpt: GPT-5.6
-Luna 5.6), author-adjudicated; 54 disagreements; 10 items invalid or missing for at least one labeller were
+**Label audit (25 explanations, 250 sentences).** Labels: two AI annotators (gemini: Gemini 3.5 Flash-Lite;
+gpt: GPT-5.6 Luna), author-adjudicated; 54 disagreements; 10 items invalid or missing for at least one labeller were
 adjudicated by the author; 20% blind spot-check (37 items); overrule rate 14% (5/37).
 
 | rules vs labels, sentence level | n | label positives | rule positives | precision | recall | F1 |
@@ -58,7 +58,8 @@ labels. Per-group rows are in `audit_ai/audit_metrics.csv`.
 - **Small audit.** 25 explanations (12 attack-flow, 13 benign-flow), one adjudicator, no second pass, so the
   intervals are wide.
 - **AI-annotated, author-adjudicated labels.** The labels are not independent human gold labels (decision D30).
-  One labeller (Gemini 1.5) shares a model family with the generator. The labeller instructions and the rules
+  The Gemini labeller (Gemini 3.5 Flash-Lite) and the generator (gemini-2.5-flash) are both Gemini models, from
+  the same vendor and family; the GPT labeller (GPT-5.6 Luna) is not. The labeller instructions and the rules
   implement the same taxonomy, so the perfect precision is not independent evidence of correctness.
 - **Rules have low recall.** The rules miss most unsupported sentences the labels identify (sentence recall about
   0.35). Known gaps are listed in [docs/KNOWN_RULE_GAPS.md](docs/KNOWN_RULE_GAPS.md). No LLM judge, prompt-v2 or

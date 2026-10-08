@@ -514,7 +514,8 @@ def ai_finalize(annotation_dir: Path, corpus_id: str, a_name: str, b_name: str, 
              "with_" + b_name: sum(same(mine[i], kb[i]) and not same(mine[i], ka[i]) for i in dis),
              "with_both (they differed only in hedged)": sum(same(mine[i], ka[i]) and same(mine[i], kb[i]) for i in dis),
              "with_neither": sum(not same(mine[i], ka[i]) and not same(mine[i], kb[i]) for i in dis)}
-    model = lambda n: f"{n}: {man['labellers'][n]['model_name']} {man['labellers'][n]['model_version']}"
+    # the label line names each model; the version as recorded stays in the manifest and in final_summary.json
+    model = lambda n: f"{n}: {man['labellers'][n]['model_name']}"
     statement = (f"labels: two AI annotators ({model(a_name)}; {model(b_name)}), author-adjudicated; "
                  f"{len(dis)} disagreements; {invalid_statement(len(inv))}; 20% blind spot-check ({len(spot)} items); "
                  "overrule rate "

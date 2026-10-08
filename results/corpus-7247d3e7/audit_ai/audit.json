@@ -2116,14 +2116,14 @@
   "n_explanations": 25,
   "human_unsure": 18,
   "human_catch_all": 16,
-  "labels": "labels: two AI annotators (gemini: Gemini 1.5; gpt: GPT-5.6 Luna 5.6), author-adjudicated; 54 disagreements; 10 items invalid or missing for at least one labeller were adjudicated by the author; 20% blind spot-check (37 items); overrule rate 14% (5/37)",
+  "labels": "labels: two AI annotators (gemini: Gemini 3.5 Flash-Lite; gpt: GPT-5.6 Luna), author-adjudicated; 54 disagreements; 10 items invalid or missing for at least one labeller were adjudicated by the author; 20% blind spot-check (37 items); overrule rate 14% (5/37)",
   "labelling": {
-    "labels": "labels: two AI annotators (gemini: Gemini 1.5; gpt: GPT-5.6 Luna 5.6), author-adjudicated; 54 disagreements; 10 items invalid or missing for at least one labeller were adjudicated by the author; 20% blind spot-check (37 items); overrule rate 14% (5/37)",
+    "labels": "labels: two AI annotators (gemini: Gemini 3.5 Flash-Lite; gpt: GPT-5.6 Luna), author-adjudicated; 54 disagreements; 10 items invalid or missing for at least one labeller were adjudicated by the author; 20% blind spot-check (37 items); overrule rate 14% (5/37)",
     "source": "source: earlier run, API-default sampling, prompt v1, 63 attack-flow and 337 benign-flow explanations; not generated under freeze-1",
     "labellers": {
       "gemini": {
-        "model_name": "Gemini",
-        "model_version": "1.5",
+        "model_name": "Gemini 3.5 Flash-Lite",
+        "model_version": "chat app, as shown by the app",
         "date": "2026-10-08",
         "interface": "Chat",
         "tools": "None",
@@ -2131,7 +2131,7 @@
       },
       "gpt": {
         "model_name": "GPT-5.6 Luna",
-        "model_version": "5.6",
+        "model_version": "chat app, as shown by the app",
         "date": "2026-10-08",
         "interface": "ChatGPT",
         "tools": "None",

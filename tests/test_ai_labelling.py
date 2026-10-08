@@ -235,7 +235,7 @@ def test_finalize_merges_and_reports_the_overrule_rate(compared):
     assert summ["spot_check_overruled"] == 1 and summ["overrule_rate"] == pytest.approx(1 / len(spot))
     assert summ["disagreements"] == s["cmp"]["disagreements"]
     assert summ["disagreements_resolved"]["with_gemini"] == s["cmp"]["disagreements"]
-    expected = (f"labels: two AI annotators (gemini: Gemini x.y; gpt: GPT x.y), author-adjudicated; "
+    expected = (f"labels: two AI annotators (gemini: Gemini; gpt: GPT), author-adjudicated; "
                 f"{summ['disagreements']} disagreements; 0 items invalid or missing for at least one labeller were "
                 f"adjudicated by the author; 20% blind spot-check ({len(spot)} items); overrule rate "
                 f"{1 / len(spot):.0%} (1/{len(spot)})")

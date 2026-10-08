@@ -1,5 +1,5 @@
 # source: earlier run, API-default sampling, prompt v1, 63 attack-flow and 337 benign-flow explanations; not generated under freeze-1
-# labels: two AI annotators (gemini: Gemini 1.5; gpt: GPT-5.6 Luna 5.6), author-adjudicated; 54 disagreements; 10 items invalid or missing for at least one labeller were adjudicated by the author; 20% blind spot-check (37 items); overrule rate 14% (5/37)
+# labels: two AI annotators (gemini: Gemini 3.5 Flash-Lite; gpt: GPT-5.6 Luna), author-adjudicated; 54 disagreements; 10 items invalid or missing for at least one labeller were adjudicated by the author; 20% blind spot-check (37 items); overrule rate 14% (5/37)
 policy,kind,alert_id,sentence_id,group,human_label,human_subtype,human_other_subtypes,human_note,human_unsure,rule_subtypes,rule_ambiguous,sentence
 strict,missed by rules (FN),A076,S8,attack-flow,hallucinated,protocol,,,False,,False,The combination of a single forward packet and no ACKs could suggest an unsuccessful connection attempt.
 strict,missed by rules (FN),A076,S9,attack-flow,hallucinated,attack_technique,,,False,,False,It might also represent a network probing or scanning activity.
