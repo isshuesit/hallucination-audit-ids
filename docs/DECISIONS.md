@@ -274,3 +274,12 @@ These follow existing decisions; they are recorded so nothing is silent.
   restates the guide's taxonomy, which the rules also implement, so rules-vs-AI agreement is not independent evidence
   of correctness; the blind spot-check overrule rate is the main check on label quality.
 
+- **Finding: evidence completeness in the earlier run (2026-10-08, `tools/evidence_completeness.py`, read-only).**
+  All 398 explanations used by the corpus analysis (63 attack-flow, 335 normal-flow) had exactly 6 evidence lines:
+  Destination Port, Flow Duration, Forward Packets, Flow Bytes/s, Flow Packets/s and ACK Flag Count. Backward Packets,
+  SYN Flag Count and RST Flag Count are missing in every alert, in both groups (a systematic property of the earlier
+  run's evidence, not random gaps). Flow Duration is present in all 398, so the D19 unit_wrong check applies to every
+  alert. Consequence for labelling (no decision taken here): `docs/AI_LABELLER_PROMPT.md` and the guide say the model
+  saw nine numbers, and the guide's grounded example "No packets were sent back to the source" relies on Backward
+  Packets; for this corpus the model never saw Backward Packets, SYN or RST counts, so such statements are not
+  derivable from its evidence. The paper side should decide, before labelling, how labellers treat them.
