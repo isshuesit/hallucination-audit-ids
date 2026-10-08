@@ -3,6 +3,7 @@
 import csv
 import json
 import os
+import re
 import sys
 from pathlib import Path
 
@@ -83,44 +84,63 @@ def test_import_tolerates_formatting_and_validates(setup):
     write_replies(setup, "gemini", truthful, style="messy")
     write_replies(setup, "gpt", truthful)
     r = AL.ai_import(setup["ann"], setup["cid"], "gemini")
-    assert r["items"] == 75 and r["ignored_lines"] >= 5            # prose line per file ignored
-    assert AL.ai_import(setup["ann"], setup["cid"], "gpt")["items"] == 75
+    assert (r["valid"], r["invalid_or_missing"]) == (75, 0) and r["other_lines_ignored"] >= 5   # prose ignored
+    assert AL.ai_import(setup["ann"], setup["cid"], "gpt")["valid"] == 75
     a = AL._load_labels(setup["out"], "gemini")
     b = AL._load_labels(setup["out"], "gpt")
     assert [AL.answer(g) for g in a] == [AL.answer(g) for g in b]
     assert (setup["out"] / "labels_gemini.csv").exists()
 
 
-def test_import_reports_every_problem_with_item_codes(setup):
-    rows = setup["sheet"]
-    bad = {rows[0]["item_id"]: ["hallucinated", "port_scan", "no", "", "", ""],
-           rows[1]["item_id"]: ["hallucinated", "", "no", "", "", ""],
-           rows[2]["item_id"]: ["hallucinated", "other_fabrication", "no", "", "", ""],
-           rows[3]["item_id"]: ["", "", "", "", "", ""],
-           rows[4]["item_id"]: ["grounded", "cve", "", "", "", ""]}
-    write_replies(setup, "gemini", lambda r: bad.get(r["item_id"], truthful(r)))
-    f = sorted((setup["out"] / "replies").glob("gemini_*.txt"))[0]
+def test_d33_invalid_items_are_recorded_not_fatal(setup, capsys):
+    s = setup
+    rows = s["sheet"]
+    bad = {rows[0]["item_id"]: ["hallucinated", "port_scan", "no", "", "", ""],          # unknown subtype
+           rows[1]["item_id"]: ["hallucinated", "", "no", "", "", ""],                   # subtype missing
+           rows[2]["item_id"]: ["hallucinated", "other_fabrication", "no", "", "", ""],  # catch-all, no note
+           rows[3]["item_id"]: ["", "", "", "", "", ""],                                 # blank label
+           rows[4]["item_id"]: ["maybe", "", "", "", "", ""]}                            # invalid label
+    write_replies(s, "gemini", lambda r: bad.get(r["item_id"], truthful(r)))
+    f = sorted((s["out"] / "replies").glob("gemini_*.txt"))[1]
     lines = f.read_text(encoding="utf-8").splitlines()
-    missing_code = lines[6].split(" | ")[0]
-    dup = lines[7]
-    lines = lines[:6] + lines[7:] + [dup, "Z999-01 | grounded | | | | |", f"{lines[8].split(' | ')[0]} | x | | | | | | |"]
-    f.write_text("\n".join(lines) + "\n", encoding="utf-8")
-    with pytest.raises(AL.LabellingError) as err:
-        AL.ai_import(setup["ann"], setup["cid"], "gemini")
-    text = "\n".join(err.value.problems)
-    for needle in (f"missing item codes (1): {missing_code}", "duplicate", "Z999-01", "unknown item code",
-                   "fields, expected 7"):
-        assert needle in text, needle
-    assert not (setup["out"] / "labels_gemini.csv").exists()
+    missing_code, dup_code = lines[0].split(" | ")[0], lines[1].split(" | ")[0]
+    f.write_text("\n".join(lines[1:] + [lines[1], "Z999-01 | grounded | | | | |"]) + "\n", encoding="utf-8")
+    r = AL.ai_import(s["ann"], s["cid"], "gemini")
+    assert (r["valid"], r["invalid_or_missing"], r["missing"]) == (75 - 7, 7, 1)
+    assert r["invalid_by_reason"] == {"catch_all_without_note": 1, "duplicate": 1, "invalid_label": 1,
+                                      "label_blank": 1, "missing": 1, "subtype_missing": 1, "unknown_subtype": 1}
+    assert r["unknown_item_codes_ignored"] == 1
+    hidden = json.loads((s["out"] / "hidden" / "invalid_gemini.json").read_text(encoding="utf-8"))["invalid"]
+    assert hidden[missing_code] == ["missing"] and hidden[dup_code] == ["duplicate"]
+    assert hidden[rows[0]["item_id"]] == ["unknown_subtype"] and hidden[rows[2]["item_id"]] == ["catch_all_without_note"]
+    valid_ids = {g.item_id for g in AL._load_labels(s["out"], "gemini")}
+    assert len(valid_ids) == 68 and not valid_ids & set(hidden)
+    man = json.loads((s["out"] / "labelling_manifest.json").read_text(encoding="utf-8"))
+    assert man["import"]["gemini"]["invalid_by_reason"] == r["invalid_by_reason"]
+    assert man["import"]["gemini"]["valid"] == 68 and "invalid" not in json.dumps(man["import"]).replace("invalid_", "")
+    for code in hidden:                                   # the manifest holds counts, never item codes
+        assert code not in json.dumps(man)
 
-    write_replies(setup, "gemini", lambda r: bad.get(r["item_id"], truthful(r)))       # rewrite: only D23 errors left
-    with pytest.raises(AL.LabellingError) as err:
-        AL.ai_import(setup["ann"], setup["cid"], "gemini")
-    text = "\n".join(err.value.problems)
-    for code, needle in zip(bad, ("unknown subtype 'port_scan'", "hallucinated without a subtype", "need a note",
-                                  "label is blank", "grounded with a subtype")):
-        assert any(code in p and needle in p for p in err.value.problems), (code, needle)
-    assert "line " not in text
+    # the terminal shows counts only, never an item code
+    write_replies(s, "gpt", truthful)
+    from test_run_infrastructure import BASE, _to_toml
+    toml = s["tmp"] / "cfg.toml"
+    toml.write_text(_to_toml(BASE, s["tmp"]), encoding="utf-8")
+    assert AL.main(["ai_import", "--labeller", "gemini", "--config", str(toml), "--corpus-dir", str(s["corpus_dir"])]) == 0
+    out = capsys.readouterr().out
+    assert "68 valid, 7 invalid or missing" in out and not re.search(r"E\d{3}-\d{2}", out)
+
+
+def test_d33_whole_import_problems_still_stop(setup):
+    s = setup
+    with pytest.raises(FileNotFoundError):
+        AL.ai_import(s["ann"], s["cid"], "nobody")                                   # no reply files
+    (s["out"] / "replies" / "x_chunk_01.txt").write_text("I cannot help with that.\n", encoding="utf-8")
+    with pytest.raises(AL.LabellingError, match="no item code found"):
+        AL.ai_import(s["ann"], s["cid"], "x")
+    (s["out"] / "replies" / "y_chunk_01.txt").write_bytes(b"\xff\xfe\x00bad")
+    with pytest.raises(AL.LabellingError, match="not readable"):
+        AL.ai_import(s["ann"], s["cid"], "y")
 
 
 # ── compare ───────────────────────────────────────────────────────────────
@@ -163,9 +183,9 @@ def test_compare_builds_a_blind_shuffled_adjudication_sheet(compared):
     for leak in ("gemini", "gpt", "disagreement", "spot", "baseline", "attack_technique"):
         assert leak not in text, leak
     key = json.loads((s["out"] / "hidden" / "adjudication_key.json").read_text(encoding="utf-8"))
-    assert {i for i, k in key["items"].items() if k == "disagreement"} == dis
+    assert {i for i, k in key["items"].items() if "disagreement" in k} == dis
     assert (s["out"] / "hidden" / "ai_disagreements.csv").exists()
-    assert json.loads((s["out"] / "hidden" / "ai_agreement.json").read_text(encoding="utf-8"))["kappa"]["label"]
+    assert json.loads((s["out"] / "hidden" / "ai_agreement.json").read_text(encoding="utf-8"))["agreement"]["kappa"]["label"]
     with pytest.raises(AL.LabellingError):
         AL.ai_compare(s["ann"], s["cid"], "gemini", "gpt")                       # never rebuilt
     with pytest.raises(AL.LabellingError):
@@ -194,7 +214,7 @@ def adjudicate(s, decide):
 def test_finalize_merges_and_reports_the_overrule_rate(compared):
     s = compared
     key = json.loads((s["out"] / "hidden" / "adjudication_key.json").read_text(encoding="utf-8"))
-    spot = sorted(i for i, k in key["items"].items() if k == "spot_check")
+    spot = sorted(i for i, k in key["items"].items() if k == ["spot-check"])
     overrule = spot[0]
 
     def author(row):                         # truthful, except one spot-check item is overruled
@@ -216,7 +236,8 @@ def test_finalize_merges_and_reports_the_overrule_rate(compared):
     assert summ["disagreements"] == s["cmp"]["disagreements"]
     assert summ["disagreements_resolved"]["with_gemini"] == s["cmp"]["disagreements"]
     expected = (f"labels: two AI annotators (gemini: Gemini x.y; gpt: GPT x.y), author-adjudicated; "
-                f"{summ['disagreements']} disagreements; 20% blind spot-check ({len(spot)} items); overrule rate "
+                f"{summ['disagreements']} disagreements; 0 items invalid or missing for at least one labeller were "
+                f"adjudicated by the author; 20% blind spot-check ({len(spot)} items); overrule rate "
                 f"{1 / len(spot):.0%} (1/{len(spot)})")
     assert summ["labels"] == expected
 
@@ -324,9 +345,9 @@ def test_d32_import_repairs_are_counted_logged_and_never_change_labels(setup):
         f.write_text(f.read_text(encoding="utf-8").replace("\n", " ").strip() + "\n", encoding="utf-8")
     rg = AL.ai_import(s["ann"], s["cid"], "gemini")
     rp = AL.ai_import(s["ann"], s["cid"], "gpt")
-    assert rg["repairs"] == {"collapsed_lines_split": 0, "records_recovered_from_split_lines": 0,
+    assert rg["repairs_d32"] == {"collapsed_lines_split": 0, "records_recovered_from_split_lines": 0,
                              "multi_subtype_fields_repaired": len(multi)} and multi
-    assert rp["repairs"] == {"collapsed_lines_split": 5, "records_recovered_from_split_lines": 75,
+    assert rp["repairs_d32"] == {"collapsed_lines_split": 5, "records_recovered_from_split_lines": 75,
                              "multi_subtype_fields_repaired": 0}
     man = json.loads((s["out"] / "labelling_manifest.json").read_text(encoding="utf-8"))
     assert man["format_repairs"]["gpt"]["collapsed_lines_split"] == 5 and man["format_repairs"]["gemini"]["decision"] == "D32"
@@ -342,13 +363,55 @@ def test_d32_import_repairs_are_counted_logged_and_never_change_labels(setup):
             assert AL.answer(a[i]) == AL.answer(b[i])
 
 
-def test_d32_other_problems_still_stop_the_import(setup):
+def test_d32_a_refused_repair_makes_the_item_invalid(setup):
     s = setup
     target = s["sheet"][0]["item_id"]
     write_replies(s, "gemini", lambda r: ["grounded", "baseline, protocol", "", "", "", ""] if r["item_id"] == target
                   else truthful(r))
-    with pytest.raises(AL.LabellingError) as err:
-        AL.ai_import(s["ann"], s["cid"], "gemini")
-    assert any(target in p and "not repaired" in p for p in err.value.problems)
-    assert any("format repairs that were applied" in p for p in err.value.problems)
-    assert not (s["out"] / "labels_gemini.csv").exists()
+    r = AL.ai_import(s["ann"], s["cid"], "gemini")
+    assert r["invalid_by_reason"] == {"multi_subtype_not_repairable": 1} and r["repairs_d32"]["multi_subtype_fields_repaired"] == 0
+    hidden = json.loads((s["out"] / "hidden" / "invalid_gemini.json").read_text(encoding="utf-8"))["invalid"]
+    assert hidden == {target: ["multi_subtype_not_repairable"]}
+    assert target not in {g.item_id for g in AL._load_labels(s["out"], "gemini")}
+
+
+def test_d33_invalid_items_go_to_adjudication_and_out_of_kappa(setup):
+    s = setup
+    rows = s["sheet"]
+    inv_gemini, inv_gpt = rows[0]["item_id"], rows[1]["item_id"]
+    write_replies(s, "gemini", lambda r: ["hallucinated", "port_scan", "no", "", "", ""] if r["item_id"] == inv_gemini
+                  else truthful(r))
+    write_replies(s, "gpt", lambda r: ["hallucinated", "other_knowledge", "no", "", "", ""] if r["item_id"] == inv_gpt
+                  else truthful(r))
+    AL.ai_import(s["ann"], s["cid"], "gemini")
+    AL.ai_import(s["ann"], s["cid"], "gpt")
+    r = AL.ai_compare(s["ann"], s["cid"], "gemini", "gpt")
+    assert (r["valid_for_both"], r["excluded_from_kappa"]) == (73, 2)
+    assert (r["invalid_or_missing_gemini"], r["invalid_or_missing_gpt"]) == (1, 1)
+    assert (r["disagreements"], r["agreements"]) == (0, 73) and r["kappa_label"] == pytest.approx(1.0)
+    assert r["to_adjudicate"] == 2 + round(0.2 * 73)
+    key = json.loads((s["out"] / "hidden" / "adjudication_key.json").read_text(encoding="utf-8"))
+    assert key["items"][inv_gemini] == ["invalid-gemini"] and key["items"][inv_gpt] == ["invalid-gpt"]
+    assert key["n_invalid_or_missing_for_either"] == 2
+    agreement = json.loads((s["out"] / "hidden" / "ai_agreement.json").read_text(encoding="utf-8"))
+    assert agreement["n_items"] == 73 and agreement["excluded"] == 2
+    with open(s["out"] / "adjudication.csv", encoding="utf-8-sig") as f:
+        sheet_rows = list(csv.DictReader(f))
+    assert {inv_gemini, inv_gpt} <= {x["item_id"] for x in sheet_rows}
+    assert tuple(sheet_rows[0]) == AN.SHEET_COLUMNS
+    assert all(x[c] == "" for x in sheet_rows for c in AN.ANNOTATION_COLUMNS)
+    text = (s["out"] / "adjudication.csv").read_text(encoding="utf-8-sig")
+    for leak in ("invalid", "gemini", "gpt", "spot", "disagree", "port_scan", "other_knowledge", "reason"):
+        assert leak not in text, leak
+
+    def author(row):
+        return truthful(row)
+    fill_manifest(s)
+    CO.write_results(s["corpus"], s["tmp"] / "results", n_boot=200)
+    adjudicate(s, author)
+    res = AL.ai_finalize(s["ann"], s["cid"], "gemini", "gpt", "IS", s["corpus_dir"], results_dir=s["tmp"] / "results")
+    assert res["summary"]["invalid_or_missing_adjudicated"] == 2
+    assert "2 items invalid or missing for at least one labeller were adjudicated by the author" in res["summary"]["labels"]
+    final = (s["out"] / "final_labels.csv").read_text(encoding="utf-8-sig")
+    assert "2 items invalid or missing for at least one labeller were adjudicated by the author" in final.splitlines()[1]
+

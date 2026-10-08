@@ -30,7 +30,7 @@ import random
 import re
 import sys
 import tempfile
-from collections import defaultdict
+from collections import Counter, defaultdict
 from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
@@ -219,8 +219,45 @@ def _norm(fields: list[str]) -> dict:
             "other_subtypes": others, "note": empty(note), "unsure": empty(unsure).lower()}
 
 
+REASONS = (  # D23 problem message (frozen importer) -> D33 reason code; first match wins
+    ("unknown subtype", "unknown_subtype"),
+    ("need a note", "catch_all_without_note"),
+    ("label is blank", "label_blank"),
+    ("must be grounded or hallucinated", "invalid_label"),
+    ("hallucinated without a subtype", "subtype_missing"),
+    ("grounded with a subtype", "grounded_with_subtype"),
+    ("hedged must be yes or no", "invalid_hedged"),
+    ("hedged must be empty", "hedged_on_grounded"),
+    ("other_subtypes must be empty", "other_subtypes_on_grounded"),
+    ("repeats the subtype", "repeated_subtype"),
+    ("unsure must be", "invalid_unsure"),
+)
+
+
+def reason_code(message: str) -> str:
+    for needle, code in REASONS:
+        if needle in message:
+            return code
+    return "other_d23_problem"
+
+
+def validate_item(code: str, row: dict, key_item: dict, labeller: str, tmp: Path):
+    """The frozen D23 importer applied to ONE item. Returns (GoldLabel or None, sorted reason codes)."""
+    path = tmp / "item.csv"
+    _write_sheet_csv(path, [row])
+    try:
+        g = AN.import_sheet(path, {"sheets": {"item": {"items": {code: key_item}}}}, "item", labeller)["labels"][0]
+        return g, []
+    except AN.AnnotationImportError as e:
+        return None, sorted({reason_code(p) for p in e.problems})
+
+
 def ai_import(annotation_dir: Path, corpus_id: str, labeller: str) -> dict:
-    """Parse replies/<labeller>_chunk_*.txt, validate with D23 (annotation.import_sheet), write labels_<name>.*."""
+    """Parse replies/<labeller>_chunk_*.txt, apply the D32 repairs, validate every item with the frozen D23 rules.
+    D33: an item that is still not valid (or is missing or duplicated) is recorded as INVALID for this labeller
+    and later goes to the author's adjudication sheet; it is never guessed and the AI is never re-asked.
+    Only a problem with the whole import stops it (no reply files, an unreadable file, no item code at all).
+    Item codes and reasons go to ai/hidden/ only; the return value and the manifest hold counts."""
     out = ai_dir(annotation_dir, corpus_id)
     if (out / "adjudication.csv").exists():
         raise LabellingError(["adjudication.csv exists: AI labels can no longer be re-imported"])
@@ -228,51 +265,69 @@ def ai_import(annotation_dir: Path, corpus_id: str, labeller: str) -> dict:
     if not files:
         raise FileNotFoundError(f"no files named {labeller}_chunk_*.txt in {out / 'replies'}")
     sheet = _read_sheet(annotation_dir, corpus_id)
-    key = _read_key(annotation_dir, corpus_id)
-    known = set(key["sheets"]["primary"]["items"])
-    seen: dict[str, str] = {}
-    answers: dict[str, dict] = {}
-    problems, ignored, repairs = [], 0, []
+    key_items = _read_key(annotation_dir, corpus_id)["sheets"]["primary"]["items"]
+    known = set(key_items)
+    occurrences: dict[str, list] = defaultdict(list)       # code -> [(fields, where) | None for a bad line]
+    line_problems: dict[str, list] = defaultdict(list)
+    repairs, ignored, unknown_codes, unreadable = [], 0, 0, 0
     for f in files:
-        items, probs, ign, reps = parse_reply_lines(f.read_text(encoding="utf-8-sig"), f.name, known)
-        problems += probs
+        try:
+            text = f.read_text(encoding="utf-8-sig")
+        except UnicodeDecodeError as e:
+            raise LabellingError([f"{f.name}: the file is not readable as UTF-8 text ({e})"])
+        items, probs, ign, reps = parse_reply_lines(text, f.name, known)
         ignored += ign
         repairs += reps
+        for p in probs:
+            m = re.match(r"([A-Z]\d{3}-\d{2}) \(", p)
+            if m and m.group(1) in known and "fields, expected" in p:
+                occurrences[m.group(1)].append(None)
+                line_problems[m.group(1)].append("too_many_fields")
+            elif "unknown item code" in p:
+                unknown_codes += 1
+            else:
+                unreadable += 1
         for code, fields, where in items:
-            if code in seen:
-                problems.append(f"{code} ({where}): duplicate (first at {seen[code]})")
-                continue
-            seen[code] = where
-            ans, repair, problem = repair_multi_subtype(code, _norm(fields))
-            if repair:
-                repairs.append(repair)
-            if problem:
-                problems.append(problem)
-            answers[code] = ans
-    counts = repair_counts(repairs)
-    missing = [r["item_id"] for r in sheet if r["item_id"] not in answers]
-    duplicates = sorted({p.split(" ")[0] for p in problems if "duplicate" in p})
-    if not missing:   # the D23 rules, applied by the frozen importer
-        rows = [{**r, **answers[r["item_id"]]} for r in sheet]
-        with tempfile.TemporaryDirectory() as tmp:
-            path = Path(tmp) / "labels.csv"
-            _write_sheet_csv(path, rows)
-            try:
-                labels = AN.import_sheet(path, key, "primary", labeller)["labels"]
-            except AN.AnnotationImportError as e:
-                problems += [re.sub(r"^line \d+ \((.*?)\)", r"\1", p) for p in e.problems]
-    else:
-        problems.append(f"missing item codes ({len(missing)}): {', '.join(missing)}")
-    if problems:
-        raise LabellingError(problems + ([f"duplicate item codes: {', '.join(duplicates)}"] if duplicates else [])
-                             + [f"format repairs that were applied before these checks (D32): {counts}"])
-    _write_sheet_csv(out / f"labels_{labeller}.csv", rows)
-    (out / f"labels_{labeller}.json").write_text(json.dumps(AN.labels_to_json(labels), indent=2, ensure_ascii=False)
-                                                 + "\n", encoding="utf-8", newline="\n")
-    record_repairs(out, labeller, counts, repairs)
-    return {"labeller": labeller, "files": [f.name for f in files], "items": len(labels),
-            "hallucinated": sum(g.label == "hallucinated" for g in labels), "ignored_lines": ignored,
-            "repairs": counts}
+            occurrences[code].append((fields, where))
+    if not occurrences:
+        raise LabellingError([f"no item code found in {len(files)} reply file(s) for {labeller}: are these the right files?"])
+
+    valid, invalid = {}, {}
+    with tempfile.TemporaryDirectory() as tmp:
+        for r in sheet:
+            code = r["item_id"]
+            occ = occurrences.get(code, [])
+            if not occ:
+                invalid[code] = ["missing"]
+            elif len(occ) > 1:
+                invalid[code] = ["duplicate"]
+            elif line_problems.get(code):
+                invalid[code] = line_problems[code]
+            else:
+                ans, repair, problem = repair_multi_subtype(code, _norm(occ[0][0]))
+                if repair:
+                    repairs.append(repair)
+                if problem:
+                    invalid[code] = ["unknown_subtype" if "unknown subtype" in problem else "multi_subtype_not_repairable"]
+                    continue
+                row = {**r, **ans}
+                g, reasons = validate_item(code, row, key_items[code], labeller, Path(tmp))
+                if reasons:
+                    invalid[code] = reasons
+                else:
+                    valid[code] = (g, row)
+    by_reason = Counter(reason for rs in invalid.values() for reason in rs)
+    stats = {"decision": "D33", "items": len(sheet), "valid": len(valid), "invalid_or_missing": len(invalid),
+             "missing": by_reason.get("missing", 0), "invalid_by_reason": dict(sorted(by_reason.items())),
+             "repairs_d32": repair_counts(repairs), "unknown_item_codes_ignored": unknown_codes,
+             "unreadable_lines_ignored": unreadable, "other_lines_ignored": ignored}
+    _write_sheet_csv(out / f"labels_{labeller}.csv", [row for _, row in valid.values()])
+    (out / f"labels_{labeller}.json").write_text(json.dumps(
+        {"labeller": labeller, "decision": "D33: valid items only; invalid ones are listed in hidden/",
+         "labels": AN.labels_to_json([g for g, _ in valid.values()])}, indent=2, ensure_ascii=False) + "\n",
+        encoding="utf-8", newline="\n")
+    record_import(out, labeller, stats, repairs, invalid)
+    return {"labeller": labeller, "files": [f.name for f in files], **stats}
 
 
 def repair_counts(repairs: list[dict]) -> dict:
@@ -282,20 +337,23 @@ def repair_counts(repairs: list[dict]) -> dict:
             "multi_subtype_fields_repaired": sum(r["repair"] == "multi_subtype_field" for r in repairs)}
 
 
-def record_repairs(out: Path, labeller: str, counts: dict, repairs: list[dict]) -> None:
-    """D32: counts go into labelling_manifest.json (format_repairs.<labeller>); the per-item details, which would
-    show what the AI answered, go to hidden/format_repairs_<labeller>.json (not to be opened before adjudication)."""
+def record_import(out: Path, labeller: str, stats: dict, repairs: list[dict], invalid: dict) -> None:
+    """Counts go into labelling_manifest.json (`import.<labeller>`, D31-D33; `format_repairs.<labeller>`, D32).
+    Item codes, reasons and repair details, which would show what the AI answered, go to ai/hidden/ only."""
     man_path = out / "labelling_manifest.json"
     try:
         man = json.loads(man_path.read_text(encoding="utf-8")) if man_path.exists() else manifest_template()
     except json.JSONDecodeError as e:
         raise LabellingError([f"{man_path} is not valid JSON ({e}); fix it (save it in VS Code) and import again"])
-    man.setdefault("format_repairs", {})[labeller] = {**counts, "decision": "D32"}
+    man.setdefault("format_repairs", {})[labeller] = {**stats["repairs_d32"], "decision": "D32"}
+    man.setdefault("import", {})[labeller] = {k: v for k, v in stats.items() if k != "repairs_d32"}
     man_path.write_text(json.dumps(man, indent=2, ensure_ascii=False) + "\n", encoding="utf-8", newline="\n")
     (out / "hidden").mkdir(exist_ok=True)
-    (out / "hidden" / f"format_repairs_{labeller}.json").write_text(
-        json.dumps({"labeller": labeller, "counts": counts, "repairs": repairs}, indent=2, ensure_ascii=False) + "\n",
+    (out / "hidden" / f"format_repairs_{labeller}.json").write_text(json.dumps(
+        {"labeller": labeller, "counts": stats["repairs_d32"], "repairs": repairs}, indent=2, ensure_ascii=False) + "\n",
         encoding="utf-8", newline="\n")
+    (out / "hidden" / f"invalid_{labeller}.json").write_text(json.dumps(
+        {"labeller": labeller, "decision": "D33", "invalid": invalid}, indent=2) + "\n", encoding="utf-8", newline="\n")
 
 
 def _write_sheet_csv(path: Path, rows: list[dict], comments: list[str] = ()) -> None:
@@ -311,7 +369,13 @@ def _load_labels(out: Path, name: str) -> list:
     path = out / f"labels_{name}.json"
     if not path.exists():
         raise FileNotFoundError(f"{path} not found: run ai_import --labeller {name} first")
-    return AN.labels_from_json(json.loads(path.read_text(encoding="utf-8")))
+    data = json.loads(path.read_text(encoding="utf-8"))
+    return AN.labels_from_json(data["labels"] if isinstance(data, dict) else data)
+
+
+def _load_invalid(out: Path, name: str) -> dict:
+    path = out / "hidden" / f"invalid_{name}.json"
+    return json.loads(path.read_text(encoding="utf-8"))["invalid"] if path.exists() else {}
 
 
 # ── 3. compare and build the blind adjudication sheet ─────────────────────
@@ -321,44 +385,69 @@ def answer(g) -> tuple:
     return (g.label, g.subtype, g.hedged)
 
 
+def invalid_statement(n: int) -> str:
+    return f"{n} items invalid or missing for at least one labeller were adjudicated by the author"
+
+
 def ai_compare(annotation_dir: Path, corpus_id: str, a_name: str, b_name: str, *, seed: int = SEED) -> dict:
+    """Kappa on items valid for BOTH labellers; adjudication sheet = every disagreement + every item invalid or
+    missing for either labeller (D33) + a seeded 20% of the agreements, shuffled, with no AI answer and nothing
+    that shows why an item is there. The reasons are in hidden/adjudication_key.json."""
     out = ai_dir(annotation_dir, corpus_id)
     if (out / "adjudication.csv").exists():
         raise LabellingError([f"{out / 'adjudication.csv'} already exists; it is never rebuilt"])
-    a, b = _load_labels(out, a_name), _load_labels(out, b_name)
-    ka, kb = {g.item_id: g for g in a}, {g.item_id: g for g in b}
+    ka = {g.item_id: g for g in _load_labels(out, a_name)}
+    kb = {g.item_id: g for g in _load_labels(out, b_name)}
     sheet = _read_sheet(annotation_dir, corpus_id)
-    disagree = [r["item_id"] for r in sheet if answer(ka[r["item_id"]]) != answer(kb[r["item_id"]])]
-    agree = [r["item_id"] for r in sheet if r["item_id"] not in set(disagree)]
+    ids = [r["item_id"] for r in sheet]
+    both = [i for i in ids if i in ka and i in kb]
+    not_both = [i for i in ids if i not in both]
+    disagree = [i for i in both if answer(ka[i]) != answer(kb[i])]
+    dset = set(disagree)
+    agree = [i for i in both if i not in dset]
     n_spot = round(SPOT_CHECK_SHARE * len(agree))
     spot = sorted(random.Random(f"{seed}:spot-check").sample(agree, n_spot))
-    chosen = disagree + spot
+    reasons: dict[str, list] = {}
+    for i in disagree:
+        reasons.setdefault(i, []).append("disagreement")
+    for i in not_both:
+        for name, k in ((a_name, ka), (b_name, kb)):
+            if i not in k:
+                reasons.setdefault(i, []).append(f"invalid-{name}")
+    for i in spot:
+        reasons.setdefault(i, []).append("spot-check")
+    chosen = list(reasons)
     random.Random(f"{seed}:adjudication-order").shuffle(chosen)
     by_id = {r["item_id"]: r for r in sheet}
-    rows = [{**by_id[i], **{c: "" for c in AN.ANNOTATION_COLUMNS}} for i in chosen]     # no AI answer, ever
-    agreement = AN.agreement(a, b, seed=seed)
-    both_h = [i for i in ka if ka[i].label == kb[i].label == "hallucinated"]
-    hedged_k = AN.cohen_kappa([ka[i].hedged for i in both_h], [kb[i].hedged for i in both_h]) if both_h else None
+    rows = [{**by_id[i], **{c: "" for c in AN.ANNOTATION_COLUMNS}} for i in chosen]     # no AI answer, no reason
 
+    agreement = AN.agreement([ka[i] for i in both], [kb[i] for i in both], seed=seed) if both else None
+    both_h = [i for i in both if ka[i].label == kb[i].label == "hallucinated"]
+    hedged_k = AN.cohen_kappa([ka[i].hedged for i in both_h], [kb[i].hedged for i in both_h]) if both_h else None
     (out / "hidden").mkdir(exist_ok=True)
     _write_sheet_csv(out / "adjudication.csv", rows)
     (out / "hidden" / "adjudication_key.json").write_text(json.dumps({
-        "labellers": [a_name, b_name], "seed": seed, "spot_check_share": SPOT_CHECK_SHARE,
+        "labellers": [a_name, b_name], "seed": seed, "spot_check_share": SPOT_CHECK_SHARE, "decisions": ["D30", "D33"],
+        "n_items": len(ids), "n_valid_for_both": len(both), "n_invalid_or_missing_for_either": len(not_both),
         "n_disagreements": len(disagree), "n_agreements": len(agree), "n_spot_check": n_spot,
-        "items": {i: ("disagreement" if i in set(disagree) else "spot_check") for i in chosen}}, indent=2) + "\n",
-        encoding="utf-8", newline="\n")
+        "items": {i: reasons[i] for i in chosen}}, indent=2) + "\n", encoding="utf-8", newline="\n")
     (out / "hidden" / "ai_agreement.json").write_text(json.dumps(
-        {**agreement, "hedged_kappa_where_both_hallucinated": hedged_k, "n_both_hallucinated": len(both_h)},
-        indent=2) + "\n", encoding="utf-8", newline="\n")
+        {"computed_on": "items valid for both labellers", "n_items": len(both), "excluded": len(not_both),
+         "agreement": agreement, "hedged_kappa_where_both_hallucinated": hedged_k,
+         "n_both_hallucinated": len(both_h)}, indent=2) + "\n", encoding="utf-8", newline="\n")
     with open(out / "hidden" / "ai_disagreements.csv", "w", encoding="utf-8-sig", newline="") as f:
         w = csv.writer(f)
         w.writerow(["item_id", "sentence", f"{a_name}_label", f"{a_name}_subtype", f"{a_name}_hedged",
                     f"{b_name}_label", f"{b_name}_subtype", f"{b_name}_hedged"])
         for i in disagree:
             w.writerow([i, by_id[i]["sentence"], *answer(ka[i]), *answer(kb[i])])
-    return {"items": len(sheet), "disagreements": len(disagree), "agreements": len(agree), "spot_check": n_spot,
-            "to_adjudicate": len(chosen), "kappa_label": agreement["kappa"]["label"]["kappa"],
-            "kappa_tier": agreement["kappa"]["tier"]["kappa"]}
+    kap = lambda name: agreement["kappa"][name]["kappa"] if agreement else None
+    return {"items": len(ids), "valid_for_both": len(both), "excluded_from_kappa": len(not_both),
+            f"invalid_or_missing_{a_name}": sum(i not in ka for i in ids),
+            f"invalid_or_missing_{b_name}": sum(i not in kb for i in ids),
+            "disagreements": len(disagree), "agreements": len(agree), "spot_check": n_spot,
+            "to_adjudicate": len(chosen), "kappa_label": kap("label"), "kappa_tier": kap("tier"),
+            "kappa_tier1": kap("tier1"), "kappa_tier2": kap("tier2")}
 
 
 # ── 4. finalize ───────────────────────────────────────────────────────────
@@ -382,7 +471,7 @@ def check_manifest(out: Path, names: list[str]) -> dict:
 
 
 def consensus_row(row: dict, ga, gb) -> dict:
-    """AI consensus for an item both labellers answered alike (label, subtype, hedged)."""
+    """AI consensus for an item both labellers answered validly and alike (label, subtype, hedged)."""
     others = sorted((set(ga.other_subtypes) | set(gb.other_subtypes)) - {ga.subtype})
     note = ga.note if ga.note == gb.note else "; ".join(n for n in (ga.note, gb.note) if n)
     return {**row, "label": ga.label, "subtype": ga.subtype or "",
@@ -415,8 +504,9 @@ def ai_finalize(annotation_dir: Path, corpus_id: str, a_name: str, b_name: str, 
     kb = {g.item_id: g for g in _load_labels(out, b_name)}
     sheet = _read_sheet(annotation_dir, corpus_id)
 
-    spot = [i for i, kind in hidden["items"].items() if kind == "spot_check"]
-    dis = [i for i, kind in hidden["items"].items() if kind == "disagreement"]
+    spot = [i for i, rs in hidden["items"].items() if rs == ["spot-check"]]
+    dis = [i for i, rs in hidden["items"].items() if "disagreement" in rs]
+    inv = [i for i, rs in hidden["items"].items() if any(r.startswith("invalid-") for r in rs)]
     same = lambda g, h: (g.label, g.subtype) == (h.label, h.subtype)
     overruled = [i for i in spot if not same(mine[i], ka[i])]
     rate = len(overruled) / len(spot) if spot else None
@@ -426,7 +516,8 @@ def ai_finalize(annotation_dir: Path, corpus_id: str, a_name: str, b_name: str, 
              "with_neither": sum(not same(mine[i], ka[i]) and not same(mine[i], kb[i]) for i in dis)}
     model = lambda n: f"{n}: {man['labellers'][n]['model_name']} {man['labellers'][n]['model_version']}"
     statement = (f"labels: two AI annotators ({model(a_name)}; {model(b_name)}), author-adjudicated; "
-                 f"{len(dis)} disagreements; 20% blind spot-check ({len(spot)} items); overrule rate "
+                 f"{len(dis)} disagreements; {invalid_statement(len(inv))}; 20% blind spot-check ({len(spot)} items); "
+                 "overrule rate "
                  + (f"{rate:.0%} ({len(overruled)}/{len(spot)})" if rate is not None else "n/a (no spot-check items)"))
 
     rows = []
@@ -449,8 +540,10 @@ def ai_finalize(annotation_dir: Path, corpus_id: str, a_name: str, b_name: str, 
     for name, data in (("audit_metrics.csv", result["metrics"]), ("audit_disagreements.csv", result["disagreements"])):
         _write_table(dest / name, data, [CO.SOURCE, statement])
     summary = {"labels": statement, "source": CO.SOURCE, "labellers": {n: man["labellers"][n] for n in (a_name, b_name)},
+               "import": {n: man.get("import", {}).get(n) for n in (a_name, b_name)},
                "author": author, "items": len(rows), "adjudicated": len(mine), "disagreements": len(dis),
-               "spot_check": len(spot), "spot_check_overruled": len(overruled), "overrule_rate": rate,
+               "invalid_or_missing_adjudicated": len(inv), "spot_check": len(spot),
+               "spot_check_overruled": len(overruled), "overrule_rate": rate,
                "overruled_items": sorted(overruled), "disagreements_resolved": sided}
     (dest / "audit.json").write_text(json.dumps({**result, "labelling": summary}, indent=2, ensure_ascii=False) + "\n",
                                      encoding="utf-8", newline="\n")
@@ -499,21 +592,33 @@ def main(argv=None) -> int:
             if not args.labeller:
                 ap.error("ai_import needs --labeller NAME")
             r = ai_import(ann, cid, args.labeller)
-            print(f"{args.labeller}: {r['items']} items read and valid from {len(r['files'])} file(s); "
-                  f"{r['ignored_lines']} other line(s) ignored. Wrote labels_{args.labeller}.csv")
-            print(f"  format repairs (D32): {r['repairs']['collapsed_lines_split']} collapsed line(s) split into "
-                  f"{r['repairs']['records_recovered_from_split_lines']} records; "
-                  f"{r['repairs']['multi_subtype_fields_repaired']} multi-subtype field(s) repaired. "
-                  "Counts saved in labelling_manifest.json.")
+            rp = r["repairs_d32"]
+            print(f"{args.labeller}: {r['items']} items from {len(r['files'])} file(s): {r['valid']} valid, "
+                  f"{r['invalid_or_missing']} invalid or missing (D33).")
+            print(f"  format repairs (D32): {rp['collapsed_lines_split']} collapsed line(s) split into "
+                  f"{rp['records_recovered_from_split_lines']} records; {rp['multi_subtype_fields_repaired']} "
+                  "multi-subtype field(s) repaired.")
+            reasons = ", ".join(f"{k} {v}" for k, v in r["invalid_by_reason"].items()) or "none"
+            print(f"  invalid by reason (D33): {reasons}. Lines ignored: {r['other_lines_ignored']} other, "
+                  f"{r['unknown_item_codes_ignored']} with unknown item codes, {r['unreadable_lines_ignored']} unreadable.")
+            print("  Counts saved in labelling_manifest.json; item codes and reasons only in ai/hidden/.")
         elif args.command == "ai_compare":
             if not args.labellers:
                 ap.error("ai_compare needs --labellers NAME_A NAME_B")
             r = ai_compare(ann, cid, *args.labellers)
             k = lambda v: "undefined" if v is None else f"{v:.2f}"
-            print(f"{r['items']} items: {r['disagreements']} disagreements, {r['agreements']} agreements "
-                  f"(kappa label {k(r['kappa_label'])}, tier {k(r['kappa_tier'])}).")
-            print(f"Your blind adjudication sheet has {r['to_adjudicate']} items "
-                  f"({r['disagreements']} disagreements + {r['spot_check']} spot-checks, shuffled): "
+            a_name, b_name = args.labellers
+            n_inv = r["items"] - r["valid_for_both"]
+            print(f"{r['items']} items; valid for both labellers: {r['valid_for_both']} "
+                  f"(excluded from kappa: {r['excluded_from_kappa']}; invalid or missing for {a_name}: "
+                  f"{r['invalid_or_missing_' + a_name]}, for {b_name}: {r['invalid_or_missing_' + b_name]}).")
+            print(f"On the {r['valid_for_both']} items valid for both: {r['disagreements']} disagreements, "
+                  f"{r['agreements']} agreements.")
+            print(f"Cohen's kappa: label {k(r['kappa_label'])}, tier (none / Tier 1 / Tier 2) {k(r['kappa_tier'])}, "
+                  f"Tier 1 {k(r['kappa_tier1'])}, Tier 2 {k(r['kappa_tier2'])}. Per-subtype kappa: ai/hidden/ai_agreement.json.")
+            print(f"Your blind adjudication sheet has {r['to_adjudicate']} rows ({r['disagreements']} disagreements + "
+                  f"{n_inv} invalid or missing + {r['spot_check']} spot-checks, shuffled; "
+                  f"{invalid_statement(n_inv).replace('were adjudicated', 'will be adjudicated')}): "
                   f"{ai_dir(ann, cid) / 'adjudication.csv'}")
             print("Do NOT open the hidden/ folder or the labels_*.csv files until you have finished adjudicating.")
         else:
