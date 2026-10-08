@@ -1,0 +1,6 @@
+# source: earlier run, API-default sampling, prompt v1, 63 attack-flow and 337 benign-flow explanations; not generated under freeze-1
+# post-hoc, descriptive (DECISIONS D34); tools/evidence_completeness.py
+group,fields_present,alerts
+all,6,398
+attack-flow,6,63
+benign-flow,6,335

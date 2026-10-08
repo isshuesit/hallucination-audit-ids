@@ -1,0 +1,30 @@
+# source: earlier run, API-default sampling, prompt v1, 63 attack-flow and 337 benign-flow explanations; not generated under freeze-1
+# post-hoc, descriptive (DECISIONS D34); tools/evidence_completeness.py
+group,field,alerts_missing,share_missing
+all,Backward Packets,398,1.0000
+all,SYN Flag Count,398,1.0000
+all,RST Flag Count,398,1.0000
+all,Destination Port,0,0.0000
+all,Flow Duration,0,0.0000
+all,Forward Packets,0,0.0000
+all,Flow Bytes/s,0,0.0000
+all,Flow Packets/s,0,0.0000
+all,ACK Flag Count,0,0.0000
+attack-flow,Backward Packets,63,1.0000
+attack-flow,SYN Flag Count,63,1.0000
+attack-flow,RST Flag Count,63,1.0000
+attack-flow,Destination Port,0,0.0000
+attack-flow,Flow Duration,0,0.0000
+attack-flow,Forward Packets,0,0.0000
+attack-flow,Flow Bytes/s,0,0.0000
+attack-flow,Flow Packets/s,0,0.0000
+attack-flow,ACK Flag Count,0,0.0000
+benign-flow,Backward Packets,335,1.0000
+benign-flow,SYN Flag Count,335,1.0000
+benign-flow,RST Flag Count,335,1.0000
+benign-flow,Destination Port,0,0.0000
+benign-flow,Flow Duration,0,0.0000
+benign-flow,Forward Packets,0,0.0000
+benign-flow,Flow Bytes/s,0,0.0000
+benign-flow,Flow Packets/s,0,0.0000
+benign-flow,ACK Flag Count,0,0.0000
