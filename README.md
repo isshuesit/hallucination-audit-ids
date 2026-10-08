@@ -1,4 +1,4 @@
-# Auditing unsupported claims in LLM-generated IDS alert explanations
+# Auditing unsupported claims in LLM-written intrusion alert explanations
 
 This repository audits **hallucinated (unsupported) claims** in explanations that a large language model wrote for
 network-intrusion alerts. Each explanation was generated from a handful of numeric flow features of the
@@ -6,7 +6,7 @@ CIC-IDS 2017 dataset, with no attack label. A claim is unsupported when it says 
 support. The repository holds a rule-based detector, a two-tier taxonomy, the analysis of an existing corpus of 400
 explanations, a 25-explanation label audit, and every file needed to reproduce the reported numbers offline.
 
-Paper: *placeholder, Zenodo DOI to be added: https://doi.org/10.5281/zenodo.XXXXXXX*
+Paper: Soryan, I. (2026). Auditing unsupported claims in LLM-written intrusion alert explanations. Zenodo. https://doi.org/10.5281/zenodo.23243503
 
 ## The taxonomy in five lines
 

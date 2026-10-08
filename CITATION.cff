@@ -1,19 +1,28 @@
 cff-version: 1.2.0
 message: "If you use this software or its results, please cite it as below, and cite the CIC-IDS 2017 dataset."
-title: "Auditing unsupported claims in LLM-generated IDS alert explanations"
+title: "Auditing unsupported claims in LLM-written intrusion alert explanations"
 type: software
 authors:
   - family-names: "Soryan"
     given-names: "Ishita"
+    affiliation: "Bennett University"
 version: "v1.0-paper"
 date-released: "2026-10-08"
 license: MIT
-# Add the Zenodo DOI here once it is minted, e.g.
-# identifiers:
-#   - type: doi
-#     value: "10.5281/zenodo.XXXXXXX"
-# and the repository URL once the GitHub repository exists:
-# repository-code: "https://github.com/<user>/<repository>"
+doi: "10.5281/zenodo.23243503"
+repository-code: "https://github.com/isshuesit/hallucination-audit-ids"
+preferred-citation:
+  type: article
+  title: "Auditing unsupported claims in LLM-written intrusion alert explanations"
+  authors:
+    - family-names: "Soryan"
+      given-names: "Ishita"
+      affiliation: "Bennett University"
+  year: 2026
+  doi: "10.5281/zenodo.23243503"
+  url: "https://doi.org/10.5281/zenodo.23243503"
+  publisher:
+    name: "Zenodo"
 keywords:
   - hallucination
   - large language models
